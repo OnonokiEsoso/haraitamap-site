@@ -12,7 +12,7 @@ export async function onRequestPost(context) {
         ? body.stationName.trim()
         : "";
 
-    const validPath = /^\/stations\/[a-z0-9-]+\.html$/i;
+    const validPath = /^\/stations\/[a-z0-9-]+(?:\.html)?$/i;
 
     if (
       !validPath.test(stationPath) ||
