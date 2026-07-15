@@ -363,6 +363,40 @@
     // TODO: LocalBusiness は実在施設・提携施設ページが作成された場合に追加
   })();
 </script>
+<script>
+(() => {
+  const stationPath = window.location.pathname;
+  const stationName =
+    document.querySelector(".station-title h2")?.textContent.trim();
+
+  if (!stationName) {
+    return;
+  }
+
+  const sessionKey = `station-viewed:${stationPath}`;
+
+  if (sessionStorage.getItem(sessionKey)) {
+    return;
+  }
+
+  sessionStorage.setItem(sessionKey, "1");
+
+  fetch("/api/station-view", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      stationPath,
+      stationName
+    }),
+    keepalive: true
+  }).catch((error) => {
+    console.warn("閲覧数の記録に失敗しました。", error);
+    sessionStorage.removeItem(sessionKey);
+  });
+})();
+</script>
 </body>
 </html>
 
