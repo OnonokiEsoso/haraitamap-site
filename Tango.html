@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>英単語帳アプリ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #eef2ff, #f8fafc);
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    .app {
+      width: min(980px, 94%);
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    header p {
+      margin: 0;
+      color: #6b7280;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .main-panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 28px;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.1);
+      padding: clamp(16px, 3vw, 28px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .stat-card span {
+      display: block;
+      color: #6b7280;
+      font-size: 0.78rem;
+      margin-bottom: 4px;
+    }
+
+    .stat-card strong {
+      font-size: 1.3rem;
+    }
+
+    .card-wrap {
+      perspective: 1200px;
+      margin-bottom: 18px;
+    }
+
+    .flashcard {
+      position: relative;
+      height: min(46vh, 430px);
+      min-height: 310px;
+      transform-style: preserve-3d;
+      transition: transform 0.55s ease;
+      cursor: pointer;
+    }
+
+    .flashcard.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(22px, 5vw, 42px);
+      text-align: center;
+      border: 1px solid #dbeafe;
+      background: linear-gradient(145deg, #ffffff, #eff6ff);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(145deg, #ffffff, #f0fdf4);
+      border-color: #bbf7d0;
+    }
+
+    .label {
+      font-size: 0.92rem;
+      color: #6b7280;
+      margin-bottom: 14px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .word {
+      font-size: clamp(3.2rem, 10vw, 6.8rem);
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: #1d4ed8;
+      word-break: break-word;
+      line-height: 1.05;
+    }
+
+    .meaning {
+      font-size: clamp(2.4rem, 8vw, 5.4rem);
+      font-weight: 900;
+      color: #15803d;
+      word-break: break-word;
+      line-height: 1.12;
+    }
+
+    .example {
+      margin-top: 16px;
+      color: #4b5563;
+      line-height: 1.7;
+      max-width: 680px;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+    }
+
+    button {
+      border: none;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn-main {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-light {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .study-actions {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .nav-row {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr 1fr;
+      gap: 10px;
+    }
+
+    .answer-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .utility-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 2px;
+    }
+
+    .nav-btn,
+    .answer-btn,
+    .utility-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      min-height: 58px;
+    }
+
+    .nav-btn {
+      background: #ffffff;
+      color: #334155;
+      border: 1px solid #dbe3ef;
+    }
+
+    .flip-btn {
+      background: #2563eb;
+      color: white;
+      border: 1px solid #1d4ed8;
+    }
+
+    .answer-btn {
+      min-height: 78px;
+      font-size: 1.15rem;
+      border-radius: 20px;
+    }
+
+    .answer-btn.bad {
+      background: #fff1f2;
+      color: #be123c;
+      border: 1px solid #fecdd3;
+    }
+
+    .answer-btn.good {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #bbf7d0;
+    }
+
+    .answer-btn.bad:hover {
+      background: #ffe4e6;
+    }
+
+    .answer-btn.good:hover {
+      background: #d1fae5;
+    }
+
+    .utility-btn {
+      min-height: 42px;
+      padding: 9px 12px;
+      background: transparent;
+      color: #64748b;
+      border: 1px solid #dbe3ef;
+    }
+
+    .btn-kicker {
+      font-size: 0.72rem;
+      color: inherit;
+      opacity: 0.72;
+      font-weight: 700;
+    }
+
+    .btn-main-text {
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .answer-btn .btn-main-text {
+      font-size: 1.22rem;
+    }
+
+    .hint {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin: 16px 0 0;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.45);
+      z-index: 100;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(560px, 100%);
+      max-height: min(86vh, 760px);
+      overflow: hidden;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+      padding: 20px;
+      animation: popIn 0.18s ease-out;
+    }
+
+    .modal-wide {
+      width: min(720px, 100%);
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .close-btn {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 14px;
+      padding: 11px 12px;
+      font-size: 1rem;
+      outline: none;
+      background: #ffffff;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .list-tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .list-tools button {
+      padding: 10px;
+      font-size: 0.85rem;
+    }
+
+    .words {
+      display: grid;
+      gap: 8px;
+      max-height: 560px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .word-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 10px;
+    }
+
+    .word-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .word-item small {
+      color: #6b7280;
+    }
+
+    .word-item-info {
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 8px 10px;
+      font-size: 0.82rem;
+    }
+
+    .empty {
+      text-align: center;
+      color: #6b7280;
+      padding: 24px 8px;
+      background: #f8fafc;
+      border-radius: 16px;
+      border: 1px dashed #cbd5e1;
+    }
+
+    @media (max-width: 720px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .top-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .flashcard {
+        min-height: 280px;
+      }
+
+      .nav-row {
+        grid-template-columns: 1fr;
+      }
+
+      .answer-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .answer-btn {
+        min-height: 68px;
+      }
+
+      .list-tools {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>英単語帳アプリ</h1>
+    </header>
+
+    <div class="top-actions">
+      <button class="btn-main" id="openAddModalBtn" type="button">＋ 単語を追加</button>
+      <button class="btn-light" id="openListModalBtn" type="button">登録済み単語</button>
+    </div>
+
+    <section class="main-panel">
+      <div class="stats">
+        <div class="stat-card">
+          <span>登録単語</span>
+          <strong id="totalCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>現在</span>
+          <strong id="currentIndex">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>覚えた</span>
+          <strong id="correctCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>まだ</span>
+          <strong id="wrongCount">0</strong>
+        </div>
+      </div>
+
+      <div class="card-wrap">
+        <div id="flashcard" class="flashcard" title="クリックで表裏を切り替え">
+          <div class="card-face card-front">
+            <div class="label">英単語</div>
+            <div id="cardWord" class="word">welcome</div>
+            <div id="cardExampleFront" class="example">カードをクリックして意味を確認</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="label">意味</div>
+            <div id="cardMeaning" class="meaning">ようこそ</div>
+            <div id="cardExampleBack" class="example">Welcome to my vocabulary app.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="study-actions">
+        <div class="nav-row">
+          <button class="nav-btn" id="prevBtn" type="button">
+            <span class="btn-kicker">前のカード</span>
+            <span class="btn-main-text">← 前へ</span>
+          </button>
+          <button class="nav-btn flip-btn" id="flipBtn" type="button">
+            <span class="btn-kicker">カードをめくる</span>
+            <span class="btn-main-text" id="flipBtnText">答えを見る</span>
+          </button>
+          <button class="nav-btn" id="nextBtn" type="button">
+            <span class="btn-kicker">次のカード</span>
+            <span class="btn-main-text">次へ →</span>
+          </button>
+        </div>
+
+        <div class="answer-row">
+          <button class="answer-btn bad" id="wrongBtn" type="button">
+            <span class="btn-kicker">もう一回出したい</span>
+            <span class="btn-main-text">まだ覚えてない</span>
+          </button>
+          <button class="answer-btn good" id="correctBtn" type="button">
+            <span class="btn-kicker">理解できた</span>
+            <span class="btn-main-text">覚えた</span>
+          </button>
+        </div>
+
+        <div class="utility-row">
+          <button class="utility-btn" id="shuffleBtn" type="button">シャッフル</button>
+          <button class="utility-btn" id="resetScoreBtn" type="button">成績リセット</button>
+          <button class="utility-btn" id="exportBtn" type="button">データ出力</button>
+        </div>
+      </div>
+
+      <p class="hint">単語データはこのブラウザに自動保存される。</p>
+    </section>
+  </main>
+
+  <div id="addModalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="addModalTitle">
+      <div class="modal-head">
+        <h2 id="addModalTitle">単語を追加</h2>
+        <button id="closeAddModalBtn" class="close-btn" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <form id="wordForm" class="form">
+        <div class="form-row">
+          <label for="wordInput">英単語</label>
+          <input id="wordInput" type="text" placeholder="例：consider" required />
+        </div>
+        <div class="form-row">
+          <label for="meaningInput">意味</label>
+          <input id="meaningInput" type="text" placeholder="例：〜を考慮する" required />
+        </div>
+        <div class="form-row">
+          <label for="exampleInput">例文</label>
+          <textarea id="exampleInput" placeholder="例：I consider this idea important."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-light" id="cancelAddBtn" type="button">キャンセル</button>
+          <button class="btn-main" type="submit">追加する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="listModalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="listModalTitle">
+      <div class="modal-head">
+        <h2 id="listModalTitle">登録済み単語</h2>
+        <button id="closeListModalBtn" class="close-btn" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <div class="list-tools">
+        <button class="btn-main" id="openAddFromListBtn" type="button">＋ 単語を追加</button>
+        <button class="btn-light" id="sampleBtn" type="button">サンプル追加</button>
+        <button class="btn-light" id="clearBtn" type="button">全削除</button>
+      </div>
+
+      <div id="wordList" class="words"></div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "vocabFlashcards_v2_units_1_2_5";
+    const BUILTIN_IMPORT_KEY = "vocabFlashcards_builtin_units_1_2_5_2026_07_15";
+
+    const defaultWordsText = `different/（形）異なった
+most of ~/大部分の〜
+think of (about) ~/〜について考える
+from/（前）〜から
+come/（動）現れる
+sometimes/（副）時々
+take ~ for granted/〜を当然のことと考える
+past/（形）過去の
+technological/（形）技術の
+advance/（名）進歩
+for example/例えば
+consider/（動）〜をよく考える、〜とみなす
+revolutionary/（形）革命的な
+S allow O to V/SはOがVすることを可能にする
+record/（動）〜を記録する
+quickly/（副）すばやく、すぐに
+cleanly/（副）きれいに
+almost/（副）ほとんど
+graphite/（名）黒鉛
+invent/（動）〜を発明する
+find/（動）〜を見つける
+lead/（名）鉛
+marking/（名）印、跡
+early/（形）早い、早朝の
+tail/（名）しっぽ
+although/（接）〜であるが、〜だけれども
+contain/（動）〜を含む
+chemical/（名）化学物質
+element/（名）元素
+nowadays/（副）今日では
+still/（副）まだ、いまだに
+refer to ~/〜に言及する
+modern/（形）現代の
+begin/（動）〜を始める
+large/（形）大きい
+deposit/（名）埋蔵物、堆積物
+pure/（形）純粋な
+discover/（動）〜を発見する
+perfect/（形）完全な、完璧な
+sheep/（名）羊
+later/（副）その後
+at first/最初は、初めのころは
+be wrapped in ~/〜に包まれる
+string/（名）ひも
+popular/（形）人気のある
+throughout/（前）〜じゅうに、〜の至る所に
+further/（副）さらに
+modify/（動）〜を修正する
+enclose/（動）〜を包み込む、〜を取り囲む
+glue/（動）〜を接着剤でつける
+wooden/（形）木の、木製の
+exceptional/（形）並はずれた、例外的な
+halves → half/（名）半分、2分の1
+method/（名）方法
+nowadays/（副）今日では
+grade/（動）〜を等級に分ける
+according to ~/〜によると、〜に従って
+hardness/（名）硬さ
+scale/（名）規模、尺度
+range/（動）及ぶ、範囲が広がる
+replace/（動）〜に取って代わる、〜を取り替える
+undoubtedly/（副）間違いなく
+widespread/（形）広範囲にわたる、広く普及した
+billion/（数）10億
+manufacture/（動）〜を製造する
+as for ~/〜について言えば
+required/（形）必要とされる
+produce/（動）〜を生産する
+around/（前）約〜、〜の周りに
+eternal/（形）永遠の
+draw/（動）〜を描く
+expert/（名）専門家、熟練者
+figure out/〜を理解する、〜を解決する
+cover/（動）〜に及ぶ
+exactly/（副）正確に
+other/（形）他の
+sometimes/（副）時々
+incorrectly/（副）誤って
+term/（名）言葉、用語
+host/（動）〜を主催する
+popular/（形）人気のある
+tourist/（名）観光客
+attraction/（名）名所、魅力
+thousands of ~/何千もの〜
+travel/（動）旅行する
+compete/（動）競う
+hold/（動）〜を開催する
+annually/（副）毎年
+athlete/（名）アスリート
+each year/毎年
+once/（副）かつて
+legend/（名）伝説
+soldier/（名）兵士
+messenger/（名）使者
+by the name of ~/〜という名の
+from A to B/AからBまで
+distance/（名）距離
+without/（前）〜なしで
+carry/（動）〜を運ぶ
+important/（形）重要な
+army/（名）軍隊
+defeat/（動）〜を打ち負かす
+arrive/（動）到着する
+exclaim/（動）叫ぶ
+drop/（動）ばったり倒れる
+die from ~/〜で死ぬ
+ground/（名）地面
+exhaustion/（名）疲労
+thankfully/（副）ありがたいことに
+properly/（副）きちんと
+prepare/（動）準備する
+enough/（形・副）十分な、十分に
+modern/（形）現代の
+official/（名）委員
+decide to V/Vすることを決める
+recall/（動）〜を思い出す
+ancient/（形）古代の
+glory/（名）栄光
+traditionally/（副）伝統的に
+inside/（前）〜の中に
+route/（名）ルート、道順
+end in ~/〜で終わる
+set a record/記録を作る
+airplane/（名）飛行機
+during/（前）〜の間
+rough/（形）荒い
+weather/（名）天気
+frightening/（形）恐ろしい
+be unsure of ~/〜に確信が持てない
+whether/（接）〜かどうか
+safely/（副）安全に
+fear/（名）恐怖
+really/（副）本当に
+justify/（動）〜を正当化する
+survey/（名）調査
+be afraid of ~/〜を恐れている
+scared/（形）怖がって、おびえて
+step into ~/〜に足を踏み入れる
+unfortunately/（副）残念ながら
+figure/（名）図
+rise/（動）上昇する
+increasingly/（副）ますます
+failure/（名）失敗
+lightning strike/（名）落雷
+increase/（動）増加する
+airport/（名）空港
+airline/（名）航空会社
+everywhere/（副）どこでも
+step up ~/〜を高める、促進する
+security/（名）セキュリティ
+effort/（名）努力
+likelihood/（名）可能性
+extremely/（副）非常に
+air traffic controller/（名）管制官
+drastically/（副）大幅に
+decrease/（動）減少する
+the number of ~/〜の数
+registered/（形）公式に確認された
+crash/（名）クラッシュ
+occur/（動）発生する
+decade/（名）10年
+mid-air/（形）空中の
+collision/（名）衝突
+almost/（副）ほぼ
+totally/（副）完全に
+in-flight/（形）飛行中の
+consider/（動）検討する
+kill/（動）殺す
+estimate/（動）見積もる
+chance/（名）チャンス
+aircraft/（名）航空機
+survive/（動）生き残る
+seem/（動）〜のようだ
+the unknown/（名）未知なるもの
+understand/（動）理解する
+exactly/（副）まさに
+in place/（形）機能している
+prevent/（動）防止する
+uneasy/（形）不安な
+unaware/（形）気付いていない
+modern/（形）近代の
+strong/（形）強い
+incredibly/（副）信じられないほど
+train/（動）訓練する
+now that SV.../今やもうSがVなので…
+safe/（形）安全な`;
+
+    const defaultWords = defaultWordsText
+      .trim()
+      .split(/\r?\n/)
+      .filter(Boolean)
+      .map(line => {
+        const separatorIndex = line.indexOf("/");
+
+        return {
+          word: separatorIndex === -1 ? line.trim() : line.slice(0, separatorIndex).trim(),
+          meaning: separatorIndex === -1 ? "" : line.slice(separatorIndex + 1).trim(),
+          example: "",
+          correct: 0,
+          wrong: 0
+        };
+      });
+
+    let words = loadWords();
+    let current = 0;
+    let isFlipped = false;
+
+    const flashcard = document.getElementById("flashcard");
+    const flipBtn = document.getElementById("flipBtn");
+    const flipBtnText = document.getElementById("flipBtnText");
+    const cardWord = document.getElementById("cardWord");
+    const cardMeaning = document.getElementById("cardMeaning");
+    const cardExampleFront = document.getElementById("cardExampleFront");
+    const cardExampleBack = document.getElementById("cardExampleBack");
+
+    const totalCount = document.getElementById("totalCount");
+    const currentIndex = document.getElementById("currentIndex");
+    const correctCount = document.getElementById("correctCount");
+    const wrongCount = document.getElementById("wrongCount");
+    const wordList = document.getElementById("wordList");
+
+    const wordForm = document.getElementById("wordForm");
+    const wordInput = document.getElementById("wordInput");
+    const meaningInput = document.getElementById("meaningInput");
+    const exampleInput = document.getElementById("exampleInput");
+    const addModalOverlay = document.getElementById("addModalOverlay");
+    const listModalOverlay = document.getElementById("listModalOverlay");
+
+    document.getElementById("prevBtn").addEventListener("click", showPrevCard);
+    document.getElementById("nextBtn").addEventListener("click", showNextCard);
+    flipBtn.addEventListener("click", flipCard);
+    document.getElementById("correctBtn").addEventListener("click", () => recordAnswer("correct"));
+    document.getElementById("wrongBtn").addEventListener("click", () => recordAnswer("wrong"));
+    document.getElementById("shuffleBtn").addEventListener("click", shuffleWords);
+    document.getElementById("resetScoreBtn").addEventListener("click", resetScore);
+    document.getElementById("sampleBtn").addEventListener("click", addSampleWords);
+    document.getElementById("clearBtn").addEventListener("click", clearWords);
+    document.getElementById("exportBtn").addEventListener("click", exportWords);
+    document.getElementById("openAddModalBtn").addEventListener("click", openAddModal);
+    document.getElementById("openListModalBtn").addEventListener("click", openListModal);
+    document.getElementById("openAddFromListBtn").addEventListener("click", () => {
+      closeListModal();
+      openAddModal();
+    });
+    document.getElementById("closeAddModalBtn").addEventListener("click", closeAddModal);
+    document.getElementById("closeListModalBtn").addEventListener("click", closeListModal);
+    document.getElementById("cancelAddBtn").addEventListener("click", closeAddModal);
+    flashcard.addEventListener("click", flipCard);
+    wordForm.addEventListener("submit", addWord);
+
+    addModalOverlay.addEventListener("click", event => {
+      if (event.target === addModalOverlay) {
+        closeAddModal();
+      }
+    });
+
+    listModalOverlay.addEventListener("click", event => {
+      if (event.target === listModalOverlay) {
+        closeListModal();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key !== "Escape") return;
+
+      if (addModalOverlay.classList.contains("show")) {
+        closeAddModal();
+      }
+
+      if (listModalOverlay.classList.contains("show")) {
+        closeListModal();
+      }
+    });
+
+    render();
+
+    function loadWords() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+
+      if (!saved) {
+        localStorage.setItem(BUILTIN_IMPORT_KEY, "true");
+        return [...defaultWords];
+      }
+
+      try {
+        const parsed = JSON.parse(saved);
+
+        if (!Array.isArray(parsed)) {
+          localStorage.setItem(BUILTIN_IMPORT_KEY, "true");
+          return [...defaultWords];
+        }
+
+        if (localStorage.getItem(BUILTIN_IMPORT_KEY) !== "true") {
+          localStorage.setItem(BUILTIN_IMPORT_KEY, "true");
+          return mergeWordLists(parsed, defaultWords);
+        }
+
+        return parsed;
+      } catch (error) {
+        localStorage.setItem(BUILTIN_IMPORT_KEY, "true");
+        return [...defaultWords];
+      }
+    }
+
+    function saveWords() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(words));
+    }
+
+    function mergeWordLists(savedWords, builtInWords) {
+      const seen = new Set(
+        savedWords.map(item => `${String(item.word).toLowerCase()}__${String(item.meaning)}`)
+      );
+
+      const merged = [...savedWords];
+
+      builtInWords.forEach(item => {
+        const key = `${String(item.word).toLowerCase()}__${String(item.meaning)}`;
+
+        if (!seen.has(key)) {
+          merged.push({ ...item });
+          seen.add(key);
+        }
+      });
+
+      return merged;
+    }
+
+    function render() {
+      renderCard();
+      renderStats();
+      renderWordList();
+      saveWords();
+      updateFlipButton();
+    }
+
+    function renderCard() {
+      if (words.length === 0) {
+        cardWord.textContent = "単語なし";
+        cardMeaning.textContent = "追加してね";
+        cardExampleFront.textContent = "上の「単語を追加」から登録できる。";
+        cardExampleBack.textContent = "単語を追加するとここに意味が表示される。";
+        return;
+      }
+
+      current = Math.max(0, Math.min(current, words.length - 1));
+      const item = words[current];
+
+      cardWord.textContent = item.word;
+      cardMeaning.textContent = item.meaning;
+      cardExampleFront.textContent = "カードをクリックして意味を確認";
+      cardExampleBack.textContent = item.example || "例文なし";
+    }
+
+    function renderStats() {
+      const correctTotal = words.reduce((sum, item) => sum + item.correct, 0);
+      const wrongTotal = words.reduce((sum, item) => sum + item.wrong, 0);
+
+      totalCount.textContent = words.length;
+      currentIndex.textContent = words.length === 0 ? 0 : current + 1;
+      correctCount.textContent = correctTotal;
+      wrongCount.textContent = wrongTotal;
+    }
+
+    function renderWordList() {
+      wordList.innerHTML = "";
+
+      if (words.length === 0) {
+        wordList.innerHTML = '<div class="empty">まだ単語が登録されていない。</div>';
+        return;
+      }
+
+      words.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "word-item";
+
+        const info = document.createElement("div");
+        info.className = "word-item-info";
+        info.innerHTML = `
+          <strong>${escapeHtml(item.word)}：${escapeHtml(item.meaning)}</strong>
+          <small>覚えた ${item.correct} / まだ ${item.wrong}</small>
+        `;
+        info.addEventListener("click", () => {
+          jumpToCard(index);
+          closeListModal();
+        });
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-btn";
+        deleteButton.textContent = "削除";
+        deleteButton.addEventListener("click", () => deleteWord(index));
+
+        row.appendChild(info);
+        row.appendChild(deleteButton);
+        wordList.appendChild(row);
+      });
+    }
+
+    function openAddModal() {
+      addModalOverlay.classList.add("show");
+      addModalOverlay.setAttribute("aria-hidden", "false");
+      setTimeout(() => wordInput.focus(), 0);
+    }
+
+    function closeAddModal() {
+      addModalOverlay.classList.remove("show");
+      addModalOverlay.setAttribute("aria-hidden", "true");
+      wordForm.reset();
+    }
+
+    function openListModal() {
+      listModalOverlay.classList.add("show");
+      listModalOverlay.setAttribute("aria-hidden", "false");
+      renderWordList();
+    }
+
+    function closeListModal() {
+      listModalOverlay.classList.remove("show");
+      listModalOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    function addWord(event) {
+      event.preventDefault();
+
+      const word = wordInput.value.trim();
+      const meaning = meaningInput.value.trim();
+      const example = exampleInput.value.trim();
+
+      if (!word || !meaning) {
+        return;
+      }
+
+      words.push({
+        word,
+        meaning,
+        example,
+        correct: 0,
+        wrong: 0
+      });
+
+      current = words.length - 1;
+      closeCard();
+      closeAddModal();
+      render();
+    }
+
+    function deleteWord(index) {
+      words.splice(index, 1);
+
+      if (current >= words.length) {
+        current = Math.max(0, words.length - 1);
+      }
+
+      closeCard();
+      render();
+    }
+
+    function jumpToCard(index) {
+      current = index;
+      closeCard();
+      render();
+    }
+
+    function showPrevCard() {
+      if (words.length === 0) return;
+      current = (current - 1 + words.length) % words.length;
+      closeCard();
+      render();
+    }
+
+    function showNextCard() {
+      if (words.length === 0) return;
+      current = (current + 1) % words.length;
+      closeCard();
+      render();
+    }
+
+    function flipCard() {
+      isFlipped = !isFlipped;
+      flashcard.classList.toggle("flipped", isFlipped);
+      updateFlipButton();
+    }
+
+    function closeCard() {
+      isFlipped = false;
+      flashcard.classList.remove("flipped");
+      updateFlipButton();
+    }
+
+    function updateFlipButton() {
+      flipBtnText.textContent = isFlipped ? "問題に戻る" : "答えを見る";
+    }
+
+    function recordAnswer(type) {
+      if (words.length === 0) return;
+
+      if (type === "correct") {
+        words[current].correct += 1;
+      } else {
+        words[current].wrong += 1;
+      }
+
+      showNextCard();
+    }
+
+    function shuffleWords() {
+      for (let i = words.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [words[i], words[randomIndex]] = [words[randomIndex], words[i]];
+      }
+
+      current = 0;
+      closeCard();
+      render();
+    }
+
+    function resetScore() {
+      words = words.map(item => ({
+        ...item,
+        correct: 0,
+        wrong: 0
+      }));
+
+      render();
+    }
+
+    function addSampleWords() {
+      const samples = [
+        {
+          word: "actually",
+          meaning: "実は・実際に",
+          example: "Actually, I wanted to ask you something.",
+          correct: 0,
+          wrong: 0
+        },
+        {
+          word: "reason",
+          meaning: "理由",
+          example: "Tell me the reason why you did it.",
+          correct: 0,
+          wrong: 0
+        },
+        {
+          word: "strength",
+          meaning: "力・強さ",
+          example: "That strength is unbelievable.",
+          correct: 0,
+          wrong: 0
+        }
+      ];
+
+      words.push(...samples);
+      current = words.length - samples.length;
+      closeCard();
+      render();
+    }
+
+    function clearWords() {
+      const result = confirm("登録した単語をすべて削除しますか？");
+      if (!result) return;
+
+      words = [];
+      current = 0;
+      closeCard();
+      render();
+    }
+
+    function exportWords() {
+      const text = JSON.stringify(words, null, 2);
+      const blob = new Blob([text], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "vocabulary-data.json";
+      link.click();
+
+      URL.revokeObjectURL(url);
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>

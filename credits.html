@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+<link rel="shortcut icon" href="favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
+  <title>出典クレジット一覧 | 腹痛持ちのための駅トイレマップ</title>
+  <link rel="stylesheet" href="stomach_pain.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "腹痛持ちのための駅トイレマップ",
+      "url": "https://haraitamap.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "トップページ",
+          "item": "https://haraitamap.com/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "出典クレジット一覧",
+          "item": "https://haraitamap.com/credits.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- TODO: Dataset はデータ公開ページが作成された場合に追加 -->
+<!-- TODO: LocalBusiness は実在施設・提携施設ページが作成された場合に追加 -->
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🚻</span>
+        <div class="brand-text">
+          <div class="brand-name">腹痛持ちのための駅トイレマップ</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="btn ghost" href="index.html">一覧へ戻る</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>背景画像の出典クレジット一覧</h2>
+        <p class="muted">カード背景に使用している画像の出典情報です。</p>
+      </div>
+
+      <div id="credits-list" class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));"></div>
+    </div>
+  </main>
+
+  <script>
+    const credits = [
+      { station: "東京駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=133826528", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "赤羽駅", author: "Nyao148", source: "https://commons.wikimedia.org/w/index.php?curid=10484702", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0/deed.ja" },
+      { station: "大宮駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=108340293", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "池袋駅", author: "Asanagi", source: "https://commons.wikimedia.org/w/index.php?curid=141975037", license: "CC0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.ja" },
+      { station: "新宿駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=126202342", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "名古屋駅", author: "Tomio344456", source: "https://commons.wikimedia.org/w/index.php?curid=123403982", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "岩槻駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=94105307", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "春日部駅", author: "日本語版ウィキペディアの京浜にけさんThis photo was taken with Canon PowerShot G9", source: "https://commons.wikimedia.org/w/index.php?curid=98358656", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "浦和駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=126286998", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "渋谷駅", author: "片割れ靴下 (unpaired sock)", source: "https://commons.wikimedia.org/w/index.php?curid=91107078", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "恵比寿駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=106605251", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "大崎駅", author: "Nyao148", source: "https://commons.wikimedia.org/w/index.php?curid=49318909", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "武蔵小杉駅", author: "東京特許許可局", source: "https://commons.wikimedia.org/w/index.php?curid=131555103", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "横浜駅", author: "Sakura Torch", source: "https://commons.wikimedia.org/w/index.php?curid=152471579", license: "CC0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.ja" },
+      { station: "戸塚駅", author: "Nyao148", source: "https://commons.wikimedia.org/w/index.php?curid=16944729", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0/deed.ja" },
+      { station: "大船駅", author: "Kouchiumi", source: "https://commons.wikimedia.org/w/index.php?curid=4399142", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "吉祥寺駅", author: "やねまか", source: "https://commons.wikimedia.org/w/index.php?curid=180979572", license: "CC0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.ja" },
+      { station: "金山駅", author: "HQA02330", source: "https://commons.wikimedia.org/w/index.php?curid=117629713", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "御茶ノ水駅", author: "江戸村のとくぞう", source: "https://commons.wikimedia.org/w/index.php?curid=132002320", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "甲府駅", author: "江戸村のとくぞう", source: "https://commons.wikimedia.org/w/index.php?curid=77830949", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "国分寺駅", author: "Nishifutsu", source: "https://commons.wikimedia.org/w/index.php?curid=102952964", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "四ツ谷駅", author: "Nyao148", source: "https://commons.wikimedia.org/w/index.php?curid=4567535", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "神田駅", author: "Nesnad", source: "https://commons.wikimedia.org/w/index.php?curid=106109331", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/deed.ja" },
+      { station: "大月駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=153838196", license: "CC0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/deed.ja" },
+      { station: "中野駅", author: "Rsa", source: "https://commons.wikimedia.org/w/index.php?curid=20438134", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "八王子駅", author: "103momo", source: "https://commons.wikimedia.org/w/index.php?curid=32282722", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "飯田橋駅", author: "江戸村のとくぞうThis photo was taken with Nikon D3400", source: "https://commons.wikimedia.org/w/index.php?curid=92386538", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "立川駅", author: "DiKnK8713", source: "https://commons.wikimedia.org/w/index.php?curid=107862727", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "品川駅", author: "Aimaimyi", source: "https://commons.wikimedia.org/w/index.php?curid=15477136", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.ja" },
+      { station: "新橋駅", author: "LombrosoThis photo was taken with Sony Xperia XZ2", source: "https://commons.wikimedia.org/w/index.php?curid=80049217", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "上野駅", author: "江戸村のとくぞう", source: "https://commons.wikimedia.org/w/index.php?curid=91101580", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "北千住駅", author: "Miyusuke", source: "https://commons.wikimedia.org/w/index.php?curid=50709960", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "松戸駅", author: "Archiroid21", source: "https://commons.wikimedia.org/w/index.php?curid=150572762", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "柏駅", author: "ヒタチギ", source: "https://commons.wikimedia.org/w/index.php?curid=77742642", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "水戸駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=129709879", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "いわき駅", author: "MaedaAkihiko", source: "https://commons.wikimedia.org/w/index.php?curid=135113700", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" },
+      { station: "仙台駅", author: "掬茶", source: "https://commons.wikimedia.org/w/index.php?curid=135876140", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.ja" }
+    ];
+
+    const list = document.getElementById("credits-list");
+    list.innerHTML = credits.map((item) => `
+      <article class="card" aria-label="${item.station} 出典クレジット">
+        <div class="card-body">
+          <h3>${item.station}カード背景</h3>
+          <p>作品名: 出典ページ参照</p>
+          <p>作者: ${item.author}</p>
+          <p>出典: <a href="${item.source}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a></p>
+          <p>ライセンス: <a href="${item.licenseUrl}" target="_blank" rel="noopener noreferrer">${item.license}</a></p>
+          <p>変更: トリミング、暗色オーバーレイあり</p>
+        </div>
+      </article>
+    `).join("");
+  </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,285 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+<link rel="shortcut icon" href="favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
+  <link rel="stylesheet" href="stomach_pain.css" />
+  <title>このサイトについて | 腹痛持ちのための駅トイレマップ</title>
+  <meta name="description" content="腹痛持ちのための駅トイレマップのサイト概要ページです。作成理由、使い方、更新方針、注意点、情報提供について説明します。" />
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --soft: #f8fbff;
+      --soft-line: #dbeafe;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      line-height: 1.3;
+      margin: 0 0 8px;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    h2 {
+      font-size: 1.06rem;
+      margin: 22px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    p, li {
+      font-size: 0.96rem;
+    }
+
+    ul {
+      margin: 8px 0 0 1.2em;
+      padding: 0;
+    }
+
+    .note {
+      background: var(--soft);
+      border: 1px solid var(--soft-line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 0.93rem;
+    }
+
+    .target-list li {
+      margin-bottom: 4px;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .link-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 12px; }
+      .card { padding: 14px; border-radius: 12px; }
+      h1 { font-size: 1.18rem; }
+      h2 { font-size: 1rem; margin-top: 18px; }
+      p, li { font-size: 0.93rem; }
+      .lead { font-size: 0.9rem; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "腹痛持ちのための駅トイレマップ",
+      "url": "https://haraitamap.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "トップページ",
+          "item": "https://haraitamap.com/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "このサイトについて",
+          "item": "https://haraitamap.com/about.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- TODO: Dataset はデータ公開ページが作成された場合に追加 -->
+<!-- TODO: LocalBusiness は実在施設・提携施設ページが作成された場合に追加 -->
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🚻</span>
+        <div class="brand-text">
+          <div class="brand-name">腹痛持ちのための駅トイレマップ</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html#stations">駅一覧</a>
+        <a href="index.html#howto">使い方</a>
+        <a class="nav-cta" href="index.html#submit">情報提供</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <article class="card">
+      <h1>このサイトについて</h1>
+      <p class="lead">
+        「腹痛持ちのための駅トイレマップ」は、出先や移動中に駅トイレ情報を探しやすくするためのサイトです。
+      </p>
+
+      <h2>1. このサイトを作った理由</h2>
+      <p>
+        制作者は腹痛持ちで、電車内で腹痛になったときに「次の駅のトイレの位置がわかればな」と思ったことが、このサイトを作るきっかけです。
+      </p>
+      <p>
+        急いでいるときでも、少しでも安心して次の行動を決められるように、駅トイレ情報を見つけやすくまとめることを目指しています。
+      </p>
+
+      <h2>2. このサイトでできること</h2>
+      <ul>
+        <li>駅名検索</li>
+        <li>駅のトイレ情報を確認（場所 / きれい度 /大の空きやすさ / 小の空きやすさ / 新しさ）</li>
+        <li>マップを見ながら近くのトイレを探すための参考情報の確認</li>
+        <li>情報提供・修正依頼（みんなの声でサイト改善）</li>
+        <li>電車内で腹痛などの気を紛らわせるための、ちょっとしたゲーム</li>
+      </ul>
+
+      <h2>3. こんな人に使ってほしい</h2>
+      <ul class="target-list">
+        <li>腹痛持ちの人</li>
+        <li>トイレが近い人</li>
+        <li>乗り換え中に急いでいる人</li>
+        <li>初めて使う駅で不安な人</li>
+        <li>事前にトイレ位置を把握しておきたい人</li>
+      </ul>
+
+      <h2>4. 掲載方針（情報の載せ方）</h2>
+      <p>
+        できるだけ多くの駅の情報を載せつつ、主要駅については個別ページを作成して、より詳しく掲載していく方針です。
+      </p>
+      <div class="note">
+        「広く最低限 + 主要駅は詳しく」を目標に、少しずつ更新していきます。
+      </div>
+
+      <h2>5. 更新方針（情報提供の反映について）</h2>
+      <p>
+        情報提供・修正依頼でいただいた内容は、<strong>一つずつ目視でしっかり確認してから反映</strong>する方針です。
+      </p>
+      <p>
+        そのため、内容によっては反映まで少し時間がかかる場合があります。
+      </p>
+
+      <h2>6. 注意点（使うときに知ってほしいこと）</h2>
+      <ul>
+        <li>駅構内の改修・案内変更などにより、情報が変わる可能性があります。</li>
+        <li>最新情報は、現地表示や駅の公式案内もあわせてご確認ください。</li>
+        <li>きれい度・期待度などの評価には主観が含まれる場合があります。</li>
+      </ul>
+      <p><strong>あくまで参考として使ってください。</strong></p>
+
+      <h2>7. 情報提供・修正依頼について</h2>
+      <p>
+        当サイトは、みなさんからの情報提供・修正依頼に助けられています。誤りの修正や新しい情報の共有はとても助かります。
+      </p>
+      <p>
+        気づいた点があれば、情報提供をGoogleフォームから送ってください。
+      </p>
+      <p>
+        <a href="index.html#submit">情報提供はこちらへ</a>
+      </p>
+      <p class="small">
+        ※ 情報提供のフォーム前に移動します。
+      </p>
+
+      <h2>8. 今後やりたいこと（予定）</h2>
+      <ul>
+        <li>対応駅の拡大</li>
+        <li>主要駅の個別ページの充実</li>
+        <li>スマホでの使いやすさ改善（急いでいるときに使いやすいUI）</li>
+        <li>情報の見やすさ・更新しやすさの改善</li>
+      </ul>
+
+      <h2>9. 関連ページ</h2>
+      <nav class="link-list" aria-label="関連ページ">
+        <a href="index.html">トップページ</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </nav>
+
+      <h2>10. 更新日</h2>
+      <p>
+        最終更新日：2026年3月6日
+      </p>
+
+      <footer>
+        <p>腹痛持ちのための駅トイレマップ</p>
+        <p>運営者：腹痛持ちのための駅トイレマップ管理人</p>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
