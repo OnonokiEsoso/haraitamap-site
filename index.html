@@ -9274,6 +9274,7 @@
           window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
         }
       }
+    return matchedCount;
     };
 
     const recordStationSearch = async (stationName) => {
@@ -9294,15 +9295,44 @@
       }
     };
 
+    const recordMissingStationSearch = async (searchTerm) => {
+      if (!searchTerm) {
+        return;
+      }
+
+      try {
+        await fetch("/api/missing-station-search", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            searchTerm
+          })
+        });
+      } catch (error) {
+        console.warn("未登録駅検索の記録に失敗しました。", error);
+      }
+    };
+
     stationSearch.addEventListener("click", () => {
       const stationName = stationInput.value.trim();
 
-      if (stationName) {
-        recordStationSearch(stationName);
+      if (!stationName) {
+        filterStations(true);
+        return;
       }
 
-      filterStations(true);
+      const matchedCount = filterStations(true);
+
+      if (matchedCount === 0) {
+        recordMissingStationSearch(stationName);
+      } else {
+        recordStationSearch(stationName);
+      }
     });
+
+
     stationInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
