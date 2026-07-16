@@ -9334,16 +9334,25 @@
 
 
     stationInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
+      if (event.key !== "Enter") {
+        return;
+      }
 
-        const stationName = stationInput.value.trim();
+      event.preventDefault();
 
-        if (stationName) {
-          recordStationSearch(stationName);
-        }
+      const stationName = stationInput.value.trim();
 
+      if (!stationName) {
         filterStations(true);
+        return;
+      }
+
+      const matchedCount = filterStations(true);
+
+      if (matchedCount === 0) {
+        recordMissingStationSearch(stationName);
+      } else {
+        recordStationSearch(stationName);
       }
     });
 
