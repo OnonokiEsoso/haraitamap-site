@@ -9395,10 +9395,29 @@
       }
     };
 
-    lineSelect.addEventListener("change", () => {
-      filterStationOptions();
-      filterStations();
+  lineSelect.addEventListener("change", () => {
+    filterStationOptions();
+    filterStations();
+
+    const lineId = lineSelect.value;
+
+    if (!lineId) {
+      return;
+    }
+
+    fetch("/api/line-filter-usage", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        lineId
+      }),
+      keepalive: true
+    }).catch((error) => {
+      console.warn("路線フィルターの記録に失敗しました。", error);
     });
+  });
     filterStationOptions();
     filterStations();
 
