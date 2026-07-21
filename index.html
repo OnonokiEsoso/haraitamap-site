@@ -71,7 +71,7 @@
 
         <div class="line-filter">
           <div class="nearby-actions">
-            <button class="btn locate small" type="button" id="nearest-station-btn">緊急検索</button>
+            <button class="btn locate small" type="button" id="nearest-station-btn" data-action-name="emergency:clicked">緊急検索</button>
             <p class="nearby-status muted" id="nearest-station-status">位置情報はまだ取得していません。</p>
           </div>
           <label class="line-label" for="line-select">路線を選ぶ</label>
@@ -8710,7 +8710,7 @@
 
     <section class="section section-distract">
       <div class="container">
-        <a class="btn distract distract-full" href="games.html">気を逸らす</a>
+        <a class="btn distract distract-full" href="games.html" data-action-name="distraction:clicked">気を逸らす</a>
       </div>
     </section>
 
@@ -9608,9 +9608,9 @@
     // localStorage.setItem(viewCountKey, String(currentCount));
     // viewCountEl.textContent = currentCount.toLocaleString("ja-JP");
   </script>
+  <script src="action-usage-client.js"></script>
 </body>
 </html>
-
 
 
 

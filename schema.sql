@@ -3,3 +3,9 @@ CREATE TABLE IF NOT EXISTS station_searches (
   search_count INTEGER NOT NULL DEFAULT 0,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS site_action_usage (
+  action_name TEXT PRIMARY KEY,
+  usage_count INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
