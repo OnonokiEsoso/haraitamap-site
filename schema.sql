@@ -28,3 +28,11 @@ CREATE TABLE IF NOT EXISTS station_views (
   view_count INTEGER NOT NULL DEFAULT 0,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS station_feedback (
+  station_path TEXT PRIMARY KEY,
+  station_name TEXT NOT NULL,
+  helpful_count INTEGER NOT NULL DEFAULT 0,
+  outdated_count INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
