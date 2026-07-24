@@ -10,6 +10,82 @@
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
 <meta name="description" content="東京駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
 <link rel="stylesheet" href="../station-page-garden-v3.css" />
+<style>
+  .station-page-tokyo .best-pick {
+    padding: 0;
+  }
+
+  .station-page-tokyo .best-pick-inner {
+    display: grid;
+    min-height: 100%;
+    grid-template-rows: auto 1fr auto;
+    border-left: 6px solid var(--forest);
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.1), transparent 42%),
+      rgba(255, 253, 247, 0.62);
+  }
+
+  .station-page-tokyo .best-pick-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(97, 123, 94, 0.28);
+    padding: 14px 18px 12px;
+  }
+
+  .station-page-tokyo .best-pick-label span {
+    color: var(--moss);
+    font-size: 0.63rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+
+  .station-page-tokyo .best-pick-label em {
+    display: inline-grid;
+    min-width: 42px;
+    place-items: center;
+    border: 1px solid var(--moss);
+    color: var(--forest);
+    padding: 3px 8px;
+    font-size: 0.58rem;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-main {
+    padding: 18px 18px 4px;
+  }
+
+  .station-page-tokyo .best-pick-main strong {
+    margin-top: 0;
+    color: var(--forest);
+    font-size: 1.28rem;
+  }
+
+  .station-page-tokyo .best-pick-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 14px 18px 18px;
+    border-top: 1px solid rgba(97, 123, 94, 0.28);
+    padding-top: 12px;
+    color: var(--forest);
+    font-size: 0.66rem;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-action b {
+    margin-top: 0;
+  }
+
+  .station-page-tokyo .best-pick:hover .best-pick-inner {
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
+      rgba(255, 253, 247, 0.82);
+  }
+</style>
 </head>
 <body class="station-page-tokyo">
   <header class="site-header">
@@ -39,7 +115,7 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="パンくずリスト">
         <a href="../index.html">駅を探す</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true"></span>
         <span aria-current="page">東京駅</span>
       </nav>
 
@@ -64,14 +140,7 @@
         </a>
       </div>
 
-      <section class="station-overview" aria-labelledby="overview-title">
-        <div class="overview-heading">
-          <span class="section-number">01</span>
-          <div>
-            <p>AT A GLANCE</p>
-            <h2 id="overview-title">東京駅ですぐ判断</h2>
-          </div>
-        </div>
+      <section class="station-overview" aria-label="東京駅の掲載候補概要">
         <div class="overview-grid">
           <div class="overview-count">
             <span>掲載候補</span>
@@ -79,22 +148,27 @@
             <p>1F・B1F / 改札内外</p>
           </div>
           <a class="best-pick" href="#toilet-marunouchi-south">
-            <span>まず確認したい候補</span>
-            <strong>丸の内南口付近</strong>
-            <p>1F改札内。きれい度と大・小期待値のバランスが良い候補です。</p>
-            <b>この候補へ移動 →</b>
+            <div class="best-pick-inner">
+              <div class="best-pick-label">
+                <span>まず確認したい候補</span>
+                <em>推奨</em>
+              </div>
+              <div class="best-pick-main">
+                <strong>丸の内南口付近</strong>
+                <p>1F改札内。きれい度と大・小期待値のバランスが良い候補です。</p>
+              </div>
+              <div class="best-pick-action">
+                <span>候補一覧の該当欄へ</span>
+                <b>移動 →</b>
+              </div>
+            </div>
           </a>
-          <div class="station-caution">
-            <span>迷ったとき</span>
-            <strong>現在いる階と改札内外を先に確認</strong>
-            <p>東京駅は移動距離が長いため、階をまたがない候補から見るのがおすすめです。</p>
-          </div>
         </div>
       </section>
 
       <div class="list-toolbar" id="toilet-list">
         <div class="list-heading">
-          <span class="list-number">02</span>
+          <span class="list-number">01</span>
           <div>
             <p>TOILET LOCATIONS</p>
             <h2>トイレ候補一覧</h2>
@@ -396,9 +470,11 @@
         return (originalOrder.get(a) || 0) - (originalOrder.get(b) || 0);
       });
 
-      const photoCredit = container.querySelector(":scope > .photo-credit");
+      const listEndAnchor = container.querySelector(
+        ":scope > .station-report, :scope > .photo-credit"
+      );
       for (const card of sorted) {
-        container.insertBefore(card, photoCredit);
+        container.insertBefore(card, listEndAnchor);
       }
     };
 
@@ -791,8 +867,5 @@
 <script src="../station-view-client.js"></script>
 </body>
 </html>
-
-
-
 
 

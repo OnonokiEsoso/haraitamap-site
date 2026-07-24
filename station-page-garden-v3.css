@@ -76,7 +76,7 @@ body.station-page-tokyo {
   min-height: 78px;
   align-items: stretch;
   justify-content: space-between;
-  gap: 20px;
+  gap: 0;
 }
 
 .station-page-tokyo .brand {
@@ -343,7 +343,7 @@ body.station-page-tokyo {
 
 .station-page-tokyo .overview-grid {
   display: grid;
-  grid-template-columns: 0.65fr 1.2fr 1.35fr;
+  grid-template-columns: 0.65fr 1.2fr;
   border-top: 1px solid var(--line);
 }
 
@@ -724,11 +724,21 @@ body.station-page-tokyo {
   outline-offset: 3px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
+  .station-page-tokyo .header-inner {
+    min-height: 70px;
+  }
+
+  .station-page-tokyo .list-toolbar {
+    top: 75px;
+  }
+
   .station-page-tokyo .nav a {
     min-width: 92px;
   }
+}
 
+@media (max-width: 900px) {
   .station-page-tokyo .section-head.station-title {
     grid-template-columns: 110px 1fr;
   }
@@ -829,7 +839,7 @@ body.station-page-tokyo {
   }
 
   .station-page-tokyo .list-toolbar {
-    top: 127px;
+    top: 119px;
     display: grid;
     grid-template-columns: minmax(108px, 1fr) auto;
     gap: 8px;
