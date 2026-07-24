@@ -2692,7 +2692,7 @@ window.HARAITA_STATIONS = [
     "newness": "新",
     "lat": 35.727908,
     "lng": 139.771287,
-    "link": ""
+    "link": "stations/nippori.html"
   },
   {
     "name": "三河島駅",
@@ -2710,7 +2710,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 35.733383,
     "lng": 139.777131,
-    "link": ""
+    "link": "stations/mikawashima.html"
   },
   {
     "name": "南千住駅",
@@ -2728,7 +2728,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.734033,
     "lng": 139.7994,
-    "link": ""
+    "link": "stations/minamisenju.html"
   },
   {
     "name": "北千住駅",
@@ -2746,7 +2746,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.749677,
     "lng": 139.804872,
-    "link": ""
+    "link": "stations/kitasenju.html"
   },
   {
     "name": "綾瀬駅",
@@ -2782,7 +2782,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.766527,
     "lng": 139.847573,
-    "link": ""
+    "link": "stations/kameari.html"
   },
   {
     "name": "金町駅",
@@ -2800,7 +2800,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.769582,
     "lng": 139.870482,
-    "link": ""
+    "link": "stations/kanamachi.html"
   },
   {
     "name": "松戸駅",
@@ -2818,7 +2818,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.784472,
     "lng": 139.900779,
-    "link": ""
+    "link": "stations/matsudo.html"
   },
   {
     "name": "柏駅",
@@ -2854,7 +2854,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.87279,
     "lng": 140.010466,
-    "link": ""
+    "link": "stations/abiko.html"
   },
   {
     "name": "天王台駅",
@@ -2872,7 +2872,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.872558,
     "lng": 140.04121,
-    "link": ""
+    "link": "stations/tennodai.html"
   },
   {
     "name": "取手駅",
@@ -2890,7 +2890,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.89553,
     "lng": 140.063004,
-    "link": ""
+    "link": "stations/toride.html"
   },
   {
     "name": "藤代駅",
@@ -2908,7 +2908,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.920565,
     "lng": 140.118251,
-    "link": ""
+    "link": "stations/fujishiro.html"
   },
   {
     "name": "龍ケ崎市駅",
@@ -2926,7 +2926,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.930066,
     "lng": 140.138217,
-    "link": ""
+    "link": "stations/ryugasakishi.html"
   },
   {
     "name": "牛久駅",
@@ -2944,7 +2944,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 35.975314,
     "lng": 140.141039,
-    "link": ""
+    "link": "stations/ushiku.html"
   },
   {
     "name": "ひたち野うしく駅",
@@ -2962,7 +2962,7 @@ window.HARAITA_STATIONS = [
     "newness": "新",
     "lat": 36.007996,
     "lng": 140.158408,
-    "link": ""
+    "link": "stations/hitachinoushiku.html"
   },
   {
     "name": "荒川沖駅",
@@ -2980,7 +2980,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.030552,
     "lng": 140.16592,
-    "link": ""
+    "link": "stations/arakawaoki.html"
   },
   {
     "name": "土浦駅",
@@ -2998,7 +2998,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.078644,
     "lng": 140.206238,
-    "link": ""
+    "link": "stations/tsuchiura.html"
   },
   {
     "name": "神立駅",
@@ -3016,7 +3016,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.120424,
     "lng": 140.248615,
-    "link": ""
+    "link": "stations/kandatsu.html"
   },
   {
     "name": "高浜駅",
@@ -3034,7 +3034,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.163882,
     "lng": 140.294745,
-    "link": ""
+    "link": "stations/takahama.html"
   },
   {
     "name": "石岡駅",
@@ -3052,7 +3052,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.191554,
     "lng": 140.279709,
-    "link": ""
+    "link": "stations/ishioka.html"
   },
   {
     "name": "羽鳥駅",
@@ -3070,7 +3070,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.247661,
     "lng": 140.28679,
-    "link": ""
+    "link": "stations/hatori.html"
   },
   {
     "name": "岩間駅",
@@ -3088,7 +3088,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.295508,
     "lng": 140.276493,
-    "link": ""
+    "link": "stations/iwama.html"
   },
   {
     "name": "友部駅",
@@ -3106,7 +3106,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.350597,
     "lng": 140.306306,
-    "link": ""
+    "link": "stations/tomobe.html"
   },
   {
     "name": "内原駅",
@@ -3124,7 +3124,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.370111,
     "lng": 140.35282,
-    "link": ""
+    "link": "stations/uchihara.html"
   },
   {
     "name": "赤塚駅",
@@ -3142,7 +3142,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.381755,
     "lng": 140.415248,
-    "link": ""
+    "link": "stations/akatsuka.html"
   },
   {
     "name": "偕楽園駅",
@@ -3160,7 +3160,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.373041,
     "lng": 140.456292,
-    "link": ""
+    "link": "stations/kairakuen.html"
   },
   {
     "name": "水戸駅",
@@ -3178,7 +3178,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.370911,
     "lng": 140.47676,
-    "link": ""
+    "link": "stations/mito.html"
   },
   {
     "name": "勝田駅",
@@ -3196,7 +3196,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.394033,
     "lng": 140.524482,
-    "link": ""
+    "link": "stations/katsuta.html"
   },
   {
     "name": "佐和駅",
@@ -3214,7 +3214,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.430409,
     "lng": 140.540477,
-    "link": ""
+    "link": "stations/sawa.html"
   },
   {
     "name": "東海駅",
@@ -3232,7 +3232,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.465378,
     "lng": 140.565835,
-    "link": ""
+    "link": "stations/tokai.html"
   },
   {
     "name": "大甕駅",
@@ -3250,7 +3250,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.513052,
     "lng": 140.619362,
-    "link": ""
+    "link": "stations/omika.html"
   },
   {
     "name": "常陸多賀駅",
@@ -3268,7 +3268,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.552145,
     "lng": 140.632682,
-    "link": ""
+    "link": "stations/hitachitaga.html"
   },
   {
     "name": "日立駅",
@@ -3286,7 +3286,7 @@ window.HARAITA_STATIONS = [
     "newness": "新",
     "lat": 36.590408,
     "lng": 140.661883,
-    "link": ""
+    "link": "stations/hitachi.html"
   },
   {
     "name": "小木津駅",
@@ -3304,7 +3304,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.636533,
     "lng": 140.67526,
-    "link": ""
+    "link": "stations/ogitsu.html"
   },
   {
     "name": "十王駅",
@@ -3322,7 +3322,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.671385,
     "lng": 140.68623,
-    "link": ""
+    "link": "stations/juo.html"
   },
   {
     "name": "高萩駅",
@@ -3340,7 +3340,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.714873,
     "lng": 140.716707,
-    "link": ""
+    "link": "stations/takahagi.html"
   },
   {
     "name": "南中郷駅",
@@ -3358,7 +3358,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.753501,
     "lng": 140.729028,
-    "link": ""
+    "link": "stations/minaminakago.html"
   },
   {
     "name": "磯原駅",
@@ -3376,7 +3376,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.790684,
     "lng": 140.746366,
-    "link": ""
+    "link": "stations/isohara.html"
   },
   {
     "name": "大津港駅",
@@ -3394,7 +3394,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.846085,
     "lng": 140.778001,
-    "link": ""
+    "link": "stations/otsuko.html"
   },
   {
     "name": "勿来駅",
@@ -3412,7 +3412,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.883883,
     "lng": 140.786506,
-    "link": ""
+    "link": "stations/nakoso.html"
   },
   {
     "name": "植田駅",
@@ -3430,7 +3430,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 36.920649,
     "lng": 140.796468,
-    "link": ""
+    "link": "stations/ueda.html"
   },
   {
     "name": "泉駅",
@@ -3448,7 +3448,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 36.955602,
     "lng": 140.854125,
-    "link": ""
+    "link": "stations/izumi.html"
   },
   {
     "name": "湯本駅",
@@ -3466,7 +3466,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.006922,
     "lng": 140.849884,
-    "link": ""
+    "link": "stations/yumoto.html"
   },
   {
     "name": "内郷駅",
@@ -3484,7 +3484,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.035895,
     "lng": 140.855005,
-    "link": ""
+    "link": "stations/uchigo.html"
   },
   {
     "name": "いわき駅",
@@ -3502,7 +3502,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.058241,
     "lng": 140.892273,
-    "link": ""
+    "link": "stations/iwaki.html"
   },
   {
     "name": "草野駅",
@@ -3520,7 +3520,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.073863,
     "lng": 140.947243,
-    "link": ""
+    "link": "stations/kusano.html"
   },
   {
     "name": "四ツ倉駅",
@@ -3538,7 +3538,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.102338,
     "lng": 140.980907,
-    "link": ""
+    "link": "stations/yotsukura.html"
   },
   {
     "name": "久ノ浜駅",
@@ -3556,7 +3556,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.142465,
     "lng": 140.995741,
-    "link": ""
+    "link": "stations/hisanohama.html"
   },
   {
     "name": "末続駅",
@@ -3574,7 +3574,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.172156,
     "lng": 140.995565,
-    "link": ""
+    "link": "stations/suetsugi.html"
   },
   {
     "name": "広野駅",
@@ -3592,7 +3592,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.21157,
     "lng": 140.998769,
-    "link": ""
+    "link": "stations/hirono.html"
   },
   {
     "name": "Jヴィレッジ駅",
@@ -3610,7 +3610,7 @@ window.HARAITA_STATIONS = [
     "newness": "新",
     "lat": 37.242583,
     "lng": 141.0075,
-    "link": ""
+    "link": "stations/j-village.html"
   },
   {
     "name": "木戸駅",
@@ -3628,7 +3628,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.257875,
     "lng": 141.00247,
-    "link": ""
+    "link": "stations/kido.html"
   },
   {
     "name": "竜田駅",
@@ -3646,7 +3646,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.282485,
     "lng": 141.002822,
-    "link": ""
+    "link": "stations/tatsuta.html"
   },
   {
     "name": "富岡駅",
@@ -3664,7 +3664,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.33396,
     "lng": 141.02276,
-    "link": ""
+    "link": "stations/tomioka.html"
   },
   {
     "name": "夜ノ森駅",
@@ -3682,7 +3682,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.365761,
     "lng": 140.991988,
-    "link": ""
+    "link": "stations/yonomori.html"
   },
   {
     "name": "大野駅",
@@ -3700,7 +3700,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.409367,
     "lng": 140.984163,
-    "link": ""
+    "link": "stations/ono.html"
   },
   {
     "name": "双葉駅",
@@ -3718,7 +3718,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.453795,
     "lng": 141.005815,
-    "link": ""
+    "link": "stations/futaba.html"
   },
   {
     "name": "浪江駅",
@@ -3736,7 +3736,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.492291,
     "lng": 140.989521,
-    "link": ""
+    "link": "stations/namie.html"
   },
   {
     "name": "桃内駅",
@@ -3754,7 +3754,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.52866,
     "lng": 140.984352,
-    "link": ""
+    "link": "stations/momouchi.html"
   },
   {
     "name": "小高駅",
@@ -3772,7 +3772,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.56298,
     "lng": 140.996375,
-    "link": ""
+    "link": "stations/odaka.html"
   },
   {
     "name": "磐城太田駅",
@@ -3790,7 +3790,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.605114,
     "lng": 140.991407,
-    "link": ""
+    "link": "stations/iwakiota.html"
   },
   {
     "name": "原ノ町駅",
@@ -3808,7 +3808,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.6379,
     "lng": 140.971161,
-    "link": ""
+    "link": "stations/haranomachi.html"
   },
   {
     "name": "鹿島駅",
@@ -3826,7 +3826,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.702827,
     "lng": 140.970062,
-    "link": ""
+    "link": "stations/kashima.html"
   },
   {
     "name": "日立木駅",
@@ -3844,7 +3844,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.756081,
     "lng": 140.934642,
-    "link": ""
+    "link": "stations/nittaki.html"
   },
   {
     "name": "相馬駅",
@@ -3862,7 +3862,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 37.802455,
     "lng": 140.925713,
-    "link": ""
+    "link": "stations/soma.html"
   },
   {
     "name": "駒ケ嶺駅",
@@ -3880,7 +3880,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.842353,
     "lng": 140.925075,
-    "link": ""
+    "link": "stations/komagamine.html"
   },
   {
     "name": "新地駅",
@@ -3898,7 +3898,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.879164,
     "lng": 140.925463,
-    "link": ""
+    "link": "stations/shinchi.html"
   },
   {
     "name": "坂元駅",
@@ -3916,7 +3916,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.92437,
     "lng": 140.900917,
-    "link": ""
+    "link": "stations/sakamoto.html"
   },
   {
     "name": "山下駅",
@@ -3934,7 +3934,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 37.966559,
     "lng": 140.889021,
-    "link": ""
+    "link": "stations/yamashita.html"
   },
   {
     "name": "浜吉田駅",
@@ -3952,7 +3952,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 38.002195,
     "lng": 140.890083,
-    "link": ""
+    "link": "stations/hamayoshida.html"
   },
   {
     "name": "亘理駅",
@@ -3970,7 +3970,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 38.039776,
     "lng": 140.861317,
-    "link": ""
+    "link": "stations/watari.html"
   },
   {
     "name": "逢隈駅",
@@ -3988,7 +3988,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 38.067584,
     "lng": 140.854669,
-    "link": ""
+    "link": "stations/okuma.html"
   },
   {
     "name": "岩沼駅",
@@ -4006,7 +4006,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 38.11205,
     "lng": 140.863783,
-    "link": ""
+    "link": "stations/iwanuma.html"
   },
   {
     "name": "館腰駅",
@@ -4024,7 +4024,7 @@ window.HARAITA_STATIONS = [
     "newness": "旧",
     "lat": 38.142987,
     "lng": 140.880208,
-    "link": ""
+    "link": "stations/tatekoshi.html"
   },
   {
     "name": "名取駅",
@@ -4042,7 +4042,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 38.173017,
     "lng": 140.882753,
-    "link": ""
+    "link": "stations/natori.html"
   },
   {
     "name": "南仙台駅",
@@ -4060,7 +4060,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 38.197384,
     "lng": 140.883296,
-    "link": ""
+    "link": "stations/minamisendai.html"
   },
   {
     "name": "太子堂駅",
@@ -4078,7 +4078,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 38.21711,
     "lng": 140.883436,
-    "link": ""
+    "link": "stations/taishido.html"
   },
   {
     "name": "長町駅",
@@ -4096,7 +4096,7 @@ window.HARAITA_STATIONS = [
     "newness": "普通",
     "lat": 38.226797,
     "lng": 140.885986,
-    "link": ""
+    "link": "stations/nagamachi.html"
   },
   {
     "name": "仙台駅",
@@ -4114,6 +4114,6 @@ window.HARAITA_STATIONS = [
     "newness": "新",
     "lat": 38.260027,
     "lng": 140.882158,
-    "link": ""
+    "link": "stations/sendai.html"
   }
 ];
