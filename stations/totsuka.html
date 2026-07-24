@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
@@ -8,114 +8,368 @@
 <link rel="shortcut icon" href="../favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
-    <meta name="description" content="戸塚駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
-<link rel="stylesheet" href="../stomach_pain.css" />
-</head>
-<body class="station-page-totsuka">
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true">🚻</span>
-        <div class="brand-text">
-          <div class="brand-name">腹痛持ちのための駅トイレマップ</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a class="btn ghost" href="../index.html">一覧へ戻る</a>
-      </nav>
-    </div>
-  </header>
+<meta name="description" content="戸塚駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
+<link rel="stylesheet" href="../station-page-garden-v3.css" />
+<style>
+  .station-page-tokyo .best-pick {
+    padding: 0;
+  }
 
-  <main class="section">
-    <div class="container">
-      <div class="section-head station-title">
-        <h2>戸塚駅</h2>
-        <p class="muted">戸塚駅トイレの詳細ページ。情報に間違い等があったら是非報告お願いします。</p>
-      </div>
-      <div class="card" data-ticket-gate="inside">
-        <div class="card-body">
-          <h3>構内(改札内東側)</h3>
-          <dl class="kv">
-            <div>
-              <dt>場所</dt>
-              <dd>構内(改札内東側)</dd>
-            </div>
-            <div>
-              <dt>トイレの<br>きれい度</dt>
-              <dd>★★★★☆</dd>
-            </div>
-            <div>
-              <dt>大期待値</dt>
-              <dd>★★☆☆☆</dd>
-            </div>
-            <div>
-              <dt>小期待値</dt>
-              <dd>★★★☆☆</dd>
-            </div>
-            <div>
-              <dt>トイレの<br>新しさ</dt>
-              <dd>新</dd>
-            </div>
-          </dl>
+  .station-page-tokyo .best-pick-inner {
+    display: grid;
+    min-height: 100%;
+    grid-template-rows: auto 1fr auto;
+    border-left: 6px solid var(--forest);
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.1), transparent 42%),
+      rgba(255, 253, 247, 0.62);
+  }
+
+  .station-page-tokyo .best-pick-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(97, 123, 94, 0.28);
+    padding: 14px 18px 12px;
+  }
+
+  .station-page-tokyo .best-pick-label span {
+    color: var(--moss);
+    font-size: 0.63rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+
+  .station-page-tokyo .best-pick-label em {
+    display: inline-grid;
+    min-width: 42px;
+    place-items: center;
+    border: 1px solid var(--moss);
+    color: var(--forest);
+    padding: 3px 8px;
+    font-size: 0.58rem;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-main {
+    padding: 18px 18px 4px;
+  }
+
+  .station-page-tokyo .best-pick-main strong {
+    margin-top: 0;
+    color: var(--forest);
+    font-size: 1.28rem;
+  }
+
+  .station-page-tokyo .best-pick-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 14px 18px 18px;
+    border-top: 1px solid rgba(97, 123, 94, 0.28);
+    padding-top: 12px;
+    color: var(--forest);
+    font-size: 0.66rem;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-action b {
+    margin-top: 0;
+  }
+
+  .station-page-tokyo .best-pick:hover .best-pick-inner {
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
+      rgba(255, 253, 247, 0.82);
+  }
+</style>
+</head>
+<body class="station-page-tokyo station-page-totsuka">
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html" aria-label="駅検索へ戻る"><img class="brand-icon" src="../favicon-512x512.png" alt="" width="52" height="52" /><span class="brand-copy"><small>HARAITA MAP / STATION GUIDE</small><strong>腹痛持ちのための駅トイレマップ</strong></span></a><nav class="nav" aria-label="主要メニュー"><a href="../index.html"><span>01</span>駅を探す</a><a href="#toilet-list"><span>02</span>候補一覧</a><a class="nav-accent" href="#station-report"><span>03</span>情報提供</a></nav></div></header>
+  <main class="section" id="top"><div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../index.html">駅を探す</a><span aria-hidden="true"></span><span aria-current="page">戸塚駅</span></nav>
+      <div class="section-head station-title"><div class="station-plaque"><span>STATION</span><h2>戸塚駅</h2><b>TOTSU</b></div><div class="station-title-copy"><p>STATION TOILET GUIDE</p><h1>戸塚駅のトイレ案内</h1><div class="station-lines" aria-label="主な路線">
+            <span>湘南新宿ライン</span>
+          </div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
+      <section class="station-overview" aria-label="戸塚駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>3<small>か所</small></strong><p>構内(改札内東側) / 構内(改札内西側) / 代案(駅外・トツカーナ)</p></div><a class="best-pick" href="#totsuka-toilet-3"><div class="best-pick-inner"><div class="best-pick-label"><span>まず確認したい候補</span><em>推奨</em></div><div class="best-pick-main"><strong>代案(駅外・トツカーナ)</strong><p>代案(駅外・トツカーナ) きれい度と大・小期待値のバランスから選んだ候補です。</p></div><div class="best-pick-action"><span>候補一覧の該当欄へ</span><b>移動 →</b></div></div></a></div></section>
+      <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls" style="margin:12px 0 16px;"><label for="totsuka-sort" class="muted" style="margin-right:8px;">並び替え</label><select id="totsuka-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
+      <div class="card" id="totsuka-toilet-1" data-ticket-gate="inside"><div class="card-body"><h3>構内(改札内東側)</h3><dl class="kv">
+        <div><dt>場所</dt><dd>構内(改札内東側)</dd></div>
+        <div><dt>行き方</dt><dd></dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>新</dd></div>
+      </dl></div></div>
+      <div class="card" id="totsuka-toilet-2" data-ticket-gate="inside"><div class="card-body"><h3>構内(改札内西側)</h3><dl class="kv">
+        <div><dt>場所</dt><dd>構内(改札内西側)</dd></div>
+        <div><dt>行き方</dt><dd></dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      </dl></div></div>
+      <div class="card" id="totsuka-toilet-3" data-ticket-gate="outside"><div class="card-body"><h3>代案(駅外・トツカーナ)</h3><dl class="kv">
+        <div><dt>場所</dt><dd>代案(駅外・トツカーナ)</dd></div>
+        <div><dt>行き方</dt><dd></dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>新</dd></div>
+      </dl></div></div>
+      <section class="station-report" id="station-report">
+        <span class="seal">情</span>
+        <div>
+          <p>INFORMATION</p>
+          <h2>情報提供・修正依頼</h2>
+          <span>場所や設備の違いを見つけた場合は、確認後に情報へ反映します。</span>
         </div>
-      </div>
-      <div class="card" data-ticket-gate="inside">
-        <div class="card-body">
-          <h3>構内(改札内西側)</h3>
-          <dl class="kv">
-            <div>
-              <dt>場所</dt>
-              <dd>構内(改札内西側)</dd>
-            </div>
-            <div>
-              <dt>トイレの<br>きれい度</dt>
-              <dd>★★★★☆</dd>
-            </div>
-            <div>
-              <dt>大期待値</dt>
-              <dd>★★☆☆☆</dd>
-            </div>
-            <div>
-              <dt>小期待値</dt>
-              <dd>★★★☆☆</dd>
-            </div>
-            <div>
-              <dt>トイレの<br>新しさ</dt>
-              <dd>普通</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <div class="card" data-ticket-gate="outside">
-        <div class="card-body">
-          <h3>代案(駅外・トツカーナ)</h3>
-          <dl class="kv">
-            <div>
-              <dt>場所</dt>
-              <dd>代案(駅外・トツカーナ)</dd>
-            </div>
-            <div>
-              <dt>トイレの<br>きれい度</dt>
-              <dd>★★★★★</dd>
-            </div>
-            <div>
-              <dt>大期待値</dt>
-              <dd>★★★★☆</dd>
-            </div>
-            <div>
-              <dt>小期待値</dt>
-              <dd>★★★★☆</dd>
-            </div>
-            <div>
-              <dt>トイレの<br>新しさ</dt>
-              <dd>新</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:12px;">Photo: Nyao148 / CC BY 3.0</p>
-    </div>
-  </main>
+        <a
+          class="report-link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfE1SurrAHd1WChl5tdb-YxDUAkNixC5WMAzJnIw90-zG3ErQ/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >入力フォームへ →</a>
+      </section>
+    </div></main>
+  <footer><strong>腹痛持ちのための駅トイレマップ</strong><span>戸塚駅 / 駅案内 × 日本庭園</span></footer>
+
+  <script>
+  (() => {
+    const sortSelect = document.querySelector('.sort-controls select[id$="-sort"]');
+    if (!sortSelect) return;
+
+    const sortControls = sortSelect.closest(".sort-controls");
+    const container = sortSelect.closest(".container");
+    if (!container || !sortControls) return;
+
+    const sortItems = [
+      { value: "recommend", label: "おすすめ度順" },
+      { value: "clean", label: "きれい度順" },
+      { value: "big", label: "大期待値順" },
+      { value: "small", label: "小期待度順" },
+      { value: "newness", label: "新しさ順" }
+    ];
+
+    const cards = Array.from(container.querySelectorAll(":scope > .card"));
+    const originalOrder = new Map(cards.map((card, index) => [card, index]));
+
+    const sortLabel = sortControls.querySelector(`label[for="${sortSelect.id}"]`);
+    if (sortLabel) {
+      sortLabel.hidden = true;
+    }
+    sortSelect.hidden = true;
+
+    let sortWrap = sortControls.querySelector(".sort-menu-wrap");
+    if (!sortWrap) {
+      sortWrap = document.createElement("div");
+      sortWrap.className = "sort-menu-wrap";
+      sortWrap.style.position = "relative";
+      sortWrap.style.display = "inline-flex";
+      const controlLabel = sortControls.querySelector(".control-label");
+      if (controlLabel) {
+        controlLabel.insertAdjacentElement("afterend", sortWrap);
+      } else {
+        sortControls.insertBefore(sortWrap, sortControls.firstChild);
+      }
+    }
+
+    let sortButton = sortWrap.querySelector(".sort-menu-button");
+    if (!sortButton) {
+      sortButton = document.createElement("button");
+      sortButton.type = "button";
+      sortButton.className = "btn small ghost sort-menu-button";
+      sortButton.textContent = "並び替え▼";
+      sortButton.setAttribute("aria-haspopup", "true");
+      sortButton.setAttribute("aria-expanded", "false");
+      sortWrap.appendChild(sortButton);
+    }
+
+    let sortMenu = sortWrap.querySelector(".sort-menu-dropdown");
+    if (!sortMenu) {
+      sortMenu = document.createElement("div");
+      sortMenu.className = "sort-menu-dropdown";
+      sortMenu.setAttribute("role", "menu");
+      sortMenu.hidden = true;
+      sortMenu.style.position = "absolute";
+      sortMenu.style.top = "calc(100% + 8px)";
+      sortMenu.style.left = "0";
+      sortMenu.style.minWidth = "160px";
+      sortMenu.style.padding = "6px";
+      sortMenu.style.borderRadius = "14px";
+      sortMenu.style.border = "1px solid rgba(17, 24, 39, 0.08)";
+      sortMenu.style.background = "rgba(255, 255, 255, 0.98)";
+      sortMenu.style.boxShadow = "0 12px 30px rgba(15, 23, 42, 0.14)";
+      sortMenu.style.backdropFilter = "blur(10px)";
+      sortMenu.style.zIndex = "20";
+
+      sortItems.forEach((item) => {
+        const itemButton = document.createElement("button");
+        itemButton.type = "button";
+        itemButton.textContent = item.label;
+        itemButton.dataset.value = item.value;
+        itemButton.setAttribute("role", "menuitemradio");
+        itemButton.style.display = "block";
+        itemButton.style.width = "100%";
+        itemButton.style.border = "0";
+        itemButton.style.borderRadius = "10px";
+        itemButton.style.padding = "10px 12px";
+        itemButton.style.textAlign = "left";
+        itemButton.style.background = "transparent";
+        itemButton.style.cursor = "pointer";
+        itemButton.style.color = "#0f172a";
+        itemButton.addEventListener("click", () => {
+          sortSelect.value = item.value;
+          syncSortMenu();
+          animateSort(sortSelect.value);
+          sortMenu.hidden = true;
+          sortButton.setAttribute("aria-expanded", "false");
+        });
+        sortMenu.appendChild(itemButton);
+      });
+
+      sortWrap.appendChild(sortMenu);
+    }
+
+    const toStarCount = (text) => (text.match(/★/g) || []).length;
+    const toNewnessScore = (text) => {
+      if (text.includes("新しい") || text.includes("新")) return 3;
+      if (text.includes("普通")) return 2;
+      if (text.includes("旧")) return 1;
+      return 0;
+    };
+
+    const getMetricValue = (card, label) => {
+      const rows = Array.from(card.querySelectorAll(".kv div"));
+      for (const row of rows) {
+        const dt = row.querySelector("dt")?.textContent?.replace(/\s+/g, "") || "";
+        const dd = row.querySelector("dd")?.textContent?.trim() || "";
+        if (dt === label) return dd;
+      }
+      return "";
+    };
+
+    const recommendScore = (card) => {
+      const a = toStarCount(getMetricValue(card, "トイレのきれい度"));
+      const b = toStarCount(getMetricValue(card, "大期待値"));
+      const c = toStarCount(getMetricValue(card, "小期待値"));
+      const d = toNewnessScore(getMetricValue(card, "トイレの新しさ"));
+
+      let z = a * 3 + b * 6 + c * 1 + d * 3;
+      if (a === 1) z -= 8;
+      if (b === 1) z -= 16;
+      if (a === 2) z -= 4;
+      if (b === 2) z -= 9;
+      if (b === 3) z -= 2;
+      if (c === 1) z -= 3;
+      if (c === 2) z -= 1;
+      return z;
+    };
+
+    const scoreByMode = {
+      recommend: (card) => recommendScore(card),
+      clean: (card) => toStarCount(getMetricValue(card, "トイレのきれい度")),
+      big: (card) => toStarCount(getMetricValue(card, "大期待値")),
+      small: (card) => toStarCount(getMetricValue(card, "小期待値")),
+      newness: (card) => toNewnessScore(getMetricValue(card, "トイレの新しさ"))
+    };
+
+    const sortCards = (mode) => {
+      const getter = scoreByMode[mode] || scoreByMode.recommend;
+      const sorted = [...cards].sort((a, b) => {
+        const diff = getter(b) - getter(a);
+        if (diff !== 0) return diff;
+        return (originalOrder.get(a) || 0) - (originalOrder.get(b) || 0);
+      });
+
+      const listEndAnchor = container.querySelector(
+        ":scope > .station-report, :scope > .photo-credit"
+      );
+      for (const card of sorted) {
+        container.insertBefore(card, listEndAnchor);
+      }
+    };
+
+    let sortAnimationToken = 0;
+    const animateSort = (mode) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        sortCards(mode);
+        return;
+      }
+
+      const token = ++sortAnimationToken;
+      const visibleCards = cards.filter((card) => !card.hidden);
+      visibleCards.forEach((card) => {
+        card.classList.remove("is-sorting-in");
+        card.classList.add("is-sorting-out");
+      });
+
+      window.setTimeout(() => {
+        if (token !== sortAnimationToken) return;
+        sortCards(mode);
+        visibleCards.forEach((card) => {
+          card.classList.remove("is-sorting-out");
+          card.classList.add("is-sorting-in");
+        });
+
+        window.setTimeout(() => {
+          if (token !== sortAnimationToken) return;
+          visibleCards.forEach((card) => card.classList.remove("is-sorting-in"));
+        }, 130);
+      }, 70);
+    };
+
+    const syncSortMenu = () => {
+      const menuButtons = Array.from(sortMenu.querySelectorAll("button[data-value]"));
+      menuButtons.forEach((button) => {
+        const isActive = button.dataset.value === sortSelect.value;
+        button.setAttribute("aria-checked", isActive ? "true" : "false");
+        button.style.fontWeight = isActive ? "700" : "500";
+        button.style.background = isActive ? "#0f172a" : "transparent";
+        button.style.color = isActive ? "#ffffff" : "#0f172a";
+      });
+      const activeItem = sortItems.find((item) => item.value === sortSelect.value);
+      sortButton.textContent = `${activeItem?.label || "並び替え"} ▼`;
+    };
+
+    sortButton.addEventListener("click", () => {
+      const willOpen = sortMenu.hidden;
+      sortMenu.hidden = !willOpen;
+      sortButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      if (willOpen) {
+        syncSortMenu();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!sortWrap.contains(event.target)) {
+        sortMenu.hidden = true;
+        sortButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        sortMenu.hidden = true;
+        sortButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    sortSelect.addEventListener("change", () => {
+      syncSortMenu();
+      animateSort(sortSelect.value);
+    });
+
+    syncSortMenu();
+    sortCards(sortSelect.value);
+  })();
+</script>
 <script>
   (() => {
     const BASE_URL = "https://haraitamap.com";
@@ -160,7 +414,9 @@
       : "/stations/" + (location.pathname.split("/").pop() || "TODO.html");
     const pageUrl = BASE_URL + pagePath;
     const container = document.querySelector("main .container");
-    const stationCardsOnPage = Array.from(document.querySelectorAll(".container > .card"));
+    const stationCardsOnPage = Array.from(
+      document.querySelectorAll(".container > .card")
+    );
     const photoCredit = Array.from(container?.children || []).find((el) =>
       el.tagName === "P" && el.classList.contains("muted") && el.style.marginTop === "12px"
     );
@@ -177,7 +433,9 @@
         return null;
       }
 
-      let controls = container.querySelector(":scope > .sort-controls");
+      let controls = container.querySelector(
+        ".list-toolbar .sort-controls, :scope > .sort-controls"
+      );
       if (!controls) {
         controls = document.createElement("div");
         controls.className = "sort-controls";
@@ -423,28 +681,9 @@
   });
 })();
 </script>
+<script src="../action-usage-client.js"></script>
 <script src="../station-view-client.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

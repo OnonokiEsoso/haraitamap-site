@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
@@ -9,103 +9,199 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
 <meta name="description" content="名古屋駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
-<link rel="stylesheet" href="../stomach_pain.css" />
+<link rel="stylesheet" href="../station-page-garden-v3.css" />
+<style>
+  .station-page-tokyo .best-pick {
+    padding: 0;
+  }
+
+  .station-page-tokyo .best-pick-inner {
+    display: grid;
+    min-height: 100%;
+    grid-template-rows: auto 1fr auto;
+    border-left: 6px solid var(--forest);
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.1), transparent 42%),
+      rgba(255, 253, 247, 0.62);
+  }
+
+  .station-page-tokyo .best-pick-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(97, 123, 94, 0.28);
+    padding: 14px 18px 12px;
+  }
+
+  .station-page-tokyo .best-pick-label span {
+    color: var(--moss);
+    font-size: 0.63rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+
+  .station-page-tokyo .best-pick-label em {
+    display: inline-grid;
+    min-width: 42px;
+    place-items: center;
+    border: 1px solid var(--moss);
+    color: var(--forest);
+    padding: 3px 8px;
+    font-size: 0.58rem;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-main {
+    padding: 18px 18px 4px;
+  }
+
+  .station-page-tokyo .best-pick-main strong {
+    margin-top: 0;
+    color: var(--forest);
+    font-size: 1.28rem;
+  }
+
+  .station-page-tokyo .best-pick-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 14px 18px 18px;
+    border-top: 1px solid rgba(97, 123, 94, 0.28);
+    padding-top: 12px;
+    color: var(--forest);
+    font-size: 0.66rem;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-action b {
+    margin-top: 0;
+  }
+
+  .station-page-tokyo .best-pick:hover .best-pick-inner {
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
+      rgba(255, 253, 247, 0.82);
+  }
+</style>
 </head>
-<body class="station-page-nagoya">
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true">🚻</span>
-        <div class="brand-text">
-          <div class="brand-name">腹痛持ちのための駅トイレマップ</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a class="btn ghost" href="../index.html">一覧へ戻る</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="section">
-    <div class="container">
-      <div class="section-head station-title">
-        <h2>名古屋駅</h2>
-        <p class="muted">名古屋駅トイレの詳細ページ。情報に間違い等があったら是非報告お願いします。</p>
-      </div>
-      <div class="sort-controls" style="margin:12px 0 16px;">
-        <label for="nagoya-sort" class="muted" style="margin-right:8px;">並び替え</label>
-        <select id="nagoya-sort" aria-label="並び替え" style="border-radius:8px;">
-          <option value="recommend">おすすめ度順</option>
-          <option value="clean">きれい度順</option>
-          <option value="big">大期待値順</option>
-          <option value="small">小期待度順</option>
-          <option value="newness">新しさ順</option>
-        </select>
-      </div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 JR 桜通口付近</h3><dl class="kv">
+<body class="station-page-tokyo station-page-nagoya">
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html" aria-label="駅検索へ戻る"><img class="brand-icon" src="../favicon-512x512.png" alt="" width="52" height="52" /><span class="brand-copy"><small>HARAITA MAP / STATION GUIDE</small><strong>腹痛持ちのための駅トイレマップ</strong></span></a><nav class="nav" aria-label="主要メニュー"><a href="../index.html"><span>01</span>駅を探す</a><a href="#toilet-list"><span>02</span>候補一覧</a><a class="nav-accent" href="#station-report"><span>03</span>情報提供</a></nav></div></header>
+  <main class="section" id="top"><div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../index.html">駅を探す</a><span aria-hidden="true"></span><span aria-current="page">名古屋駅</span></nav>
+      <div class="section-head station-title"><div class="station-plaque"><span>STATION</span><h2>名古屋駅</h2><b>NGY</b></div><div class="station-title-copy"><p>STATION TOILET GUIDE</p><h1>名古屋駅のトイレ案内</h1><div class="station-lines" aria-label="主な路線">
+            <span>JR中央線</span>
+          </div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
+      <section class="station-overview" aria-label="名古屋駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>10<small>か所</small></strong><p>1F 改札外 3か所 / B1〜B2 改札外 4か所 / B1〜B2 改札内 3か所</p></div><a class="best-pick" href="#nagoya-toilet-8"><div class="best-pick-inner"><div class="best-pick-label"><span>まず確認したい候補</span><em>推奨</em></div><div class="best-pick-main"><strong>B1〜B2 改札内 地下鉄 桜通線東改札口内</strong><p>B1〜B2の地下改札内。桜通線東改札口の中にあるトイレです。 きれい度と大・小期待値のバランスから選んだ候補です。</p></div><div class="best-pick-action"><span>候補一覧の該当欄へ</span><b>移動 →</b></div></div></a></div></section>
+      <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls" style="margin:12px 0 16px;"><label for="nagoya-sort" class="muted" style="margin-right:8px;">並び替え</label><select id="nagoya-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
+      <div class="card" id="nagoya-toilet-1" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 JR 桜通口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>1F改札外。JR桜通口のすぐ近くで、金の時計側の人通りが多いエリアにあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>JR桜通口を目印に出て、金の時計・JR高島屋側へ寄ると見つけやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★☆☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 JR 広小路口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-2" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 JR 広小路口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>1F改札外。JR広小路口の近くで、うまいもん通り広小路口の先にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>JR広小路口を目指して、うまいもん通り広小路口をそのまま進むとたどり着きやすいです。名鉄・近鉄側からでも、まず広小路口を目印に寄るのが分かりやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの新しさ</dt><dd>新しい</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 JR 太閤通南口・あおなみ線連絡側</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-3" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 JR 太閤通南口・あおなみ線連絡側</h3><dl class="kv">
         <div><dt>場所</dt><dd>1F改札外。JR太閤通南口からあおなみ線名古屋駅へ向かう連絡側にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>太閤通口側へ出て、あおなみ線名古屋駅の案内を目印に進むと見つけやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★☆☆</dd></div><div><dt>大期待値</dt><dd>★★★★☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 地下鉄 東山線北改札口・中改札北口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-4" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 地下鉄 東山線北改札口・中改札北口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1〜B2の地下改札外。東山線北改札口と中改札北口の中間寄りにあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>東山線北改札口か中改札北口を目印にして、そのあいだの通路を探すと見つけやすいです。大名古屋ビルヂング方面を意識すると位置をつかみやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 地下鉄 東山線南改札口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-5" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 地下鉄 東山線南改札口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1〜B2の地下改札外。東山線南改札口付近にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>東山線南改札口を出て、名鉄方面へ流れる通路を目印にすると探しやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 地下鉄 桜通線西中改札口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-6" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 地下鉄 桜通線西中改札口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1〜B2の地下改札外。桜通線西中改札口の近くにあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>桜通線西中改札口を目印に出て、名鉄・テルミナ方面の地下通路へ少し進むイメージで探すと見つけやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 近鉄名古屋駅 正面改札口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-7" data-ticket-gate="outside"><div class="card-body"><h3>B1〜B2 改札外 近鉄名古屋駅 正面改札口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1の地下改札外寄り。近鉄名古屋駅の正面改札口付近にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>近鉄の正面改札口を目印にして、改札前の広めの地下通路側を探すと見つけやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★☆☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1〜B2 改札内 地下鉄 桜通線東改札口内</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-8" data-ticket-gate="inside"><div class="card-body"><h3>B1〜B2 改札内 地下鉄 桜通線東改札口内</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1〜B2の地下改札内。桜通線東改札口の中にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>桜通線東改札口を入って、ホームに下りる前の改札内通路を目印に探せばOKです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★★☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1〜B2 改札内 名鉄名古屋駅 南口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-9" data-ticket-gate="inside"><div class="card-body"><h3>B1〜B2 改札内 名鉄名古屋駅 南口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1の地下改札内寄り。名鉄名古屋駅の南口付近にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>名鉄南口を目印に進み、ホーム寄りの南側を探すと見つけやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★☆☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1〜B2 改札内 近鉄名古屋駅 地下改札口・JR乗換口付近</h3><dl class="kv">
+      <div class="card" id="nagoya-toilet-10" data-ticket-gate="inside"><div class="card-body"><h3>B1〜B2 改札内 近鉄名古屋駅 地下改札口・JR乗換口付近</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1の地下改札内寄り。近鉄地下改札口からJR乗換口へ向かう側にあるトイレです。</dd></div>
         <div><dt>行き方</dt><dd>近鉄地下改札口かJR乗換口を目印にして、その間の通路側を探すと見つけやすいです。</dd></div>
-        <div><dt>トイレのきれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの新しさ</dt><dd>普通</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <p class="muted" style="margin-top:12px;">Photo: Tomio344456 / CC BY-SA 4.0</p>
-    </div>
-  </main>
+      <section class="station-report" id="station-report">
+        <span class="seal">情</span>
+        <div>
+          <p>INFORMATION</p>
+          <h2>情報提供・修正依頼</h2>
+          <span>場所や設備の違いを見つけた場合は、確認後に情報へ反映します。</span>
+        </div>
+        <a
+          class="report-link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfE1SurrAHd1WChl5tdb-YxDUAkNixC5WMAzJnIw90-zG3ErQ/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >入力フォームへ →</a>
+      </section>
+    </div></main>
+  <footer><strong>腹痛持ちのための駅トイレマップ</strong><span>名古屋駅 / 駅案内 × 日本庭園</span></footer>
 
   <script>
   (() => {
@@ -139,7 +235,12 @@
       sortWrap.className = "sort-menu-wrap";
       sortWrap.style.position = "relative";
       sortWrap.style.display = "inline-flex";
-      sortControls.insertBefore(sortWrap, sortControls.firstChild);
+      const controlLabel = sortControls.querySelector(".control-label");
+      if (controlLabel) {
+        controlLabel.insertAdjacentElement("afterend", sortWrap);
+      } else {
+        sortControls.insertBefore(sortWrap, sortControls.firstChild);
+      }
     }
 
     let sortButton = sortWrap.querySelector(".sort-menu-button");
@@ -189,7 +290,7 @@
         itemButton.addEventListener("click", () => {
           sortSelect.value = item.value;
           syncSortMenu();
-          sortCards(sortSelect.value);
+          animateSort(sortSelect.value);
           sortMenu.hidden = true;
           sortButton.setAttribute("aria-expanded", "false");
         });
@@ -242,10 +343,6 @@
       newness: (card) => toNewnessScore(getMetricValue(card, "トイレの新しさ"))
     };
 
-    const photoCredit = Array.from(container.children).find((el) =>
-      el.tagName === "P" && el.classList.contains("muted") && el.style.marginTop === "12px"
-    );
-
     const sortCards = (mode) => {
       const getter = scoreByMode[mode] || scoreByMode.recommend;
       const sorted = [...cards].sort((a, b) => {
@@ -254,13 +351,41 @@
         return (originalOrder.get(a) || 0) - (originalOrder.get(b) || 0);
       });
 
+      const listEndAnchor = container.querySelector(
+        ":scope > .station-report, :scope > .photo-credit"
+      );
       for (const card of sorted) {
-        if (photoCredit) {
-          container.insertBefore(card, photoCredit);
-        } else {
-          container.appendChild(card);
-        }
+        container.insertBefore(card, listEndAnchor);
       }
+    };
+
+    let sortAnimationToken = 0;
+    const animateSort = (mode) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        sortCards(mode);
+        return;
+      }
+
+      const token = ++sortAnimationToken;
+      const visibleCards = cards.filter((card) => !card.hidden);
+      visibleCards.forEach((card) => {
+        card.classList.remove("is-sorting-in");
+        card.classList.add("is-sorting-out");
+      });
+
+      window.setTimeout(() => {
+        if (token !== sortAnimationToken) return;
+        sortCards(mode);
+        visibleCards.forEach((card) => {
+          card.classList.remove("is-sorting-out");
+          card.classList.add("is-sorting-in");
+        });
+
+        window.setTimeout(() => {
+          if (token !== sortAnimationToken) return;
+          visibleCards.forEach((card) => card.classList.remove("is-sorting-in"));
+        }, 130);
+      }, 70);
     };
 
     const syncSortMenu = () => {
@@ -272,6 +397,8 @@
         button.style.background = isActive ? "#0f172a" : "transparent";
         button.style.color = isActive ? "#ffffff" : "#0f172a";
       });
+      const activeItem = sortItems.find((item) => item.value === sortSelect.value);
+      sortButton.textContent = `${activeItem?.label || "並び替え"} ▼`;
     };
 
     sortButton.addEventListener("click", () => {
@@ -299,7 +426,7 @@
 
     sortSelect.addEventListener("change", () => {
       syncSortMenu();
-      sortCards(sortSelect.value);
+      animateSort(sortSelect.value);
     });
 
     syncSortMenu();
@@ -350,7 +477,9 @@
       : "/stations/" + (location.pathname.split("/").pop() || "TODO.html");
     const pageUrl = BASE_URL + pagePath;
     const container = document.querySelector("main .container");
-    const stationCardsOnPage = Array.from(document.querySelectorAll(".container > .card"));
+    const stationCardsOnPage = Array.from(
+      document.querySelectorAll(".container > .card")
+    );
     const photoCredit = Array.from(container?.children || []).find((el) =>
       el.tagName === "P" && el.classList.contains("muted") && el.style.marginTop === "12px"
     );
@@ -367,7 +496,9 @@
         return null;
       }
 
-      let controls = container.querySelector(":scope > .sort-controls");
+      let controls = container.querySelector(
+        ".list-toolbar .sort-controls, :scope > .sort-controls"
+      );
       if (!controls) {
         controls = document.createElement("div");
         controls.className = "sort-controls";
@@ -613,11 +744,9 @@
   });
 })();
 </script>
+<script src="../action-usage-client.js"></script>
 <script src="../station-view-client.js"></script>
 </body>
 </html>
-
-
-
 
 
