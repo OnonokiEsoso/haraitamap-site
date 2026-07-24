@@ -1,0 +1,948 @@
+:root {
+  --forest: #173c31;
+  --forest-dark: #0d2821;
+  --moss: #617b5e;
+  --moss-light: #9eae8c;
+  --washi: #f4f0e4;
+  --sand: #e4ddc9;
+  --ink: #17231d;
+  --muted: #657068;
+  --line: #b7b8aa;
+  --seal: #a64b38;
+  --white: #fffdf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.station-page-tokyo {
+  margin: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(69, 83, 72, 0.035) 0,
+      rgba(69, 83, 72, 0.035) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    var(--washi);
+  color: var(--ink);
+  font-family:
+    "Yu Gothic", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", sans-serif;
+}
+
+.station-page-tokyo button,
+.station-page-tokyo input,
+.station-page-tokyo select {
+  font: inherit;
+}
+
+.station-page-tokyo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.station-page-tokyo [hidden] {
+  display: none !important;
+}
+
+.station-page-tokyo .container {
+  width: min(1180px, calc(100% - 40px));
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.station-page-tokyo .site-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  border: 0;
+  border-bottom: 5px solid #7f765e;
+  border-radius: 0;
+  background: var(--forest);
+  color: var(--white);
+  box-shadow: none;
+}
+
+.station-page-tokyo .header-inner {
+  display: flex;
+  min-height: 78px;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.station-page-tokyo .brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.station-page-tokyo .brand-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.24));
+}
+
+.station-page-tokyo .enso-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  place-items: center;
+  border: 5px solid var(--washi);
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.station-page-tokyo .enso-mark span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--moss-light);
+}
+
+.station-page-tokyo .brand-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.station-page-tokyo .brand-copy small {
+  color: #b9c7b8;
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.station-page-tokyo .brand-copy strong {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.station-page-tokyo .nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.station-page-tokyo .nav a {
+  display: flex;
+  min-width: 108px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  background: transparent;
+  color: var(--white);
+  padding: 0 12px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.station-page-tokyo .nav a:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.station-page-tokyo .nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.station-page-tokyo .nav a > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  font-size: 0.58rem;
+}
+
+.station-page-tokyo .nav .nav-accent > span {
+  border-color: var(--seal);
+  background: var(--seal);
+}
+
+.station-page-tokyo main.section {
+  padding: 0;
+}
+
+.station-page-tokyo .breadcrumb {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.station-page-tokyo .breadcrumb a {
+  color: var(--forest);
+}
+
+.station-page-tokyo .section-head.station-title {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 190px;
+  min-height: 210px;
+  align-items: stretch;
+  margin: 0 0 28px;
+  overflow: hidden;
+  border: 1px solid #858b81;
+  border-top: 8px solid #75674e;
+  border-radius: 0;
+  background:
+    radial-gradient(
+      ellipse at 100% 0,
+      transparent 0 78px,
+      rgba(99, 122, 91, 0.12) 79px 81px,
+      transparent 82px 102px,
+      rgba(99, 122, 91, 0.1) 103px 105px,
+      transparent 106px
+    ),
+    rgba(255, 253, 247, 0.84);
+  padding: 0;
+  box-shadow: 0 18px 45px rgba(28, 47, 39, 0.09);
+}
+
+.station-page-tokyo .station-plaque {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 20px 18px;
+  background: var(--forest);
+  color: #fff;
+}
+
+.station-page-tokyo .station-plaque > span {
+  color: #b7c5b5;
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.station-page-tokyo .station-plaque h2 {
+  margin: auto 0;
+  color: #fff;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 2rem;
+  line-height: 1.35;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.09em;
+}
+
+.station-page-tokyo .station-plaque b {
+  font-family: Georgia, serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.14em;
+}
+
+.station-page-tokyo .station-title-copy {
+  display: grid;
+  align-content: center;
+  padding: 30px 34px;
+}
+
+.station-page-tokyo .station-title-copy > p,
+.station-page-tokyo .overview-heading p,
+.station-page-tokyo .list-heading p,
+.station-page-tokyo .station-report p {
+  margin: 0 0 4px;
+  color: #748078;
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.station-page-tokyo .station-title-copy h1,
+.station-page-tokyo .overview-heading h2,
+.station-page-tokyo .list-heading h2,
+.station-page-tokyo .station-report h2 {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  letter-spacing: 0.06em;
+}
+
+.station-page-tokyo .station-title-copy h1 {
+  font-size: clamp(1.75rem, 4vw, 2.85rem);
+}
+
+.station-page-tokyo .station-lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 22px;
+}
+
+.station-page-tokyo .station-lines span {
+  border: 1px solid #a8afa6;
+  background: rgba(228, 221, 201, 0.42);
+  color: #4e5e54;
+  padding: 5px 9px;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.station-page-tokyo .back-to-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-left: 1px solid var(--line);
+  color: var(--forest);
+  padding: 24px;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.station-page-tokyo .back-to-search:hover {
+  background: rgba(97, 123, 94, 0.09);
+}
+
+.station-page-tokyo .station-overview {
+  margin: 0 0 42px;
+  border-top: 1px solid #9da39b;
+  border-bottom: 1px solid #9da39b;
+}
+
+.station-page-tokyo .overview-heading {
+  display: flex;
+  min-height: 84px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.station-page-tokyo .section-number,
+.station-page-tokyo .seal {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 2px solid #7a352a;
+  background: var(--seal);
+  color: #fff7ea;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.station-page-tokyo .overview-grid {
+  display: grid;
+  grid-template-columns: 0.65fr 1.2fr 1.35fr;
+  border-top: 1px solid var(--line);
+}
+
+.station-page-tokyo .overview-grid > div {
+  min-height: 155px;
+  border-right: 1px solid var(--line);
+  padding: 22px;
+}
+
+.station-page-tokyo .overview-grid > div:last-child {
+  border-right: 0;
+}
+
+.station-page-tokyo .overview-grid span {
+  color: var(--moss);
+  font-size: 0.63rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.station-page-tokyo .overview-grid strong {
+  display: block;
+  margin-top: 10px;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.15rem;
+}
+
+.station-page-tokyo .overview-count strong {
+  color: var(--forest);
+  font-family: Georgia, serif;
+  font-size: 2.7rem;
+  line-height: 1;
+}
+
+.station-page-tokyo .overview-count strong small {
+  margin-left: 5px;
+  font-family: "Yu Gothic", sans-serif;
+  font-size: 0.68rem;
+}
+
+.station-page-tokyo .overview-grid p {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.75;
+}
+
+.station-page-tokyo .best-pick {
+  position: relative;
+  display: block;
+  background: rgba(97, 123, 94, 0.08);
+  transition:
+    background 140ms ease,
+    color 140ms ease;
+}
+
+.station-page-tokyo .best-pick b {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--forest);
+  font-size: 0.66rem;
+  font-weight: 900;
+}
+
+.station-page-tokyo .best-pick:hover {
+  background: rgba(97, 123, 94, 0.16);
+}
+
+.station-page-tokyo .list-toolbar {
+  position: sticky;
+  z-index: 20;
+  top: 83px;
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 20px;
+  scroll-margin-top: 100px;
+  border: 1px solid #939a91;
+  border-left: 7px solid var(--moss);
+  background: rgba(255, 253, 247, 0.96);
+  padding: 10px 14px;
+  box-shadow: 0 8px 24px rgba(28, 47, 39, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.station-page-tokyo .list-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.station-page-tokyo .list-heading h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+}
+
+.station-page-tokyo .list-number {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border: 1px solid var(--moss);
+  border-radius: 50%;
+  color: var(--forest);
+  font-family: Georgia, serif;
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.station-page-tokyo .sort-controls {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  min-height: 0;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.station-page-tokyo .sort-controls select,
+.station-page-tokyo .sort-controls .btn,
+.station-page-tokyo .sort-menu-button,
+.station-page-tokyo #ticket-gate-filter-button {
+  min-height: 42px;
+  border: 1px solid var(--forest) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--forest) !important;
+  padding: 0 14px !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  box-shadow: none !important;
+}
+
+.station-page-tokyo .sort-menu-wrap,
+.station-page-tokyo .ticket-gate-filter-wrap {
+  margin-left: 0 !important;
+}
+
+.station-page-tokyo .sort-menu-dropdown,
+.station-page-tokyo #ticket-gate-filter-menu {
+  overflow: hidden;
+  min-width: 175px !important;
+  border: 1px solid #858b81 !important;
+  border-radius: 0 !important;
+  background: var(--white) !important;
+  padding: 5px !important;
+  box-shadow: 0 14px 32px rgba(28, 47, 39, 0.14) !important;
+}
+
+.station-page-tokyo .sort-menu-dropdown button,
+.station-page-tokyo #ticket-gate-filter-menu button {
+  border-radius: 0 !important;
+  color: var(--ink);
+  font-size: 0.72rem;
+}
+
+.station-page-tokyo .sort-menu-dropdown button[aria-checked="true"],
+.station-page-tokyo #ticket-gate-filter-menu button[aria-checked="true"] {
+  background: var(--forest) !important;
+  color: #fff !important;
+}
+
+.station-page-tokyo .container > .card.is-sorting-out {
+  opacity: 0;
+  transition: opacity 70ms ease-out;
+}
+
+.station-page-tokyo .container > .card.is-sorting-in {
+  animation: toilet-card-return 130ms ease-out both;
+}
+
+@keyframes toilet-card-return {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.station-page-tokyo .container > .card {
+  position: relative;
+  display: grid;
+  min-height: 0;
+  margin: 0 0 26px;
+  overflow: hidden;
+  border: 1px solid #858d83;
+  border-top: 6px solid #75674e;
+  border-left: 8px solid var(--moss);
+  border-radius: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(97, 123, 94, 0.07),
+      transparent 28%,
+      rgba(97, 123, 94, 0.04)
+    ),
+    rgba(255, 253, 247, 0.94);
+  box-shadow:
+    0 4px 0 rgba(117, 103, 78, 0.13),
+    0 16px 32px rgba(28, 47, 39, 0.1);
+  scroll-margin-top: 180px;
+}
+
+.station-page-tokyo .container > .card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 88px;
+  min-height: 35px;
+  place-items: center;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.station-page-tokyo .container > .card[data-ticket-gate="inside"]::before {
+  content: "改札内";
+  background: var(--forest);
+}
+
+.station-page-tokyo .container > .card[data-ticket-gate="outside"]::before {
+  content: "改札外";
+  background: #75674e;
+}
+
+.station-page-tokyo .card-body {
+  padding: 0;
+}
+
+.station-page-tokyo .card h3 {
+  min-height: 72px;
+  margin: 0;
+  border-bottom: 2px solid #a9aea4;
+  background:
+    linear-gradient(90deg, rgba(97, 123, 94, 0.12), transparent 55%),
+    rgba(244, 240, 228, 0.76);
+  color: var(--ink);
+  padding: 22px 24px 16px 112px;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.station-page-tokyo .kv {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+}
+
+.station-page-tokyo .kv > div {
+  display: block;
+  min-height: 86px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 15px 16px;
+}
+
+.station-page-tokyo .kv > div:nth-child(1),
+.station-page-tokyo .kv > div:nth-child(2) {
+  grid-column: span 5;
+  min-height: 0;
+  border-right: 0;
+}
+
+.station-page-tokyo .kv > div:nth-child(2) {
+  background: rgba(97, 123, 94, 0.06);
+}
+
+.station-page-tokyo .kv > div:last-child {
+  border-right: 0;
+}
+
+.station-page-tokyo .kv dt {
+  margin: 0 0 7px;
+  color: var(--moss);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+}
+
+.station-page-tokyo .kv > div:nth-child(n + 3) dt {
+  font-size: 0.74rem;
+}
+
+.station-page-tokyo .kv dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.75;
+}
+
+.station-page-tokyo .kv > div:nth-child(n + 3) dd {
+  color: var(--forest);
+  font-family: Georgia, "Yu Gothic", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.station-page-tokyo .photo-credit {
+  color: var(--muted);
+  font-size: 0.62rem;
+  text-align: right;
+}
+
+.station-page-tokyo .station-report {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  margin: 46px 0 72px;
+  scroll-margin-top: 100px;
+  border: 1px solid #8e958c;
+  border-top: 7px solid #75674e;
+  background: rgba(255, 253, 247, 0.8);
+  padding: 22px 24px;
+}
+
+.station-page-tokyo .station-report > div > span {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.station-page-tokyo .station-report .report-link {
+  display: grid;
+  min-height: 46px;
+  place-items: center;
+  border: 1px solid var(--forest);
+  border-radius: 0;
+  background: var(--forest);
+  color: #fff;
+  padding: 0 18px;
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.station-page-tokyo footer {
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 6px solid #75674e;
+  background: var(--forest-dark);
+  color: #d9e0d6;
+  padding: 20px max(20px, calc((100% - 1180px) / 2));
+}
+
+.station-page-tokyo footer strong {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.station-page-tokyo footer span {
+  color: #91a093;
+  font-size: 0.66rem;
+}
+
+.station-page-tokyo button:focus-visible,
+.station-page-tokyo a:focus-visible,
+.station-page-tokyo select:focus-visible {
+  outline: 3px solid #d5a554;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .station-page-tokyo .nav a {
+    min-width: 92px;
+  }
+
+  .station-page-tokyo .section-head.station-title {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .station-page-tokyo .back-to-search {
+    grid-column: 1 / -1;
+    min-height: 54px;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    padding: 14px 20px;
+  }
+
+  .station-page-tokyo .overview-grid {
+    grid-template-columns: 0.7fr 1.3fr;
+  }
+
+  .station-page-tokyo .station-caution {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 720px) {
+  .station-page-tokyo .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .station-page-tokyo .header-inner {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .station-page-tokyo .brand {
+    padding-bottom: 10px;
+  }
+
+  .station-page-tokyo .nav {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+  }
+
+  .station-page-tokyo .nav a {
+    min-width: 0;
+    min-height: 42px;
+    flex: 1;
+    border-right: 1px solid rgba(255, 255, 255, 0.13);
+    font-size: 0.68rem;
+  }
+
+  .station-page-tokyo .breadcrumb {
+    min-height: 40px;
+  }
+
+  .station-page-tokyo .section-head.station-title {
+    grid-template-columns: 82px minmax(0, 1fr);
+    min-height: 165px;
+    margin-bottom: 20px;
+  }
+
+  .station-page-tokyo .station-plaque {
+    padding: 13px 9px;
+  }
+
+  .station-page-tokyo .station-plaque h2 {
+    font-size: 1.35rem;
+  }
+
+  .station-page-tokyo .station-title-copy {
+    padding: 20px 16px;
+  }
+
+  .station-page-tokyo .station-title-copy h1 {
+    font-size: 1.55rem;
+  }
+
+  .station-page-tokyo .station-lines {
+    margin-top: 14px;
+  }
+
+  .station-page-tokyo .overview-heading {
+    min-height: 74px;
+  }
+
+  .station-page-tokyo .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .station-page-tokyo .overview-grid > div {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 17px;
+  }
+
+  .station-page-tokyo .station-caution {
+    grid-column: auto;
+    border-top: 0;
+  }
+
+  .station-page-tokyo .list-toolbar {
+    top: 127px;
+    display: grid;
+    grid-template-columns: minmax(108px, 1fr) auto;
+    gap: 8px;
+    min-height: 66px;
+    padding: 8px 9px;
+  }
+
+  .station-page-tokyo .list-heading {
+    gap: 7px;
+  }
+
+  .station-page-tokyo .list-heading h2 {
+    font-size: 1.08rem;
+    white-space: nowrap;
+  }
+
+  .station-page-tokyo .list-heading p {
+    font-size: 0.45rem;
+  }
+
+  .station-page-tokyo .list-number {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    font-size: 0.65rem;
+  }
+
+  .station-page-tokyo .sort-controls {
+    gap: 5px !important;
+  }
+
+  .station-page-tokyo .sort-controls .sort-menu-button,
+  .station-page-tokyo .sort-controls #ticket-gate-filter-button {
+    min-height: 38px;
+    padding: 0 8px !important;
+    font-size: 0.62rem !important;
+    white-space: nowrap;
+  }
+
+  .station-page-tokyo .container > .card {
+    margin-bottom: 20px;
+    border-top-width: 5px;
+    border-left-width: 7px;
+  }
+
+  .station-page-tokyo .card h3 {
+    min-height: 68px;
+    padding: 18px 14px 14px 96px;
+    font-size: 0.95rem;
+  }
+
+  .station-page-tokyo .container > .card::before {
+    width: 76px;
+  }
+
+  .station-page-tokyo .kv {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .station-page-tokyo .kv > div:nth-child(1),
+  .station-page-tokyo .kv > div:nth-child(2) {
+    grid-column: span 2;
+  }
+
+  .station-page-tokyo .kv > div:nth-child(n + 3) {
+    min-height: 78px;
+  }
+
+  .station-page-tokyo .kv > div:nth-child(7) {
+    grid-column: span 2;
+  }
+
+  .station-page-tokyo .station-report {
+    grid-template-columns: 48px 1fr;
+    padding: 18px 15px;
+  }
+
+  .station-page-tokyo .station-report .report-link {
+    grid-column: 1 / -1;
+  }
+
+  .station-page-tokyo footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .station-page-tokyo .brand-copy small {
+    font-size: 0.48rem;
+  }
+
+  .station-page-tokyo .brand-copy strong {
+    font-size: 0.77rem;
+  }
+
+  .station-page-tokyo .nav a {
+    flex-direction: column;
+    gap: 3px;
+    padding: 5px 2px;
+    font-size: 0.61rem;
+  }
+
+  .station-page-tokyo .nav a > span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .station-page-tokyo *,
+  .station-page-tokyo *::before,
+  .station-page-tokyo *::after {
+    scroll-behavior: auto !important;
+  }
+}
