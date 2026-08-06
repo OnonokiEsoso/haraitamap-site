@@ -1,8 +1,11 @@
 (() => {
   const stationPath = window.location.pathname.replace(/\/$/, "");
 
+  const isOmiyaPage = () =>
+    document.body.classList.contains("station-page-omiya");
+
   const simplifyOmiyaCandidateCount = () => {
-    if (!document.body.classList.contains("station-page-omiya")) {
+    if (!isOmiyaPage()) {
       return;
     }
 
@@ -29,7 +32,64 @@
     count.style.letterSpacing = "0.02em";
   };
 
+  const compactOmiyaSiteHeader = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const siteHeader = document.querySelector(".site-header");
+    const headerInner = document.querySelector(".header-inner");
+    const brand = document.querySelector(".brand");
+    const brandIcon = document.querySelector(".brand-icon");
+    const brandSmall = document.querySelector(".brand-copy small");
+    const brandTitle = document.querySelector(".brand-copy strong");
+    const navLinks = document.querySelectorAll(".nav a");
+    const navNumbers = document.querySelectorAll(".nav a > span");
+
+    if (!siteHeader || !headerInner) {
+      return;
+    }
+
+    siteHeader.style.borderBottomWidth = "3px";
+    headerInner.style.minHeight = "58px";
+    headerInner.style.gap = "12px";
+
+    if (brand) {
+      brand.style.gap = "9px";
+    }
+
+    if (brandIcon) {
+      brandIcon.style.width = "38px";
+      brandIcon.style.height = "38px";
+      brandIcon.style.flexBasis = "38px";
+    }
+
+    if (brandSmall) {
+      brandSmall.style.fontSize = "0.48rem";
+      brandSmall.style.letterSpacing = "0.12em";
+    }
+
+    if (brandTitle) {
+      brandTitle.style.fontSize = "0.82rem";
+      brandTitle.style.letterSpacing = "0.04em";
+    }
+
+    navLinks.forEach((link) => {
+      link.style.minWidth = "92px";
+      link.style.gap = "6px";
+      link.style.padding = "0 9px";
+      link.style.fontSize = "0.7rem";
+    });
+
+    navNumbers.forEach((number) => {
+      number.style.width = "21px";
+      number.style.height = "21px";
+      number.style.fontSize = "0.5rem";
+    });
+  };
+
   simplifyOmiyaCandidateCount();
+  compactOmiyaSiteHeader();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
