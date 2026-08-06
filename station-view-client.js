@@ -92,8 +92,23 @@
     });
   };
 
+  const removeOmiyaSectionNumbers = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    document
+      .querySelectorAll(".list-number, .section-number")
+      .forEach((number) => number.remove());
+
+    document.querySelectorAll(".list-heading").forEach((heading) => {
+      heading.style.gap = "0";
+    });
+  };
+
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
+  removeOmiyaSectionNumbers();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
