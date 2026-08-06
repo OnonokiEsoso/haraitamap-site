@@ -1,64 +1,6 @@
 (() => {
   const stationPath = window.location.pathname.replace(/\/$/, "");
 
-  const compactOmiyaLayout = () => {
-    if (!document.body.classList.contains("station-page-omiya")) {
-      return;
-    }
-
-    const breadcrumb = document.querySelector(".breadcrumb");
-    const title = document.querySelector(".section-head.station-title");
-    const plaque = document.querySelector(".station-plaque");
-    const plaqueTitle = plaque?.querySelector("h2");
-    const titleCopy = document.querySelector(".station-title-copy");
-    const titleHeading = titleCopy?.querySelector("h1");
-    const stationLines = document.querySelector(".station-lines");
-    const backToSearch = document.querySelector(".back-to-search");
-
-    if (breadcrumb) {
-      breadcrumb.style.minHeight = "32px";
-    }
-
-    if (title) {
-      title.style.gridTemplateColumns = "112px minmax(0, 1fr) 150px";
-      title.style.minHeight = "132px";
-      title.style.marginBottom = "12px";
-      title.style.borderTopWidth = "5px";
-    }
-
-    if (plaque) {
-      plaque.style.padding = "10px 14px";
-    }
-
-    if (plaqueTitle) {
-      plaqueTitle.style.fontSize = "1.55rem";
-      plaqueTitle.style.lineHeight = "1.15";
-    }
-
-    if (titleCopy) {
-      titleCopy.style.padding = "14px 20px";
-    }
-
-    if (titleHeading) {
-      titleHeading.style.fontSize = "clamp(1.45rem, 3vw, 2.15rem)";
-      titleHeading.style.lineHeight = "1.2";
-    }
-
-    if (stationLines) {
-      stationLines.style.marginTop = "10px";
-      stationLines.style.gap = "4px";
-    }
-
-    stationLines?.querySelectorAll("span").forEach((line) => {
-      line.style.padding = "3px 7px";
-      line.style.fontSize = "0.6rem";
-    });
-
-    if (backToSearch) {
-      backToSearch.style.padding = "14px";
-    }
-  };
-
   const simplifyOmiyaCandidateCount = () => {
     if (!document.body.classList.contains("station-page-omiya")) {
       return;
@@ -87,7 +29,6 @@
     count.style.letterSpacing = "0.02em";
   };
 
-  compactOmiyaLayout();
   simplifyOmiyaCandidateCount();
 
   const stationName =
