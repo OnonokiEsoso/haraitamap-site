@@ -43,6 +43,7 @@
     const brandIcon = document.querySelector(".brand-icon");
     const brandSmall = document.querySelector(".brand-copy small");
     const brandTitle = document.querySelector(".brand-copy strong");
+    const nav = document.querySelector(".nav");
     const navLinks = document.querySelectorAll(".nav a");
     const navNumbers = document.querySelectorAll(".nav a > span");
 
@@ -74,17 +75,20 @@
       brandTitle.style.letterSpacing = "0.04em";
     }
 
-    navLinks.forEach((link) => {
-      link.style.minWidth = "92px";
-      link.style.gap = "6px";
-      link.style.padding = "0 9px";
-      link.style.fontSize = "0.7rem";
-    });
+    navNumbers.forEach((number) => number.remove());
 
-    navNumbers.forEach((number) => {
-      number.style.width = "21px";
-      number.style.height = "21px";
-      number.style.fontSize = "0.5rem";
+    if (nav) {
+      nav.style.gap = "0";
+    }
+
+    navLinks.forEach((link) => {
+      link.style.width = "96px";
+      link.style.minWidth = "96px";
+      link.style.gap = "0";
+      link.style.padding = "0 8px";
+      link.style.fontSize = "0.72rem";
+      link.style.textAlign = "center";
+      link.style.whiteSpace = "nowrap";
     });
   };
 
