@@ -21,12 +21,12 @@
     countBox.style.alignItems = "center";
     countBox.style.justifyContent = "center";
     countBox.style.minHeight = "0";
-    countBox.style.padding = "18px 20px";
+    countBox.style.padding = "8px 14px";
 
     count.style.margin = "0";
-    count.style.fontSize = "1.15rem";
-    count.style.lineHeight = "1.4";
-    count.style.letterSpacing = "0.04em";
+    count.style.fontSize = "0.9rem";
+    count.style.lineHeight = "1.2";
+    count.style.letterSpacing = "0.02em";
   };
 
   simplifyOmiyaCandidateCount();
