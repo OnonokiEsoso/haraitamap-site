@@ -77,6 +77,56 @@
     }
   };
 
+  const simplifyOmiyaStationTitle = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const title = document.querySelector(".section-head.station-title");
+    const plaque = title?.querySelector(".station-plaque");
+    const label = plaque?.querySelector(":scope > span");
+    const stationName = plaque?.querySelector("h2");
+    const code = plaque?.querySelector("b");
+
+    if (!title || !plaque || !stationName) {
+      return;
+    }
+
+    title.querySelector(".station-title-copy")?.remove();
+    title.querySelector(".back-to-search")?.remove();
+
+    title.style.display = "block";
+    title.style.minHeight = "0";
+    title.style.marginBottom = "14px";
+    title.style.borderTopWidth = "5px";
+
+    plaque.style.display = "grid";
+    plaque.style.gridTemplateColumns = "auto 1fr auto";
+    plaque.style.alignItems = "center";
+    plaque.style.gap = "14px";
+    plaque.style.minHeight = "64px";
+    plaque.style.padding = "10px 16px";
+
+    if (label) {
+      label.style.fontSize = "0.52rem";
+      label.style.letterSpacing = "0.14em";
+      label.style.whiteSpace = "nowrap";
+    }
+
+    stationName.style.margin = "0";
+    stationName.style.fontSize = "1.35rem";
+    stationName.style.lineHeight = "1.2";
+    stationName.style.writingMode = "horizontal-tb";
+    stationName.style.letterSpacing = "0.08em";
+    stationName.style.textAlign = "center";
+
+    if (code) {
+      code.style.fontSize = "0.78rem";
+      code.style.letterSpacing = "0.12em";
+      code.style.whiteSpace = "nowrap";
+    }
+  };
+
   const removeOmiyaSectionNumbers = () => {
     if (!isOmiyaPage()) {
       return;
@@ -93,6 +143,7 @@
 
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
+  simplifyOmiyaStationTitle();
   removeOmiyaSectionNumbers();
 
   const stationName =
