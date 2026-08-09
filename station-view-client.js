@@ -214,7 +214,7 @@
       buttons.forEach((button) => {
         const active = selected.has(button.dataset.gate);
         button.setAttribute("aria-pressed", active ? "true" : "false");
-        button.style.background = active ? "#173c31" : "transparent";
+        button.style.background = active ? "#6f8f79" : "#fffdf7";
         button.style.color = active ? "#ffffff" : "#173c31";
         button.style.border = "1px solid #173c31";
         button.style.minHeight = "38px";
@@ -271,14 +271,15 @@
     }
 
     bestPick.style.border = "2px solid #173c31";
-    bestPick.style.boxShadow = "0 8px 22px rgba(23, 60, 49, 0.18)";
+    bestPick.style.boxShadow = "0 6px 16px rgba(23, 60, 49, 0.12)";
     bestPick.style.background = "#fffdf7";
 
-    inner.style.borderLeftWidth = "9px";
-    inner.style.background = "linear-gradient(90deg, rgba(23, 60, 49, 0.12), rgba(255, 253, 247, 0.98) 48%)";
+    inner.style.borderLeftWidth = "7px";
+    inner.style.borderLeftColor = "#173c31";
+    inner.style.background = "#f7f4e9";
 
-    labelRow.style.background = "#173c31";
-    labelRow.style.borderBottom = "0";
+    labelRow.style.background = "#6f8f79";
+    labelRow.style.borderBottom = "1px solid #173c31";
     labelRow.style.padding = "12px 14px";
 
     label.textContent = "まず確認したい候補";
@@ -289,9 +290,9 @@
 
     if (badge) {
       badge.textContent = "おすすめ";
-      badge.style.border = "1px solid rgba(255,255,255,0.72)";
-      badge.style.background = "rgba(255,255,255,0.12)";
-      badge.style.color = "#ffffff";
+      badge.style.border = "1px solid #173c31";
+      badge.style.background = "#fffdf7";
+      badge.style.color = "#173c31";
       badge.style.fontSize = "0.62rem";
       badge.style.fontWeight = "900";
       badge.style.padding = "4px 8px";
