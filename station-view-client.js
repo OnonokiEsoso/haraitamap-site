@@ -92,12 +92,14 @@
       return;
     }
 
+    document.querySelector(".breadcrumb")?.remove();
     title.querySelector(".station-title-copy")?.remove();
     title.querySelector(".back-to-search")?.remove();
 
     title.style.display = "block";
     title.style.minHeight = "0";
-    title.style.marginBottom = "14px";
+    title.style.marginTop = "0";
+    title.style.marginBottom = "0";
     title.style.borderTopWidth = "5px";
 
     plaque.style.display = "grid";
@@ -125,6 +127,28 @@
       code.style.letterSpacing = "0.12em";
       code.style.whiteSpace = "nowrap";
     }
+
+    let reSearch = title.nextElementSibling;
+    if (!reSearch || !reSearch.classList.contains("omiya-research")) {
+      reSearch = document.createElement("a");
+      reSearch.className = "omiya-research";
+      reSearch.href = "../index.html";
+      reSearch.innerHTML = '<span>再検索</span><b aria-hidden="true">→</b>';
+      title.insertAdjacentElement("afterend", reSearch);
+    }
+
+    reSearch.style.display = "flex";
+    reSearch.style.alignItems = "center";
+    reSearch.style.justifyContent = "space-between";
+    reSearch.style.minHeight = "44px";
+    reSearch.style.margin = "0 0 14px";
+    reSearch.style.border = "1px solid #858b81";
+    reSearch.style.borderTop = "0";
+    reSearch.style.background = "rgba(255, 253, 247, 0.84)";
+    reSearch.style.color = "#173c31";
+    reSearch.style.padding = "0 16px";
+    reSearch.style.fontSize = "0.78rem";
+    reSearch.style.fontWeight = "900";
   };
 
   const removeOmiyaSectionNumbers = () => {
