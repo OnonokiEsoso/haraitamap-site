@@ -214,21 +214,14 @@
       buttons.forEach((button) => {
         const active = selected.has(button.dataset.gate);
         button.setAttribute("aria-pressed", active ? "true" : "false");
-        button.textContent = `${active ? "✓ " : ""}${button.dataset.gate === "inside" ? "改札内" : "改札外"}`;
-        button.style.background = active ? "#173c31" : "#fffdf7";
+        button.style.background = active ? "#173c31" : "transparent";
         button.style.color = active ? "#ffffff" : "#173c31";
-        button.style.border = "2px solid #173c31";
-        button.style.borderRadius = "10px";
-        button.style.minHeight = "42px";
-        button.style.padding = "0 14px";
-        button.style.fontSize = "0.74rem";
+        button.style.border = "1px solid #173c31";
+        button.style.minHeight = "38px";
+        button.style.padding = "0 12px";
+        button.style.fontSize = "0.72rem";
         button.style.fontWeight = "900";
         button.style.cursor = "pointer";
-        button.style.boxShadow = active
-          ? "inset 0 -2px 0 rgba(0, 0, 0, 0.2), 0 2px 4px rgba(23, 60, 49, 0.18)"
-          : "0 2px 0 rgba(23, 60, 49, 0.18)";
-        button.style.transform = "translateY(0)";
-        button.style.transition = "transform 90ms ease, box-shadow 90ms ease, background 90ms ease";
       });
 
       cards.forEach((card) => {
@@ -237,21 +230,10 @@
     };
 
     controls.style.display = "inline-flex";
-    controls.style.gap = "8px";
+    controls.style.gap = "6px";
     controls.style.flexShrink = "0";
 
     buttons.forEach((button) => {
-      button.addEventListener("pointerdown", () => {
-        button.style.transform = "translateY(1px)";
-        button.style.boxShadow = "none";
-      });
-      const release = () => {
-        button.style.transform = "translateY(0)";
-      };
-      button.addEventListener("pointerup", release);
-      button.addEventListener("pointercancel", release);
-      button.addEventListener("pointerleave", release);
-
       button.addEventListener("click", () => {
         const value = button.dataset.gate;
         const isOnlySelected = selected.size === 1 && selected.has(value);
