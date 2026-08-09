@@ -368,6 +368,21 @@
     });
   };
 
+  const cleanOmiyaPublicCopy = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const footerDetail = document.querySelector("footer span");
+    if (
+      footerDetail &&
+      (footerDetail.textContent.includes("駅案内") ||
+        footerDetail.textContent.includes("日本庭園"))
+    ) {
+      footerDetail.remove();
+    }
+  };
+
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
   simplifyOmiyaStationTitle();
@@ -375,6 +390,7 @@
   setupOmiyaTicketGateButtons();
   emphasizeOmiyaBestPick();
   compactOmiyaRatings();
+  cleanOmiyaPublicCopy();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
