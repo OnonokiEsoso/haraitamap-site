@@ -383,6 +383,22 @@
     }
   };
 
+  const simplifyOmiyaReport = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const report = document.querySelector("#station-report.station-report");
+    if (!report) {
+      return;
+    }
+
+    report.querySelector(".seal")?.remove();
+
+    const copy = report.querySelector(":scope > div");
+    copy?.querySelector(":scope > span")?.remove();
+  };
+
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
   simplifyOmiyaStationTitle();
@@ -391,6 +407,7 @@
   emphasizeOmiyaBestPick();
   compactOmiyaRatings();
   cleanOmiyaPublicCopy();
+  simplifyOmiyaReport();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
