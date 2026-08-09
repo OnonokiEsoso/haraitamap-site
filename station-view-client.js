@@ -310,12 +310,69 @@
     action?.remove();
   };
 
+  const compactOmiyaRatings = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const ratingLabels = new Map([
+      ["おすすめ度", "おすすめ度"],
+      ["トイレのきれい度", "きれい度"],
+      ["大期待値", "大期待値"],
+      ["小期待値", "小期待値"],
+      ["トイレの新しさ", "新しさ"]
+    ]);
+
+    document.querySelectorAll(".card .kv").forEach((kv) => {
+      kv.style.display = "block";
+
+      Array.from(kv.children).forEach((row) => {
+        const dt = row.querySelector("dt");
+        const dd = row.querySelector("dd");
+        if (!dt || !dd) {
+          return;
+        }
+
+        const rawLabel = dt.textContent.replace(/\s+/g, "");
+        const shortLabel = ratingLabels.get(rawLabel);
+        if (!shortLabel) {
+          return;
+        }
+
+        dt.textContent = shortLabel;
+        row.style.display = "grid";
+        row.style.gridTemplateColumns = "6.2em minmax(0, 1fr)";
+        row.style.alignItems = "center";
+        row.style.gap = "4px";
+        row.style.minHeight = "0";
+        row.style.margin = "0";
+        row.style.padding = "3px 0";
+        row.style.border = "0";
+        row.style.background = "transparent";
+
+        dt.style.margin = "0";
+        dt.style.padding = "0";
+        dt.style.fontSize = "0.74rem";
+        dt.style.lineHeight = "1.35";
+        dt.style.fontWeight = "800";
+        dt.style.whiteSpace = "nowrap";
+
+        dd.style.margin = "0";
+        dd.style.padding = "0";
+        dd.style.fontSize = "0.82rem";
+        dd.style.lineHeight = "1.35";
+        dd.style.whiteSpace = "nowrap";
+      });
+    });
+  };
+
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
   simplifyOmiyaStationTitle();
   removeOmiyaSectionNumbers();
   setupOmiyaTicketGateButtons();
   emphasizeOmiyaBestPick();
+  compactOmiyaRatings();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
