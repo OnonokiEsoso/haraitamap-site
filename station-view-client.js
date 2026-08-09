@@ -277,9 +277,9 @@
     inner.style.borderLeftWidth = "9px";
     inner.style.background = "linear-gradient(90deg, rgba(23, 60, 49, 0.12), rgba(255, 253, 247, 0.98) 48%)";
 
-    labelRow.style.background = "#5f7d72";
-    labelRow.style.border = "2px solid #173c31";
-    labelRow.style.padding = "10px 12px";
+    labelRow.style.background = "#173c31";
+    labelRow.style.borderBottom = "0";
+    labelRow.style.padding = "12px 14px";
 
     label.textContent = "まず確認したい候補";
     label.style.color = "#ffffff";
