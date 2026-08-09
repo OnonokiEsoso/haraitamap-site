@@ -44,16 +44,17 @@
     const brandSmall = document.querySelector(".brand-copy small");
     const brandTitle = document.querySelector(".brand-copy strong");
     const nav = document.querySelector(".nav");
-    const navLinks = document.querySelectorAll(".nav a");
-    const navNumbers = document.querySelectorAll(".nav a > span");
 
     if (!siteHeader || !headerInner) {
       return;
     }
 
+    nav?.remove();
+
     siteHeader.style.borderBottomWidth = "3px";
     headerInner.style.minHeight = "58px";
-    headerInner.style.gap = "12px";
+    headerInner.style.gap = "0";
+    headerInner.style.justifyContent = "flex-start";
 
     if (brand) {
       brand.style.gap = "9px";
@@ -74,22 +75,6 @@
       brandTitle.style.fontSize = "0.82rem";
       brandTitle.style.letterSpacing = "0.04em";
     }
-
-    navNumbers.forEach((number) => number.remove());
-
-    if (nav) {
-      nav.style.gap = "0";
-    }
-
-    navLinks.forEach((link) => {
-      link.style.width = "96px";
-      link.style.minWidth = "96px";
-      link.style.gap = "0";
-      link.style.padding = "0 8px";
-      link.style.fontSize = "0.72rem";
-      link.style.textAlign = "center";
-      link.style.whiteSpace = "nowrap";
-    });
   };
 
   const removeOmiyaSectionNumbers = () => {
