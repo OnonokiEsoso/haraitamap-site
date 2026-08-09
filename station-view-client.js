@@ -179,6 +179,10 @@
       return;
     }
 
+    toolbar.style.position = "static";
+    toolbar.style.top = "auto";
+    toolbar.style.zIndex = "auto";
+
     heading.textContent = "一覧";
 
     document.querySelector("#ticket-gate-filter-button")?.closest(".ticket-gate-filter-wrap")?.remove();
