@@ -341,12 +341,12 @@
 
         dt.textContent = shortLabel;
         row.style.display = "grid";
-        row.style.gridTemplateColumns = "6.2em minmax(0, 1fr)";
+        row.style.gridTemplateColumns = "5.8em minmax(0, 1fr)";
         row.style.alignItems = "center";
-        row.style.gap = "4px";
+        row.style.columnGap = "10px";
         row.style.minHeight = "0";
         row.style.margin = "0";
-        row.style.padding = "3px 0";
+        row.style.padding = "4px 0 4px 14px";
         row.style.border = "0";
         row.style.background = "transparent";
 
@@ -356,12 +356,14 @@
         dt.style.lineHeight = "1.35";
         dt.style.fontWeight = "800";
         dt.style.whiteSpace = "nowrap";
+        dt.style.textAlign = "left";
 
         dd.style.margin = "0";
         dd.style.padding = "0";
         dd.style.fontSize = "0.82rem";
         dd.style.lineHeight = "1.35";
         dd.style.whiteSpace = "nowrap";
+        dd.style.letterSpacing = "0.02em";
       });
     });
   };
