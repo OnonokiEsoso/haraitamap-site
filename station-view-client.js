@@ -253,11 +253,62 @@
     sync();
   };
 
+  const emphasizeOmiyaBestPick = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const bestPick = document.querySelector(".best-pick");
+    const inner = bestPick?.querySelector(".best-pick-inner");
+    const labelRow = bestPick?.querySelector(".best-pick-label");
+    const label = labelRow?.querySelector("span");
+    const badge = labelRow?.querySelector("em");
+    const mainTitle = bestPick?.querySelector(".best-pick-main strong");
+
+    if (!bestPick || !inner || !labelRow || !label) {
+      return;
+    }
+
+    bestPick.style.border = "2px solid #173c31";
+    bestPick.style.boxShadow = "0 8px 22px rgba(23, 60, 49, 0.18)";
+    bestPick.style.background = "#fffdf7";
+
+    inner.style.borderLeftWidth = "9px";
+    inner.style.background = "linear-gradient(90deg, rgba(23, 60, 49, 0.12), rgba(255, 253, 247, 0.98) 48%)";
+
+    labelRow.style.background = "#173c31";
+    labelRow.style.borderBottom = "0";
+    labelRow.style.padding = "12px 14px";
+
+    label.textContent = "まず確認したい候補";
+    label.style.color = "#ffffff";
+    label.style.fontSize = "0.86rem";
+    label.style.fontWeight = "900";
+    label.style.letterSpacing = "0.04em";
+
+    if (badge) {
+      badge.textContent = "おすすめ";
+      badge.style.border = "1px solid rgba(255,255,255,0.72)";
+      badge.style.background = "rgba(255,255,255,0.12)";
+      badge.style.color = "#ffffff";
+      badge.style.fontSize = "0.62rem";
+      badge.style.fontWeight = "900";
+      badge.style.padding = "4px 8px";
+    }
+
+    if (mainTitle) {
+      mainTitle.style.fontSize = "1.35rem";
+      mainTitle.style.lineHeight = "1.45";
+      mainTitle.style.fontWeight = "900";
+    }
+  };
+
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
   simplifyOmiyaStationTitle();
   removeOmiyaSectionNumbers();
   setupOmiyaTicketGateButtons();
+  emphasizeOmiyaBestPick();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
