@@ -165,10 +165,99 @@
     });
   };
 
+  const setupOmiyaTicketGateButtons = () => {
+    if (!isOmiyaPage()) {
+      return;
+    }
+
+    const toolbar = document.querySelector("#toilet-list.list-toolbar");
+    const heading = toolbar?.querySelector(".list-heading h2");
+    const sortControls = toolbar?.querySelector(".sort-controls");
+    const cards = Array.from(document.querySelectorAll(".container > .card[data-ticket-gate]"));
+
+    if (!toolbar || !heading || !sortControls || cards.length === 0) {
+      return;
+    }
+
+    heading.textContent = "一覧";
+
+    document.querySelector("#ticket-gate-filter-button")?.closest(".ticket-gate-filter-wrap")?.remove();
+    document.querySelector("#ticket-gate-filter-button")?.remove();
+    document.querySelector("#ticket-gate-filter-menu")?.remove();
+
+    let controls = toolbar.querySelector(".omiya-gate-buttons");
+    if (!controls) {
+      controls = document.createElement("div");
+      controls.className = "omiya-gate-buttons";
+      controls.setAttribute("aria-label", "改札内外フィルター");
+
+      const createButton = (value, label) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.gate = value;
+        button.textContent = label;
+        button.setAttribute("aria-pressed", "true");
+        return button;
+      };
+
+      controls.append(
+        createButton("inside", "改札内"),
+        createButton("outside", "改札外")
+      );
+      sortControls.insertAdjacentElement("afterbegin", controls);
+    }
+
+    const buttons = Array.from(controls.querySelectorAll("button[data-gate]"));
+    let selected = new Set(["inside", "outside"]);
+
+    const sync = () => {
+      buttons.forEach((button) => {
+        const active = selected.has(button.dataset.gate);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+        button.style.background = active ? "#173c31" : "transparent";
+        button.style.color = active ? "#ffffff" : "#173c31";
+        button.style.border = "1px solid #173c31";
+        button.style.minHeight = "38px";
+        button.style.padding = "0 12px";
+        button.style.fontSize = "0.72rem";
+        button.style.fontWeight = "900";
+        button.style.cursor = "pointer";
+      });
+
+      cards.forEach((card) => {
+        card.hidden = !selected.has(card.dataset.ticketGate);
+      });
+    };
+
+    controls.style.display = "inline-flex";
+    controls.style.gap = "6px";
+    controls.style.flexShrink = "0";
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const value = button.dataset.gate;
+        const isOnlySelected = selected.size === 1 && selected.has(value);
+
+        if (selected.size === 2) {
+          selected = new Set([value]);
+        } else if (isOnlySelected) {
+          selected = new Set(["inside", "outside"]);
+        } else {
+          selected = new Set([value]);
+        }
+
+        sync();
+      });
+    });
+
+    sync();
+  };
+
   simplifyOmiyaCandidateCount();
   compactOmiyaSiteHeader();
   simplifyOmiyaStationTitle();
   removeOmiyaSectionNumbers();
+  setupOmiyaTicketGateButtons();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
