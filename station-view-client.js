@@ -289,14 +289,15 @@
       return;
     }
 
-    bestPick.style.border = "2px solid #173c31";
-    bestPick.style.boxShadow = "0 8px 22px rgba(23, 60, 49, 0.18)";
+    bestPick.style.border = "2px solid #7B668C";
+    bestPick.style.boxShadow = "0 8px 22px rgba(123, 102, 140, 0.18)";
     bestPick.style.background = "#fffdf7";
 
     inner.style.borderLeftWidth = "9px";
-    inner.style.background = "linear-gradient(90deg, rgba(23, 60, 49, 0.12), rgba(255, 253, 247, 0.98) 48%)";
+    inner.style.borderLeftColor = "#7B668C";
+    inner.style.background = "linear-gradient(90deg, rgba(123, 102, 140, 0.14), rgba(255, 253, 247, 0.98) 48%)";
 
-    labelRow.style.background = "#173c31";
+    labelRow.style.background = "#7B668C";
     labelRow.style.borderBottom = "0";
     labelRow.style.padding = "12px 14px";
 
@@ -308,8 +309,8 @@
 
     if (badge) {
       badge.textContent = "おすすめ";
-      badge.style.border = "1px solid rgba(255,255,255,0.72)";
-      badge.style.background = "rgba(255,255,255,0.12)";
+      badge.style.border = "1px solid rgba(255,255,255,0.78)";
+      badge.style.background = "rgba(255,255,255,0.14)";
       badge.style.color = "#ffffff";
       badge.style.fontSize = "0.62rem";
       badge.style.fontWeight = "900";
