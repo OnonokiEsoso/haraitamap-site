@@ -179,9 +179,24 @@
       return;
     }
 
-    toolbar.style.position = "static";
+    toolbar.style.position = "relative";
     toolbar.style.top = "auto";
-    toolbar.style.zIndex = "auto";
+    toolbar.style.zIndex = "1000";
+    toolbar.style.overflow = "visible";
+
+    sortControls.style.position = "relative";
+    sortControls.style.zIndex = "1001";
+    sortControls.style.overflow = "visible";
+
+    const sortWrap = sortControls.querySelector(".sort-menu-wrap");
+    const sortMenu = sortControls.querySelector(".sort-menu-dropdown");
+    if (sortWrap) {
+      sortWrap.style.zIndex = "1002";
+      sortWrap.style.overflow = "visible";
+    }
+    if (sortMenu) {
+      sortMenu.style.zIndex = "10000";
+    }
 
     heading.textContent = "一覧";
 
