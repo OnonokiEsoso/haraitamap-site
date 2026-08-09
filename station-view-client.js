@@ -1,24 +1,29 @@
 (() => {
   const stationPath = window.location.pathname.replace(/\/$/, "");
+  const majorStationSlugs = new Set([
+    "tokyo",
+    "shinjuku",
+    "omiya",
+    "yokohama",
+    "nagoya",
+    "kashiwa"
+  ]);
 
-  const isOmiyaPage = () =>
-    document.body.classList.contains("station-page-omiya");
+  const stationSlug = stationPath.split("/").pop()?.replace(/\.html$/i, "") || "";
+  const isMajorStationPage = () => majorStationSlugs.has(stationSlug);
 
-  const simplifyOmiyaCandidateCount = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const simplifyMajorCandidateCount = () => {
+    if (!isMajorStationPage()) return;
 
     const countBox = document.querySelector(".overview-count");
     const count = countBox?.querySelector("strong");
+    const cards = Array.from(document.querySelectorAll(".container > .card"));
 
-    if (!countBox || !count) {
-      return;
-    }
+    if (!countBox || !count || cards.length === 0) return;
 
     countBox.querySelector("span")?.remove();
     countBox.querySelector("p")?.remove();
-    count.textContent = "7ヶ所";
+    count.textContent = `${cards.length}ヶ所`;
 
     countBox.style.display = "flex";
     countBox.style.alignItems = "center";
@@ -32,10 +37,8 @@
     count.style.letterSpacing = "0.02em";
   };
 
-  const compactOmiyaSiteHeader = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const compactMajorSiteHeader = () => {
+    if (!isMajorStationPage()) return;
 
     const siteHeader = document.querySelector(".site-header");
     const headerInner = document.querySelector(".header-inner");
@@ -45,9 +48,7 @@
     const brandTitle = document.querySelector(".brand-copy strong");
     const nav = document.querySelector(".nav");
 
-    if (!siteHeader || !headerInner) {
-      return;
-    }
+    if (!siteHeader || !headerInner) return;
 
     nav?.remove();
 
@@ -56,9 +57,7 @@
     headerInner.style.gap = "0";
     headerInner.style.justifyContent = "flex-start";
 
-    if (brand) {
-      brand.style.gap = "9px";
-    }
+    if (brand) brand.style.gap = "9px";
 
     if (brandIcon) {
       brandIcon.style.width = "38px";
@@ -77,10 +76,8 @@
     }
   };
 
-  const simplifyOmiyaStationTitle = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const simplifyMajorStationTitle = () => {
+    if (!isMajorStationPage()) return;
 
     const title = document.querySelector(".section-head.station-title");
     const plaque = title?.querySelector(".station-plaque");
@@ -88,9 +85,7 @@
     const stationName = plaque?.querySelector("h2");
     const code = plaque?.querySelector("b");
 
-    if (!title || !plaque || !stationName) {
-      return;
-    }
+    if (!title || !plaque || !stationName) return;
 
     document.querySelector(".breadcrumb")?.remove();
     title.querySelector(".station-title-copy")?.remove();
@@ -134,9 +129,9 @@
     }
 
     let reSearch = title.nextElementSibling;
-    if (!reSearch || !reSearch.classList.contains("omiya-research")) {
+    if (!reSearch || !reSearch.classList.contains("station-research")) {
       reSearch = document.createElement("a");
-      reSearch.className = "omiya-research";
+      reSearch.className = "station-research";
       reSearch.href = "../index.html";
       reSearch.innerHTML = '<span>再検索</span><b aria-hidden="true">→</b>';
       title.insertAdjacentElement("afterend", reSearch);
@@ -156,10 +151,8 @@
     reSearch.style.fontWeight = "900";
   };
 
-  const removeOmiyaSectionNumbers = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const removeMajorSectionNumbers = () => {
+    if (!isMajorStationPage()) return;
 
     document
       .querySelectorAll(".list-number, .section-number")
@@ -170,19 +163,17 @@
     });
   };
 
-  const setupOmiyaTicketGateButtons = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const setupMajorTicketGateButtons = () => {
+    if (!isMajorStationPage()) return;
 
     const toolbar = document.querySelector("#toilet-list.list-toolbar");
     const heading = toolbar?.querySelector(".list-heading h2");
     const sortControls = toolbar?.querySelector(".sort-controls");
-    const cards = Array.from(document.querySelectorAll(".container > .card[data-ticket-gate]"));
+    const cards = Array.from(
+      document.querySelectorAll(".container > .card[data-ticket-gate]")
+    );
 
-    if (!toolbar || !heading || !sortControls || cards.length === 0) {
-      return;
-    }
+    if (!toolbar || !heading || !sortControls || cards.length === 0) return;
 
     toolbar.style.position = "relative";
     toolbar.style.top = "auto";
@@ -199,40 +190,46 @@
       sortWrap.style.zIndex = "32";
       sortWrap.style.overflow = "visible";
     }
-    if (sortMenu) {
-      sortMenu.style.zIndex = "40";
-    }
+    if (sortMenu) sortMenu.style.zIndex = "40";
 
     heading.textContent = "一覧";
 
-    document.querySelector("#ticket-gate-filter-button")?.closest(".ticket-gate-filter-wrap")?.remove();
+    document
+      .querySelector("#ticket-gate-filter-button")
+      ?.closest(".ticket-gate-filter-wrap")
+      ?.remove();
     document.querySelector("#ticket-gate-filter-button")?.remove();
     document.querySelector("#ticket-gate-filter-menu")?.remove();
 
-    let controls = toolbar.querySelector(".omiya-gate-buttons");
+    const availableGates = ["inside", "outside"].filter((gate) =>
+      cards.some((card) => card.dataset.ticketGate === gate)
+    );
+
+    let controls = toolbar.querySelector(".station-gate-buttons");
     if (!controls) {
       controls = document.createElement("div");
-      controls.className = "omiya-gate-buttons";
+      controls.className = "station-gate-buttons";
       controls.setAttribute("aria-label", "改札内外フィルター");
 
-      const createButton = (value, label) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.dataset.gate = value;
-        button.textContent = label;
-        button.setAttribute("aria-pressed", "true");
-        return button;
+      const gateLabels = {
+        inside: "改札内",
+        outside: "改札外"
       };
 
-      controls.append(
-        createButton("inside", "改札内"),
-        createButton("outside", "改札外")
-      );
+      availableGates.forEach((gate) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.gate = gate;
+        button.textContent = gateLabels[gate];
+        button.setAttribute("aria-pressed", "true");
+        controls.appendChild(button);
+      });
+
       sortControls.insertAdjacentElement("afterbegin", controls);
     }
 
     const buttons = Array.from(controls.querySelectorAll("button[data-gate]"));
-    let selected = new Set(["inside", "outside"]);
+    let selected = new Set(availableGates);
 
     const sync = () => {
       buttons.forEach((button) => {
@@ -262,10 +259,10 @@
         const value = button.dataset.gate;
         const isOnlySelected = selected.size === 1 && selected.has(value);
 
-        if (selected.size === 2) {
+        if (selected.size === availableGates.length && availableGates.length > 1) {
           selected = new Set([value]);
         } else if (isOnlySelected) {
-          selected = new Set(["inside", "outside"]);
+          selected = new Set(availableGates);
         } else {
           selected = new Set([value]);
         }
@@ -277,10 +274,8 @@
     sync();
   };
 
-  const emphasizeOmiyaBestPick = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const emphasizeMajorBestPick = () => {
+    if (!isMajorStationPage()) return;
 
     const bestPick = document.querySelector(".best-pick");
     const inner = bestPick?.querySelector(".best-pick-inner");
@@ -290,9 +285,7 @@
     const mainTitle = bestPick?.querySelector(".best-pick-main strong");
     const action = bestPick?.querySelector(".best-pick-action");
 
-    if (!bestPick || !inner || !labelRow || !label) {
-      return;
-    }
+    if (!bestPick || !inner || !labelRow || !label) return;
 
     bestPick.style.border = "2px solid #bd86eb";
     bestPick.style.boxShadow = "0 8px 22px rgba(189, 134, 235, 0.2)";
@@ -300,7 +293,8 @@
 
     inner.style.borderLeftWidth = "9px";
     inner.style.borderLeftColor = "#bd86eb";
-    inner.style.background = "linear-gradient(90deg, rgba(189, 134, 235, 0.16), rgba(255, 253, 247, 0.98) 48%)";
+    inner.style.background =
+      "linear-gradient(90deg, rgba(189, 134, 235, 0.16), rgba(255, 253, 247, 0.98) 48%)";
 
     labelRow.style.background = "#bd86eb";
     labelRow.style.borderBottom = "0";
@@ -331,10 +325,8 @@
     action?.remove();
   };
 
-  const compactOmiyaRatings = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const compactMajorRatings = () => {
+    if (!isMajorStationPage()) return;
 
     const ratingLabels = new Map([
       ["おすすめ度", "おすすめ度"],
@@ -350,15 +342,11 @@
       Array.from(kv.children).forEach((row) => {
         const dt = row.querySelector("dt");
         const dd = row.querySelector("dd");
-        if (!dt || !dd) {
-          return;
-        }
+        if (!dt || !dd) return;
 
         const rawLabel = dt.textContent.replace(/\s+/g, "");
         const shortLabel = ratingLabels.get(rawLabel);
-        if (!shortLabel) {
-          return;
-        }
+        if (!shortLabel) return;
 
         dt.textContent = shortLabel;
         row.style.display = "grid";
@@ -389,10 +377,8 @@
     });
   };
 
-  const cleanOmiyaPublicCopy = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const cleanMajorPublicCopy = () => {
+    if (!isMajorStationPage()) return;
 
     const footerDetail = document.querySelector("footer span");
     if (
@@ -404,15 +390,11 @@
     }
   };
 
-  const simplifyOmiyaReport = () => {
-    if (!isOmiyaPage()) {
-      return;
-    }
+  const simplifyMajorReport = () => {
+    if (!isMajorStationPage()) return;
 
     const report = document.querySelector("#station-report.station-report");
-    if (!report) {
-      return;
-    }
+    if (!report) return;
 
     report.querySelector(".seal")?.remove();
 
@@ -461,28 +443,23 @@
     }
   };
 
-  simplifyOmiyaCandidateCount();
-  compactOmiyaSiteHeader();
-  simplifyOmiyaStationTitle();
-  removeOmiyaSectionNumbers();
-  setupOmiyaTicketGateButtons();
-  emphasizeOmiyaBestPick();
-  compactOmiyaRatings();
-  cleanOmiyaPublicCopy();
-  simplifyOmiyaReport();
+  simplifyMajorCandidateCount();
+  compactMajorSiteHeader();
+  simplifyMajorStationTitle();
+  removeMajorSectionNumbers();
+  setupMajorTicketGateButtons();
+  emphasizeMajorBestPick();
+  compactMajorRatings();
+  cleanMajorPublicCopy();
+  simplifyMajorReport();
 
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
 
-  if (!stationName) {
-    return;
-  }
+  if (!stationName) return;
 
   const sessionKey = `station-viewed:${stationPath}`;
-
-  if (sessionStorage.getItem(sessionKey)) {
-    return;
-  }
+  if (sessionStorage.getItem(sessionKey)) return;
 
   fetch("/api/station-view", {
     method: "POST",
@@ -499,7 +476,6 @@
       if (!response.ok) {
         throw new Error(`閲覧数APIエラー: ${response.status}`);
       }
-
       sessionStorage.setItem(sessionKey, "1");
     })
     .catch((error) => {
