@@ -100,7 +100,7 @@
     title.style.minHeight = "0";
     title.style.marginTop = "0";
     title.style.marginBottom = "0";
-    title.style.borderTopWidth = "5px";
+    title.style.borderTopWidth = "0";
 
     plaque.style.display = "grid";
     plaque.style.gridTemplateColumns = "auto 1fr auto";
