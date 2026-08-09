@@ -264,6 +264,7 @@
     const label = labelRow?.querySelector("span");
     const badge = labelRow?.querySelector("em");
     const mainTitle = bestPick?.querySelector(".best-pick-main strong");
+    const action = bestPick?.querySelector(".best-pick-action");
 
     if (!bestPick || !inner || !labelRow || !label) {
       return;
@@ -300,6 +301,11 @@
       mainTitle.style.fontSize = "1.35rem";
       mainTitle.style.lineHeight = "1.45";
       mainTitle.style.fontWeight = "900";
+    }
+
+    action?.querySelector("span")?.remove();
+    if (action) {
+      action.style.justifyContent = "flex-end";
     }
   };
 
