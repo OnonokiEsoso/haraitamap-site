@@ -112,6 +112,7 @@
     plaque.style.gap = "14px";
     plaque.style.minHeight = "64px";
     plaque.style.padding = "10px 16px";
+    plaque.style.background = "#4deb68";
 
     if (label) {
       label.style.fontSize = "0.52rem";
