@@ -303,10 +303,7 @@
       mainTitle.style.fontWeight = "900";
     }
 
-    action?.querySelector("span")?.remove();
-    if (action) {
-      action.style.justifyContent = "flex-end";
-    }
+    action?.remove();
   };
 
   simplifyOmiyaCandidateCount();
