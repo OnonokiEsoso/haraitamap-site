@@ -101,6 +101,10 @@
     title.style.marginTop = "0";
     title.style.marginBottom = "0";
     title.style.borderTopWidth = "0";
+    title.style.width = "100vw";
+    title.style.maxWidth = "none";
+    title.style.marginLeft = "calc(50% - 50vw)";
+    title.style.marginRight = "calc(50% - 50vw)";
 
     plaque.style.display = "grid";
     plaque.style.gridTemplateColumns = "auto 1fr auto";
