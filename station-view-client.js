@@ -397,6 +397,47 @@
 
     const copy = report.querySelector(":scope > div");
     copy?.querySelector(":scope > span")?.remove();
+
+    const eyebrow = copy?.querySelector(":scope > p");
+    const heading = copy?.querySelector("h2");
+    const link = report.querySelector(".report-link");
+
+    report.style.display = "grid";
+    report.style.gridTemplateColumns = "1fr";
+    report.style.gap = "14px";
+    report.style.alignItems = "stretch";
+    report.style.padding = "20px 18px 18px";
+
+    if (copy) {
+      copy.style.width = "100%";
+      copy.style.minWidth = "0";
+    }
+
+    if (eyebrow) {
+      eyebrow.style.margin = "0 0 5px";
+      eyebrow.style.fontSize = "0.58rem";
+      eyebrow.style.letterSpacing = "0.14em";
+    }
+
+    if (heading) {
+      heading.style.margin = "0";
+      heading.style.fontSize = "1.18rem";
+      heading.style.lineHeight = "1.35";
+      heading.style.writingMode = "horizontal-tb";
+      heading.style.whiteSpace = "normal";
+      heading.style.letterSpacing = "0.02em";
+    }
+
+    if (link) {
+      link.style.width = "100%";
+      link.style.minHeight = "46px";
+      link.style.display = "flex";
+      link.style.alignItems = "center";
+      link.style.justifyContent = "center";
+      link.style.margin = "0";
+      link.style.padding = "10px 14px";
+      link.style.fontSize = "0.82rem";
+    }
   };
 
   simplifyOmiyaCandidateCount();
