@@ -27,6 +27,27 @@
   );
 
   if (window.location.pathname.includes("/stations/")) {
+    const slug = window.location.pathname.split("/").filter(Boolean).pop()?.replace(/\.html$/, "") || "";
+    const demandStyleStations = new Set([
+      "tsuchiura",
+      "mikawashima",
+      "mito",
+      "katsuta",
+      "hitachi",
+      "sendai",
+      "kitasenju",
+      "nagamachi",
+      "tomobe",
+      "tokai"
+    ]);
+
+    if (demandStyleStations.has(slug)) {
+      const styleLink = document.createElement("link");
+      styleLink.rel = "stylesheet";
+      styleLink.href = "../station-demand-tokyo-ui.css";
+      document.head.appendChild(styleLink);
+    }
+
     ["../station-strong-details.js", "../station-demand-details.js"].forEach((src) => {
       const stationDetailsScript = document.createElement("script");
       stationDetailsScript.src = src;
