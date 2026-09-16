@@ -59,4 +59,16 @@
   <url><loc>https://haraitamap.com/stations/torisawa.html</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://haraitamap.com/stations/ukimafunado.html</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://haraitamap.com/stations/yonohonmachi.html</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+
+  <!-- 閲覧需要を基準に2026-09-17に再調査・index復帰した10駅 -->
+  <url><loc>https://haraitamap.com/stations/tsuchiura.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://haraitamap.com/stations/mikawashima.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/mito.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/katsuta.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/hitachi.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/sendai.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/kitasenju.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/nagamachi.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/tomobe.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://haraitamap.com/stations/tokai.html</loc><lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
 </urlset>
