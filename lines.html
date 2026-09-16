@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="shortcut icon" href="favicon-48x48.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+  <title>路線別の掲載駅一覧 | 腹痛持ちのための駅トイレマップ</title>
+  <meta name="description" content="埼京線、湘南新宿ライン、JR中央線、JR常磐線、東武アーバンパークラインの掲載駅を路線別にまとめています。各駅のトイレ情報ページへ移動できます。" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <style>
+    .line-index-main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+    .line-index-hero {
+      margin-bottom: 24px;
+      border: 1px solid rgba(97, 123, 94, 0.26);
+      background: rgba(255, 253, 247, 0.82);
+      padding: 24px;
+    }
+    .line-index-hero p { margin: 8px 0 0; line-height: 1.8; }
+    .line-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .line-card {
+      border: 1px solid rgba(97, 123, 94, 0.26);
+      background: rgba(255, 253, 247, 0.76);
+      padding: 20px;
+    }
+    .line-card h2 { margin: 0 0 8px; color: var(--forest, #173c31); }
+    .line-card > p { margin: 0 0 14px; color: #5d665f; line-height: 1.7; }
+    .line-stations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .line-stations a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      border: 1px solid rgba(23, 60, 49, 0.2);
+      background: #fff;
+      color: #173c31;
+      padding: 8px 11px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .line-stations a:hover,
+    .line-stations a:focus-visible {
+      border-color: #173c31;
+      text-decoration: underline;
+    }
+    .line-count { font-size: .82rem; font-weight: 700; color: #617b5e; }
+    .line-note {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-left: 4px solid #617b5e;
+      background: rgba(97, 123, 94, 0.08);
+      line-height: 1.8;
+    }
+    @media (max-width: 760px) {
+      .line-index-main { width: min(100% - 20px, 1120px); padding-top: 20px; }
+      .line-grid { grid-template-columns: 1fr; }
+      .line-index-hero, .line-card { padding: 16px; }
+      .line-stations a { min-height: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <a class="skip-link" href="#line-list">路線一覧へ移動</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="トップページへ">
+          <img class="brand-icon" src="favicon-512x512.png" alt="" width="52" height="52" />
+          <span class="brand-copy">
+            <small>HARAITA MAP / STATION GUIDE</small>
+            <strong>腹痛持ちのための駅トイレマップ</strong>
+          </span>
+        </a>
+        <nav aria-label="主要メニュー">
+          <a href="index.html#search-panel"><span>01</span>駅を探す</a>
+          <a href="methodology.html"><span>02</span>評価基準</a>
+          <a class="nav-accent" href="index.html#submit"><span>03</span>情報提供</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="line-index-main" id="line-list">
+      <section class="line-index-hero">
+        <p class="eyebrow">STATIONS BY LINE</p>
+        <h1>路線別の掲載駅一覧</h1>
+        <p>路線ごとに、現在このサイトで掲載している駅をまとめています。駅名を押すと、その駅のトイレ情報ページへ移動します。</p>
+      </section>
+
+      <div class="line-grid">
+        <section class="line-card" data-line-id="saikyo">
+          <h2>埼京線</h2>
+          <p>埼京線として登録している掲載駅です。<span class="line-count"></span></p>
+          <div class="line-stations" aria-label="埼京線の掲載駅"></div>
+        </section>
+
+        <section class="line-card" data-line-id="shonan-shinjuku">
+          <h2>湘南新宿ライン</h2>
+          <p>湘南新宿ラインとして登録している掲載駅です。<span class="line-count"></span></p>
+          <div class="line-stations" aria-label="湘南新宿ラインの掲載駅"></div>
+        </section>
+
+        <section class="line-card" data-line-id="jr-chuo">
+          <h2>JR中央線</h2>
+          <p>JR中央線として登録している掲載駅です。<span class="line-count"></span></p>
+          <div class="line-stations" aria-label="JR中央線の掲載駅"></div>
+        </section>
+
+        <section class="line-card" data-line-id="joban">
+          <h2>JR常磐線</h2>
+          <p>JR常磐線として登録している掲載駅です。検索結果に出さない個別ページも、サイト内からは引き続き利用できます。<span class="line-count"></span></p>
+          <div class="line-stations" aria-label="JR常磐線の掲載駅"></div>
+        </section>
+
+        <section class="line-card" data-line-id="tobu-urbanpark">
+          <h2>東武アーバンパークライン</h2>
+          <p>東武アーバンパークラインとして登録している掲載駅です。<span class="line-count"></span></p>
+          <div class="line-stations" aria-label="東武アーバンパークラインの掲載駅"></div>
+        </section>
+      </div>
+
+      <p class="line-note"><strong>補足：</strong>この一覧はサイト内の駅データから自動生成しています。個別駅ページをGoogle検索に出さない設定にしている駅でも、ここから直接開くことができます。</p>
+    </main>
+
+    <footer>
+      <div>
+        <strong>腹痛持ちのための駅トイレマップ</strong>
+        <span>LINES / 路線別掲載駅</span>
+      </div>
+      <nav aria-label="補助メニュー">
+        <a href="index.html">トップページ</a>
+        <a href="about.html">このサイトについて</a>
+        <a href="methodology.html">評価基準</a>
+        <a href="privacy.html">プライバシー</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="stations-data.js"></script>
+  <script>
+    "use strict";
+    (() => {
+      const stations = window.HARAITA_STATIONS || [];
+      const escapeHtml = (value) => String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+      document.querySelectorAll("[data-line-id]").forEach((section) => {
+        const lineId = section.dataset.lineId;
+        const matched = stations.filter((station) => station.lineIds.includes(lineId));
+        const list = section.querySelector(".line-stations");
+        const count = section.querySelector(".line-count");
+
+        count.textContent = `（${matched.length}駅）`;
+        list.innerHTML = matched.map((station) => {
+          const name = escapeHtml(station.name);
+          if (!station.link) return `<span>${name}</span>`;
+          return `<a href="${escapeHtml(station.link)}">${name}</a>`;
+        }).join("");
+      });
+    })();
+  </script>
+</body>
+</html>
