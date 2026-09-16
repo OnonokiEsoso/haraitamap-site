@@ -27,6 +27,35 @@
   );
 
   if (window.location.pathname.includes("/stations/")) {
+    const slug = window.location.pathname.split("/").filter(Boolean).pop()?.replace(/\.html$/, "") || "";
+
+    // 閲覧数上位のうち、東京駅系の強調UIが未適用だった駅。
+    // 既に東京駅系UIを持つ主要駅は重複適用しない。
+    const demandStyleStations = new Set([
+      "tsuchiura",
+      "higashitotsuka",
+      "musashiurawa",
+      "kamakura",
+      "mikawashima",
+      "kitayono",
+      "shinkawasaki",
+      "mito",
+      "katsuta",
+      "hitachi",
+      "sendai",
+      "kitasenju",
+      "nagamachi",
+      "tomobe",
+      "tokai"
+    ]);
+
+    if (demandStyleStations.has(slug)) {
+      const styleLink = document.createElement("link");
+      styleLink.rel = "stylesheet";
+      styleLink.href = "../station-demand-tokyo-ui.css";
+      document.head.appendChild(styleLink);
+    }
+
     ["../station-strong-details.js", "../station-demand-details.js"].forEach((src) => {
       const stationDetailsScript = document.createElement("script");
       stationDetailsScript.src = src;
