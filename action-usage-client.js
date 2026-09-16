@@ -28,9 +28,17 @@
 
   if (window.location.pathname.includes("/stations/")) {
     const slug = window.location.pathname.split("/").filter(Boolean).pop()?.replace(/\.html$/, "") || "";
+
+    // 閲覧数上位のうち、東京駅系の強調UIが未適用だった駅。
+    // 既に東京駅系UIを持つ主要駅は重複適用しない。
     const demandStyleStations = new Set([
       "tsuchiura",
+      "higashitotsuka",
+      "musashiurawa",
+      "kamakura",
       "mikawashima",
+      "kitayono",
+      "shinkawasaki",
       "mito",
       "katsuta",
       "hitachi",
