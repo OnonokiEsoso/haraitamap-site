@@ -25,6 +25,6 @@
 </div></main>
 <footer><strong>腹痛持ちのための駅トイレマップ</strong><span>綾瀬駅 / 駅案内 × 日本庭園</span></footer>
 <script src="../station-sort-client.js"></script>
-<script>(()=>{const stationPath=window.location.pathname;const stationName=document.querySelector('.station-title h2')?.textContent.trim();if(!stationName)return;const sessionKey=`station-viewed:${stationPath}`;if(sessionStorage.getItem(sessionKey))return;sessionStorage.setItem(sessionKey,'1');fetch('/api/station-view',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stationPath,stationName}),keepalive:true}).catch((error)=>{console.warn('閲覧数の記録に失敗しました。',error);sessionStorage.removeItem(sessionKey);});})();</script>
+<script>(()=>{const stationPath=window.location.pathname;const stationName=document.querySelector(".station-title h2")?.textContent.trim();if(!stationName)return;const sessionKey=`station-viewed:${stationPath}`;if(sessionStorage.getItem(sessionKey))return;sessionStorage.setItem(sessionKey,"1");fetch("/api/station-view",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({stationPath,stationName}),keepalive:true}).catch((error)=>{console.warn("閲覧数の記録に失敗しました。",error);sessionStorage.removeItem(sessionKey);});})();</script>
 <script src="../action-usage-client.js"></script><script src="../station-view-client.js"></script>
 </body></html>
