@@ -1,0 +1,236 @@
+# AdSense / SEO: keep thin station pages available on-site but out of search indexes.
+# These pages can be promoted back to indexable status after their content is strengthened.
+
+/stations/abiko.html
+  X-Robots-Tag: noindex, follow
+
+/stations/akatsuka.html
+  X-Robots-Tag: noindex, follow
+
+/stations/arakawaoki.html
+  X-Robots-Tag: noindex, follow
+
+/stations/fujishiro.html
+  X-Robots-Tag: noindex, follow
+
+/stations/futaba.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hamayoshida.html
+  X-Robots-Tag: noindex, follow
+
+/stations/haranomachi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hatori.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hirono.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hisanohama.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hitachi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hitachinoushiku.html
+  X-Robots-Tag: noindex, follow
+
+/stations/hitachitaga.html
+  X-Robots-Tag: noindex, follow
+
+/stations/ishioka.html
+  X-Robots-Tag: noindex, follow
+
+/stations/isohara.html
+  X-Robots-Tag: noindex, follow
+
+/stations/iwaki.html
+  X-Robots-Tag: noindex, follow
+
+/stations/iwakiota.html
+  X-Robots-Tag: noindex, follow
+
+/stations/iwama.html
+  X-Robots-Tag: noindex, follow
+
+/stations/iwanuma.html
+  X-Robots-Tag: noindex, follow
+
+/stations/izumi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/j-village.html
+  X-Robots-Tag: noindex, follow
+
+/stations/juo.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kairakuen.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kameari.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kanamachi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kandatsu.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kashima.html
+  X-Robots-Tag: noindex, follow
+
+/stations/katsuta.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kido.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kitasenju.html
+  X-Robots-Tag: noindex, follow
+
+/stations/komagamine.html
+  X-Robots-Tag: noindex, follow
+
+/stations/kusano.html
+  X-Robots-Tag: noindex, follow
+
+/stations/matsudo.html
+  X-Robots-Tag: noindex, follow
+
+/stations/mikawashima.html
+  X-Robots-Tag: noindex, follow
+
+/stations/minaminakago.html
+  X-Robots-Tag: noindex, follow
+
+/stations/minamisendai.html
+  X-Robots-Tag: noindex, follow
+
+/stations/minamisenju.html
+  X-Robots-Tag: noindex, follow
+
+/stations/mito.html
+  X-Robots-Tag: noindex, follow
+
+/stations/momouchi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/nagamachi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/nakoso.html
+  X-Robots-Tag: noindex, follow
+
+/stations/namie.html
+  X-Robots-Tag: noindex, follow
+
+/stations/natori.html
+  X-Robots-Tag: noindex, follow
+
+/stations/nippori.html
+  X-Robots-Tag: noindex, follow
+
+/stations/nittaki.html
+  X-Robots-Tag: noindex, follow
+
+/stations/odaka.html
+  X-Robots-Tag: noindex, follow
+
+/stations/ogitsu.html
+  X-Robots-Tag: noindex, follow
+
+/stations/okuma.html
+  X-Robots-Tag: noindex, follow
+
+/stations/omika.html
+  X-Robots-Tag: noindex, follow
+
+/stations/ono.html
+  X-Robots-Tag: noindex, follow
+
+/stations/otsuko.html
+  X-Robots-Tag: noindex, follow
+
+/stations/ryugasakishi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/sakamoto.html
+  X-Robots-Tag: noindex, follow
+
+/stations/sawa.html
+  X-Robots-Tag: noindex, follow
+
+/stations/sendai.html
+  X-Robots-Tag: noindex, follow
+
+/stations/shinchi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/soma.html
+  X-Robots-Tag: noindex, follow
+
+/stations/suetsugi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/taishido.html
+  X-Robots-Tag: noindex, follow
+
+/stations/takahagi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/takahama.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tatekoshi.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tatsuta.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tennodai.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tokai.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tomioka.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tomobe.html
+  X-Robots-Tag: noindex, follow
+
+/stations/toride.html
+  X-Robots-Tag: noindex, follow
+
+/stations/tsuchiura.html
+  X-Robots-Tag: noindex, follow
+
+/stations/uchigo.html
+  X-Robots-Tag: noindex, follow
+
+/stations/uchihara.html
+  X-Robots-Tag: noindex, follow
+
+/stations/ueda.html
+  X-Robots-Tag: noindex, follow
+
+/stations/ushiku.html
+  X-Robots-Tag: noindex, follow
+
+/stations/watari.html
+  X-Robots-Tag: noindex, follow
+
+/stations/yamashita.html
+  X-Robots-Tag: noindex, follow
+
+/stations/yonomori.html
+  X-Robots-Tag: noindex, follow
+
+/stations/yotsukura.html
+  X-Robots-Tag: noindex, follow
+
+/stations/yumoto.html
+  X-Robots-Tag: noindex, follow
