@@ -31,9 +31,6 @@
 /stations/hisanohama.html
   X-Robots-Tag: noindex, follow
 
-/stations/hitachi.html
-  X-Robots-Tag: noindex, follow
-
 /stations/hitachinoushiku.html
   X-Robots-Tag: noindex, follow
 
@@ -82,13 +79,7 @@
 /stations/kashima.html
   X-Robots-Tag: noindex, follow
 
-/stations/katsuta.html
-  X-Robots-Tag: noindex, follow
-
 /stations/kido.html
-  X-Robots-Tag: noindex, follow
-
-/stations/kitasenju.html
   X-Robots-Tag: noindex, follow
 
 /stations/komagamine.html
@@ -100,9 +91,6 @@
 /stations/matsudo.html
   X-Robots-Tag: noindex, follow
 
-/stations/mikawashima.html
-  X-Robots-Tag: noindex, follow
-
 /stations/minaminakago.html
   X-Robots-Tag: noindex, follow
 
@@ -112,13 +100,7 @@
 /stations/minamisenju.html
   X-Robots-Tag: noindex, follow
 
-/stations/mito.html
-  X-Robots-Tag: noindex, follow
-
 /stations/momouchi.html
-  X-Robots-Tag: noindex, follow
-
-/stations/nagamachi.html
   X-Robots-Tag: noindex, follow
 
 /stations/nakoso.html
@@ -163,9 +145,6 @@
 /stations/sawa.html
   X-Robots-Tag: noindex, follow
 
-/stations/sendai.html
-  X-Robots-Tag: noindex, follow
-
 /stations/shinchi.html
   X-Robots-Tag: noindex, follow
 
@@ -193,19 +172,10 @@
 /stations/tennodai.html
   X-Robots-Tag: noindex, follow
 
-/stations/tokai.html
-  X-Robots-Tag: noindex, follow
-
 /stations/tomioka.html
   X-Robots-Tag: noindex, follow
 
-/stations/tomobe.html
-  X-Robots-Tag: noindex, follow
-
 /stations/toride.html
-  X-Robots-Tag: noindex, follow
-
-/stations/tsuchiura.html
   X-Robots-Tag: noindex, follow
 
 /stations/uchigo.html
