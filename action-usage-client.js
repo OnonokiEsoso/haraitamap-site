@@ -27,9 +27,11 @@
   );
 
   if (window.location.pathname.includes("/stations/")) {
-    const stationDetailsScript = document.createElement("script");
-    stationDetailsScript.src = "../station-strong-details.js";
-    stationDetailsScript.defer = true;
-    document.head.appendChild(stationDetailsScript);
+    ["../station-strong-details.js", "../station-demand-details.js"].forEach((src) => {
+      const stationDetailsScript = document.createElement("script");
+      stationDetailsScript.src = src;
+      stationDetailsScript.defer = true;
+      document.head.appendChild(stationDetailsScript);
+    });
   }
 })();
