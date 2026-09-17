@@ -6,7 +6,22 @@
     "omiya",
     "yokohama",
     "nagoya",
-    "kashiwa"
+    "kashiwa",
+    "ikebukuro",
+    "akabane",
+    "ueno",
+    "shinagawa",
+    "shibuya",
+    "shimbashi",
+    "osaki",
+    "ebisu",
+    "kanda",
+    "urawa",
+    "musashikosugi",
+    "totsuka",
+    "ofuna",
+    "kasukabe",
+    "iwatsuki"
   ]);
 
   const stationSlug = stationPath.split("/").pop()?.replace(/\.html$/i, "") || "";
