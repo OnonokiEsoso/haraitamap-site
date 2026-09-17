@@ -1,23 +1,22 @@
 .coping-page main {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 26px 0 54px;
+  padding: 22px 0 46px;
 }
 
 .coping-hero {
   overflow: hidden;
   border: 1px solid #858b81;
-  border-top: 8px solid #75674e;
+  border-top: 6px solid #75674e;
   background:
-    radial-gradient(circle at 88% 10%, rgba(158, 174, 140, 0.16) 0 110px, transparent 111px),
+    radial-gradient(circle at 88% 10%, rgba(158, 174, 140, 0.13) 0 92px, transparent 93px),
     linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(244, 240, 228, 0.88));
-  box-shadow: 0 18px 45px rgba(28, 47, 39, 0.09);
+  box-shadow: 0 14px 32px rgba(28, 47, 39, 0.07);
 }
 
 .coping-hero-inner {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr) 310px;
-  min-height: 300px;
+  grid-template-columns: 122px minmax(0, 1fr);
 }
 
 .hero-kicker {
@@ -26,34 +25,25 @@
   justify-content: center;
   background: var(--forest);
   color: #dce5d8;
-  padding: 22px 16px;
-  font-size: 0.6rem;
+  padding: 18px 12px;
+  font-size: 0.62rem;
   font-weight: 900;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   writing-mode: vertical-rl;
 }
 
 .hero-copy {
   display: grid;
   align-content: center;
-  padding: 40px 42px;
-}
-
-.hero-eyebrow,
-.section-kicker {
-  margin: 0 0 8px;
-  color: var(--moss);
-  font-size: 0.64rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
+  padding: 28px 32px;
 }
 
 .hero-copy h1 {
   margin: 0;
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.28;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  line-height: 1.18;
+  letter-spacing: 0.025em;
 }
 
 .hero-copy h1 em {
@@ -63,237 +53,119 @@
 
 .hero-lead {
   max-width: 760px;
-  margin: 22px 0 0;
+  margin: 14px 0 0;
   color: var(--muted);
-  font-size: 0.93rem;
-  line-height: 1.95;
-}
-
-.hero-note {
-  align-self: stretch;
-  border-left: 1px solid var(--line);
-  background: rgba(228, 221, 201, 0.34);
-  padding: 30px 26px;
-}
-
-.hero-note span {
-  display: block;
-  color: var(--moss);
-  font-size: 0.62rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-}
-
-.hero-note strong {
-  display: block;
-  margin-top: 14px;
-  color: var(--forest);
-  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: 1.15rem;
-  line-height: 1.65;
-}
-
-.hero-note p {
-  margin: 18px 0 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.8;
-}
-
-.coping-intro,
-.soft-note,
-.coping-next {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 18px;
-  margin-top: 34px;
-  border-top: 1px solid #9da39b;
-  border-bottom: 1px solid #9da39b;
-  background: rgba(255, 253, 247, 0.54);
-  padding: 24px 0;
-}
-
-.intro-mark,
-.soft-note-mark {
-  display: grid;
-  width: 50px;
-  height: 50px;
-  place-items: center;
-  border: 2px solid #7a352a;
-  background: var(--seal);
-  color: #fff7ea;
-  font-family: Georgia, serif;
-  font-weight: 800;
-}
-
-.coping-intro h2,
-.soft-note h2,
-.coping-next h2,
-.topic-heading h2 {
-  margin: 0;
-  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  letter-spacing: 0.05em;
-}
-
-.coping-intro p:not(.section-kicker),
-.soft-note p:not(.section-kicker),
-.coping-next p:not(.section-kicker) {
-  margin: 9px 0 0;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.9;
+  font-size: 0.9rem;
+  line-height: 1.72;
 }
 
 .topic-section {
-  margin-top: 42px;
+  margin-top: 28px;
 }
 
 .topic-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 18px;
-  padding-bottom: 14px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #8f968e;
 }
 
-.topic-heading > span {
-  color: var(--moss);
-  font-family: Georgia, serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+.topic-heading h2 {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  letter-spacing: 0.035em;
 }
 
 .thread-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
 }
 
 .thread-card {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 300px;
   overflow: hidden;
   border: 1px solid #9ca39b;
   background: rgba(255, 253, 247, 0.9);
-  box-shadow: 0 12px 26px rgba(28, 47, 39, 0.06);
+  box-shadow: 0 9px 20px rgba(28, 47, 39, 0.05);
 }
 
 .thread-card > header {
   display: grid;
-  grid-template-columns: 58px 1fr;
-  align-items: stretch;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  min-height: 54px;
   border-bottom: 1px solid #c4c6bb;
   background: rgba(97, 123, 94, 0.08);
 }
 
 .thread-card > header > span {
   display: grid;
+  height: 100%;
+  min-height: 54px;
   place-items: center;
   background: var(--forest);
   color: white;
   font-family: Georgia, serif;
-  font-size: 1rem;
+  font-size: 0.82rem;
   font-weight: 800;
 }
 
-.thread-card > header > div {
-  padding: 14px 16px;
-}
-
-.thread-card small {
-  color: var(--moss);
-  font-size: 0.58rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-}
-
 .thread-card h3 {
-  margin: 3px 0 0;
+  margin: 0;
+  padding: 10px 13px;
   color: var(--forest-dark);
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .thread-body {
-  padding: 20px;
+  padding: 15px 16px 16px;
 }
 
 .thread-question {
   margin: 0;
-  border-left: 5px solid var(--moss-light);
-  background: rgba(158, 174, 140, 0.12);
+  border-left: 4px solid var(--moss-light);
+  background: rgba(158, 174, 140, 0.11);
   color: #39483f;
-  padding: 10px 12px;
-  font-size: 0.82rem;
+  padding: 8px 10px;
+  font-size: 0.8rem;
   font-weight: 800;
-  line-height: 1.7;
+  line-height: 1.55;
 }
 
 .thread-body ul {
-  margin: 16px 0 0;
-  padding-left: 1.2em;
+  margin: 12px 0 0;
+  padding-left: 1.15em;
 }
 
 .thread-body li {
-  margin: 8px 0;
+  margin: 5px 0;
   color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.75;
+  font-size: 0.82rem;
+  line-height: 1.58;
 }
 
-.thread-card > footer {
-  border-top: 1px solid #d1d3c9;
-  color: var(--moss);
-  padding: 12px 18px;
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-}
-
-.thread-card > footer a {
+.inline-link {
+  display: inline-block;
+  margin-top: 8px;
   color: var(--forest);
+  font-size: 0.75rem;
+  font-weight: 800;
 }
 
-.thread-card > footer a:hover {
+.inline-link:hover {
   text-decoration: underline;
 }
 
 .soft-note {
-  margin-top: 38px;
-  border-color: #b9c6b7;
-  background: rgba(222, 232, 217, 0.3);
-}
-
-.soft-note-mark {
-  border-color: #71856f;
-  background: var(--moss);
-}
-
-.coping-next {
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.85fr);
-  align-items: center;
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.next-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px;
-}
-
-.next-tags span {
-  border: 1px solid #9aa399;
-  background: rgba(255, 253, 247, 0.78);
-  color: #4d5e53;
-  padding: 7px 10px;
-  font-size: 0.7rem;
-  font-weight: 800;
+  margin: 22px 0 0;
+  border-top: 1px solid #b9c6b7;
+  color: var(--muted);
+  padding-top: 12px;
+  font-size: 0.78rem;
+  line-height: 1.65;
 }
 
 .coping-page > footer {
@@ -302,16 +174,6 @@
 }
 
 @media (max-width: 900px) {
-  .coping-hero-inner {
-    grid-template-columns: 84px 1fr;
-  }
-
-  .hero-note {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
   .thread-grid {
     grid-template-columns: 1fr;
   }
@@ -323,65 +185,140 @@
     width: min(100% - 24px, 1180px);
   }
 
+  .coping-page main {
+    padding-top: 12px;
+  }
+
   .coping-page .site-header nav {
     display: none;
   }
 
   .coping-page .header-inner {
     width: min(100% - 24px, 1180px);
-    min-height: 64px;
+    min-height: 56px;
+  }
+
+  .coping-page .brand {
+    gap: 9px;
   }
 
   .coping-page .brand-icon {
-    width: 42px;
-    height: 42px;
-    flex-basis: 42px;
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .coping-page .brand-copy {
+    gap: 0;
+  }
+
+  .coping-page .brand-copy small {
+    font-size: 0.46rem;
+    letter-spacing: 0.11em;
+  }
+
+  .coping-page .brand-copy strong {
+    font-size: 0.8rem;
+    letter-spacing: 0.035em;
+  }
+
+  .coping-hero {
+    border-top-width: 4px;
   }
 
   .coping-hero-inner {
     grid-template-columns: 1fr;
-    min-height: 0;
   }
 
   .hero-kicker {
-    min-height: 0;
-    height: 28px;
-    padding: 0 10px;
+    height: 22px;
+    padding: 0 8px;
+    font-size: 0.49rem;
     line-height: 1;
+    letter-spacing: 0.09em;
     writing-mode: horizontal-tb;
   }
 
   .hero-copy {
-    padding: 10px 14px 12px;
+    padding: 10px 12px 11px;
   }
 
   .hero-copy h1 {
-    font-size: 1.62rem;
-    line-height: 1.05;
-    letter-spacing: 0.02em;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
   }
 
   .hero-lead {
-    margin-top: 8px;
-    font-size: 0.82rem;
-    line-height: 1.5;
+    margin-top: 6px;
+    font-size: 0.76rem;
+    line-height: 1.45;
   }
 
-  .hero-note {
-    padding: 22px 20px;
+  .topic-section {
+    margin-top: 18px;
   }
 
-  .coping-intro,
-  .soft-note,
-  .coping-next {
-    grid-template-columns: 1fr;
+  .topic-heading {
+    margin-bottom: 10px;
+    padding-bottom: 7px;
   }
 
-  .next-tags {
-    justify-content: flex-start;
+  .topic-heading h2 {
+    font-size: 1.12rem;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
-  .thread-card {
-    min-height: 0;
+  .thread-grid {
+    gap: 10px;
+  }
+
+  .thread-card > header {
+    grid-template-columns: 34px 1fr;
+    min-height: 46px;
+  }
+
+  .thread-card > header > span {
+    min-height: 46px;
+    font-size: 0.72rem;
+  }
+
+  .thread-card h3 {
+    padding: 8px 10px;
+    font-size: 0.93rem;
+    line-height: 1.32;
+  }
+
+  .thread-body {
+    padding: 11px 12px 12px;
+  }
+
+  .thread-question {
+    padding: 7px 8px;
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .thread-body ul {
+    margin-top: 9px;
+  }
+
+  .thread-body li {
+    margin: 4px 0;
+    font-size: 0.77rem;
+    line-height: 1.48;
+  }
+
+  .inline-link {
+    margin-top: 6px;
+    font-size: 0.72rem;
+  }
+
+  .soft-note {
+    margin-top: 16px;
+    padding-top: 9px;
+    font-size: 0.73rem;
+    line-height: 1.55;
   }
 }
