@@ -1,0 +1,324 @@
+.coping-page main {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 22px 0 46px;
+}
+
+.coping-hero {
+  overflow: hidden;
+  border: 1px solid #858b81;
+  border-top: 6px solid #75674e;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(158, 174, 140, 0.13) 0 92px, transparent 93px),
+    linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(244, 240, 228, 0.88));
+  box-shadow: 0 14px 32px rgba(28, 47, 39, 0.07);
+}
+
+.coping-hero-inner {
+  display: grid;
+  grid-template-columns: 122px minmax(0, 1fr);
+}
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--forest);
+  color: #dce5d8;
+  padding: 18px 12px;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  writing-mode: vertical-rl;
+}
+
+.hero-copy {
+  display: grid;
+  align-content: center;
+  padding: 28px 32px;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  line-height: 1.18;
+  letter-spacing: 0.025em;
+}
+
+.hero-copy h1 em {
+  color: var(--forest);
+  font-style: normal;
+}
+
+.hero-lead {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.72;
+}
+
+.topic-section {
+  margin-top: 28px;
+}
+
+.topic-heading {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #8f968e;
+}
+
+.topic-heading h2 {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  letter-spacing: 0.035em;
+}
+
+.thread-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.thread-card {
+  overflow: hidden;
+  border: 1px solid #9ca39b;
+  background: rgba(255, 253, 247, 0.9);
+  box-shadow: 0 9px 20px rgba(28, 47, 39, 0.05);
+}
+
+.thread-card > header {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  min-height: 54px;
+  border-bottom: 1px solid #c4c6bb;
+  background: rgba(97, 123, 94, 0.08);
+}
+
+.thread-card > header > span {
+  display: grid;
+  height: 100%;
+  min-height: 54px;
+  place-items: center;
+  background: var(--forest);
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.thread-card h3 {
+  margin: 0;
+  padding: 10px 13px;
+  color: var(--forest-dark);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.thread-body {
+  padding: 15px 16px 16px;
+}
+
+.thread-question {
+  margin: 0;
+  border-left: 4px solid var(--moss-light);
+  background: rgba(158, 174, 140, 0.11);
+  color: #39483f;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.thread-body ul {
+  margin: 12px 0 0;
+  padding-left: 1.15em;
+}
+
+.thread-body li {
+  margin: 5px 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.58;
+}
+
+.inline-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--forest);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.inline-link:hover {
+  text-decoration: underline;
+}
+
+.soft-note {
+  margin: 22px 0 0;
+  border-top: 1px solid #b9c6b7;
+  color: var(--muted);
+  padding-top: 12px;
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.coping-page > footer {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 28px;
+}
+
+@media (max-width: 900px) {
+  .thread-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .coping-page main,
+  .coping-page > footer {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .coping-page main {
+    padding-top: 12px;
+  }
+
+  .coping-page .site-header nav {
+    display: none;
+  }
+
+  .coping-page .header-inner {
+    width: min(100% - 24px, 1180px);
+    min-height: 56px;
+  }
+
+  .coping-page .brand {
+    gap: 9px;
+  }
+
+  .coping-page .brand-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .coping-page .brand-copy {
+    gap: 0;
+  }
+
+  .coping-page .brand-copy small {
+    font-size: 0.46rem;
+    letter-spacing: 0.11em;
+  }
+
+  .coping-page .brand-copy strong {
+    font-size: 0.8rem;
+    letter-spacing: 0.035em;
+  }
+
+  .coping-hero {
+    border-top-width: 4px;
+  }
+
+  .coping-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-kicker {
+    height: 22px;
+    padding: 0 8px;
+    font-size: 0.49rem;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    writing-mode: horizontal-tb;
+  }
+
+  .hero-copy {
+    padding: 10px 12px 11px;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-lead {
+    margin-top: 6px;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .topic-section {
+    margin-top: 18px;
+  }
+
+  .topic-heading {
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+  }
+
+  .topic-heading h2 {
+    font-size: 1.12rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .thread-grid {
+    gap: 10px;
+  }
+
+  .thread-card > header {
+    grid-template-columns: 34px 1fr;
+    min-height: 46px;
+  }
+
+  .thread-card > header > span {
+    min-height: 46px;
+    font-size: 0.72rem;
+  }
+
+  .thread-card h3 {
+    padding: 8px 10px;
+    font-size: 0.93rem;
+    line-height: 1.32;
+  }
+
+  .thread-body {
+    padding: 11px 12px 12px;
+  }
+
+  .thread-question {
+    padding: 7px 8px;
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .thread-body ul {
+    margin-top: 9px;
+  }
+
+  .thread-body li {
+    margin: 4px 0;
+    font-size: 0.77rem;
+    line-height: 1.48;
+  }
+
+  .inline-link {
+    margin-top: 6px;
+    font-size: 0.72rem;
+  }
+
+  .soft-note {
+    margin-top: 16px;
+    padding-top: 9px;
+    font-size: 0.73rem;
+    line-height: 1.55;
+  }
+}
