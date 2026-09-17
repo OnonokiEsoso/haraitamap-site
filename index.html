@@ -59,7 +59,7 @@
           <nav aria-label="主要メニュー">
             <a href="#search-panel"><span>01</span>駅を探す</a>
             <a href="#howto"><span>02</span>使い方</a>
-            <a class="nav-accent" href="#submit"><span>03</span>情報提供</a>
+            <a class="nav-accent" href="#coping-links"><span>03</span>対処法について</a>
           </nav>
         </div>
       </header>
@@ -173,10 +173,17 @@
           </p>
         </section>
 
-        <section class="relief-section" aria-label="気を逸らす">
-          <a href="games.html" data-action-name="distraction:clicked">
+        <section class="support-links-section" id="coping-links" aria-label="腹痛時の補助コンテンツ">
+          <a class="support-card" href="games.html" data-action-name="distraction:clicked">
             <span>少し気を逸らしたいとき</span>
-            <strong>気を逸らすページへ</strong>
+            <strong>気を逸らす</strong>
+            <small>ミニゲームなどで少し意識をそらす</small>
+            <i aria-hidden="true">→</i>
+          </a>
+          <a class="support-card" href="coping.html" data-action-name="coping:clicked">
+            <span>腹痛のとき、みんなはどうしてる？</span>
+            <strong>みんなの工夫を見る</strong>
+            <small>腹痛時の工夫や対処法を読む</small>
             <i aria-hidden="true">→</i>
           </a>
         </section>
@@ -227,6 +234,7 @@
           <span>Ver.1.2.19.2</span>
         </div>
         <nav aria-label="補助メニュー">
+          <a href="coping.html">腹痛時のみんなの工夫</a>
           <a href="about.html">このサイトについて</a>
           <a href="credits.html">クレジット</a>
           <a href="privacy.html">プライバシー</a>
@@ -387,7 +395,7 @@
         return `
           <article
             class="station-card is-unavailable"
-            aria-label="${escapeHtml(station.name)}（詳細ページ準備中）"
+            aria-label="${escapeHtml(station.name)}のトイレ情報"
           >${content}</article>
         `;
       }
