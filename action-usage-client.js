@@ -64,6 +64,7 @@
     const existingRelief = document.querySelector(".relief-section");
     if (existingRelief && !document.querySelector(".support-links-section")) {
       const support = document.createElement("section");
+      support.id = "coping-links";
       support.className = "support-links-section";
       support.setAttribute("aria-label", "腹痛時の補助コンテンツ");
       support.innerHTML = `
@@ -81,6 +82,17 @@
         </a>
       `;
       existingRelief.replaceWith(support);
+    }
+
+    const support = document.getElementById("coping-links");
+    const navAccent = document.querySelector(".site-header nav .nav-accent");
+    if (support && navAccent) {
+      navAccent.href = "#coping-links";
+      navAccent.innerHTML = "<span>03</span>対処法について";
+      navAccent.addEventListener("click", (event) => {
+        event.preventDefault();
+        support.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
     }
 
     const footerNav = document.querySelector("body > .site-shell > footer nav");
@@ -101,6 +113,7 @@
           margin: 0 auto 46px;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 14px;
+          scroll-margin-top: 96px;
         }
         .support-card {
           position: relative;
