@@ -350,7 +350,17 @@
   }
 
   .hero-copy {
-    padding: 26px 20px;
+    padding: 16px 18px 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.85rem;
+    line-height: 1.14;
+  }
+
+  .hero-lead {
+    margin-top: 12px;
+    line-height: 1.65;
   }
 
   .hero-note {
