@@ -343,8 +343,9 @@
   }
 
   .hero-kicker {
-    min-height: 42px;
-    padding: 10px 16px;
+    min-height: 26px;
+    padding: 4px 12px;
+    line-height: 1.15;
     writing-mode: horizontal-tb;
   }
 
