@@ -58,134 +58,91 @@
     } catch (_) {}
   };
 
-  const addHomeSupportLinks = () => {
-    if (!document.getElementById("search-panel")) return;
+  const ensureHomeSupportStyles = () => {
+    if (!document.getElementById("coping-links")) return;
+    if (document.getElementById("home-support-links-style")) return;
 
-    const existingRelief = document.querySelector(".relief-section");
-    if (existingRelief && !document.querySelector(".support-links-section")) {
-      const support = document.createElement("section");
-      support.id = "coping-links";
-      support.className = "support-links-section";
-      support.setAttribute("aria-label", "腹痛時の補助コンテンツ");
-      support.innerHTML = `
-        <a class="support-card" href="games.html" data-action-name="distraction:clicked">
-          <span>少し気を逸らしたいとき</span>
-          <strong>気を逸らす</strong>
-          <small>ミニゲームなどで少し意識をそらす</small>
-          <i aria-hidden="true">→</i>
-        </a>
-        <a class="support-card" href="coping.html" data-action-name="coping:clicked">
-          <span>腹痛のとき、みんなはどうしてる？</span>
-          <strong>みんなの工夫を見る</strong>
-          <small>腹痛時の工夫や体験談を読む</small>
-          <i aria-hidden="true">→</i>
-        </a>
-      `;
-      existingRelief.replaceWith(support);
-    }
-
-    const support = document.getElementById("coping-links");
-    const navAccent = document.querySelector(".site-header nav .nav-accent");
-    if (support && navAccent) {
-      navAccent.href = "#coping-links";
-      navAccent.innerHTML = "<span>03</span>対処法について";
-      navAccent.addEventListener("click", (event) => {
-        event.preventDefault();
-        support.scrollIntoView({ behavior: "smooth", block: "center" });
-      });
-    }
-
-    const footerNav = document.querySelector("body > .site-shell > footer nav");
-    if (footerNav && !footerNav.querySelector('a[href="coping.html"]')) {
-      const link = document.createElement("a");
-      link.href = "coping.html";
-      link.textContent = "腹痛時のみんなの工夫";
-      footerNav.prepend(link);
-    }
-
-    if (!document.getElementById("home-support-links-style")) {
-      const style = document.createElement("style");
-      style.id = "home-support-links-style";
-      style.textContent = `
+    const style = document.createElement("style");
+    style.id = "home-support-links-style";
+    style.textContent = `
+      .support-links-section {
+        display: grid;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto 46px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        scroll-margin-top: 96px;
+      }
+      .support-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "label arrow"
+          "title arrow"
+          "copy arrow";
+        align-items: center;
+        gap: 3px 16px;
+        min-height: 116px;
+        border: 1px solid #8e958c;
+        border-left: 6px solid var(--moss);
+        background: rgba(255, 253, 247, 0.82);
+        padding: 16px 18px;
+        transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+      }
+      .support-card:first-child { border-left-color: var(--seal); }
+      .support-card:hover {
+        border-color: var(--forest);
+        background: rgba(255, 253, 247, 0.98);
+        transform: translateY(-1px);
+      }
+      .support-card > span {
+        grid-area: label;
+        color: var(--muted);
+        font-size: 0.7rem;
+      }
+      .support-card > strong {
+        grid-area: title;
+        color: var(--forest-dark);
+        font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+        font-size: 1rem;
+      }
+      .support-card > small {
+        grid-area: copy;
+        color: var(--muted);
+        font-size: 0.68rem;
+        line-height: 1.5;
+      }
+      .support-card > i {
+        grid-area: arrow;
+        color: var(--forest);
+        font-size: 1.3rem;
+        font-style: normal;
+      }
+      .support-card:first-child > i { color: var(--seal); }
+      @media (max-width: 680px) {
         .support-links-section {
-          display: grid;
-          width: min(1180px, calc(100% - 40px));
-          margin: 0 auto 46px;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 14px;
-          scroll-margin-top: 96px;
+          width: min(100% - 24px, 1180px);
+          grid-template-columns: 1fr;
+          gap: 10px;
+          margin-bottom: 28px;
         }
         .support-card {
-          position: relative;
-          display: grid;
+          min-height: 0;
+          padding: 13px 14px;
           grid-template-columns: 1fr auto;
-          grid-template-areas:
-            "label arrow"
-            "title arrow"
-            "copy arrow";
-          align-items: center;
-          gap: 3px 16px;
-          min-height: 116px;
-          border: 1px solid #8e958c;
-          border-left: 6px solid var(--moss);
-          background: rgba(255, 253, 247, 0.82);
-          padding: 16px 18px;
-          transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
         }
-        .support-card:first-child { border-left-color: var(--seal); }
-        .support-card:hover {
-          border-color: var(--forest);
-          background: rgba(255, 253, 247, 0.98);
-          transform: translateY(-1px);
-        }
-        .support-card > span {
-          grid-area: label;
-          color: var(--muted);
-          font-size: 0.7rem;
-        }
-        .support-card > strong {
-          grid-area: title;
-          color: var(--forest-dark);
-          font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-          font-size: 1rem;
-        }
-        .support-card > small {
-          grid-area: copy;
-          color: var(--muted);
-          font-size: 0.68rem;
-          line-height: 1.5;
-        }
-        .support-card > i {
-          grid-area: arrow;
-          color: var(--forest);
-          font-size: 1.3rem;
-          font-style: normal;
-        }
-        .support-card:first-child > i { color: var(--seal); }
-        @media (max-width: 680px) {
-          .support-links-section {
-            width: min(100% - 24px, 1180px);
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-bottom: 28px;
-          }
-          .support-card {
-            min-height: 0;
-            padding: 13px 14px;
-            grid-template-columns: 1fr auto;
-          }
-          .support-card > strong { font-size: 0.94rem; }
-          .support-card > span,
-          .support-card > small { font-size: 0.66rem; }
-        }
-      `;
-      document.head.appendChild(style);
-    }
+        .support-card > strong { font-size: 0.94rem; }
+        .support-card > span,
+        .support-card > small { font-size: 0.66rem; }
+      }
+    `;
+    document.head.appendChild(style);
   };
 
   if (!window.location.pathname.includes("/stations/")) {
     document.addEventListener("click", markStationEntrySource, { capture: true });
-    addHomeSupportLinks();
+    ensureHomeSupportStyles();
     return;
   }
 
@@ -306,8 +263,6 @@
 
   window.addEventListener("pagehide", sendEngagement, { once: true });
 
-  // 閲覧数上位のうち、東京駅系の強調UIが未適用だった駅。
-  // 既に東京駅系UIを持つ主要駅は重複適用しない。
   const demandStyleStations = new Set([
     "tsuchiura",
     "higashitotsuka",
