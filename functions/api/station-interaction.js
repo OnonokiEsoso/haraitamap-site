@@ -9,12 +9,12 @@ const VALID_EVENT_TYPES = new Set([
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
-    const stationPath = typeof body.stationPath === "string" ? body.stationPath.trim() : "";
+    const stationPath = typeof body.stationPath === "string" ? body.stationPath.trim().replace(/\.html$/i, "") : "";
     const stationName = typeof body.stationName === "string" ? body.stationName.trim() : "";
     const eventType = typeof body.eventType === "string" ? body.eventType.trim() : "";
     const eventValue = typeof body.eventValue === "string" ? body.eventValue.trim().slice(0, 120) : "";
 
-    const validPath = /^\/stations\/[a-z0-9-]+(?:\.html)?$/i;
+    const validPath = /^\/stations\/[a-z0-9-]+$/i;
     if (!validPath.test(stationPath) || !stationName || stationName.length > 50 || !VALID_EVENT_TYPES.has(eventType)) {
       return Response.json({ success: false, message: "無効な集計内容です。" }, { status: 400 });
     }
