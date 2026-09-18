@@ -5,7 +5,7 @@
     document.querySelector("h2");
 
   const stationName = stationTitle?.textContent.trim();
-  const stationPath = window.location.pathname.replace(/\/$/, "");
+  const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
 
   if (!stationName || !stationPath.startsWith("/stations/")) {
     return;
