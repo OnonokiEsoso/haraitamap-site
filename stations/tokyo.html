@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="../favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
-<meta name="description" content="東京駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
+<meta name="description" content="東京駅のトイレ情報ページ。JR東日本・JR東海・東京メトロのトイレについて、場所・行き方・設備・おすすめ度などを掲載しています。" />
 <link rel="stylesheet" href="../station-page-garden-v3.css" />
 <style>
   .station-page-tokyo .best-pick {
@@ -85,6 +85,89 @@
       linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
       rgba(255, 253, 247, 0.82);
   }
+
+
+  .station-page-tokyo .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .station-page-tokyo .facility-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 0 2px 14px;
+  }
+
+  .station-page-tokyo .facility-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    border: 1px solid rgba(97, 123, 94, 0.34);
+    background: rgba(97, 123, 94, 0.08);
+    color: #173c31;
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .station-page-tokyo .facility-icon-button {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    flex: 0 0 28px;
+  }
+
+  .station-page-tokyo .facility-icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .station-page-tokyo .facility-tooltip {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 6px;
+    background: #173c31;
+    color: #fff;
+    padding: 5px 7px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    line-height: 1.2;
+    box-shadow: 0 4px 12px rgba(23, 60, 49, 0.18);
+  }
+
+  .station-page-tokyo .facility-tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: #173c31;
+  }
+
+  .station-page-tokyo .station-alert {
+    margin: 16px 0 20px;
+    border-left: 6px solid #9b3b2f;
+    background: rgba(155, 59, 47, 0.08);
+    padding: 14px 16px;
+    color: #5f241d;
+    font-weight: 800;
+  }
 </style>
 </head>
 <body class="station-page-tokyo">
@@ -129,9 +212,10 @@
           <p>STATION TOILET GUIDE</p>
           <h1>東京駅のトイレ案内</h1>
           <div class="station-lines" aria-label="主な路線">
-            <span>JR中央線</span>
-            <span>JR常磐線</span>
-            <span>新幹線・各線</span>
+            <span>JR在来線</span>
+            <span>JR東日本新幹線</span>
+            <span>東海道新幹線</span>
+            <span>東京メトロ丸ノ内線</span>
           </div>
         </div>
         <a class="back-to-search" href="../index.html">
@@ -140,32 +224,8 @@
         </a>
       </div>
 
-      <section class="station-overview" aria-label="東京駅の掲載候補概要">
-        <div class="overview-grid">
-          <div class="overview-count">
-            <span>掲載候補</span>
-            <strong>19<small>か所</small></strong>
-            <p>1F・B1F / 改札内外</p>
-          </div>
-          <a class="best-pick" href="#toilet-marunouchi-south">
-            <div class="best-pick-inner">
-              <div class="best-pick-label">
-                <span>まず確認したい候補</span>
-                <em>推奨</em>
-              </div>
-              <div class="best-pick-main">
-                <strong>丸の内南口付近</strong>
-                <p>1F改札内。きれい度と大・小期待値のバランスが良い候補です。</p>
-              </div>
-              <div class="best-pick-action">
-                <span>候補一覧の該当欄へ</span>
-                <b>移動 →</b>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
+      <section class="station-overview" aria-label="東京駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>25<small>か所</small></strong><p>JR東日本19 / JR東海5 / 東京メトロ1（別に丸の内南口・改札内1か所は閉鎖中）</p></div><a class="best-pick" href="#tokyo-toilet-yaesu-north"><div class="best-pick-inner"><div class="best-pick-label"><span>全利用者向け</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる路線・改札の近くを使ってください</strong><p>東京駅は非常に広いため、別エリアの高評価トイレへ移動するより、地上JR・B1・地下総武・京葉線・各新幹線・丸ノ内線の今いるエリア内を優先してください。</p></div></div></a></div></section>
+      <div class="station-alert">丸の内南口の「改札内」トイレは現在閉鎖中です。丸の内南口を出た後の改札外トイレは利用できます。東京メトロ丸ノ内線のトイレは大手町方面改札の外です。</div>
       <div class="list-toolbar" id="toilet-list">
         <div class="list-heading">
           <span class="list-number">01</span>
@@ -186,120 +246,348 @@
         </div>
       </div>
 
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 八重洲北口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札内の北側、八重洲側。</dd></div>
-        <div><dt>行き方</dt><dd>1Fコンコースに降りたら、まず「八重洲北口」の案内を追う。八重洲北口のすぐ近くで、八重北食堂側が目印になる。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★☆☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-yaesu-south" data-ticket-gate="inside"><div class="card-body"><h3>JR 1F 八重洲南口トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>1F・八重洲南改札内。</dd></div>
+        <div><dt>行き方</dt><dd>八重洲南改札から入って左。改札内から出口へ向かう場合は改札へ下りる階段の手前右です。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 丸の内中央口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札内の中央、中央通路沿い。</dd></div>
-        <div><dt>行き方</dt><dd>1Fに出たら「丸の内中央口」へ。中央通路は丸の内中央口-八重洲中央口を結ぶ太い通路なので、そこに出れば近くなる。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-yaesu-north" data-ticket-gate="inside"><div class="card-body"><h3>JR 1F 八重洲北口トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>1F・八重洲北改札内。</dd></div>
+        <div><dt>行き方</dt><dd>八重洲北改札から入って右。地上ホーム北側から八重洲北口方面へ下りてください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" id="toilet-marunouchi-south" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 丸の内南口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札内の南側、丸の内側。</dd></div>
-        <div><dt>行き方</dt><dd>1Fで「丸の内南口」を追う。南通路寄りに行くイメージ。新幹線ホームからも「南側へ進んで1Fへ降りる」案内で丸の内南口へ向かえる。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-marunouchi-north-male" data-ticket-gate="inside"><div class="card-body"><h3>JR 1F 丸の内北口・男子</h3><dl class="kv">
+        <div><dt>場所</dt><dd>丸の内北改札を入って右へ進み、中央線1・2番線へ上がるエスカレーターの裏側です。</dd></div>
+        <div><dt>行き方</dt><dd>丸の内北口方向へ進み、改札を出る前に1・2番線エスカレーター裏を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 八重洲南口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札内の南東側、八重洲側。</dd></div>
-        <div><dt>行き方</dt><dd>「八重洲南口」を目印に進む。京葉線・武蔵野線へ向かう途中のエリアは、京葉線方面の案内を追っても近づける。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-marunouchi-north-female" data-ticket-gate="inside"><div class="card-body"><h3>JR 1F 丸の内北口・女子</h3><dl class="kv">
+        <div><dt>場所</dt><dd>丸の内北口側から見て通路左側。男子側とははす向かいです。</dd></div>
+        <div><dt>行き方</dt><dd>男子トイレと同じ場所を探さず、丸の内北口方向の通路左側を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>—</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 グランスタ八重北（八重北食堂）内</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札外、八重洲北側の八重北食堂エリア内。</dd></div>
-        <div><dt>行き方</dt><dd>八重洲北口改札を出て、左手へ進む。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-yaesu-b1" data-ticket-gate="inside"><div class="card-body"><h3>JR B1 八重洲地下中央口トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>B1、八重洲地下中央改札を入って左。</dd></div>
+        <div><dt>行き方</dt><dd>八重洲地下中央改札へ向かい、改札内へ入ってすぐ左を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや新しい</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
+      <div class="card" id="tokyo-toilet-baggage" data-ticket-gate="inside"><div class="card-body"><h3>JR B1 手荷物預り所付近トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>B1改札内、手荷物預り所・コインロッカー付近。</dd></div>
+        <div><dt>行き方</dt><dd>B1改札内で手荷物預り所・コインロッカーを目印にしてください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
 
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 丸の内北口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札外、丸の内側の北側。</dd></div>
-        <div><dt>行き方</dt><dd>1Fで「丸の内北口」を出る。北自由通路寄りの丸の内側に出れば近い。マップ上でも丸の内北口のすぐ外側にトイレ記号がある。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 丸の内南口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>1F改札外、丸の内側の南側。</dd></div>
-        <div><dt>行き方</dt><dd>1Fで「丸の内南口」を出てすぐのエリアを探す。南口の外側にトイレ記号がある。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-gransta-1" data-ticket-gate="inside"><div class="card-body"><h3>JR B1 グランスタ①</h3><dl class="kv">
+        <div><dt>場所</dt><dd>グランスタ東京付近・人通りの多い通路沿い。</dd></div>
+        <div><dt>行き方</dt><dd>B1グランスタ東京方面へ進み、トイレ案内ピクトを確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1 改札内 グランスタ東京 スクエア ゼロエリア（グランスタ地下北口付近）</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札内、スクエア ゼロエリアのうち、グランスタ地下北口改札側。</dd></div>
-        <div><dt>行き方</dt><dd>B1に降りたら、「グランスタ地下北口改札」か「スクエア ゼロ」を目印にする。公式ではスクエア ゼロエリアは丸の内地下中央口-八重洲地下中央口の中間で、かつグランスタ地下北口改札から入ってすぐのエリア。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-gransta-2" data-ticket-gate="inside"><div class="card-body"><h3>JR B1 グランスタ②</h3><dl class="kv">
+        <div><dt>場所</dt><dd>グランスタ東京付近、①より少し奥まった位置。</dd></div>
+        <div><dt>行き方</dt><dd>グランスタ内のトイレ案内を追ってください。①と比較的近い位置です。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1 改札内 グランスタ東京 スクエア ゼロエリア（イベントスペース付近）</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札内、スクエア ゼロのイベントスペース寄り。</dd></div>
-        <div><dt>行き方</dt><dd>B1改札内で「スクエア ゼロ」を目指す。公式ではスクエア ゼロは東京駅B1改札内のほぼ中心にある。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-marunouchi-b1-inside" data-ticket-gate="inside"><div class="card-body"><h3>JR B1 丸の内地下北口・改札内</h3><dl class="kv">
+        <div><dt>場所</dt><dd>丸の内地下北口の改札内、改札を入って斜め正面。</dd></div>
+        <div><dt>行き方</dt><dd>丸の内地下北口へ向かい、改札を出る前に斜め正面を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや新しい</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
+      <div class="card" id="tokyo-toilet-sobu-yokohama" data-ticket-gate="inside"><div class="card-body"><h3>JR 地下総武 B4F 横浜寄り</h3><dl class="kv">
+        <div><dt>場所</dt><dd>横須賀線・総武快速エリアB4Fの横浜寄り。</dd></div>
+        <div><dt>行き方</dt><dd>地下総武ホームからB4コンコースへ上がり、横浜寄りへ進んでください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>古い</dd></div>
 
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1 改札内 丸の内地下北口付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札内、丸の内側北寄り。</dd></div>
-        <div><dt>行き方</dt><dd>B1で「丸の内地下北口」の案内を追う。改札のすぐ近くにあるタイプ。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★☆☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
+      <div class="card" id="tokyo-toilet-sobu-chiba" data-ticket-gate="inside"><div class="card-body"><h3>JR 地下総武 B4F 千葉寄り</h3><dl class="kv">
+        <div><dt>場所</dt><dd>横須賀線・総武快速エリアB4Fの千葉寄り。</dd></div>
+        <div><dt>行き方</dt><dd>B4コンコースで千葉寄りへ進んでください。反対端まで歩く必要はありません。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>古い</dd></div>
 
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1 改札内 グランスタ東京 クロースサービス前</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札内、グランスタ内クロークサービス前。</dd></div>
-        <div><dt>行き方</dt><dd>B1改札内で「クロークサービス」または「手荷物一時預かり所」の案内を探すのが最短。公式のクローク案内でも、B1改札内にグランスタ内クロークサービスがある。トイレはその前。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1 改札内 八重洲地下中央口改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札内、八重洲側中央。</dd></div>
-        <div><dt>行き方</dt><dd>B1で「八重洲地下中央口」または「銀の鈴」を目印に進む。公式では銀の鈴エリアは八重洲地下中央口改札から進んだ先にあるので、このトイレを探すときも銀の鈴方向でかなり近づける。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★★☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-keiyo-b2" data-ticket-gate="inside"><div class="card-body"><h3>JR 京葉線 B2Fトイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>京葉線エリアB2F。京葉地下八重洲口に比較的近い位置。</dd></div>
+        <div><dt>行き方</dt><dd>他JR線から長い京葉線連絡通路を進み、最初に現れるトイレを確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="inside"><div class="card-body"><h3>B1 改札内 京葉線地下改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1の東端寄り、京葉線・武蔵野線側。</dd></div>
-        <div><dt>行き方</dt><dd>まず「京葉線・武蔵野線」の案内を追う。B1の右端側に京葉地下八重洲口・京葉地下丸の内口の表示があり、その地下改札周辺が目印。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div><div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★☆☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-keiyo-b3-soga" data-ticket-gate="inside"><div class="card-body"><h3>JR 京葉線 B3F 蘇我寄り</h3><dl class="kv">
+        <div><dt>場所</dt><dd>京葉線B3F・蘇我寄り。</dd></div>
+        <div><dt>行き方</dt><dd>京葉線B3コンコースで蘇我方面側へ進んでください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1 改札外 グランスタ八重北（黒塀横丁）内</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札外、八重北の黒塀横丁エリア内。</dd></div>
-        <div><dt>行き方</dt><dd>グランスタ地下北口改札の近く、北地下自由通路沿いへ向かう。公式でも黒塀横丁はその位置関係で案内されている。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+      <div class="card" id="tokyo-toilet-keiyo-b3-end" data-ticket-gate="inside"><div class="card-body"><h3>JR 京葉線 B3F 東京駅終端側</h3><dl class="kv">
+        <div><dt>場所</dt><dd>京葉線B3F・蘇我方面とは反対の終端寄り。</dd></div>
+        <div><dt>行き方</dt><dd>京葉線B3Fで終端側へ進んでください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1 改札外 丸の内地下北口付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札外、丸の内地下北口の外。</dd></div>
-        <div><dt>行き方</dt><dd>丸の内地下北口改札を出る。公式では、改札を出て右側にグランスタ丸の内のショップ群があるので、そのエリアに入れば近い。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★☆☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-jre-shinkansen-south" data-ticket-gate="inside"><div class="card-body"><h3>JR東日本新幹線・南のりかえ口</h3><dl class="kv">
+        <div><dt>場所</dt><dd>南側新幹線コンコース、22・23番線へ上がるエレベーターの右。</dd></div>
+        <div><dt>行き方</dt><dd>南側新幹線コンコースで22・23番線方面へ進み、エレベーター右を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1 改札外 グランスタ八重洲内（1）</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札外、グランスタ八重洲 地下フロア内。</dd></div>
-        <div><dt>行き方</dt><dd>八重洲地下中央口改札を出て、そのまま進む。公式では、グランスタ八重洲B1地下フロアは八重洲地下中央改札を出て進んだところに広がると案内されている。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-jre-shinkansen-north" data-ticket-gate="inside"><div class="card-body"><h3>JR東日本新幹線・北のりかえ口</h3><dl class="kv">
+        <div><dt>場所</dt><dd>北側新幹線コンコース、22・23番線へ上がる階段・エスカレーターの右。</dd></div>
+        <div><dt>行き方</dt><dd>北側新幹線コンコースから22・23番線方向へ進んでください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
+      <div class="card" id="tokyo-toilet-jre-shinkansen-nihombashi" data-ticket-gate="inside"><div class="card-body"><h3>JR東日本新幹線・日本橋口トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>日本橋口と各新幹線ホームを結ぶ階段の中間階。</dd></div>
+        <div><dt>行き方</dt><dd>新幹線ホームの上野寄り端の階段から日本橋口方向へ進んでください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
 
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1 改札外 グランスタ八重洲内（2）</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札外、グランスタ八重洲 地下フロア内。</dd></div>
-        <div><dt>行き方</dt><dd>上と同じく、八重洲地下中央口改札を出て進む。B1のグランスタ八重洲地下フロア内にある2か所のうちのもう一方。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1 改札外 グラントウキョウサウスタワーB1</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札外、グラントウキョウ サウスタワーB1。</dd></div>
-        <div><dt>行き方</dt><dd>八重洲南口改札の外側へ向かうのが一番わかりやすい。八重洲南口を出てB1へ降り、グランアージュ/サウスタワー側へ進むと到達しやすい。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-marunouchi-south-outside" data-ticket-gate="outside"><div class="card-body"><h3>JR 丸の内南口・改札外</h3><dl class="kv">
+        <div><dt>場所</dt><dd>丸の内南改札を出て左。</dd></div>
+        <div><dt>行き方</dt><dd>丸の内南口をすでに出ている場合は左を確認してください。閉鎖中なのは改札内の別トイレです。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
-      <div class="card" data-ticket-gate="outside"><div class="card-body"><h3>B1 改札外 PCP丸の内ビルB1</h3><dl class="kv">
-        <div><dt>場所</dt><dd>B1改札外、パシフィックセンチュリープレイス丸の内（PCP丸の内）B1。</dd></div>
-        <div><dt>行き方</dt><dd>実質、八重洲南口改札外からB1へ向かうのがわかりやすい。八重洲南口外からB1のPCP/GranAge側を目印に進む。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div><div><dt>大期待値</dt><dd>★★★☆☆</dd></div><div><dt>小期待値</dt><dd>★★★☆☆</dd></div><div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      <div class="card" id="tokyo-toilet-marunouchi-north-outside" data-ticket-gate="outside"><div class="card-body"><h3>JR 丸の内北口・改札外</h3><dl class="kv">
+        <div><dt>場所</dt><dd>丸の内北改札を出て右、北自由通路の途中。</dd></div>
+        <div><dt>行き方</dt><dd>丸の内北口を出たら右へ進み、そのまま北自由通路へ向かってください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや新しい</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-
+      <div class="card" id="tokyo-toilet-marunouchi-b1-outside" data-ticket-gate="outside"><div class="card-body"><h3>JR B1 丸の内地下北口・改札外</h3><dl class="kv">
+        <div><dt>場所</dt><dd>丸の内地下北改札を出て右、壁沿い。</dd></div>
+        <div><dt>行き方</dt><dd>地下北口をすでに出ている場合は右の壁沿いを確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="tokyo-toilet-jrc-south" data-ticket-gate="inside"><div class="card-body"><h3>東海道新幹線・南コンコース</h3><dl class="kv">
+        <div><dt>場所</dt><dd>JR東海M2F南側。八重洲南・八重洲中央南・南のりかえ口側。</dd></div>
+        <div><dt>行き方</dt><dd>東海道新幹線南側なら南コンコースの一般トイレへ向かってください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="tokyo-toilet-jrc-central-south-multi" data-ticket-gate="inside"><div class="card-body"><h3>東海道新幹線・八重洲中央南口 多機能</h3><dl class="kv">
+        <div><dt>場所</dt><dd>八重洲中央南改札へ至る通路途中。男女共用多機能トイレのみです。</dd></div>
+        <div><dt>行き方</dt><dd>多機能設備が必要で八重洲中央南口付近ならここ。一般利用者は南コンコースへ向かってください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>—</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="tokyo-toilet-jrc-north" data-ticket-gate="inside"><div class="card-body"><h3>東海道新幹線・北コンコース</h3><dl class="kv">
+        <div><dt>場所</dt><dd>JR東海M2F北側。八重洲北・八重洲中央北・中央のりかえ口側。</dd></div>
+        <div><dt>行き方</dt><dd>東海道新幹線北側ではまず北コンコースの一般トイレを確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="tokyo-toilet-jrc-yaesu-north-multi" data-ticket-gate="inside"><div class="card-body"><h3>東海道新幹線・八重洲北口 多機能</h3><dl class="kv">
+        <div><dt>場所</dt><dd>八重洲北改札を入って左。男女共用多機能トイレのみです。</dd></div>
+        <div><dt>行き方</dt><dd>八重洲北から入った多機能設備利用者は左を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★☆☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>—</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや新しい</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="tokyo-toilet-jrc-nihombashi" data-ticket-gate="inside"><div class="card-body"><h3>東海道新幹線・日本橋口</h3><dl class="kv">
+        <div><dt>場所</dt><dd>JR東海M2F、日本橋口側。</dd></div>
+        <div><dt>行き方</dt><dd>東海道新幹線日本橋口側にいる場合はこのエリア内で利用してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="tokyo-toilet-metro" data-ticket-gate="outside"><div class="card-body"><h3>東京メトロ丸ノ内線・大手町方面改札外</h3><dl class="kv">
+        <div><dt>場所</dt><dd>大手町方面改札の改札外。</dd></div>
+        <div><dt>行き方</dt><dd>丸ノ内線ホームから大手町／池袋寄り側の改札へ向かい、改札を出てから利用してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
       <section class="station-report" id="station-report">
         <span class="seal">情</span>
         <div>
@@ -314,6 +602,15 @@
           rel="noopener noreferrer"
         >入力フォームへ →</a>
       </section>
+      <section class="station-research-details" aria-label="再確認情報">
+        <div class="card"><div class="card-body"><h3>再確認情報</h3><dl class="kv">
+          <div><dt>確認結果</dt><dd>2026年9月時点で東京駅のトイレ情報を再確認しました。JR東日本、JR東海、東京メトロの公式構内図・バリアフリー情報を優先し、らくらくおでかけネットと2026年更新の現地調査情報を補助的に使用しています。鉄道事業者管理の範囲では、利用可能なトイレを25ゾーン確認しました。</dd></div>
+          <div><dt>閉鎖情報</dt><dd>JR東日本・丸の内南口の改札内トイレは、2026年の現地調査で駅改良工事に伴う閉鎖が確認されています。丸の内南口の改札外トイレは利用可能です。</dd></div>
+          <div><dt>設備の扱い</dt><dd>多機能トイレ・オストメイト・ベビーベッドは、各トイレで設置を確認できたもののみ「あり」としています。おむつ交換用ベビーシートは当サイトの「ベビーベッド」に含めています。</dd></div>
+          <div><dt>評価について</dt><dd>おすすめ度・きれい度・大期待値・小期待値・新しさは、当サイト独自の目安評価です。</dd></div>
+          <div><dt>情報確認日</dt><dd>2026年9月19日</dd></div>
+          <div><dt>主な情報源</dt><dd><a href="https://www.jreast.co.jp/estation/stations/1039.html" target="_blank" rel="noopener noreferrer">JR東日本 東京駅</a> / <a href="https://railway.jr-central.co.jp/station-guide/shinkansen/tokyo/map.html" target="_blank" rel="noopener noreferrer">JR東海 東京駅</a> / <a href="https://www.tokyometro.jp/station/tokyo/accessibility/index.html" target="_blank" rel="noopener noreferrer">東京メトロ 東京駅</a> / <a href="https://www.ecomo-rakuraku.jp/ja/station/%E6%9D%B1%E4%BA%AC/" target="_blank" rel="noopener noreferrer">らくらくおでかけネット</a></dd></div>
+        </dl></div></div>
     </div>
   </main>
 
@@ -793,6 +1090,7 @@
       const big = getMetric(card, "大期待値") || "TODO: 未記載";
       const small = getMetric(card, "小期待値") || "TODO: 未記載";
       const newness = getMetric(card, "トイレの新しさ") || "TODO: 未記載";
+      const recommend = getMetric(card, "おすすめ度");
       const ticketGate = getTicketGateLabel(card);
 
       return {
@@ -807,6 +1105,7 @@
         },
         "additionalProperty": [
           { "@type": "PropertyValue", "name": "改札内外", "value": ticketGate },
+          { "@type": "PropertyValue", "name": "おすすめ度", "value": recommend },
           { "@type": "PropertyValue", "name": "きれい度", "value": clean },
           { "@type": "PropertyValue", "name": "大期待値", "value": big },
           { "@type": "PropertyValue", "name": "小期待値", "value": small },
@@ -831,7 +1130,7 @@
 </script>
 <script>
 (() => {
-  const stationPath = window.location.pathname;
+  const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
 
@@ -861,6 +1160,31 @@
     console.warn("閲覧数の記録に失敗しました。", error);
     sessionStorage.removeItem(sessionKey);
   });
+})();
+</script>
+<script>
+(() => {
+  const buttons = Array.from(document.querySelectorAll(".facility-icon-button"));
+  const closeAll = (except = null) => {
+    buttons.forEach((button) => {
+      if (button === except) return;
+      button.setAttribute("aria-expanded", "false");
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (tooltip) tooltip.hidden = true;
+    });
+  };
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (!tooltip) return;
+      const willOpen = tooltip.hidden;
+      closeAll(button);
+      tooltip.hidden = !willOpen;
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", () => closeAll());
 })();
 </script>
 <script src="../action-usage-client.js"></script>
