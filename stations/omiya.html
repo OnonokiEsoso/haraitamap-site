@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="../favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
-<meta name="description" content="大宮駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
+<meta name="description" content="大宮駅のトイレ情報ページ。JR在来線・新幹線・ニューシャトル・東武のトイレについて、場所・行き方・設備・おすすめ度などを掲載しています。" />
 <link rel="stylesheet" href="../station-page-garden-v3.css" />
 <style>
   .station-page-tokyo .best-pick {
@@ -85,6 +85,94 @@
       linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
       rgba(255, 253, 247, 0.82);
   }
+
+
+  .station-page-omiya .overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .station-page-omiya .overview-count {
+    grid-column: 1 / -1;
+  }
+
+  .station-page-omiya .facility-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 0 2px 14px;
+  }
+
+  .station-page-omiya .facility-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    border: 1px solid rgba(97, 123, 94, 0.34);
+    background: rgba(97, 123, 94, 0.08);
+    color: #173c31;
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .station-page-omiya .facility-icon-button {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    flex: 0 0 28px;
+  }
+
+  .station-page-omiya .facility-icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .station-page-omiya .facility-tooltip {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 6px;
+    background: #173c31;
+    color: #ffffff;
+    padding: 5px 7px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    line-height: 1.2;
+    box-shadow: 0 4px 12px rgba(23, 60, 49, 0.18);
+  }
+
+  .station-page-omiya .facility-tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: #173c31;
+  }
+
+  @media (max-width: 760px) {
+    .station-page-omiya .overview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .station-page-omiya .overview-count {
+      grid-column: auto;
+    }
+  }
 </style>
 </head>
 <body class="station-page-tokyo station-page-omiya">
@@ -92,74 +180,148 @@
   <main class="section" id="top"><div class="container">
       <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../index.html">駅を探す</a><span aria-hidden="true"></span><span aria-current="page">大宮駅</span></nav>
       <div class="section-head station-title"><div class="station-plaque"><span>STATION</span><h2>大宮駅</h2><b>OMY</b></div><div class="station-title-copy"><p>STATION TOILET GUIDE</p><h1>大宮駅のトイレ案内</h1><div class="station-lines" aria-label="主な路線">
+            <span>JR在来線</span>
+            <span>新幹線</span>
             <span>東武アーバンパークライン</span>
-            <span>埼京線</span>
-            <span>湘南新宿ライン</span>
+            <span>ニューシャトル</span>
           </div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
-      <section class="station-overview" aria-label="大宮駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>7<small>か所</small></strong><p>2F 改札内 3か所 / 1F 改札内 3か所 / 1F 改札外 1か所</p></div><a class="best-pick" href="#omiya-toilet-1"><div class="best-pick-inner"><div class="best-pick-label"><span>まず確認したい候補</span><em>推奨</em></div><div class="best-pick-main"><strong>2F 改札内 エキュート大宮西側</strong><p>JR在来線の2F改札内南側。エキュート大宮の西側で、埼京線・川越線ホームへ向かう階段・エスカレーターの左側にあります。 きれい度と大・小期待値のバランスから選んだ候補です。</p></div><div class="best-pick-action"><span>候補一覧の該当欄へ</span><b>移動 →</b></div></div></a></div></section>
+      <section class="station-overview" aria-label="大宮駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>10<small>か所</small></strong><p>JR在来線5 / JR新幹線3カード / ニューシャトル1 / 東武1</p></div><a class="best-pick" href="#omiya-toilet-2"><div class="best-pick-inner"><div class="best-pick-label"><span>男性の場合</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる場所から近いトイレへ</strong><p>JR在来線2Fなら中央改札南に近ければeCute東側、南改札・埼京線側ならeCute西側へ。8・9番線や新幹線にいる場合は、そのエリア内のトイレを優先してください。</p></div></div></a><a class="best-pick" href="#omiya-toilet-shinkansen-south-female"><div class="best-pick-inner"><div class="best-pick-label"><span>女性の場合</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる場所から近いトイレへ</strong><p>JR在来線2Fなら中央改札南はeCute東側、南改札はeCute西側が分かりやすいです。新幹線南の女子トイレだけは男子側と場所が異なります。</p></div></div></a></div></section>
       <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls" style="margin:12px 0 16px;"><label for="omiya-sort" class="muted" style="margin-right:8px;">並び替え</label><select id="omiya-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
-      <div class="card" id="omiya-toilet-1" data-ticket-gate="inside"><div class="card-body"><h3>2F 改札内 エキュート大宮西側</h3><dl class="kv">
-        <div><dt>場所</dt><dd>JR在来線の2F改札内南側。エキュート大宮の西側で、埼京線・川越線ホームへ向かう階段・エスカレーターの左側にあります。</dd></div>
-        <div><dt>行き方</dt><dd>南改札を入って埼京線・川越線の案内を目印に進み、階段・エスカレーター手前の左側を見ると見つけやすいです。エキュート南側エリアの中では、ちょっと奥まった位置です。</dd></div>
+      <div class="card" id="omiya-toilet-1" data-ticket-gate="inside"><div class="card-body"><h3>JR 2F・eCute大宮 西側</h3><dl class="kv">
+        <div><dt>場所</dt><dd>JR在来線2F、eCute大宮西側。19～22番線へ下りる階段・エスカレーターの手前です。</dd></div>
+        <div><dt>行き方</dt><dd>南改札から埼京線・川越線19～22番線方向へ進み、ホームへ下りる前の階段・エスカレーター左側を確認してください。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
-        <div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div>
-        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
         <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
-        <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや新しい</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>駅内にあり</span></span>
+        </div>
       </dl></div></div>
-      <div class="card" id="omiya-toilet-2" data-ticket-gate="inside"><div class="card-body"><h3>2F 改札内 エキュート大宮東側</h3><dl class="kv">
-        <div><dt>場所</dt><dd>JR在来線の2F改札内南側。エキュート大宮の東側で、1・2番線ホームへ下りる階段付近にあります。</dd></div>
-        <div><dt>行き方</dt><dd>中央改札（南）から入って1・2番線の階段案内を追えば、その近くにあります。</dd></div>
+      <div class="card" id="omiya-toilet-2" data-ticket-gate="inside"><div class="card-body"><h3>JR 2F・eCute大宮 東側</h3><dl class="kv">
+        <div><dt>場所</dt><dd>JR在来線2F、eCute大宮東側。1・2番線へ下りる階段付近です。</dd></div>
+        <div><dt>行き方</dt><dd>中央改札（南）から1・2番線の案内を目印に進み、ホームへ下りる前を探してください。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
-        <div><dt>トイレの<br>きれい度</dt><dd>★★★★★</dd></div>
-        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
-        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
-        <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-      <div class="card" id="omiya-toilet-3" data-ticket-gate="inside"><div class="card-body"><h3>2F 改札内 中央改札（北）付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>JR在来線の2F改札内北側。中央改札（北）を入って右側へ進み、薬局と3・4番線ホームへ下りる階段に挟まれた場所に入口があります。</dd></div>
-        <div><dt>行き方</dt><dd>中央改札（北）を入って右へ進み、薬局を目印にするとたどり着きやすいです。3・4番線の階段近くを探せばOKです。</dd></div>
+      <div class="card" id="omiya-toilet-3" data-ticket-gate="inside"><div class="card-body"><h3>JR 2F・中央改札北トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>中央改札（北）から入って右側。薬局と3・4番線へ下りる階段の間です。</dd></div>
+        <div><dt>行き方</dt><dd>中央改札（北）を入ったら右へ進み、3・4番線へ下りる前の右手を確認してください。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
-        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
-        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
-        <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-      <div class="card" id="omiya-toilet-4" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札内 ルミネ北改札付近</h3><dl class="kv">
-        <div><dt>場所</dt><dd>JR在来線の1F改札内。中央改札（北）・北改札側と埼京線/川越線ホームを結ぶ階段の1F部分にあり、近くにルミネ北改札があります。</dd></div>
-        <div><dt>行き方</dt><dd>北側から埼京線・川越線ホームへ向かう階段を目印に下り、その階段まわりの1F部分を探すと見つけやすいです。ルミネ北改札の近くです。</dd></div>
+      <div class="card" id="omiya-toilet-4" data-ticket-gate="inside"><div class="card-body"><h3>JR 1F・ルミネ北改札付近</h3><dl class="kv">
+        <div><dt>場所</dt><dd>JR在来線1F。中央北・北改札側と埼京線／川越線ホームを結ぶ階段途中、ルミネ北改札付近です。</dd></div>
+        <div><dt>行き方</dt><dd>ルミネ北改札・埼京線／川越線方面の連絡階段1F部分を目印にしてください。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
         <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
         <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
-        <div><dt>トイレの<br>新しさ</dt><dd>旧</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>駅内にあり</span></span>
+        </div>
       </dl></div></div>
-      <div class="card" id="omiya-toilet-5" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 8・9番線ホーム</h3><dl class="kv">
-        <div><dt>場所</dt><dd>JR在来線の1F改札内ホーム上。8・9番線ホームから北改札へ向かう階段の裏手。</dd></div>
-        <div><dt>行き方</dt><dd>8・9番線ホームで北改札方面の階段を探して、その裏側へ回るイメージです。ホーム上にあるので、そのホームにいるなら最短候補です。</dd></div>
+      <div class="card" id="omiya-toilet-5" data-ticket-gate="inside"><div class="card-body"><h3>JR 8・9番線ホームトイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>8・9番線ホーム上。一番北側の北改札方面階段の裏手です。</dd></div>
+        <div><dt>行き方</dt><dd>8・9番線にいる場合は2Fへ上がらず、ホーム北側の階段裏へ回ってください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>駅内にあり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="omiya-toilet-shinkansen-south-male" data-ticket-gate="inside"><div class="card-body"><h3>新幹線 南のりかえ口・男子／多機能</h3><dl class="kv">
+        <div><dt>場所</dt><dd>新幹線南コンコース。13・14番線へ向かうエスカレーターの手前です。</dd></div>
+        <div><dt>行き方</dt><dd>南のりかえ口を通ったら13・14番線方向へ進み、エスカレーターに乗る前を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="omiya-toilet-shinkansen-south-female" data-ticket-gate="inside"><div class="card-body"><h3>新幹線 南のりかえ口・女子</h3><dl class="kv">
+        <div><dt>場所</dt><dd>新幹線南コンコース。13・14番線へ向かう階段と15・16番線へ向かう階段の間です。</dd></div>
+        <div><dt>行き方</dt><dd>男子トイレと同じ場所ではありません。南側コンコースの13・14番線階段と15・16番線階段の間を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>☆☆☆☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ 駅内にあり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>駅内にあり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="omiya-toilet-shinkansen-north" data-ticket-gate="inside"><div class="card-body"><h3>新幹線 北のりかえ口トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>新幹線北コンコース。13・14番線ホームへ向かう階段の手前です。</dd></div>
+        <div><dt>行き方</dt><dd>北のりかえ口から13・14番線方向へ進み、階段に入る前を確認してください。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
+      </dl></div></div>
+      <div class="card" id="omiya-toilet-6" data-ticket-gate="inside"><div class="card-body"><h3>ニューシャトル改札内トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>ニューシャトル大宮駅の改札内。改札を入って右、駅員事務室と売店の間です。</dd></div>
+        <div><dt>行き方</dt><dd>ニューシャトルの改札を通ったら右を確認してください。駅員事務室と売店の間です。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
         <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
         <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
-      <div class="card" id="omiya-toilet-6" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 ニューシャトル改札内</h3><dl class="kv">
-        <div><dt>場所</dt><dd>ニューシャトル大宮駅の改札内。公式案内図では改札の先にあり、詳細記事では改札を入って右側の駅員事務室と売店（デイリーヤマザキ）の間にあります。</dd></div>
-        <div><dt>行き方</dt><dd>ニューシャトルの改札を入って右側へ進み、駅員事務室と売店の間を探せばOKです。JR側からニューシャトルへ移動したあとでも、場所はそこまで迷いにくいです。</dd></div>
+      <div class="card" id="omiya-toilet-7" data-ticket-gate="outside"><div class="card-body"><h3>東武大宮・改札外トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>東武アーバンパークライン大宮駅の改札外。改札を出て駅舎外へ向かう通路途中です。</dd></div>
+        <div><dt>行き方</dt><dd>東武改札を出て、駅外方向への通路を進んでください。改札内にはありません。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
-        <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
-        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
-        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
-        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
-      </dl></div></div>
-      <div class="card" id="omiya-toilet-7" data-ticket-gate="outside"><div class="card-body"><h3>1F 改札外 東武大宮駅 改札外トイレ</h3><dl class="kv">
-        <div><dt>場所</dt><dd>東武アーバンパークライン大宮駅の改札外。改札を出て駅舎の外へ出る通路の途中にあります。</dd></div>
-        <div><dt>行き方</dt><dd>東武の改札を出たあと、そのまま外へ抜ける通路を進む途中で見つかります。改札内にはないので、そこだけは要注意です。</dd></div>
-        <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
         <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
-        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
-        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>やや古い</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト あり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>あり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド あり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>あり</span></span>
+        </div>
       </dl></div></div>
       <section class="station-report" id="station-report">
         <span class="seal">情</span>
@@ -175,6 +337,14 @@
           rel="noopener noreferrer"
         >入力フォームへ →</a>
       </section>
+      <section class="station-research-details" aria-label="再確認情報">
+        <div class="card"><div class="card-body"><h3>再確認情報</h3><dl class="kv">
+          <div><dt>確認結果</dt><dd>2026年9月時点で再調査。大宮駅ではJR在来線5か所、JR新幹線2ゾーン、ニューシャトル1か所、東武1か所を確認しました。新幹線南は男子側と女子側の位置が異なるため、サイト上では分けて掲載しています。</dd></div>
+          <div><dt>設備の扱い</dt><dd>多機能トイレ・オストメイト・ベビーベッドは、各トイレで設置を確認できたもののみ「あり」とし、駅内で存在は確認できても設置場所を特定できない場合は「駅内にあり」としています。</dd></div>
+          <div><dt>評価について</dt><dd>おすすめ度・きれい度・大期待値・小期待値・新しさは、当サイト独自の目安評価です。</dd></div>
+          <div><dt>情報確認日</dt><dd>2026年9月18日</dd></div>
+          <div><dt>主な情報源</dt><dd><a href="https://www.jreast.co.jp/estation/stations/350.html" target="_blank" rel="noopener noreferrer">JR東日本 大宮駅</a> / <a href="https://www.tobu.co.jp/railway/guide/station/info/6102/" target="_blank" rel="noopener noreferrer">東武鉄道 大宮駅</a> / <a href="https://www.new-shuttle.jp/station/omiya/" target="_blank" rel="noopener noreferrer">ニューシャトル 大宮駅</a> / <a href="https://www.ecomo-rakuraku.jp/ja/station/%E5%A4%A7%E5%AE%AE%EF%BC%88%E5%9F%BC%E7%8E%89%EF%BC%89/" target="_blank" rel="noopener noreferrer">らくらくおでかけネット</a> / 御手洗い倶楽部</dd></div>
+        </dl></div></div>
     </div></main>
   <footer><strong>腹痛持ちのための駅トイレマップ</strong><span>大宮駅 / 駅案内 × 日本庭園</span></footer>
 
@@ -649,6 +819,7 @@
       const big = getMetric(card, "大期待値") || "TODO: 未記載";
       const small = getMetric(card, "小期待値") || "TODO: 未記載";
       const newness = getMetric(card, "トイレの新しさ") || "TODO: 未記載";
+      const recommend = getMetric(card, "おすすめ度");
       const ticketGate = getTicketGateLabel(card);
 
       return {
@@ -663,6 +834,7 @@
         },
         "additionalProperty": [
           { "@type": "PropertyValue", "name": "改札内外", "value": ticketGate },
+          { "@type": "PropertyValue", "name": "おすすめ度", "value": recommend },
           { "@type": "PropertyValue", "name": "きれい度", "value": clean },
           { "@type": "PropertyValue", "name": "大期待値", "value": big },
           { "@type": "PropertyValue", "name": "小期待値", "value": small },
@@ -687,7 +859,7 @@
 </script>
 <script>
 (() => {
-  const stationPath = window.location.pathname;
+  const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
   const stationName =
     document.querySelector(".station-title h2")?.textContent.trim();
 
@@ -717,6 +889,35 @@
     console.warn("閲覧数の記録に失敗しました。", error);
     sessionStorage.removeItem(sessionKey);
   });
+})();
+</script>
+<script>
+(() => {
+  const buttons = Array.from(document.querySelectorAll(".facility-icon-button"));
+
+  const closeAll = (except = null) => {
+    buttons.forEach((button) => {
+      if (button === except) return;
+      button.setAttribute("aria-expanded", "false");
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (tooltip) tooltip.hidden = true;
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (!tooltip) return;
+
+      const willOpen = tooltip.hidden;
+      closeAll(button);
+      tooltip.hidden = !willOpen;
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+  });
+
+  document.addEventListener("click", () => closeAll());
 })();
 </script>
 <script src="../action-usage-client.js"></script>
