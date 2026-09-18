@@ -4,7 +4,7 @@ export async function onRequestPost(context) {
 
     const stationPath =
       typeof body.stationPath === "string"
-        ? body.stationPath.trim()
+        ? body.stationPath.trim().replace(/\.html$/i, "")
         : "";
 
     const stationName =
@@ -17,7 +17,7 @@ export async function onRequestPost(context) {
         ? body.feedbackType.trim()
         : "";
 
-    const validPath = /^\/stations\/[a-z0-9-]+(?:\.html)?$/i;
+    const validPath = /^\/stations\/[a-z0-9-]+$/i;
     const validFeedbackTypes = new Set([
       "helpful",
       "outdated"
