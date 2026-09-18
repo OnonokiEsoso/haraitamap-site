@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="../favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
-<meta name="description" content="赤羽駅のトイレ情報ページ。北改札側・南改札側の改札内トイレについて、場所・行き方・設備・注意点を2026年9月に再確認して掲載しています。" />
+<meta name="description" content="赤羽駅のトイレ情報ページ。北改札側・南改札側の改札内トイレについて、場所・行き方・設備・おすすめ度などを掲載しています。" />
 <link rel="stylesheet" href="../station-page-garden-v3.css" />
 <style>
   .station-page-tokyo .best-pick {
@@ -85,6 +85,24 @@
       linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
       rgba(255, 253, 247, 0.82);
   }
+
+  .station-page-akabane .overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .station-page-akabane .overview-count {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 760px) {
+    .station-page-akabane .overview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .station-page-akabane .overview-count {
+      grid-column: auto;
+    }
+  }
 </style>
 </head>
 <body class="station-page-tokyo station-page-akabane">
@@ -95,27 +113,43 @@
             <span>埼京線</span>
             <span>湘南新宿ライン</span>
           </div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
-      <section class="station-overview" aria-label="赤羽駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>2<small>か所</small></strong><p>北改札側 / 南改札側（どちらも改札内）</p></div><a class="best-pick" href="#toilet-list"><div class="best-pick-inner"><div class="best-pick-label"><span>急いでいる場合</span><em>現在地優先</em></div><div class="best-pick-main"><strong>今いる改札側のトイレへ</strong><p>北改札付近なら北側、南改札付近なら南側を確認してください。車いす利用・段差を避けたい場合は、JR東日本が案内するバリアフリー経路のある南改札側を優先します。</p></div><div class="best-pick-action"><span>2か所の場所を確認</span><b>移動 →</b></div></div></a></div></section>
-      <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div></div>
-      <div class="card" id="akabane-toilet-1" data-ticket-gate="inside"><div class="card-body"><h3>北改札側トイレ</h3><dl class="kv">
-        <div><dt>場所</dt><dd>改札内・北改札側の連絡通路。男子は5・6番線への階段と7・8番線への階段の間、女子は1・2番線への階段と3・4番線への階段の間です。</dd></div>
-        <div><dt>行き方</dt><dd>北改札からホーム方面の連絡通路へ進みます。男子は「5・6番線／7・8番線」、女子は「1・2番線／3・4番線」の階段案内を目印にしてください。</dd></div>
-        <div><dt>設備</dt><dd>一般トイレ、多機能トイレあり。駅全体では改札内にオストメイト対応・ベビーベッドがありますが、北側個別の2026年現在の設備割り当ては確認できていません。</dd></div>
-        <div><dt>注意点</dt><dd>男子と女子で場所が異なります。車いす利用時の駅のバリアフリー経路は南口のみです。改札外からは利用できません。</dd></div>
-        <div><dt>情報確認日</dt><dd>2026年9月18日</dd></div>
+      <section class="station-overview" aria-label="赤羽駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>3<small>か所</small></strong><p>北改札側（男性） / 北改札側（女性） / 南改札側（どちらも改札内）</p></div><a class="best-pick" href="#akabane-toilet-male-north"><div class="best-pick-inner"><div class="best-pick-label"><span>男性の場合</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる改札側を優先</strong><p>北改札付近なら北側男子トイレ、南改札付近なら南改札側トイレを確認してください。</p></div><div class="best-pick-action"><span>男性向け候補を見る</span><b>移動 →</b></div></div></a><a class="best-pick" href="#akabane-toilet-female-north"><div class="best-pick-inner"><div class="best-pick-label"><span>女性の場合</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる改札側を優先</strong><p>北改札付近なら北側女子トイレ、南改札付近なら南改札側トイレを確認してください。</p></div><div class="best-pick-action"><span>女性向け候補を見る</span><b>移動 →</b></div></div></a></div></section>
+      <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls" style="margin:12px 0 16px;"><label for="akabane-sort" class="muted" style="margin-right:8px;">並び替え</label><select id="akabane-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
+      <div class="card" id="akabane-toilet-male-north" data-ticket-gate="inside"><div class="card-body"><h3>北改札側 男子トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>改札内・北改札側の連絡通路。5・6番線への階段と7・8番線への階段の間です。</dd></div>
+        <div><dt>行き方</dt><dd>北改札からホーム方面の連絡通路へ進み、「5・6番線」と「7・8番線」の階段案内を目印にしてください。</dd></div>
+        <div><dt>設備</dt><dd>一般トイレあり。北改札側には多機能トイレもあります。駅全体では改札内にオストメイト対応・ベビーベッドが確認されています。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
       </dl></div></div>
-      <div class="card" id="akabane-toilet-2" data-ticket-gate="inside"><div class="card-body"><h3>南改札側トイレ</h3><dl class="kv">
+      <div class="card" id="akabane-toilet-female-north" data-ticket-gate="inside"><div class="card-body"><h3>北改札側 女子トイレ</h3><dl class="kv">
+        <div><dt>場所</dt><dd>改札内・北改札側の連絡通路。1・2番線への階段と3・4番線への階段の間です。</dd></div>
+        <div><dt>行き方</dt><dd>北改札からホーム方面の連絡通路へ進み、「1・2番線」と「3・4番線」の階段案内を目印にしてください。</dd></div>
+        <div><dt>設備</dt><dd>一般トイレあり。北改札側には多機能トイレもあります。駅全体では改札内にオストメイト対応・ベビーベッドが確認されています。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+      </dl></div></div>
+      <div class="card" id="akabane-toilet-south" data-ticket-gate="inside"><div class="card-body"><h3>南改札側トイレ</h3><dl class="kv">
         <div><dt>場所</dt><dd>改札内・南改札側の連絡通路。1・2番線への階段と3・4番線への階段の間です。</dd></div>
         <div><dt>行き方</dt><dd>南改札からホーム方面へ進み、「1・2番線」と「3・4番線」の階段案内を探してください。その間がトイレです。</dd></div>
-        <div><dt>設備</dt><dd>一般トイレ、多機能トイレあり。駅全体では改札内にオストメイト対応・ベビーベッドがありますが、南側個別の2026年現在の詳細設備は確認できていません。</dd></div>
-        <div><dt>注意点</dt><dd>改札外からは利用できません。車いす利用・段差を避けた動線を利用する場合は南改札側を確認してください。</dd></div>
-        <div><dt>情報確認日</dt><dd>2026年9月18日</dd></div>
+        <div><dt>設備</dt><dd>一般トイレ、多機能トイレあり。駅全体では改札内にオストメイト対応・ベビーベッドが確認されています。</dd></div>
+        <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
+        <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+        <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+        <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
+        <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
       </dl></div></div>
       <section class="station-research-details" aria-label="再確認情報">
         <div class="card"><div class="card-body"><h3>再確認情報</h3><dl class="kv">
           <div><dt>確認結果</dt><dd>赤羽駅の駅トイレは北改札側・南改札側の2ゾーンで、どちらも改札内です。2026年9月のJR東日本公式構内図で位置を再確認しました。</dd></div>
           <div><dt>設備の扱い</dt><dd>駅全体では改札内にバリアフリートイレ・オストメイト対応・ベビーベッドが確認できます。北側・南側ごとの細かな設備割り当ては、現行の一次情報で確認できた範囲だけを掲載しています。</dd></div>
-          <div><dt>評価について</dt><dd>清潔度・混雑度・空きやすさ・新しさは、2026年時点の客観的な根拠を確認できなかったため、今回の再確認では評価を外しました。</dd></div>
+          <div><dt>評価について</dt><dd>おすすめ度・きれい度・大期待値・小期待値・新しさは、公式統計ではなく当サイトの目安評価です。現在の構内情報と過去の掲載内容をもとに設定しています。</dd></div>
           <div><dt>情報確認日</dt><dd>2026年9月18日</dd></div>
           <div><dt>主な情報源</dt><dd><a href="https://www.jreast.co.jp/estation/stations/34.html" target="_blank" rel="noopener noreferrer">JR東日本 赤羽駅</a> / <a href="https://www.ecomo-rakuraku.jp/ja/station/AKABANE/" target="_blank" rel="noopener noreferrer">らくらくおでかけネット 赤羽駅</a> / <a href="https://www.kotonavi.jp/ekijoho/a/jr_higashinihon/akabane.html" target="_blank" rel="noopener noreferrer">Kotonavi 赤羽駅</a></dd></div>
         </dl></div></div>
@@ -375,6 +409,11 @@
       const title = card.querySelector("h3")?.textContent?.trim() || `トイレ ${index + 1}`;
       const locationText = getMetric(card, "場所") || "TODO: 場所未記載";
       const routeText = getMetric(card, "行き方");
+      const clean = getMetric(card, "トイレのきれい度");
+      const big = getMetric(card, "大期待値");
+      const small = getMetric(card, "小期待値");
+      const newness = getMetric(card, "トイレの新しさ");
+      const recommend = getMetric(card, "おすすめ度");
       const ticketGate = getTicketGateLabel(card);
 
       return {
@@ -388,8 +427,13 @@
           "name": stationName
         },
         "additionalProperty": [
-          { "@type": "PropertyValue", "name": "改札内外", "value": ticketGate }
-        ]
+          { "@type": "PropertyValue", "name": "改札内外", "value": ticketGate },
+          { "@type": "PropertyValue", "name": "おすすめ度", "value": recommend },
+          { "@type": "PropertyValue", "name": "きれい度", "value": clean },
+          { "@type": "PropertyValue", "name": "大期待値", "value": big },
+          { "@type": "PropertyValue", "name": "小期待値", "value": small },
+          { "@type": "PropertyValue", "name": "新しさ", "value": newness }
+        ].filter((item) => item.value)
       };
     });
 
@@ -440,6 +484,7 @@
 })();
 </script>
 <script src="../action-usage-client.js"></script>
+<script src="../station-sort-client.js"></script>
 <script src="../station-view-client.js"></script>
 </body>
 </html>
