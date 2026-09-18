@@ -94,6 +94,44 @@
     grid-column: 1 / -1;
   }
 
+  .station-page-akabane .facility-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 0 2px 14px;
+  }
+
+  .station-page-akabane .facility-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    border: 1px solid rgba(97, 123, 94, 0.34);
+    background: rgba(97, 123, 94, 0.08);
+    color: #173c31;
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .station-page-akabane .facility-icon {
+    display: inline-grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .station-page-akabane .facility-icon-ostomate {
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.68rem;
+    font-weight: 900;
+  }
+
   @media (max-width: 760px) {
     .station-page-akabane .overview-grid {
       grid-template-columns: 1fr;
@@ -118,32 +156,44 @@
       <div class="card" id="akabane-toilet-male-north" data-ticket-gate="inside"><div class="card-body"><h3>北改札側 男子トイレ</h3><dl class="kv">
         <div><dt>場所</dt><dd>改札内・北改札側の連絡通路。5・6番線への階段と7・8番線への階段の間です。</dd></div>
         <div><dt>行き方</dt><dd>北改札からホーム方面の連絡通路へ進み、「5・6番線」と「7・8番線」の階段案内を目印にしてください。</dd></div>
-        <div><dt>設備</dt><dd>一般トイレあり。北改札側には多機能トイレもあります。駅全体では改札内にオストメイト対応・ベビーベッドが確認されています。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
         <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
         <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><span class="facility-icon" aria-hidden="true">♿</span><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><span class="facility-icon facility-icon-ostomate" aria-hidden="true">O</span><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><span class="facility-icon" aria-hidden="true">🚼</span><span>駅内にあり</span></span>
+        </div>
       </dl></div></div>
       <div class="card" id="akabane-toilet-female-north" data-ticket-gate="inside"><div class="card-body"><h3>北改札側 女子トイレ</h3><dl class="kv">
         <div><dt>場所</dt><dd>改札内・北改札側の連絡通路。1・2番線への階段と3・4番線への階段の間です。</dd></div>
         <div><dt>行き方</dt><dd>北改札からホーム方面の連絡通路へ進み、「1・2番線」と「3・4番線」の階段案内を目印にしてください。</dd></div>
-        <div><dt>設備</dt><dd>一般トイレあり。北改札側には多機能トイレもあります。駅全体では改札内にオストメイト対応・ベビーベッドが確認されています。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
         <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
         <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><span class="facility-icon" aria-hidden="true">♿</span><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><span class="facility-icon facility-icon-ostomate" aria-hidden="true">O</span><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><span class="facility-icon" aria-hidden="true">🚼</span><span>駅内にあり</span></span>
+        </div>
       </dl></div></div>
       <div class="card" id="akabane-toilet-south" data-ticket-gate="inside"><div class="card-body"><h3>南改札側トイレ</h3><dl class="kv">
         <div><dt>場所</dt><dd>改札内・南改札側の連絡通路。1・2番線への階段と3・4番線への階段の間です。</dd></div>
         <div><dt>行き方</dt><dd>南改札からホーム方面へ進み、「1・2番線」と「3・4番線」の階段案内を探してください。その間がトイレです。</dd></div>
-        <div><dt>設備</dt><dd>一般トイレ、多機能トイレあり。駅全体では改札内にオストメイト対応・ベビーベッドが確認されています。</dd></div>
         <div><dt>おすすめ度</dt><dd>★★★★★</dd></div>
         <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
         <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
         <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+        <div class="facility-badges" aria-label="設備">
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><span class="facility-icon" aria-hidden="true">♿</span><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><span class="facility-icon facility-icon-ostomate" aria-hidden="true">O</span><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><span class="facility-icon" aria-hidden="true">🚼</span><span>駅内にあり</span></span>
+        </div>
       </dl></div></div>
 
       <section class="station-report" id="station-report">
