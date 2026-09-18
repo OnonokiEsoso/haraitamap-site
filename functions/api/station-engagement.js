@@ -1,14 +1,14 @@
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
-    const stationPath = typeof body.stationPath === "string" ? body.stationPath.trim() : "";
+    const stationPath = typeof body.stationPath === "string" ? body.stationPath.trim().replace(/\.html$/i, "") : "";
     const stationName = typeof body.stationName === "string" ? body.stationName.trim() : "";
     const secondsRaw = Number(body.activeSeconds);
     const activeSeconds = Number.isFinite(secondsRaw)
       ? Math.max(0, Math.min(1800, Math.round(secondsRaw)))
       : -1;
 
-    const validPath = /^\/stations\/[a-z0-9-]+(?:\.html)?$/i;
+    const validPath = /^\/stations\/[a-z0-9-]+$/i;
     if (!validPath.test(stationPath) || !stationName || stationName.length > 50 || activeSeconds < 0) {
       return Response.json({ success: false, message: "無効な滞在時間です。" }, { status: 400 });
     }
