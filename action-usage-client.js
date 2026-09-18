@@ -146,7 +146,7 @@
     return;
   }
 
-  const stationPath = window.location.pathname.replace(/\/$/, "");
+  const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
   const slug = stationPath.split("/").filter(Boolean).pop()?.replace(/\.html$/, "") || "";
   const stationName =
     document.querySelector(".station-plaque h2")?.textContent.trim() ||
