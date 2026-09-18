@@ -1,5 +1,5 @@
 (() => {
-  const stationPath = window.location.pathname.replace(/\/$/, "");
+  const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
   const majorStationSlugs = new Set([
     "tokyo",
     "shinjuku",
