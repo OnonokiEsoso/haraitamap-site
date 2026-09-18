@@ -116,12 +116,51 @@
     line-height: 1;
   }
 
+  .station-page-akabane .facility-icon-button {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    flex: 0 0 28px;
+  }
+
   .station-page-akabane .facility-icon {
     display: block;
     width: 28px;
     height: 28px;
     object-fit: contain;
-    flex: 0 0 28px;
+  }
+
+  .station-page-akabane .facility-tooltip {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 6px;
+    background: #173c31;
+    color: #ffffff;
+    padding: 5px 7px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    line-height: 1.2;
+    box-shadow: 0 4px 12px rgba(23, 60, 49, 0.18);
+  }
+
+  .station-page-akabane .facility-tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: #173c31;
   }
 
   @media (max-width: 760px) {
@@ -154,9 +193,9 @@
         <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
         <div class="facility-badges" aria-label="設備">
-          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span>あり</span></span>
-          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span>駅内にあり</span></span>
-          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span>駅内にあり</span></span>
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>駅内にあり</span></span>
         </div>
       </dl></div></div>
       <div class="card" id="akabane-toilet-female-north" data-ticket-gate="inside"><div class="card-body"><h3>北改札側 女子トイレ</h3><dl class="kv">
@@ -168,9 +207,9 @@
         <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
         <div class="facility-badges" aria-label="設備">
-          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span>あり</span></span>
-          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span>駅内にあり</span></span>
-          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span>駅内にあり</span></span>
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>駅内にあり</span></span>
         </div>
       </dl></div></div>
       <div class="card" id="akabane-toilet-south" data-ticket-gate="inside"><div class="card-body"><h3>南改札側トイレ</h3><dl class="kv">
@@ -182,9 +221,9 @@
         <div><dt>小期待値</dt><dd>★★★★☆</dd></div>
         <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
         <div class="facility-badges" aria-label="設備">
-          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span>あり</span></span>
-          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span>駅内にあり</span></span>
-          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span>駅内にあり</span></span>
+          <span class="facility-badge" title="多機能トイレ" aria-label="多機能トイレ あり"><button class="facility-icon-button" type="button" aria-label="多機能トイレ" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/multipurpose.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>多機能トイレ</span></button><span>あり</span></span>
+          <span class="facility-badge" title="オストメイト" aria-label="オストメイト 駅内にあり"><button class="facility-icon-button" type="button" aria-label="オストメイト" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/ostomate.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>オストメイト</span></button><span>駅内にあり</span></span>
+          <span class="facility-badge" title="ベビーベッド" aria-label="ベビーベッド 駅内にあり"><button class="facility-icon-button" type="button" aria-label="ベビーベッド" aria-expanded="false"><img class="facility-icon" src="../assets/toilet-icons/baby-bed.png" alt="" aria-hidden="true" /><span class="facility-tooltip" hidden>ベビーベッド</span></button><span>駅内にあり</span></span>
         </div>
       </dl></div></div>
 
@@ -524,6 +563,35 @@
     console.warn("閲覧数の記録に失敗しました。", error);
     sessionStorage.removeItem(sessionKey);
   });
+})();
+</script>
+<script>
+(() => {
+  const buttons = Array.from(document.querySelectorAll(".facility-icon-button"));
+
+  const closeAll = (except = null) => {
+    buttons.forEach((button) => {
+      if (button === except) return;
+      button.setAttribute("aria-expanded", "false");
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (tooltip) tooltip.hidden = true;
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (!tooltip) return;
+
+      const willOpen = tooltip.hidden;
+      closeAll(button);
+      tooltip.hidden = !willOpen;
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+  });
+
+  document.addEventListener("click", () => closeAll());
 })();
 </script>
 <script src="../action-usage-client.js"></script>
