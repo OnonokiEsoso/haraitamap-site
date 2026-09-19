@@ -434,7 +434,7 @@
         if (shouldScroll) {
           requestAnimationFrame(() => {
             document
-              .getElementById("station-results")
+              .getElementById(matchedCount === 0 ? "station-empty" : "station-results")
               .scrollIntoView({ behavior: "smooth", block: "start" });
           });
         }
