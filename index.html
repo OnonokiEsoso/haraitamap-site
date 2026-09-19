@@ -565,7 +565,14 @@
       });
 
       clearButton.addEventListener("click", clearSearch);
-      emptyClearButton.addEventListener("click", clearSearch);
+      emptyClearButton.addEventListener("click", () => {
+        clearSearch();
+        requestAnimationFrame(() => {
+          document
+            .getElementById("search-panel")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
       nearestButton.addEventListener("click", findNearestStation);
 
       renderResults();
