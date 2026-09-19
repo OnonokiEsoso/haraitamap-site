@@ -187,8 +187,56 @@
     font-size: 1.35rem;
   }
 
+  .games-page .game-focus-toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    min-width: 42px;
+    min-height: 38px;
+    border: 1px solid var(--forest);
+    border-radius: 0;
+    background: rgba(255, 253, 247, 0.96);
+    color: var(--forest);
+    padding: 0 11px;
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 900;
+  }
+
+  .games-page .game-focus-toggle:hover,
+  .games-page .game-focus-toggle:focus-visible {
+    background: var(--forest);
+    color: #fff;
+  }
+
   .games-page .game-card-body {
-    padding: 20px;
+    padding: 62px 20px 20px;
+  }
+
+  .games-page .game-popup-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(13, 40, 33, 0.58);
+    backdrop-filter: blur(3px);
+  }
+
+  .games-page .game-card.is-popup {
+    position: fixed;
+    z-index: 100;
+    top: max(14px, env(safe-area-inset-top));
+    left: 50%;
+    width: min(760px, calc(100% - 24px));
+    max-height: calc(100dvh - 28px);
+    margin: 0;
+    overflow: auto;
+    transform: translateX(-50%);
+    box-shadow: 0 28px 80px rgba(13, 40, 33, 0.35);
+  }
+
+  .games-page.popup-open {
+    overflow: hidden;
   }
 
   .games-page .game-controls {
@@ -507,7 +555,16 @@
           </div>
         </header>
 
+        <div class="game-popup-backdrop" id="game-popup-backdrop" hidden></div>
+
         <section class="game-card" aria-labelledby="memory-title">
+          <button
+            class="game-focus-toggle"
+            id="game-focus-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="絵合わせを大きく表示"
+          >拡大</button>
           <div class="game-card-body">
             <div class="game-controls">
               <div class="form-row">
@@ -558,6 +615,8 @@
     const memoryTurnCounter = document.getElementById("memory-turn-counter");
     const memoryReset = document.getElementById("memory-reset");
     const memorySize = document.getElementById("memory-size");
+    const gameFocusToggle = document.getElementById("game-focus-toggle");
+    const gamePopupBackdrop = document.getElementById("game-popup-backdrop");
     const memoryIcons = ["▲", "●", "■", "★", "◆", "❤", "✿", "☂"];
     const memoryLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     let memoryTiles = [];
@@ -695,6 +754,32 @@
         memoryLocked = false;
       }, 700);
     };
+
+    const setGamePopup = (open) => {
+      memoryCard?.classList.toggle("is-popup", open);
+      document.body.classList.toggle("popup-open", open);
+      gamePopupBackdrop.hidden = !open;
+      gameFocusToggle.setAttribute("aria-pressed", String(open));
+      gameFocusToggle.setAttribute(
+        "aria-label",
+        open ? "絵合わせを元の表示に戻す" : "絵合わせを大きく表示"
+      );
+      gameFocusToggle.textContent = open ? "戻す" : "拡大";
+    };
+
+    gameFocusToggle.addEventListener("click", () => {
+      setGamePopup(!memoryCard?.classList.contains("is-popup"));
+    });
+
+    gamePopupBackdrop.addEventListener("click", () => {
+      setGamePopup(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && memoryCard?.classList.contains("is-popup")) {
+        setGamePopup(false);
+      }
+    });
 
     memoryReset.addEventListener("click", buildMemoryBoard);
     memorySize.addEventListener("change", buildMemoryBoard);
