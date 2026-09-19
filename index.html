@@ -73,7 +73,6 @@
                 <p>STATION TOILET SEARCH</p>
                 <h1>駅トイレを検索</h1>
               </div>
-              <span class="filter-notice">検索後は該当駅のみ表示</span>
             </header>
 
             <div class="search-content">
@@ -435,7 +434,7 @@
         if (shouldScroll) {
           requestAnimationFrame(() => {
             document
-              .getElementById("station-results")
+              .getElementById(matchedCount === 0 ? "station-empty" : "station-results")
               .scrollIntoView({ behavior: "smooth", block: "start" });
           });
         }
@@ -566,7 +565,14 @@
       });
 
       clearButton.addEventListener("click", clearSearch);
-      emptyClearButton.addEventListener("click", clearSearch);
+      emptyClearButton.addEventListener("click", () => {
+        clearSearch();
+        requestAnimationFrame(() => {
+          document
+            .getElementById("search-panel")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
       nearestButton.addEventListener("click", findNearestStation);
 
       renderResults();
