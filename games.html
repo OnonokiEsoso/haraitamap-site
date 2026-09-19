@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="腹痛時に少し気を逸らしたいときのミニゲームページ。短時間で遊べる絵合わせゲームを用意しています。" />
+<meta name="description" content="腹痛時に少し気を逸らしたいときのミニゲームページ。短時間で遊べる絵合わせと地雷除去ゲームを用意しています。" />
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
 <link rel="shortcut icon" href="favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -270,7 +270,8 @@
     font-weight: 800;
   }
 
-  .games-page #memory-reset {
+  .games-page #memory-reset,
+  .games-page #mine-reset {
     min-height: 46px;
     border: 1px solid var(--forest);
     border-radius: 0;
@@ -282,7 +283,8 @@
     font-weight: 900;
   }
 
-  .games-page #memory-reset:hover {
+  .games-page #memory-reset:hover,
+  .games-page #mine-reset:hover {
     background: var(--forest-dark);
   }
 
@@ -349,6 +351,124 @@
     background: rgba(97, 123, 94, 0.2);
     border-color: var(--forest);
   }
+
+  .games-page .mine-card {
+    max-width: 760px;
+  }
+
+  .games-page .mine-controls {
+    grid-template-columns: minmax(130px, 1fr) minmax(130px, 1fr) auto;
+  }
+
+  .games-page .mine-toolbar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .games-page .mine-mode {
+    min-height: 46px;
+    border: 1px solid #929b91;
+    border-radius: 0;
+    background: rgba(248, 245, 236, 0.96);
+    color: var(--forest);
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 900;
+  }
+
+  .games-page .mine-mode[aria-pressed="true"] {
+    border-color: var(--forest);
+    background: var(--forest);
+    color: #fff;
+  }
+
+  .games-page .mine-help {
+    margin: 9px 0 0;
+    color: var(--muted);
+    font-size: 0.68rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  .games-page .mine-board-viewport {
+    margin-top: 18px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #a5aba3;
+    background: rgba(97, 123, 94, 0.07);
+    padding: 8px;
+  }
+
+  .games-page .mine-board {
+    --mine-cell-size: 34px;
+    display: grid;
+    width: max-content;
+    margin: 0 auto;
+    gap: 2px;
+    touch-action: manipulation;
+  }
+
+  .games-page .mine-cell {
+    display: grid;
+    width: var(--mine-cell-size);
+    height: var(--mine-cell-size);
+    place-items: center;
+    border: 1px solid #7f8b80;
+    border-top-color: #f7f6ef;
+    border-left-color: #f7f6ef;
+    border-radius: 0;
+    background: #cbd2c6;
+    color: var(--forest);
+    padding: 0;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  .games-page .mine-cell:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline: 3px solid #d57b40;
+    outline-offset: 0;
+  }
+
+  .games-page .mine-cell.is-revealed {
+    border-color: #b6bcb3;
+    background: #f7f5ed;
+    cursor: default;
+  }
+
+  .games-page .mine-cell.is-flagged {
+    background: #e9dfbd;
+    color: #8b4e2f;
+  }
+
+  .games-page .mine-cell.is-mine {
+    background: #f1d6cc;
+    color: #8f3026;
+  }
+
+  .games-page .mine-cell.is-hit {
+    background: #b44736;
+    color: #fff;
+  }
+
+  .games-page .mine-cell[data-count="1"] { color: #2763a5; }
+  .games-page .mine-cell[data-count="2"] { color: #397a43; }
+  .games-page .mine-cell[data-count="3"] { color: #b44135; }
+  .games-page .mine-cell[data-count="4"] { color: #583d92; }
+  .games-page .mine-cell[data-count="5"],
+  .games-page .mine-cell[data-count="6"],
+  .games-page .mine-cell[data-count="7"],
+  .games-page .mine-cell[data-count="8"] { color: #7a432a; }
 
   .games-page .confetti-layer {
     position: absolute;
@@ -443,6 +563,18 @@
 
     .games-page .game-controls {
       grid-template-columns: 1fr;
+    }
+
+    .games-page .mine-controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .games-page .mine-controls #mine-reset {
+      grid-column: 1 / -1;
+    }
+
+    .games-page .mine-board {
+      --mine-cell-size: 32px;
     }
 
     .games-page .game-stats {
@@ -593,6 +725,71 @@
           <a href="index.html#search-panel">駅を探す →</a>
         </div>
       </section>
+
+      <section class="game-section" id="mine-game" aria-labelledby="mine-title">
+        <header class="game-section-head">
+          <span>02</span>
+          <div>
+            <p>MINESWEEPER</p>
+            <h2 id="mine-title">地雷除去ゲーム</h2>
+          </div>
+        </header>
+
+        <div class="game-popup-backdrop" id="mine-popup-backdrop" hidden></div>
+
+        <section class="game-card mine-card" aria-labelledby="mine-title">
+          <button
+            class="game-focus-toggle"
+            id="mine-focus-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="地雷除去ゲームを大きく表示"
+          >拡大</button>
+          <div class="game-card-body">
+            <div class="game-controls mine-controls">
+              <div class="form-row">
+                <label for="mine-stage-size">ステージサイズ</label>
+                <select id="mine-stage-size" name="mine-stage-size">
+                  <option value="small">小（9 × 9）</option>
+                  <option value="medium">中（16 × 16）</option>
+                  <option value="large">大（24 × 24）</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="mine-count-size">爆弾の数</label>
+                <select id="mine-count-size" name="mine-count-size">
+                  <option value="small">小（10個）</option>
+                  <option value="medium">中（30個）</option>
+                  <option value="large">大（60個）</option>
+                </select>
+              </div>
+              <button type="button" id="mine-reset">リセット</button>
+            </div>
+
+            <div class="game-stats" aria-live="polite">
+              <p class="game-status" id="mine-remaining">残りの目安: 10</p>
+              <p class="game-status" id="mine-timer">時間: 00:00</p>
+              <p class="game-status" id="mine-status">パネルを開くと開始</p>
+            </div>
+
+            <div class="mine-toolbar" aria-label="操作モード">
+              <button class="mine-mode" id="mine-open-mode" type="button" aria-pressed="true">□ 開く</button>
+              <button class="mine-mode" id="mine-flag-mode" type="button" aria-pressed="false">⚑ 旗を立てる</button>
+            </div>
+            <p class="mine-help">数字は周囲8マスの爆弾数です。スマホでは「旗を立てる」を選ぶか、パネルを長押しできます。</p>
+
+            <div class="mine-board-viewport" id="mine-board-viewport">
+              <div class="mine-board" id="mine-board" role="grid" aria-label="地雷除去ゲーム盤面"></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="return-note">
+          <strong>駅を探したいとき</strong>
+          <span>ゲームはいつでも途中でやめられます。駅トイレ検索へすぐ戻れます。</span>
+          <a href="index.html#search-panel">駅を探す →</a>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -686,9 +883,9 @@
       });
     };
 
-    const launchConfetti = () => {
-      if (!memoryCard) return;
-      const oldLayer = memoryCard.querySelector(".confetti-layer");
+    const launchConfetti = (targetCard = memoryCard) => {
+      if (!targetCard) return;
+      const oldLayer = targetCard.querySelector(".confetti-layer");
       if (oldLayer) {
         oldLayer.remove();
       }
@@ -710,7 +907,7 @@
         piece.style.animationDuration = `${520 + Math.random() * 520}ms`;
         layer.appendChild(piece);
       }
-      memoryCard.appendChild(layer);
+      targetCard.appendChild(layer);
       setTimeout(() => {
         layer.remove();
       }, 1200);
@@ -784,6 +981,305 @@
     memoryReset.addEventListener("click", buildMemoryBoard);
     memorySize.addEventListener("change", buildMemoryBoard);
     buildMemoryBoard();
+
+    const mineBoard = document.getElementById("mine-board");
+    const mineCard = document.querySelector(".mine-card");
+    const mineStageSize = document.getElementById("mine-stage-size");
+    const mineCountSize = document.getElementById("mine-count-size");
+    const mineReset = document.getElementById("mine-reset");
+    const mineRemaining = document.getElementById("mine-remaining");
+    const mineTimer = document.getElementById("mine-timer");
+    const mineStatus = document.getElementById("mine-status");
+    const mineOpenMode = document.getElementById("mine-open-mode");
+    const mineFlagMode = document.getElementById("mine-flag-mode");
+    const mineFocusToggle = document.getElementById("mine-focus-toggle");
+    const minePopupBackdrop = document.getElementById("mine-popup-backdrop");
+    const mineStageSizes = { small: 9, medium: 16, large: 24 };
+    const mineCountSizes = { small: 10, medium: 30, large: 60 };
+    let mineCells = [];
+    let mineSide = 9;
+    let mineTotal = 10;
+    let mineFlags = 0;
+    let mineRevealed = 0;
+    let mineStarted = false;
+    let mineEnded = false;
+    let mineInputMode = "open";
+    let mineStartedAt = 0;
+    let mineElapsed = 0;
+    let mineTimerId = 0;
+
+    const getMineNeighbors = (index) => {
+      const row = Math.floor(index / mineSide);
+      const column = index % mineSide;
+      const neighbors = [];
+      for (let rowOffset = -1; rowOffset <= 1; rowOffset += 1) {
+        for (let columnOffset = -1; columnOffset <= 1; columnOffset += 1) {
+          if (rowOffset === 0 && columnOffset === 0) continue;
+          const nextRow = row + rowOffset;
+          const nextColumn = column + columnOffset;
+          if (nextRow >= 0 && nextRow < mineSide && nextColumn >= 0 && nextColumn < mineSide) {
+            neighbors.push(nextRow * mineSide + nextColumn);
+          }
+        }
+      }
+      return neighbors;
+    };
+
+    const formatMineTime = (milliseconds) => {
+      const totalSeconds = Math.floor(milliseconds / 1000);
+      const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+      const seconds = String(totalSeconds % 60).padStart(2, "0");
+      return `${minutes}:${seconds}`;
+    };
+
+    const updateMineTimer = () => {
+      if (mineStarted && !mineEnded) mineElapsed = Date.now() - mineStartedAt;
+      mineTimer.textContent = `時間: ${formatMineTime(mineElapsed)}`;
+    };
+
+    const stopMineTimer = () => {
+      window.clearInterval(mineTimerId);
+      mineTimerId = 0;
+      updateMineTimer();
+    };
+
+    const startMineTimer = () => {
+      if (mineStarted) return;
+      mineStarted = true;
+      mineStartedAt = Date.now();
+      mineStatus.textContent = "地雷を探しています";
+      updateMineTimer();
+      mineTimerId = window.setInterval(updateMineTimer, 250);
+    };
+
+    const updateMineRemaining = () => {
+      mineRemaining.textContent = `残りの目安: ${Math.max(0, mineTotal - mineFlags)}`;
+    };
+
+    const renderMineCell = (cell) => {
+      const button = cell.element;
+      button.className = "mine-cell";
+      button.textContent = "";
+      button.removeAttribute("data-count");
+      if (cell.revealed) {
+        button.classList.add("is-revealed");
+        if (cell.mine) {
+          button.classList.add("is-mine");
+          button.textContent = "●";
+        } else if (cell.count > 0) {
+          button.dataset.count = String(cell.count);
+          button.textContent = String(cell.count);
+        }
+      } else if (cell.flagged) {
+        button.classList.add("is-flagged");
+        button.textContent = "⚑";
+      }
+      const label = cell.flagged
+        ? "旗を立てたパネル"
+        : cell.revealed
+          ? (cell.mine ? "地雷" : cell.count ? `周囲に地雷${cell.count}個` : "空のパネル")
+          : "閉じたパネル";
+      button.setAttribute("aria-label", label);
+    };
+
+    const placeMines = (safeIndex) => {
+      const safeCells = new Set([safeIndex, ...getMineNeighbors(safeIndex)]);
+      const candidates = mineCells.map((_, index) => index).filter((index) => !safeCells.has(index));
+      for (let i = candidates.length - 1; i > 0; i -= 1) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [candidates[i], candidates[randomIndex]] = [candidates[randomIndex], candidates[i]];
+      }
+      candidates.slice(0, mineTotal).forEach((index) => {
+        mineCells[index].mine = true;
+      });
+      mineCells.forEach((cell, index) => {
+        cell.count = getMineNeighbors(index).filter((neighbor) => mineCells[neighbor].mine).length;
+      });
+    };
+
+    const revealMineArea = (startIndex) => {
+      const queue = [startIndex];
+      const queued = new Set(queue);
+      while (queue.length) {
+        const index = queue.shift();
+        const cell = mineCells[index];
+        if (!cell || cell.revealed || cell.flagged || cell.mine) continue;
+        cell.revealed = true;
+        mineRevealed += 1;
+        renderMineCell(cell);
+        if (cell.count === 0) {
+          getMineNeighbors(index).forEach((neighbor) => {
+            if (!queued.has(neighbor)) {
+              queued.add(neighbor);
+              queue.push(neighbor);
+            }
+          });
+        }
+      }
+    };
+
+    const finishMineGame = (won, hitIndex = -1) => {
+      mineEnded = true;
+      stopMineTimer();
+      if (won) {
+        mineStatus.textContent = "クリア！";
+        mineCells.forEach((cell) => {
+          if (cell.mine && !cell.flagged) {
+            cell.flagged = true;
+            mineFlags += 1;
+            renderMineCell(cell);
+          }
+        });
+        updateMineRemaining();
+        launchConfetti(mineCard);
+      } else {
+        mineStatus.textContent = "地雷！ リセットでもう一度";
+        mineCells.forEach((cell, index) => {
+          if (cell.mine) {
+            cell.revealed = true;
+            renderMineCell(cell);
+            if (index === hitIndex) cell.element.classList.add("is-hit");
+          }
+        });
+      }
+    };
+
+    const openMineCell = (index) => {
+      if (mineEnded) return;
+      const cell = mineCells[index];
+      if (!cell || cell.flagged) return;
+      if (cell.revealed) {
+        if (cell.count === 0) return;
+        const neighbors = getMineNeighbors(index);
+        const nearbyFlags = neighbors.filter((neighbor) => mineCells[neighbor].flagged).length;
+        if (nearbyFlags !== cell.count) return;
+        for (const neighbor of neighbors) {
+          const nearbyCell = mineCells[neighbor];
+          if (nearbyCell.flagged || nearbyCell.revealed) continue;
+          if (nearbyCell.mine) {
+            finishMineGame(false, neighbor);
+            return;
+          }
+          revealMineArea(neighbor);
+        }
+        if (mineRevealed === mineCells.length - mineTotal) finishMineGame(true);
+        return;
+      }
+      if (!mineStarted) {
+        placeMines(index);
+        startMineTimer();
+      }
+      if (cell.mine) {
+        finishMineGame(false, index);
+        return;
+      }
+      revealMineArea(index);
+      if (mineRevealed === mineCells.length - mineTotal) finishMineGame(true);
+    };
+
+    const toggleMineFlag = (index) => {
+      if (mineEnded) return;
+      const cell = mineCells[index];
+      if (!cell || cell.revealed) return;
+      if (!cell.flagged && mineFlags >= mineTotal) return;
+      cell.flagged = !cell.flagged;
+      mineFlags += cell.flagged ? 1 : -1;
+      renderMineCell(cell);
+      updateMineRemaining();
+    };
+
+    const setMineMode = (mode) => {
+      mineInputMode = mode;
+      mineOpenMode.setAttribute("aria-pressed", String(mode === "open"));
+      mineFlagMode.setAttribute("aria-pressed", String(mode === "flag"));
+    };
+
+    const buildMineBoard = () => {
+      stopMineTimer();
+      const existingLayer = mineCard?.querySelector(".confetti-layer");
+      if (existingLayer) existingLayer.remove();
+      mineSide = mineStageSizes[mineStageSize.value] || 9;
+      mineTotal = mineCountSizes[mineCountSize.value] || 10;
+      mineFlags = 0;
+      mineRevealed = 0;
+      mineStarted = false;
+      mineEnded = false;
+      mineElapsed = 0;
+      mineStartedAt = 0;
+      mineCells = [];
+      mineBoard.innerHTML = "";
+      mineBoard.style.gridTemplateColumns = `repeat(${mineSide}, var(--mine-cell-size))`;
+      mineBoard.setAttribute("aria-rowcount", String(mineSide));
+      mineBoard.setAttribute("aria-colcount", String(mineSide));
+      mineStatus.textContent = "パネルを開くと開始";
+      updateMineRemaining();
+      updateMineTimer();
+      setMineMode("open");
+
+      for (let index = 0; index < mineSide * mineSide; index += 1) {
+        const button = document.createElement("button");
+        const row = Math.floor(index / mineSide) + 1;
+        const column = (index % mineSide) + 1;
+        const cell = { mine: false, count: 0, revealed: false, flagged: false, element: button };
+        let holdTimer = 0;
+        let longPressed = false;
+        let suppressContextUntil = 0;
+        button.type = "button";
+        button.className = "mine-cell";
+        button.setAttribute("role", "gridcell");
+        button.setAttribute("aria-rowindex", String(row));
+        button.setAttribute("aria-colindex", String(column));
+        button.setAttribute("aria-label", `閉じたパネル ${row}行${column}列`);
+        button.addEventListener("click", () => {
+          if (longPressed) {
+            longPressed = false;
+            return;
+          }
+          if (mineInputMode === "flag") toggleMineFlag(index);
+          else openMineCell(index);
+        });
+        button.addEventListener("contextmenu", (event) => {
+          event.preventDefault();
+          if (Date.now() < suppressContextUntil) return;
+          toggleMineFlag(index);
+        });
+        button.addEventListener("pointerdown", (event) => {
+          if (event.pointerType === "mouse") return;
+          holdTimer = window.setTimeout(() => {
+            longPressed = true;
+            suppressContextUntil = Date.now() + 1000;
+            toggleMineFlag(index);
+            if (navigator.vibrate) navigator.vibrate(30);
+          }, 500);
+        });
+        ["pointerup", "pointercancel", "pointerleave"].forEach((eventName) => {
+          button.addEventListener(eventName, () => window.clearTimeout(holdTimer));
+        });
+        mineCells.push(cell);
+        mineBoard.appendChild(button);
+      }
+    };
+
+    const setMinePopup = (open) => {
+      mineCard?.classList.toggle("is-popup", open);
+      document.body.classList.toggle("popup-open", open);
+      minePopupBackdrop.hidden = !open;
+      mineFocusToggle.setAttribute("aria-pressed", String(open));
+      mineFocusToggle.setAttribute("aria-label", open ? "地雷除去ゲームを元の表示に戻す" : "地雷除去ゲームを大きく表示");
+      mineFocusToggle.textContent = open ? "戻す" : "拡大";
+    };
+
+    mineOpenMode.addEventListener("click", () => setMineMode("open"));
+    mineFlagMode.addEventListener("click", () => setMineMode("flag"));
+    mineReset.addEventListener("click", buildMineBoard);
+    mineStageSize.addEventListener("change", buildMineBoard);
+    mineCountSize.addEventListener("change", buildMineBoard);
+    mineFocusToggle.addEventListener("click", () => setMinePopup(!mineCard?.classList.contains("is-popup")));
+    minePopupBackdrop.addEventListener("click", () => setMinePopup(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && mineCard?.classList.contains("is-popup")) setMinePopup(false);
+    });
+    buildMineBoard();
   </script>
   </div>
 </body>
