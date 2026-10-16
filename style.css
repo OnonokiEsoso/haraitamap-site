@@ -871,6 +871,57 @@ a {
   font-weight: 900;
 }
 
+.support-links-section {
+  display: grid;
+  width: min(1180px, calc(100% - 40px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 auto 34px;
+}
+
+.support-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 12px;
+  align-content: center;
+  min-height: 122px;
+  border: 1px solid #9aa49d;
+  border-radius: 1px;
+  background: rgba(255, 253, 247, 0.78);
+  padding: 17px 18px;
+}
+
+.support-card:hover {
+  border-color: var(--forest);
+  background: var(--white);
+}
+
+.support-card > span,
+.support-card > small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.support-card > strong {
+  color: var(--forest-dark);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1rem;
+}
+
+.support-card > i {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  color: var(--forest);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.support-card-featured {
+  border-top: 4px solid #0bb5c7;
+}
+
 footer {
   display: flex;
   min-height: 88px;
@@ -955,6 +1006,10 @@ select:focus-visible {
   .station-grid {
     grid-template-columns: 1fr;
   }
+
+  .support-links-section {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {
@@ -984,6 +1039,7 @@ select:focus-visible {
   .search-section,
   .results-section,
   .relief-section,
+  .support-links-section,
   .guide-section,
   .submit-section {
     width: min(100% - 24px, 1180px);
