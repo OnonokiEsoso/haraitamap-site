@@ -85,6 +85,77 @@
       linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
       rgba(255, 253, 247, 0.82);
   }
+  .station-page-shinagawa .shinagawa-location-picker {
+    grid-column: 1 / -1;
+    min-width: 0;
+    border: 2px solid #b781dd;
+    background: rgba(255, 253, 247, .84);
+  }
+  .station-page-shinagawa .shinagawa-location-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #b781dd;
+    color: #fff;
+    font-weight: 800;
+    font-size: .78rem;
+  }
+  .station-page-shinagawa .shinagawa-location-heading em {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border: 1px solid currentColor;
+    font-size: .73rem;
+    font-style: normal;
+  }
+  .station-page-shinagawa .shinagawa-location-body { padding: 20px; }
+  .station-page-shinagawa .shinagawa-location-heading .shinagawa-location-prompt {
+    font-size: 1.04rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+  .station-page-shinagawa .shinagawa-location-body h2 {
+    margin: 0 0 18px;
+    color: #173c31;
+    font-size: clamp(1.15rem, 3vw, 1.45rem);
+  }
+  .station-page-shinagawa .shinagawa-location-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .station-page-shinagawa .shinagawa-location-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 44px;
+    padding: 7px 14px;
+    border: 1px solid rgba(23, 60, 49, .35);
+    background: #fffdf7;
+    color: #173c31;
+    font-weight: 750;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .station-page-shinagawa .shinagawa-location-links a:hover,
+  .station-page-shinagawa .shinagawa-location-links a:focus-visible {
+    background: #e6f0e8;
+    border-color: #173c31;
+  }
+  .station-page-shinagawa .shinagawa-location-links a span { flex: 0 0 auto; }
+  .station-page-shinagawa .container > .card[id^="shinagawa-toilet-"] { scroll-margin-top: 125px; }
+  .station-page-shinagawa .container > .card[id^="shinagawa-toilet-"]:target {
+    outline: 3px solid #b781dd;
+    outline-offset: 3px;
+  }
+  @media (max-width: 520px) {
+    .station-page-shinagawa .shinagawa-location-body { padding: 16px; }
+    .station-page-shinagawa .shinagawa-location-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
 </style>
 </head>
 <body class="station-page-tokyo station-page-shinagawa">
@@ -94,7 +165,24 @@
       <div class="section-head station-title"><div class="station-plaque"><span>STATION</span><h2>品川駅</h2><b>SHINA</b></div><div class="station-title-copy"><p>STATION TOILET GUIDE</p><h1>品川駅のトイレ案内</h1><div class="station-lines" aria-label="主な路線">
             <span>JR常磐線</span>
           </div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
-      <section class="station-overview" aria-label="品川駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>6<small>か所</small></strong><p>1F 改札内 5か所 / 2F 改札内 1か所</p></div><a class="best-pick" href="#shinagawa-toilet-1"><div class="best-pick-inner"><div class="best-pick-label"><span>まず確認したい候補</span><em>推奨</em></div><div class="best-pick-main"><strong>1F 改札内 JR 中央改札内</strong><p>JR中央改札内。中央改札を入った先のメインコンコース側で、京急のりかえ口・エキュート品川方面に寄った位置にある在来線側の… きれい度と大・小期待値のバランスから選んだ候補です。</p></div><div class="best-pick-action"><span>候補一覧の該当欄へ</span><b>移動 →</b></div></div></a></div></section>
+      <section class="station-overview" aria-label="品川駅の掲載候補概要">
+        <div class="overview-grid">
+          <div class="overview-count"><span>掲載候補</span><strong>6<small>か所</small></strong><p>1F 改札内 5か所 / 2F 改札内 1か所</p></div>
+          <div class="shinagawa-location-picker">
+            <div class="shinagawa-location-heading"><div><span>まず確認したい候補</span><div class="shinagawa-location-prompt">大まかな場所を選択してね</div></div><em>おすすめ</em></div>
+            <div class="shinagawa-location-body">
+              <nav class="shinagawa-location-links" aria-label="現在地からトイレを探す">
+                <a href="#shinagawa-toilet-1">JR中央改札 <span aria-hidden="true">→</span></a>
+                <a href="#shinagawa-toilet-2">JR北改札 <span aria-hidden="true">→</span></a>
+                <a href="#shinagawa-toilet-3">新幹線・南側 <span aria-hidden="true">→</span></a>
+                <a href="#shinagawa-toilet-4">新幹線・北側 <span aria-hidden="true">→</span></a>
+                <a href="#shinagawa-toilet-5">京急改札付近 <span aria-hidden="true">→</span></a>
+                <a href="#shinagawa-toilet-6">エキュート品川 <span aria-hidden="true">→</span></a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls" style="margin:12px 0 16px;"><label for="shinagawa-sort" class="muted" style="margin-right:8px;">並び替え</label><select id="shinagawa-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
       <div class="card" id="shinagawa-toilet-1" data-ticket-gate="inside"><div class="card-body"><h3>1F 改札内 JR 中央改札内</h3><dl class="kv">
         <div><dt>場所</dt><dd>JR中央改札内。中央改札を入った先のメインコンコース側で、京急のりかえ口・エキュート品川方面に寄った位置にある在来線側の大きなトイレです。</dd></div>
