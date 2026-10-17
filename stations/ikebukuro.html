@@ -159,6 +159,148 @@
     border: 5px solid transparent;
     border-bottom-color: #173c31;
   }
+  .station-page-ikebukuro .ikebukuro-location-picker {
+    grid-column: 1 / -1;
+    min-width: 0;
+    border: 2px solid #b781dd;
+    background: rgba(255, 253, 247, .84);
+  }
+  .station-page-ikebukuro .ikebukuro-location-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #b781dd;
+    color: #fff;
+    font-weight: 800;
+    font-size: .78rem;
+  }
+  .station-page-ikebukuro .ikebukuro-location-heading em {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border: 1px solid currentColor;
+    font-size: .73rem;
+    font-style: normal;
+  }
+  .station-page-ikebukuro .ikebukuro-location-body { padding: 20px; }
+  .station-page-ikebukuro .ikebukuro-location-heading .ikebukuro-location-prompt {
+    font-size: 1.04rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+  .station-page-ikebukuro .ikebukuro-location-body h2 {
+    margin: 0 0 18px;
+    color: #173c31;
+    font-size: clamp(1.15rem, 3vw, 1.45rem);
+  }
+  .station-page-ikebukuro .ikebukuro-location-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .station-page-ikebukuro .ikebukuro-location-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 44px;
+    padding: 7px 14px;
+    border: 1px solid rgba(23, 60, 49, .35);
+    background: #fffdf7;
+    color: #173c31;
+    font-weight: 750;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .station-page-ikebukuro .ikebukuro-location-links a:hover,
+  .station-page-ikebukuro .ikebukuro-location-links a:focus-visible {
+    background: #e6f0e8;
+    border-color: #173c31;
+  }
+  .station-page-ikebukuro .ikebukuro-location-links a span { flex: 0 0 auto; }
+  .station-page-ikebukuro .container > .card[id^="ikebukuro-toilet-"] { scroll-margin-top: 125px; }
+  .station-page-ikebukuro .container > .card[id^="ikebukuro-toilet-"]:target {
+    outline: 3px solid #b781dd;
+    outline-offset: 3px;
+  }
+  @media (max-width: 520px) {
+    .station-page-ikebukuro .ikebukuro-location-body { padding: 16px; }
+    .station-page-ikebukuro .ikebukuro-location-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* 一覧の見出しと操作欄は、従来どおり通常のページフローに置く。
+     固定ヘッダーとの重なりやスクロール追従を防止する。 */
+  .station-page-ikebukuro .list-toolbar {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: auto;
+  }
+  .station-page-ikebukuro .list-toolbar .sort-controls {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  /* スクロール中はヘッダーを小さくし、トイレ情報を見やすくする */
+  .station-page-ikebukuro .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow .2s ease;
+  }
+  .station-page-ikebukuro .site-header .header-inner,
+  .station-page-ikebukuro .site-header .brand-icon,
+  .station-page-ikebukuro .site-header .brand-copy,
+  .station-page-ikebukuro .site-header .brand-copy small,
+  .station-page-ikebukuro .site-header .nav {
+    transition: height .2s ease, min-height .2s ease, padding .2s ease,
+      max-height .2s ease, font-size .2s ease, opacity .2s ease, margin .2s ease;
+  }
+  .station-page-ikebukuro .site-header.is-compact {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+  }
+  .station-page-ikebukuro .site-header.is-compact .header-inner {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    min-height: 0;
+  }
+  .station-page-ikebukuro .site-header.is-compact .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .station-page-ikebukuro .site-header.is-compact .brand-copy small {
+    display: none;
+  }
+  .station-page-ikebukuro .site-header.is-compact .brand-copy strong {
+    font-size: clamp(.78rem, 2.6vw, .95rem);
+    line-height: 1.25;
+  }
+  @media (max-width: 760px) {
+    .station-page-ikebukuro .site-header.is-compact .header-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+    .station-page-ikebukuro .site-header.is-compact .brand {
+      min-width: 0;
+    }
+    .station-page-ikebukuro .site-header.is-compact .nav {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .station-page-ikebukuro .site-header,
+    .station-page-ikebukuro .site-header .header-inner,
+    .station-page-ikebukuro .site-header .brand-icon,
+    .station-page-ikebukuro .site-header .brand-copy,
+    .station-page-ikebukuro .site-header .brand-copy small,
+    .station-page-ikebukuro .site-header .nav { transition: none; }
+  }
 </style>
 </head>
 <body class="station-page-tokyo station-page-ikebukuro">
@@ -171,7 +313,23 @@
             <span>西武池袋線</span>
             <span>東武東上線</span>
           </div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
-      <section class="station-overview" aria-label="池袋駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>12<small>か所</small></strong><p>JR6 / 東京メトロ3 / 西武1 / 東武2</p></div><a class="best-pick" href="#ikebukuro-toilet-jr-north"><div class="best-pick-inner"><div class="best-pick-label"><span>全利用者向け</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる路線・改札から一番近いトイレへ</strong><p>池袋駅は広いため、別会社や別改札のトイレへ移動するより今いるエリアのトイレを使う方が早いです。丸ノ内線は中央通路東改札の外、有楽町線・副都心線は改札を出る前です。</p></div></div></a></div></section>
+      <section class="station-overview" aria-label="池袋駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>12<small>か所</small></strong><p>JR6 / 東京メトロ3 / 西武1 / 東武2</p></div><div class="ikebukuro-location-picker">
+          <div class="ikebukuro-location-heading"><div><span>まず確認したい候補</span><div class="ikebukuro-location-prompt">大まかな場所を選択してね</div></div><em>おすすめ</em></div>
+          <div class="ikebukuro-location-body">
+            <nav class="ikebukuro-location-links" aria-label="現在地からトイレを探す">
+              <a href="#ikebukuro-toilet-jr-north">JR 北改札付近 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-jr-central2">JR 中央2改札 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-jr-south-male">JR 中央1・南改札 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-jr-outside">JR 改札外（北側） <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-metro-marunouchi">メトロ 丸ノ内線 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-metro-yurakucho">メトロ 有楽町線 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-metro-fukutoshin">メトロ 副都心線 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-seibu">西武池袋線 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-tobu-north">東武 北改札付近 <span aria-hidden="true">→</span></a>
+              <a href="#ikebukuro-toilet-tobu-south">東武 南改札付近 <span aria-hidden="true">→</span></a>
+            </nav>
+          </div>
+        </div></div></section>
       <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls" style="margin:12px 0 16px;"><label for="ikebukuro-sort" class="muted" style="margin-right:8px;">並び替え</label><select id="ikebukuro-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
       <div class="card" id="ikebukuro-toilet-jr-north" data-ticket-gate="inside"><div class="card-body"><h3>JR・北改札内トイレ</h3><dl class="kv">
         <div><dt>場所</dt><dd>B1・北改札内コンコース。JRの改札内3トイレのうち最北側です。</dd></div>
@@ -926,6 +1084,23 @@
 
   document.addEventListener("click", () => closeAll());
 })();
+</script>
+<script>
+  (() => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    let pending = false;
+    const updateHeader = () => {
+      header.classList.toggle('is-compact', window.scrollY > 64);
+      pending = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(updateHeader);
+    }, { passive: true });
+    updateHeader();
+  })();
 </script>
 <script src="../action-usage-client.js"></script>
 <script src="../station-view-client.js"></script>

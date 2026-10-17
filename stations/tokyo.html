@@ -168,6 +168,149 @@
     color: #5f241d;
     font-weight: 800;
   }
+  /* 東京駅：現在地別ジャンプナビ */
+  .station-page-tokyo .tokyo-location-picker {
+    grid-column: 1 / -1;
+    min-width: 0;
+    border: 2px solid #b781dd;
+    background: rgba(255, 253, 247, .84);
+  }
+  .station-page-tokyo .tokyo-location-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #b781dd;
+    color: #fff;
+    font-weight: 800;
+    font-size: .78rem;
+  }
+  .station-page-tokyo .tokyo-location-heading em {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border: 1px solid currentColor;
+    font-size: .73rem;
+    font-style: normal;
+  }
+  .station-page-tokyo .tokyo-location-body { padding: 20px; }
+  .station-page-tokyo .tokyo-location-heading .tokyo-location-prompt {
+    font-size: 1.04rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+  .station-page-tokyo .tokyo-location-body h2 {
+    margin: 0 0 18px;
+    color: #173c31;
+    font-size: clamp(1.15rem, 3vw, 1.45rem);
+  }
+  .station-page-tokyo .tokyo-location-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .station-page-tokyo .tokyo-location-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 44px;
+    padding: 7px 14px;
+    border: 1px solid rgba(23, 60, 49, .35);
+    background: #fffdf7;
+    color: #173c31;
+    font-weight: 750;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .station-page-tokyo .tokyo-location-links a:hover,
+  .station-page-tokyo .tokyo-location-links a:focus-visible {
+    background: #e6f0e8;
+    border-color: #173c31;
+  }
+  .station-page-tokyo .tokyo-location-links a span { flex: 0 0 auto; }
+  .station-page-tokyo .container > .card[id^="tokyo-toilet-"] { scroll-margin-top: 125px; }
+  .station-page-tokyo .container > .card[id^="tokyo-toilet-"]:target {
+    outline: 3px solid #b781dd;
+    outline-offset: 3px;
+  }
+  @media (max-width: 520px) {
+    .station-page-tokyo .tokyo-location-body { padding: 16px; }
+    .station-page-tokyo .tokyo-location-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* 一覧の見出しと操作欄は、従来どおり通常のページフローに置く。
+     固定ヘッダーとの重なりやスクロール追従を防止する。 */
+  .station-page-tokyo .list-toolbar {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: auto;
+  }
+  .station-page-tokyo .list-toolbar .sort-controls {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  /* スクロール中はヘッダーを小さくし、トイレ情報を見やすくする */
+  .station-page-tokyo .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow .2s ease;
+  }
+  .station-page-tokyo .site-header .header-inner,
+  .station-page-tokyo .site-header .brand-icon,
+  .station-page-tokyo .site-header .brand-copy,
+  .station-page-tokyo .site-header .brand-copy small,
+  .station-page-tokyo .site-header .nav {
+    transition: height .2s ease, min-height .2s ease, padding .2s ease,
+      max-height .2s ease, font-size .2s ease, opacity .2s ease, margin .2s ease;
+  }
+  .station-page-tokyo .site-header.is-compact {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+  }
+  .station-page-tokyo .site-header.is-compact .header-inner {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    min-height: 0;
+  }
+  .station-page-tokyo .site-header.is-compact .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .station-page-tokyo .site-header.is-compact .brand-copy small {
+    display: none;
+  }
+  .station-page-tokyo .site-header.is-compact .brand-copy strong {
+    font-size: clamp(.78rem, 2.6vw, .95rem);
+    line-height: 1.25;
+  }
+  @media (max-width: 760px) {
+    .station-page-tokyo .site-header.is-compact .header-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+    .station-page-tokyo .site-header.is-compact .brand {
+      min-width: 0;
+    }
+    .station-page-tokyo .site-header.is-compact .nav {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .station-page-tokyo .site-header,
+    .station-page-tokyo .site-header .header-inner,
+    .station-page-tokyo .site-header .brand-icon,
+    .station-page-tokyo .site-header .brand-copy,
+    .station-page-tokyo .site-header .brand-copy small,
+    .station-page-tokyo .site-header .nav { transition: none; }
+  }
 </style>
 </head>
 <body class="station-page-tokyo">
@@ -224,7 +367,34 @@
         </a>
       </div>
 
-      <section class="station-overview" aria-label="東京駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>25<small>か所</small></strong><p>JR東日本19 / JR東海5 / 東京メトロ1（別に丸の内南口・改札内1か所は閉鎖中）</p></div><a class="best-pick" href="#tokyo-toilet-yaesu-north"><div class="best-pick-inner"><div class="best-pick-label"><span>全利用者向け</span><em>確認候補</em></div><div class="best-pick-main"><strong>今いる路線・改札の近くを使ってください</strong><p>東京駅は非常に広いため、別エリアの高評価トイレへ移動するより、地上JR・B1・地下総武・京葉線・各新幹線・丸ノ内線の今いるエリア内を優先してください。</p></div></div></a></div></section>
+      <section class="station-overview" aria-label="東京駅の掲載候補概要">
+        <div class="overview-grid">
+          <div class="overview-count"><span>掲載候補</span><strong>25<small>か所</small></strong><p>JR東日本19 / JR東海5 / 東京メトロ1（別に丸の内南口・改札内1か所は閉鎖中）</p></div>
+          <div class="tokyo-location-picker">
+            <div class="tokyo-location-heading"><div><span>まず確認したい候補</span><div class="tokyo-location-prompt">大まかな場所を選択してね</div></div><em>おすすめ</em></div>
+            <div class="tokyo-location-body">
+              <nav class="tokyo-location-links" aria-label="現在地からトイレを探す">
+                <a href="#tokyo-toilet-yaesu-north">JR 八重洲北口 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-yaesu-south">JR 八重洲南口 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-marunouchi-north-male">JR 丸の内北口 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-marunouchi-south-outside">JR 丸の内南口（改札外） <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-yaesu-b1">JR 八重洲地下中央 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-gransta-1">JR グランスタ <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-marunouchi-b1-inside">JR 丸の内地下北口 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-sobu-yokohama">JR 総武地下ホーム <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-keiyo-b2">JR 京葉線 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-jre-shinkansen-north">JR東日本新幹線 北側 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-jre-shinkansen-south">JR東日本新幹線 南側 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-jre-shinkansen-nihombashi">JR東日本新幹線 日本橋口 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-jrc-north">東海道新幹線 北側 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-jrc-south">東海道新幹線 南側 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-jrc-nihombashi">東海道新幹線 日本橋口 <span aria-hidden="true">→</span></a>
+                <a href="#tokyo-toilet-metro">地下鉄 丸ノ内線 <span aria-hidden="true">→</span></a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="station-alert">丸の内南口の「改札内」トイレは現在閉鎖中です。丸の内南口を出た後の改札外トイレは利用できます。東京メトロ丸ノ内線のトイレは大手町方面改札の外です。</div>
       <div class="list-toolbar" id="toilet-list">
         <div class="list-heading">
@@ -1186,6 +1356,23 @@
   });
   document.addEventListener("click", () => closeAll());
 })();
+</script>
+<script>
+  (() => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    let pending = false;
+    const updateHeader = () => {
+      header.classList.toggle('is-compact', window.scrollY > 64);
+      pending = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(updateHeader);
+    }, { passive: true });
+    updateHeader();
+  })();
 </script>
 <script src="../action-usage-client.js"></script>
 <script src="../station-view-client.js"></script>
