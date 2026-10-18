@@ -21,7 +21,11 @@
     "totsuka",
     "ofuna",
     "kasukabe",
-    "iwatsuki"
+    "iwatsuki",
+    "sayamashi",
+    "machida",
+    "musashikoyama",
+    "higashimatsudo"
   ]);
 
   const stationSlug = stationPath.split("/").pop()?.replace(/\.html$/i, "") || "";

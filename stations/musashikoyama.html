@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>武蔵小山駅｜腹痛持ちのための駅トイレマップ</title>
+<link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png" />
+<link rel="shortcut icon" href="../favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
+<meta name="description" content="武蔵小山駅のトイレ情報ページ。東急目黒線のトイレ候補4か所について場所・行き方・設備と推定評価を掲載しています。" />
+<link rel="stylesheet" href="../station-page-garden-v3.css" />
+<style>
+  .station-page-tokyo .best-pick {
+    padding: 0;
+  }
+
+  .station-page-tokyo .best-pick-inner {
+    display: grid;
+    min-height: 100%;
+    grid-template-rows: auto 1fr auto;
+    border-left: 6px solid var(--forest);
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.1), transparent 42%),
+      rgba(255, 253, 247, 0.62);
+  }
+
+  .station-page-tokyo .best-pick-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(97, 123, 94, 0.28);
+    padding: 14px 18px 12px;
+  }
+
+  .station-page-tokyo .best-pick-label span {
+    color: var(--moss);
+    font-size: 0.63rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+
+  .station-page-tokyo .best-pick-label em {
+    display: inline-grid;
+    min-width: 42px;
+    place-items: center;
+    border: 1px solid var(--moss);
+    color: var(--forest);
+    padding: 3px 8px;
+    font-size: 0.58rem;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-main {
+    padding: 18px 18px 4px;
+  }
+
+  .station-page-tokyo .best-pick-main strong {
+    margin-top: 0;
+    color: var(--forest);
+    font-size: 1.28rem;
+  }
+
+  .station-page-tokyo .best-pick-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 14px 18px 18px;
+    border-top: 1px solid rgba(97, 123, 94, 0.28);
+    padding-top: 12px;
+    color: var(--forest);
+    font-size: 0.66rem;
+    font-weight: 900;
+  }
+
+  .station-page-tokyo .best-pick-action b {
+    margin-top: 0;
+  }
+
+  .station-page-tokyo .best-pick:hover .best-pick-inner {
+    background:
+      linear-gradient(90deg, rgba(23, 60, 49, 0.14), transparent 42%),
+      rgba(255, 253, 247, 0.82);
+  }
+
+
+  .station-page-tokyo .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .station-page-tokyo .facility-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 0 2px 14px;
+  }
+
+  .station-page-tokyo .facility-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    border: 1px solid rgba(97, 123, 94, 0.34);
+    background: rgba(97, 123, 94, 0.08);
+    color: #173c31;
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .station-page-tokyo .facility-icon-button {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    flex: 0 0 28px;
+  }
+
+  .station-page-tokyo .facility-icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .station-page-tokyo .facility-tooltip {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 6px;
+    background: #173c31;
+    color: #fff;
+    padding: 5px 7px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    line-height: 1.2;
+    box-shadow: 0 4px 12px rgba(23, 60, 49, 0.18);
+  }
+
+  .station-page-tokyo .facility-tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: #173c31;
+  }
+
+  .station-page-tokyo .station-alert {
+    margin: 16px 0 20px;
+    border-left: 6px solid #9b3b2f;
+    background: rgba(155, 59, 47, 0.08);
+    padding: 14px 16px;
+    color: #5f241d;
+    font-weight: 800;
+  }
+  /* 武蔵小山駅：現在地別ジャンプナビ */
+  .station-page-tokyo .tokyo-location-picker {
+    grid-column: 1 / -1;
+    min-width: 0;
+    border: 2px solid #b781dd;
+    background: rgba(255, 253, 247, .84);
+  }
+  .station-page-tokyo .tokyo-location-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #b781dd;
+    color: #fff;
+    font-weight: 800;
+    font-size: .78rem;
+  }
+  .station-page-tokyo .tokyo-location-heading em {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border: 1px solid currentColor;
+    font-size: .73rem;
+    font-style: normal;
+  }
+  .station-page-tokyo .tokyo-location-body { padding: 20px; }
+  .station-page-tokyo .tokyo-location-heading .tokyo-location-prompt {
+    font-size: 1.04rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+  .station-page-tokyo .tokyo-location-body h2 {
+    margin: 0 0 18px;
+    color: #173c31;
+    font-size: clamp(1.15rem, 3vw, 1.45rem);
+  }
+  .station-page-tokyo .tokyo-location-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .station-page-tokyo .tokyo-location-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 44px;
+    padding: 7px 14px;
+    border: 1px solid rgba(23, 60, 49, .35);
+    background: #fffdf7;
+    color: #173c31;
+    font-weight: 750;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .station-page-tokyo .tokyo-location-links a:hover,
+  .station-page-tokyo .tokyo-location-links a:focus-visible {
+    background: #e6f0e8;
+    border-color: #173c31;
+  }
+  .station-page-tokyo .tokyo-location-links a span { flex: 0 0 auto; }
+  .station-page-tokyo .container > .card[id^="musashikoyama-toilet-"] { scroll-margin-top: 125px; }
+  .station-page-tokyo .container > .card[id^="musashikoyama-toilet-"]:target {
+    outline: 3px solid #b781dd;
+    outline-offset: 3px;
+  }
+  @media (max-width: 520px) {
+    .station-page-tokyo .tokyo-location-body { padding: 16px; }
+    .station-page-tokyo .tokyo-location-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* 一覧の見出しと操作欄は、従来どおり通常のページフローに置く。
+     固定ヘッダーとの重なりやスクロール追従を防止する。 */
+  .station-page-tokyo .list-toolbar {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: auto;
+  }
+  .station-page-tokyo .list-toolbar .sort-controls {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  /* スクロール中はヘッダーを小さくし、トイレ情報を見やすくする */
+  .station-page-tokyo .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow .2s ease;
+  }
+  .station-page-tokyo .site-header .header-inner,
+  .station-page-tokyo .site-header .brand-icon,
+  .station-page-tokyo .site-header .brand-copy,
+  .station-page-tokyo .site-header .brand-copy small,
+  .station-page-tokyo .site-header .nav {
+    transition: height .2s ease, min-height .2s ease, padding .2s ease,
+      max-height .2s ease, font-size .2s ease, opacity .2s ease, margin .2s ease;
+  }
+  .station-page-tokyo .site-header.is-compact {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+  }
+  .station-page-tokyo .site-header.is-compact .header-inner {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    min-height: 0;
+  }
+  .station-page-tokyo .site-header.is-compact .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .station-page-tokyo .site-header.is-compact .brand-copy small {
+    display: none;
+  }
+  .station-page-tokyo .site-header.is-compact .brand-copy strong {
+    font-size: clamp(.78rem, 2.6vw, .95rem);
+    line-height: 1.25;
+  }
+  @media (max-width: 760px) {
+    .station-page-tokyo .site-header.is-compact .header-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+    .station-page-tokyo .site-header.is-compact .brand {
+      min-width: 0;
+    }
+    .station-page-tokyo .site-header.is-compact .nav {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .station-page-tokyo .site-header,
+    .station-page-tokyo .site-header .header-inner,
+    .station-page-tokyo .site-header .brand-icon,
+    .station-page-tokyo .site-header .brand-copy,
+    .station-page-tokyo .site-header .brand-copy small,
+    .station-page-tokyo .site-header .nav { transition: none; }
+  }
+</style>
+</head>
+<body class="station-page-tokyo">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="駅検索へ戻る">
+        <img
+          class="brand-icon"
+          src="../favicon-512x512.png"
+          alt=""
+          width="52"
+          height="52"
+        />
+        <span class="brand-copy">
+          <small>HARAITA MAP / STATION GUIDE</small>
+          <strong>腹痛持ちのための駅トイレマップ</strong>
+        </span>
+      </a>
+      <nav class="nav" aria-label="主要メニュー">
+        <a href="../index.html"><span>01</span>駅を探す</a>
+        <a href="#toilet-list"><span>02</span>候補一覧</a>
+        <a class="nav-accent" href="#station-report"><span>03</span>情報提供</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section" id="top">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../index.html">駅を探す</a><span aria-hidden="true"></span><span aria-current="page">武蔵小山駅</span></nav>
+      <div class="section-head station-title">
+        <div class="station-plaque"><span>STATION</span><h2>武蔵小山駅</h2><b>MG03</b></div>
+        <div class="station-title-copy"><p>STATION TOILET GUIDE</p><h1>武蔵小山駅のトイレ案内</h1><div class="station-lines" aria-label="主な路線"><span>東急目黒線</span></div></div>
+        <a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a>
+      </div>
+      <section class="station-overview" aria-label="武蔵小山駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>4<small>か所</small></strong><p>改札内1 / 駅前公衆便所1 / 商業施設1 / 公園1</p></div></div></section>
+      <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div>
+        <div class="sort-controls" style="margin:12px 0 16px;"><label for="musashikoyama-sort" class="muted" style="margin-right:8px;">並び替え</label>
+          <select id="musashikoyama-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select>
+        </div>
+      </div>
+      <div class="card" id="musashikoyama-toilet-inside" data-ticket-gate="inside"><div class="card-body"><h3>武蔵小山駅 改札内トイレ</h3><dl class="kv">
+          <div><dt>場所</dt><dd>地下駅の改札内コンコース。</dd></div>
+          <div><dt>行き方</dt><dd>改札内のトイレ案内表示に従ってください。詳しい方向は未確認。</dd></div>
+          <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+          <div><dt>トイレの<br>きれい度</dt><dd>★★★☆☆</dd></div>
+          <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+          <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+          <div><dt>トイレの<br>新しさ</dt><dd>普通</dd></div>
+          <div><dt>設備・注意事項</dt><dd>東急電鉄公式に車いす対応トイレ・オストメイト対応・ベビーシートの案内があります。改札外から直接は利用できません。新しさ、清潔度、待ちやすさは推定評価。</dd></div>
+        </dl></div></div>
+      <div class="card" id="musashikoyama-toilet-ekimae" data-ticket-gate="outside"><div class="card-body"><h3>武蔵小山駅前公衆便所</h3><dl class="kv">
+          <div><dt>場所</dt><dd>東京都品川区小山3-27-1。</dd></div>
+          <div><dt>行き方</dt><dd>駅から地上に出て駅前の公衆便所へ。出口からの詳しい位置関係は未確認。</dd></div>
+          <div><dt>おすすめ度</dt><dd>★★★★☆</dd></div>
+          <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
+          <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+          <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+          <div><dt>トイレの<br>新しさ</dt><dd>古い</dd></div>
+          <div><dt>設備・注意事項</dt><dd>品川区の資料では終日利用可能・車いす対応設備あり。個室数は確認できていません。「古い」は評価上の仮設定で、老朽化の確認結果ではありません。</dd></div>
+        </dl></div></div>
+      <div class="card" id="musashikoyama-toilet-mall-2f" data-ticket-gate="outside"><div class="card-body"><h3>パークシティ武蔵小山 ザ モール 2階トイレ</h3><dl class="kv">
+          <div><dt>場所</dt><dd>東京都品川区小山3-15-1、施設2階。</dd></div>
+          <div><dt>行き方</dt><dd>武蔵小山駅東口から徒歩約1分の商業施設に入り、2階へ。</dd></div>
+          <div><dt>おすすめ度</dt><dd>★★★☆☆</dd></div>
+          <div><dt>トイレの<br>きれい度</dt><dd>★★★★☆</dd></div>
+          <div><dt>大期待値</dt><dd>★★☆☆☆</dd></div>
+          <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+          <div><dt>トイレの<br>新しさ</dt><dd>新しい</dd></div>
+          <div><dt>設備・注意事項</dt><dd>施設資料では2階に多目的トイレ、3階におむつ交換設備などがあります。一般トイレの場所・利用条件は要確認。営業時間内に利用できる候補です。新しさと清潔度は推定。</dd></div>
+        </dl></div></div>
+      <div class="card" id="musashikoyama-toilet-koyamadai-park" data-ticket-gate="outside"><div class="card-body"><h3>小山台公園トイレ</h3><dl class="kv">
+          <div><dt>場所</dt><dd>東京都品川区小山台2-2-1。</dd></div>
+          <div><dt>行き方</dt><dd>駅から小山台公園へ向かってください。駅から距離があるため急いでいる場合は注意。</dd></div>
+          <div><dt>おすすめ度</dt><dd>★★☆☆☆</dd></div>
+          <div><dt>トイレの<br>きれい度</dt><dd>★★☆☆☆</dd></div>
+          <div><dt>大期待値</dt><dd>★★★☆☆</dd></div>
+          <div><dt>小期待値</dt><dd>★★★☆☆</dd></div>
+          <div><dt>トイレの<br>新しさ</dt><dd>古い</dd></div>
+          <div><dt>設備・注意事項</dt><dd>公園内の公共トイレ。添付調査資料では終日利用可・車いす対応設備あり。「古い」は評価上の仮設定で老朽化の実測ではありません。</dd></div>
+        </dl></div></div>
+      <section class="station-report" id="station-report"><span class="seal">情</span><div><p>INFORMATION</p><h2>情報提供・修正依頼</h2><span>場所や設備の違いを見つけた場合は、確認後に情報へ反映します。</span></div><a class="report-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfE1SurrAHd1WChl5tdb-YxDUAkNixC5WMAzJnIw90-zG3ErQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">入力フォームへ →</a></section>
+      <section class="station-research-details" aria-label="再確認情報"><div class="card"><div class="card-body"><h3>再確認情報</h3><dl class="kv">
+          <div><dt>確認結果</dt><dd>東急目黒線の駅改札内トイレ、駅前公衆便所、パークシティ武蔵小山 ザ モール2階、小山台公園の4か所を掲載。場所の細部が確認できないものは現地案内を優先してください。</dd></div>
+          <div><dt>利用時間</dt><dd>駅前公衆便所と小山台公園トイレは添付調査資料で終日利用可能とされています。商業施設のトイレは営業時間・利用条件に制約があるため確認してください。</dd></div>
+          <div><dt>設備の扱い</dt><dd>駅の対応設備と公衆便所の車いす対応設備は公開案内に基づいていますが、一般トイレとの位置関係や設備配置の詳細は未確認です。</dd></div>
+          <div><dt>評価について</dt><dd>おすすめ度・きれい度・大期待値・小期待値・新しさは添付調査資料に基づく推定評価です。混雑や清掃状態の実測値ではありません。「古い」は老朽化の確認を意味しません。</dd></div>
+          <div><dt>情報確認日</dt><dd>2026年10月18日（添付調査資料の整理日。現地確認日ではありません）</dd></div>
+          <div><dt>主な情報源</dt><dd><a href="https://www.tokyu.co.jp/area/musashi-koyama/station/" target="_blank" rel="noopener noreferrer">東急電鉄 武蔵小山駅</a> / <a href="https://www.city.shinagawa.tokyo.jp/PC/shisetsu/shisetsu-kenkouhukushi/shisetsu-kenkouhukushi-guide/toilet.html" target="_blank" rel="noopener noreferrer">品川区 車椅子等対応トイレ一覧</a> / <a href="https://pcmk.jp/service" target="_blank" rel="noopener noreferrer">パークシティ武蔵小山 ザ モール設備案内</a></dd></div>
+        </dl></div></div></section>
+    </div>
+  </main>
+
+  <footer>
+    <strong>腹痛持ちのための駅トイレマップ</strong>
+    <span>武蔵小山駅 / 駅トイレ案内</span>
+  </footer>
+
+  <script>
+  (() => {
+    const sortSelect = document.querySelector('.sort-controls select[id$="-sort"]');
+    if (!sortSelect) return;
+
+    const sortControls = sortSelect.closest(".sort-controls");
+    const container = sortSelect.closest(".container");
+    if (!container || !sortControls) return;
+
+    const sortItems = [
+      { value: "recommend", label: "おすすめ度順" },
+      { value: "clean", label: "きれい度順" },
+      { value: "big", label: "大期待値順" },
+      { value: "small", label: "小期待度順" },
+      { value: "newness", label: "新しさ順" }
+    ];
+
+    const cards = Array.from(container.querySelectorAll(":scope > .card"));
+    const originalOrder = new Map(cards.map((card, index) => [card, index]));
+
+    const sortLabel = sortControls.querySelector(`label[for="${sortSelect.id}"]`);
+    if (sortLabel) {
+      sortLabel.hidden = true;
+    }
+    sortSelect.hidden = true;
+
+    let sortWrap = sortControls.querySelector(".sort-menu-wrap");
+    if (!sortWrap) {
+      sortWrap = document.createElement("div");
+      sortWrap.className = "sort-menu-wrap";
+      sortWrap.style.position = "relative";
+      sortWrap.style.display = "inline-flex";
+      const controlLabel = sortControls.querySelector(".control-label");
+      if (controlLabel) {
+        controlLabel.insertAdjacentElement("afterend", sortWrap);
+      } else {
+        sortControls.insertBefore(sortWrap, sortControls.firstChild);
+      }
+    }
+
+    let sortButton = sortWrap.querySelector(".sort-menu-button");
+    if (!sortButton) {
+      sortButton = document.createElement("button");
+      sortButton.type = "button";
+      sortButton.className = "btn small ghost sort-menu-button";
+      sortButton.textContent = "並び替え▼";
+      sortButton.setAttribute("aria-haspopup", "true");
+      sortButton.setAttribute("aria-expanded", "false");
+      sortWrap.appendChild(sortButton);
+    }
+
+    let sortMenu = sortWrap.querySelector(".sort-menu-dropdown");
+    if (!sortMenu) {
+      sortMenu = document.createElement("div");
+      sortMenu.className = "sort-menu-dropdown";
+      sortMenu.setAttribute("role", "menu");
+      sortMenu.hidden = true;
+      sortMenu.style.position = "absolute";
+      sortMenu.style.top = "calc(100% + 8px)";
+      sortMenu.style.left = "0";
+      sortMenu.style.minWidth = "160px";
+      sortMenu.style.padding = "6px";
+      sortMenu.style.borderRadius = "14px";
+      sortMenu.style.border = "1px solid rgba(17, 24, 39, 0.08)";
+      sortMenu.style.background = "rgba(255, 255, 255, 0.98)";
+      sortMenu.style.boxShadow = "0 12px 30px rgba(15, 23, 42, 0.14)";
+      sortMenu.style.backdropFilter = "blur(10px)";
+      sortMenu.style.zIndex = "20";
+
+      sortItems.forEach((item) => {
+        const itemButton = document.createElement("button");
+        itemButton.type = "button";
+        itemButton.textContent = item.label;
+        itemButton.dataset.value = item.value;
+        itemButton.setAttribute("role", "menuitemradio");
+        itemButton.style.display = "block";
+        itemButton.style.width = "100%";
+        itemButton.style.border = "0";
+        itemButton.style.borderRadius = "10px";
+        itemButton.style.padding = "10px 12px";
+        itemButton.style.textAlign = "left";
+        itemButton.style.background = "transparent";
+        itemButton.style.cursor = "pointer";
+        itemButton.style.color = "#0f172a";
+        itemButton.addEventListener("click", () => {
+          sortSelect.value = item.value;
+          syncSortMenu();
+          animateSort(sortSelect.value);
+          sortMenu.hidden = true;
+          sortButton.setAttribute("aria-expanded", "false");
+        });
+        sortMenu.appendChild(itemButton);
+      });
+
+      sortWrap.appendChild(sortMenu);
+    }
+
+    const toStarCount = (text) => (text.match(/★/g) || []).length;
+    const toNewnessScore = (text) => {
+      if (text.includes("新しい") || text.includes("新")) return 3;
+      if (text.includes("普通")) return 2;
+      if (text.includes("旧")) return 1;
+      return 0;
+    };
+
+    const getMetricValue = (card, label) => {
+      const rows = Array.from(card.querySelectorAll(".kv div"));
+      for (const row of rows) {
+        const dt = row.querySelector("dt")?.textContent?.replace(/\s+/g, "") || "";
+        const dd = row.querySelector("dd")?.textContent?.trim() || "";
+        if (dt === label) return dd;
+      }
+      return "";
+    };
+
+    const recommendScore = (card) => {
+      const a = toStarCount(getMetricValue(card, "トイレのきれい度"));
+      const b = toStarCount(getMetricValue(card, "大期待値"));
+      const c = toStarCount(getMetricValue(card, "小期待値"));
+      const d = toNewnessScore(getMetricValue(card, "トイレの新しさ"));
+
+      let z = a * 3 + b * 6 + c * 1 + d * 3;
+      if (a === 1) z -= 8;
+      if (b === 1) z -= 16;
+      if (a === 2) z -= 4;
+      if (b === 2) z -= 9;
+      if (b === 3) z -= 2;
+      if (c === 1) z -= 3;
+      if (c === 2) z -= 1;
+      return z;
+    };
+
+    const scoreByMode = {
+      recommend: (card) => recommendScore(card),
+      clean: (card) => toStarCount(getMetricValue(card, "トイレのきれい度")),
+      big: (card) => toStarCount(getMetricValue(card, "大期待値")),
+      small: (card) => toStarCount(getMetricValue(card, "小期待値")),
+      newness: (card) => toNewnessScore(getMetricValue(card, "トイレの新しさ"))
+    };
+
+    const sortCards = (mode) => {
+      const getter = scoreByMode[mode] || scoreByMode.recommend;
+      const sorted = [...cards].sort((a, b) => {
+        const diff = getter(b) - getter(a);
+        if (diff !== 0) return diff;
+        return (originalOrder.get(a) || 0) - (originalOrder.get(b) || 0);
+      });
+
+      const listEndAnchor = container.querySelector(
+        ":scope > .station-report, :scope > .photo-credit"
+      );
+      for (const card of sorted) {
+        container.insertBefore(card, listEndAnchor);
+      }
+    };
+
+    let sortAnimationToken = 0;
+    const animateSort = (mode) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        sortCards(mode);
+        return;
+      }
+
+      const token = ++sortAnimationToken;
+      const visibleCards = cards.filter((card) => !card.hidden);
+      visibleCards.forEach((card) => {
+        card.classList.remove("is-sorting-in");
+        card.classList.add("is-sorting-out");
+      });
+
+      window.setTimeout(() => {
+        if (token !== sortAnimationToken) return;
+        sortCards(mode);
+        visibleCards.forEach((card) => {
+          card.classList.remove("is-sorting-out");
+          card.classList.add("is-sorting-in");
+        });
+
+        window.setTimeout(() => {
+          if (token !== sortAnimationToken) return;
+          visibleCards.forEach((card) => card.classList.remove("is-sorting-in"));
+        }, 130);
+      }, 70);
+    };
+
+    const syncSortMenu = () => {
+      const menuButtons = Array.from(sortMenu.querySelectorAll("button[data-value]"));
+      menuButtons.forEach((button) => {
+        const isActive = button.dataset.value === sortSelect.value;
+        button.setAttribute("aria-checked", isActive ? "true" : "false");
+        button.style.fontWeight = isActive ? "700" : "500";
+        button.style.background = isActive ? "#0f172a" : "transparent";
+        button.style.color = isActive ? "#ffffff" : "#0f172a";
+      });
+      const activeItem = sortItems.find((item) => item.value === sortSelect.value);
+      sortButton.textContent = `${activeItem?.label || "並び替え"} ▼`;
+    };
+
+    sortButton.addEventListener("click", () => {
+      const willOpen = sortMenu.hidden;
+      sortMenu.hidden = !willOpen;
+      sortButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      if (willOpen) {
+        syncSortMenu();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!sortWrap.contains(event.target)) {
+        sortMenu.hidden = true;
+        sortButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        sortMenu.hidden = true;
+        sortButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    sortSelect.addEventListener("change", () => {
+      syncSortMenu();
+      animateSort(sortSelect.value);
+    });
+
+    syncSortMenu();
+    sortCards(sortSelect.value);
+  })();
+</script>
+<script>
+  (() => {
+    const BASE_URL = "https://haraitamap.com";
+    const getStationName = () => {
+      const fromHeading = document.querySelector(".station-title h2")?.textContent?.trim();
+      if (fromHeading) return fromHeading;
+      const fromTitle = document.title.split("｜")[0]?.trim();
+      return fromTitle || "TODO: 駅名";
+    };
+
+    const normalizeLabel = (text) => (text || "").replace(/\s+/g, "");
+
+    const getMetric = (card, label) => {
+      const rows = Array.from(card.querySelectorAll(".kv div"));
+      for (const row of rows) {
+        const dt = normalizeLabel(row.querySelector("dt")?.textContent);
+        if (dt === label) {
+          return row.querySelector("dd")?.textContent?.trim() || "";
+        }
+      }
+      return "";
+    };
+
+    const getTicketGateValue = (card) => {
+      const raw = card.dataset.ticketGate || "unknown";
+      if (raw === "inside" || raw === "outside") {
+        return raw;
+      }
+      return "unknown";
+    };
+
+    const getTicketGateLabel = (card) => {
+      const gate = getTicketGateValue(card);
+      if (gate === "inside") return "改札内";
+      if (gate === "outside") return "改札外";
+      return "TODO: 未記載";
+    };
+
+    const stationName = getStationName();
+    const pagePath = location.pathname.includes("/stations/")
+      ? location.pathname.slice(location.pathname.indexOf("/stations/"))
+      : "/stations/" + (location.pathname.split("/").pop() || "TODO.html");
+    const pageUrl = BASE_URL + pagePath;
+    const container = document.querySelector("main .container");
+    const stationCardsOnPage = Array.from(
+      document.querySelectorAll(".container > .card")
+    );
+    const photoCredit = Array.from(container?.children || []).find((el) =>
+      el.tagName === "P" && el.classList.contains("muted") && el.style.marginTop === "12px"
+    );
+
+    const gateFilterItems = [
+      { value: "all", label: "全部" },
+      { value: "inside", label: "改札内" },
+      { value: "outside", label: "改札外" }
+    ];
+    let gateFilterValue = "all";
+
+    const ensureGateFilterControls = () => {
+      if (!container || stationCardsOnPage.length === 0) {
+        return null;
+      }
+
+      let controls = container.querySelector(
+        ".list-toolbar .sort-controls, :scope > .sort-controls"
+      );
+      if (!controls) {
+        controls = document.createElement("div");
+        controls.className = "sort-controls";
+        controls.style.margin = "12px 0 16px";
+        const firstCard = stationCardsOnPage[0] || photoCredit || null;
+        container.insertBefore(controls, firstCard);
+      }
+
+      controls.style.display = "flex";
+      controls.style.flexWrap = "wrap";
+      controls.style.alignItems = "center";
+      controls.style.gap = "8px";
+
+      let filterWrap = controls.querySelector(".ticket-gate-filter-wrap");
+      if (!filterWrap) {
+        filterWrap = document.createElement("div");
+        filterWrap.className = "ticket-gate-filter-wrap";
+        filterWrap.style.position = "relative";
+        filterWrap.style.display = "inline-flex";
+        filterWrap.style.marginLeft = controls.querySelector("select") ? "12px" : "0";
+        controls.appendChild(filterWrap);
+      }
+
+      let filterButton = filterWrap.querySelector("#ticket-gate-filter-button");
+      if (!filterButton) {
+        filterButton = document.createElement("button");
+        filterButton.type = "button";
+        filterButton.id = "ticket-gate-filter-button";
+        filterButton.className = "btn small ghost";
+        filterButton.textContent = "フィルター▼";
+        filterButton.setAttribute("aria-haspopup", "true");
+        filterButton.setAttribute("aria-expanded", "false");
+        filterWrap.appendChild(filterButton);
+      }
+
+      let filterMenu = filterWrap.querySelector("#ticket-gate-filter-menu");
+      if (!filterMenu) {
+        filterMenu = document.createElement("div");
+        filterMenu.id = "ticket-gate-filter-menu";
+        filterMenu.setAttribute("role", "menu");
+        filterMenu.hidden = true;
+        filterMenu.style.position = "absolute";
+        filterMenu.style.top = "calc(100% + 8px)";
+        filterMenu.style.left = "0";
+        filterMenu.style.minWidth = "140px";
+        filterMenu.style.padding = "6px";
+        filterMenu.style.borderRadius = "14px";
+        filterMenu.style.border = "1px solid rgba(17, 24, 39, 0.08)";
+        filterMenu.style.background = "rgba(255, 255, 255, 0.98)";
+        filterMenu.style.boxShadow = "0 12px 30px rgba(15, 23, 42, 0.14)";
+        filterMenu.style.backdropFilter = "blur(10px)";
+        filterMenu.style.zIndex = "20";
+
+        gateFilterItems.forEach((item) => {
+          const itemButton = document.createElement("button");
+          itemButton.type = "button";
+          itemButton.textContent = item.label;
+          itemButton.dataset.value = item.value;
+          itemButton.setAttribute("role", "menuitemradio");
+          itemButton.style.display = "block";
+          itemButton.style.width = "100%";
+          itemButton.style.border = "0";
+          itemButton.style.borderRadius = "10px";
+          itemButton.style.padding = "10px 12px";
+          itemButton.style.textAlign = "left";
+          itemButton.style.background = "transparent";
+          itemButton.style.cursor = "pointer";
+          itemButton.style.color = "#0f172a";
+          itemButton.addEventListener("click", () => {
+            gateFilterValue = item.value;
+            syncGateFilterMenu();
+            applyGateFilter();
+            filterMenu.hidden = true;
+            filterButton.setAttribute("aria-expanded", "false");
+          });
+          filterMenu.appendChild(itemButton);
+        });
+
+        filterWrap.appendChild(filterMenu);
+      }
+
+      return { controls, filterWrap, filterButton, filterMenu };
+    };
+
+    const gateFilterUi = ensureGateFilterControls();
+
+    const syncGateFilterMenu = () => {
+      if (!gateFilterUi) {
+        return;
+      }
+      const menuButtons = Array.from(gateFilterUi.filterMenu.querySelectorAll("button[data-value]"));
+      menuButtons.forEach((button) => {
+        const isActive = button.dataset.value === gateFilterValue;
+        button.setAttribute("aria-checked", isActive ? "true" : "false");
+        button.style.fontWeight = isActive ? "700" : "500";
+        button.style.background = isActive ? "#0f172a" : "transparent";
+        button.style.color = isActive ? "#ffffff" : "#0f172a";
+      });
+    };
+
+    const applyGateFilter = () => {
+      let visibleCount = 0;
+      stationCardsOnPage.forEach((card) => {
+        const gate = card.dataset.ticketGate || "unknown";
+        const shouldShow = gateFilterValue === "all" || gate === gateFilterValue;
+        card.hidden = !shouldShow;
+        if (shouldShow) {
+          visibleCount += 1;
+        }
+      });
+      if (photoCredit) {
+        photoCredit.hidden = visibleCount === 0;
+      }
+    };
+
+    if (gateFilterUi) {
+      gateFilterUi.filterButton.addEventListener("click", () => {
+        const willOpen = gateFilterUi.filterMenu.hidden;
+        gateFilterUi.filterMenu.hidden = !willOpen;
+        gateFilterUi.filterButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        if (willOpen) {
+          syncGateFilterMenu();
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!gateFilterUi.filterWrap.contains(event.target)) {
+          gateFilterUi.filterMenu.hidden = true;
+          gateFilterUi.filterButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          gateFilterUi.filterMenu.hidden = true;
+          gateFilterUi.filterButton.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    syncGateFilterMenu();
+    applyGateFilter();
+
+    const breadcrumb = {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "トップページ",
+          "item": BASE_URL + "/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "駅一覧",
+          "item": BASE_URL + "/index.html#stations"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": stationName,
+          "item": pageUrl
+        }
+      ]
+    };
+
+    const toilets = stationCardsOnPage.map((card, index) => {
+      const title = card.querySelector("h3")?.textContent?.trim() || `トイレ ${index + 1}`;
+      const locationText = getMetric(card, "場所") || "TODO: 場所未記載";
+      const routeText = getMetric(card, "行き方");
+      const clean = getMetric(card, "トイレのきれい度") || "TODO: 未記載";
+      const big = getMetric(card, "大期待値") || "TODO: 未記載";
+      const small = getMetric(card, "小期待値") || "TODO: 未記載";
+      const newness = getMetric(card, "トイレの新しさ") || "TODO: 未記載";
+      const recommend = getMetric(card, "おすすめ度");
+      const ticketGate = getTicketGateLabel(card);
+
+      return {
+        "@type": "PublicToilet",
+        "@id": `${pageUrl}#public-toilet-${index + 1}`,
+        "name": `${stationName} ${title}`,
+        "description": [locationText, routeText].filter(Boolean).join(" / "),
+        "url": pageUrl,
+        "isPartOf": {
+          "@type": "Place",
+          "name": stationName
+        },
+        "additionalProperty": [
+          { "@type": "PropertyValue", "name": "改札内外", "value": ticketGate },
+          { "@type": "PropertyValue", "name": "おすすめ度", "value": recommend },
+          { "@type": "PropertyValue", "name": "きれい度", "value": clean },
+          { "@type": "PropertyValue", "name": "大期待値", "value": big },
+          { "@type": "PropertyValue", "name": "小期待値", "value": small },
+          { "@type": "PropertyValue", "name": "新しさ", "value": newness }
+        ]
+      };
+    });
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [breadcrumb, ...toilets]
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(jsonLd, null, 2);
+    document.head.appendChild(script);
+
+    // TODO: Dataset はデータ公開ページが作成された場合に追加
+    // TODO: LocalBusiness は実在施設・提携施設ページが作成された場合に追加
+  })();
+</script>
+<script>
+(() => {
+  const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
+  const stationName =
+    document.querySelector(".station-title h2")?.textContent.trim();
+
+  if (!stationName) {
+    return;
+  }
+
+  const sessionKey = `station-viewed:${stationPath}`;
+
+  if (sessionStorage.getItem(sessionKey)) {
+    return;
+  }
+
+  sessionStorage.setItem(sessionKey, "1");
+
+  fetch("/api/station-view", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      stationPath,
+      stationName
+    }),
+    keepalive: true
+  }).catch((error) => {
+    console.warn("閲覧数の記録に失敗しました。", error);
+    sessionStorage.removeItem(sessionKey);
+  });
+})();
+</script>
+<script>
+(() => {
+  const buttons = Array.from(document.querySelectorAll(".facility-icon-button"));
+  const closeAll = (except = null) => {
+    buttons.forEach((button) => {
+      if (button === except) return;
+      button.setAttribute("aria-expanded", "false");
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (tooltip) tooltip.hidden = true;
+    });
+  };
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const tooltip = button.querySelector(".facility-tooltip");
+      if (!tooltip) return;
+      const willOpen = tooltip.hidden;
+      closeAll(button);
+      tooltip.hidden = !willOpen;
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", () => closeAll());
+})();
+</script>
+<script>
+  (() => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    let pending = false;
+    const updateHeader = () => {
+      header.classList.toggle('is-compact', window.scrollY > 64);
+      pending = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(updateHeader);
+    }, { passive: true });
+    updateHeader();
+  })();
+</script>
+<script src="../action-usage-client.js"></script>
+<script src="../station-view-client.js"></script>
+</body>
+</html>
+
+
