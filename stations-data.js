@@ -2,6 +2,7 @@
 window.HARAITA_STATIONS = [
   {
     "name": "東京駅",
+    "reading": "とうきょう",
     "code": "TYO",
     "lines": [
       "JR中央線",
@@ -22,6 +23,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "赤羽駅",
+    "reading": "あかばね",
     "code": "ABN",
     "lines": [
       "埼京線",
@@ -42,6 +44,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大宮駅",
+    "reading": "おおみや",
     "code": "OMY",
     "lines": [
       "東武アーバンパークライン",
@@ -64,6 +67,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "池袋駅",
+    "reading": "いけぶくろ",
     "code": "IKB",
     "lines": [
       "埼京線",
@@ -84,6 +88,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "新宿駅",
+    "reading": "しんじゅく",
     "code": "SJK",
     "lines": [
       "湘南新宿ライン",
@@ -104,6 +109,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "名古屋駅",
+    "reading": "なごや",
     "code": "NGY",
     "lines": [
       "JR中央線"
@@ -122,6 +128,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "岩槻駅",
+    "reading": "いわつき",
     "code": "IWT",
     "lines": [
       "東武アーバンパークライン"
@@ -140,6 +147,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "春日部駅",
+    "reading": "かすかべ",
     "code": "KSK",
     "lines": [
       "東武アーバンパークライン"
@@ -158,6 +166,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "七里駅",
+    "reading": "ななさと",
     "code": "NANAS",
     "lines": [
       "東武アーバンパークライン"
@@ -176,6 +185,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大和田駅",
+    "reading": "おおわだ",
     "code": "OWADA",
     "lines": [
       "東武アーバンパークライン"
@@ -194,6 +204,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大宮公園駅",
+    "reading": "おおみやこうえん",
     "code": "OMK",
     "lines": [
       "東武アーバンパークライン"
@@ -212,6 +223,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "北大宮駅",
+    "reading": "きたおおみや",
     "code": "KOM",
     "lines": [
       "東武アーバンパークライン"
@@ -230,6 +242,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "北与野駅",
+    "reading": "きたよの",
     "code": "KITAY",
     "lines": [
       "埼京線"
@@ -248,6 +261,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "与野本町駅",
+    "reading": "よのほんまち",
     "code": "YONOH",
     "lines": [
       "埼京線"
@@ -266,6 +280,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "南与野駅",
+    "reading": "みなみよの",
     "code": "MINAM",
     "lines": [
       "埼京線"
@@ -284,6 +299,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "武蔵浦和駅",
+    "reading": "むさしうらわ",
     "code": "MUSAS",
     "lines": [
       "埼京線"
@@ -302,6 +318,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "中浦和駅",
+    "reading": "なかうらわ",
     "code": "NAKAU",
     "lines": [
       "埼京線"
@@ -320,6 +337,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "戸田駅",
+    "reading": "とだ",
     "code": "TODA",
     "lines": [
       "埼京線"
@@ -338,6 +356,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "戸田公園駅",
+    "reading": "とだこうえん",
     "code": "TODAK",
     "lines": [
       "埼京線"
@@ -356,6 +375,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "北戸田駅",
+    "reading": "きたとだ",
     "code": "KITAT",
     "lines": [
       "埼京線"
@@ -374,6 +394,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "浮間舟渡駅",
+    "reading": "うきまふなど",
     "code": "UKIMA",
     "lines": [
       "埼京線"
@@ -392,6 +413,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "北赤羽駅",
+    "reading": "きたあかばね",
     "code": "KITAA",
     "lines": [
       "埼京線"
@@ -410,6 +432,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "十条駅",
+    "reading": "じゅうじょう",
     "code": "JUJO",
     "lines": [
       "埼京線"
@@ -428,6 +451,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "板橋駅",
+    "reading": "いたばし",
     "code": "ITABA",
     "lines": [
       "埼京線"
@@ -446,6 +470,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "浦和駅",
+    "reading": "うらわ",
     "code": "URAWA",
     "lines": [
       "湘南新宿ライン"
@@ -464,6 +489,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "渋谷駅",
+    "reading": "しぶや",
     "code": "SHIBU",
     "lines": [
       "湘南新宿ライン"
@@ -482,6 +508,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "恵比寿駅",
+    "reading": "えびす",
     "code": "EBISU",
     "lines": [
       "湘南新宿ライン"
@@ -500,6 +527,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大崎駅",
+    "reading": "おおさき",
     "code": "OSAKI",
     "lines": [
       "湘南新宿ライン"
@@ -518,6 +546,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "西大井駅",
+    "reading": "にしおおい",
     "code": "NISHI",
     "lines": [
       "湘南新宿ライン"
@@ -536,6 +565,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "武蔵小杉駅",
+    "reading": "むさしこすぎ",
     "code": "MUSAS",
     "lines": [
       "湘南新宿ライン"
@@ -554,6 +584,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "新川崎駅",
+    "reading": "しんかわさき",
     "code": "SHINK",
     "lines": [
       "湘南新宿ライン"
@@ -572,6 +603,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "横浜駅",
+    "reading": "よこはま",
     "code": "YHM",
     "lines": [
       "湘南新宿ライン"
@@ -590,6 +622,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "保土ケ谷駅",
+    "reading": "ほどがや",
     "code": "HODOG",
     "lines": [
       "湘南新宿ライン"
@@ -608,6 +641,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "東戸塚駅",
+    "reading": "ひがしとつか",
     "code": "HIGAS",
     "lines": [
       "湘南新宿ライン"
@@ -626,6 +660,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "戸塚駅",
+    "reading": "とつか",
     "code": "TOTSU",
     "lines": [
       "湘南新宿ライン"
@@ -644,6 +679,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大船駅",
+    "reading": "おおふな",
     "code": "OFUNA",
     "lines": [
       "湘南新宿ライン"
@@ -662,6 +698,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "北鎌倉駅",
+    "reading": "きたかまくら",
     "code": "KITAK",
     "lines": [
       "湘南新宿ライン"
@@ -680,6 +717,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "鎌倉駅",
+    "reading": "かまくら",
     "code": "KAMAK",
     "lines": [
       "湘南新宿ライン"
@@ -698,6 +736,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "すずらんの里駅",
+    "reading": "すずらんのさと",
     "code": "ST039",
     "lines": [
       "JR中央線"
@@ -716,6 +755,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "みどり湖駅",
+    "reading": "みどりこ",
     "code": "ST040",
     "lines": [
       "JR中央線"
@@ -734,6 +774,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "阿佐ケ谷駅",
+    "reading": "あさがや",
     "code": "ST041",
     "lines": [
       "JR中央線"
@@ -752,6 +793,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "猿橋駅",
+    "reading": "さるはし",
     "code": "ST042",
     "lines": [
       "JR中央線"
@@ -770,6 +812,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "塩崎駅",
+    "reading": "しおざき",
     "code": "ST043",
     "lines": [
       "JR中央線"
@@ -788,6 +831,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "塩山駅",
+    "reading": "えんざん",
     "code": "ST044",
     "lines": [
       "JR中央線"
@@ -806,6 +850,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "荻窪駅",
+    "reading": "おぎくぼ",
     "code": "ST045",
     "lines": [
       "JR中央線"
@@ -824,6 +869,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "下諏訪駅",
+    "reading": "しもすわ",
     "code": "ST046",
     "lines": [
       "JR中央線"
@@ -842,6 +888,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "釜戸駅",
+    "reading": "かまど",
     "code": "ST047",
     "lines": [
       "JR中央線"
@@ -860,6 +907,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "茅野駅",
+    "reading": "ちの",
     "code": "ST048",
     "lines": [
       "JR中央線"
@@ -878,6 +926,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "吉祥寺駅",
+    "reading": "きちじょうじ",
     "code": "ST049",
     "lines": [
       "JR中央線"
@@ -896,6 +945,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "宮ノ越駅",
+    "reading": "みやのこし",
     "code": "ST050",
     "lines": [
       "JR中央線"
@@ -914,6 +964,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "金山駅",
+    "reading": "かなやま",
     "code": "ST051",
     "lines": [
       "JR中央線"
@@ -932,6 +983,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "恵那駅",
+    "reading": "えな",
     "code": "ST052",
     "lines": [
       "JR中央線"
@@ -950,6 +1002,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "穴山駅",
+    "reading": "あなやま",
     "code": "ST053",
     "lines": [
       "JR中央線"
@@ -968,6 +1021,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "原野駅",
+    "reading": "はらの",
     "code": "ST054",
     "lines": [
       "JR中央線"
@@ -986,6 +1040,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "古虎渓駅",
+    "reading": "ここけい",
     "code": "ST055",
     "lines": [
       "JR中央線"
@@ -1004,6 +1059,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "御茶ノ水駅",
+    "reading": "おちゃのみず",
     "code": "ST056",
     "lines": [
       "JR中央線"
@@ -1022,6 +1078,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "甲斐大和駅",
+    "reading": "かいやまと",
     "code": "ST057",
     "lines": [
       "JR中央線"
@@ -1040,6 +1097,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "甲府駅",
+    "reading": "こうふ",
     "code": "ST058",
     "lines": [
       "JR中央線"
@@ -1058,6 +1116,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "高円寺駅",
+    "reading": "こうえんじ",
     "code": "ST059",
     "lines": [
       "JR中央線"
@@ -1076,6 +1135,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "高蔵寺駅",
+    "reading": "こうぞうじ",
     "code": "ST060",
     "lines": [
       "JR中央線"
@@ -1094,6 +1154,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "高尾駅",
+    "reading": "たかお",
     "code": "ST061",
     "lines": [
       "JR中央線"
@@ -1112,6 +1173,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "国分寺駅",
+    "reading": "こくぶんじ",
     "code": "ST062",
     "lines": [
       "JR中央線"
@@ -1130,6 +1192,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "国立駅",
+    "reading": "くにたち",
     "code": "ST063",
     "lines": [
       "JR中央線"
@@ -1148,6 +1211,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "坂下駅",
+    "reading": "さかした",
     "code": "ST064",
     "lines": [
       "JR中央線"
@@ -1166,6 +1230,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "笹子駅",
+    "reading": "ささご",
     "code": "ST065",
     "lines": [
       "JR中央線"
@@ -1184,6 +1249,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "三鷹駅",
+    "reading": "みたか",
     "code": "ST066",
     "lines": [
       "JR中央線"
@@ -1202,6 +1268,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "山梨市駅",
+    "reading": "やまなしし",
     "code": "ST067",
     "lines": [
       "JR中央線"
@@ -1220,6 +1287,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "四ツ谷駅",
+    "reading": "よつや",
     "code": "ST068",
     "lines": [
       "JR中央線"
@@ -1238,6 +1306,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "四方津駅",
+    "reading": "しおつ",
     "code": "ST069",
     "lines": [
       "JR中央線"
@@ -1256,6 +1325,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "市ヶ谷駅",
+    "reading": "いちがや",
     "code": "ST070",
     "lines": [
       "JR中央線"
@@ -1274,6 +1344,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "酒折駅",
+    "reading": "さかおり",
     "code": "ST071",
     "lines": [
       "JR中央線"
@@ -1292,6 +1363,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "十二兼駅",
+    "reading": "じゅうにかね",
     "code": "ST072",
     "lines": [
       "JR中央線"
@@ -1310,6 +1382,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "春日井駅",
+    "reading": "かすがい",
     "code": "ST073",
     "lines": [
       "JR中央線"
@@ -1328,6 +1401,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "春日居町駅",
+    "reading": "かすがいちょう",
     "code": "ST074",
     "lines": [
       "JR中央線"
@@ -1346,6 +1420,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "初狩駅",
+    "reading": "はつかり",
     "code": "ST075",
     "lines": [
       "JR中央線"
@@ -1364,6 +1439,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "勝沼ぶどう郷駅",
+    "reading": "かつぬまぶどうきょう",
     "code": "ST076",
     "lines": [
       "JR中央線"
@@ -1382,6 +1458,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "勝川駅",
+    "reading": "かちがわ",
     "code": "ST077",
     "lines": [
       "JR中央線"
@@ -1400,6 +1477,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "小淵沢駅",
+    "reading": "こぶちざわ",
     "code": "ST078",
     "lines": [
       "JR中央線"
@@ -1418,6 +1496,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "小野駅",
+    "reading": "おの",
     "code": "ST079",
     "lines": [
       "JR中央線"
@@ -1436,6 +1515,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "上松駅",
+    "reading": "あげまつ",
     "code": "ST080",
     "lines": [
       "JR中央線"
@@ -1454,6 +1534,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "上諏訪駅",
+    "reading": "かみすわ",
     "code": "ST081",
     "lines": [
       "JR中央線"
@@ -1472,6 +1553,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "上野原駅",
+    "reading": "うえのはら",
     "code": "ST082",
     "lines": [
       "JR中央線"
@@ -1490,6 +1572,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "信濃境駅",
+    "reading": "しなのさかい",
     "code": "ST083",
     "lines": [
       "JR中央線"
@@ -1508,6 +1591,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "信濃川島駅",
+    "reading": "しなのかわしま",
     "code": "ST084",
     "lines": [
       "JR中央線"
@@ -1526,6 +1610,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "信濃町駅",
+    "reading": "しなのまち",
     "code": "ST085",
     "lines": [
       "JR中央線"
@@ -1544,6 +1629,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "新守山駅",
+    "reading": "しんもりやま",
     "code": "ST086",
     "lines": [
       "JR中央線"
@@ -1562,6 +1648,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "新府駅",
+    "reading": "しんぷ",
     "code": "ST087",
     "lines": [
       "JR中央線"
@@ -1580,6 +1667,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "神田駅",
+    "reading": "かんだ",
     "code": "KANDA",
     "lines": [
       "JR中央線"
@@ -1598,6 +1686,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "神領駅",
+    "reading": "じんりょう",
     "code": "ST089",
     "lines": [
       "JR中央線"
@@ -1616,6 +1705,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "須原駅",
+    "reading": "すはら",
     "code": "ST090",
     "lines": [
       "JR中央線"
@@ -1634,6 +1724,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "水道橋駅",
+    "reading": "すいどうばし",
     "code": "ST091",
     "lines": [
       "JR中央線"
@@ -1652,6 +1743,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "瑞浪駅",
+    "reading": "みずなみ",
     "code": "ST092",
     "lines": [
       "JR中央線"
@@ -1670,6 +1762,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "西荻窪駅",
+    "reading": "にしおぎくぼ",
     "code": "ST093",
     "lines": [
       "JR中央線"
@@ -1688,6 +1781,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "西国分寺駅",
+    "reading": "にしこくぶんじ",
     "code": "ST094",
     "lines": [
       "JR中央線"
@@ -1706,6 +1800,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "西八王子駅",
+    "reading": "にしはちおうじ",
     "code": "ST095",
     "lines": [
       "JR中央線"
@@ -1724,6 +1819,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "青柳駅",
+    "reading": "あおやぎ",
     "code": "ST096",
     "lines": [
       "JR中央線"
@@ -1742,6 +1838,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "石和温泉駅",
+    "reading": "いさわおんせん",
     "code": "ST097",
     "lines": [
       "JR中央線"
@@ -1760,6 +1857,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "千種駅",
+    "reading": "ちくさ",
     "code": "ST098",
     "lines": [
       "JR中央線"
@@ -1778,6 +1876,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "千駄ヶ谷駅",
+    "reading": "せんだがや",
     "code": "ST099",
     "lines": [
       "JR中央線"
@@ -1796,6 +1895,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "川岸駅",
+    "reading": "かわぎし",
     "code": "ST100",
     "lines": [
       "JR中央線"
@@ -1814,6 +1914,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "洗馬駅",
+    "reading": "せば",
     "code": "ST101",
     "lines": [
       "JR中央線"
@@ -1832,6 +1933,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "倉本駅",
+    "reading": "くらもと",
     "code": "ST102",
     "lines": [
       "JR中央線"
@@ -1850,6 +1952,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "相模湖駅",
+    "reading": "さがみこ",
     "code": "ST103",
     "lines": [
       "JR中央線"
@@ -1868,6 +1971,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "多治見駅",
+    "reading": "たじみ",
     "code": "ST104",
     "lines": [
       "JR中央線"
@@ -1886,6 +1990,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "代々木駅",
+    "reading": "よよぎ",
     "code": "ST105",
     "lines": [
       "JR中央線"
@@ -1904,6 +2009,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大久保駅",
+    "reading": "おおくぼ",
     "code": "ST106",
     "lines": [
       "JR中央線"
@@ -1922,6 +2028,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大桑駅",
+    "reading": "おおくわ",
     "code": "ST107",
     "lines": [
       "JR中央線"
@@ -1940,6 +2047,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大月駅",
+    "reading": "おおつき",
     "code": "ST108",
     "lines": [
       "JR中央線"
@@ -1958,6 +2066,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大曽根駅",
+    "reading": "おおぞね",
     "code": "ST109",
     "lines": [
       "JR中央線"
@@ -1976,6 +2085,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "辰野駅",
+    "reading": "たつの",
     "code": "ST110",
     "lines": [
       "JR中央線"
@@ -1994,6 +2104,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "中津川駅",
+    "reading": "なかつがわ",
     "code": "ST111",
     "lines": [
       "JR中央線"
@@ -2012,6 +2123,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "中野駅",
+    "reading": "なかの",
     "code": "ST112",
     "lines": [
       "JR中央線"
@@ -2030,6 +2142,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "長坂駅",
+    "reading": "ながさか",
     "code": "ST113",
     "lines": [
       "JR中央線"
@@ -2048,6 +2161,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "鳥沢駅",
+    "reading": "とりさわ",
     "code": "TORIS",
     "lines": [
       "JR中央線"
@@ -2066,6 +2180,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "鶴舞駅",
+    "reading": "つるまい",
     "code": "ST115",
     "lines": [
       "JR中央線"
@@ -2084,6 +2199,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "定光寺駅",
+    "reading": "じょうこうじ",
     "code": "ST116",
     "lines": [
       "JR中央線"
@@ -2102,6 +2218,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "田立駅",
+    "reading": "ただち",
     "code": "ST117",
     "lines": [
       "JR中央線"
@@ -2120,6 +2237,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "土岐市駅",
+    "reading": "ときし",
     "code": "ST118",
     "lines": [
       "JR中央線"
@@ -2138,6 +2256,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "東山梨駅",
+    "reading": "ひがしやまなし",
     "code": "ST119",
     "lines": [
       "JR中央線"
@@ -2156,6 +2275,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "東小金井駅",
+    "reading": "ひがしこがねい",
     "code": "ST120",
     "lines": [
       "JR中央線"
@@ -2174,6 +2294,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "東中野駅",
+    "reading": "ひがしなかの",
     "code": "ST121",
     "lines": [
       "JR中央線"
@@ -2192,6 +2313,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "藤野駅",
+    "reading": "ふじの",
     "code": "ST122",
     "lines": [
       "JR中央線"
@@ -2210,6 +2332,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "奈良井駅",
+    "reading": "ならい",
     "code": "ST123",
     "lines": [
       "JR中央線"
@@ -2228,6 +2351,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "南木曽駅",
+    "reading": "なぎそ",
     "code": "ST124",
     "lines": [
       "JR中央線"
@@ -2246,6 +2370,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "日出塩駅",
+    "reading": "ひでしお",
     "code": "ST125",
     "lines": [
       "JR中央線"
@@ -2264,6 +2389,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "日野駅",
+    "reading": "ひの",
     "code": "ST126",
     "lines": [
       "JR中央線"
@@ -2282,6 +2408,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "日野春駅",
+    "reading": "ひのはる",
     "code": "ST127",
     "lines": [
       "JR中央線"
@@ -2300,6 +2427,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "韮崎駅",
+    "reading": "にらさき",
     "code": "ST128",
     "lines": [
       "JR中央線"
@@ -2318,6 +2446,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "八王子駅",
+    "reading": "はちおうじ",
     "code": "ST129",
     "lines": [
       "JR中央線"
@@ -2336,6 +2465,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "飯田橋駅",
+    "reading": "いいだばし",
     "code": "ST130",
     "lines": [
       "JR中央線"
@@ -2354,6 +2484,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "美乃坂本駅",
+    "reading": "みのさかもと",
     "code": "ST131",
     "lines": [
       "JR中央線"
@@ -2372,6 +2503,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "富士見駅",
+    "reading": "ふじみ",
     "code": "ST132",
     "lines": [
       "JR中央線"
@@ -2390,6 +2522,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "武蔵境駅",
+    "reading": "むさしさかい",
     "code": "ST133",
     "lines": [
       "JR中央線"
@@ -2408,6 +2541,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "武蔵小金井駅",
+    "reading": "むさしこがねい",
     "code": "ST134",
     "lines": [
       "JR中央線"
@@ -2426,6 +2560,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "武並駅",
+    "reading": "たけなみ",
     "code": "ST135",
     "lines": [
       "JR中央線"
@@ -2444,6 +2579,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "豊田駅",
+    "reading": "とよだ",
     "code": "ST136",
     "lines": [
       "JR中央線"
@@ -2462,6 +2598,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "木曽福島駅",
+    "reading": "きそふくしま",
     "code": "ST137",
     "lines": [
       "JR中央線"
@@ -2480,6 +2617,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "木曽平沢駅",
+    "reading": "きそひらさわ",
     "code": "ST138",
     "lines": [
       "JR中央線"
@@ -2498,6 +2636,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "野尻駅",
+    "reading": "のじり",
     "code": "ST139",
     "lines": [
       "JR中央線"
@@ -2516,6 +2655,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "落合川駅",
+    "reading": "おちあいがわ",
     "code": "ST140",
     "lines": [
       "JR中央線"
@@ -2534,6 +2674,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "立川駅",
+    "reading": "たちかわ",
     "code": "ST141",
     "lines": [
       "JR中央線"
@@ -2552,6 +2693,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "竜王駅",
+    "reading": "りゅうおう",
     "code": "ST142",
     "lines": [
       "JR中央線"
@@ -2570,6 +2712,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "梁川駅",
+    "reading": "やながわ",
     "code": "ST143",
     "lines": [
       "JR中央線"
@@ -2588,6 +2731,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "藪原駅",
+    "reading": "やぶはら",
     "code": "ST144",
     "lines": [
       "JR中央線"
@@ -2606,6 +2750,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "贄川駅",
+    "reading": "にえかわ",
     "code": "ST145",
     "lines": [
       "JR中央線"
@@ -2624,6 +2769,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "品川駅",
+    "reading": "しながわ",
     "code": "SHINA",
     "lines": [
       "JR常磐線"
@@ -2642,6 +2788,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "新橋駅",
+    "reading": "しんばし",
     "code": "SHIMB",
     "lines": [
       "JR常磐線"
@@ -2660,6 +2807,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "上野駅",
+    "reading": "うえの",
     "code": "UENO",
     "lines": [
       "JR常磐線"
@@ -2678,6 +2826,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "日暮里駅",
+    "reading": "にっぽり",
     "code": "ST149",
     "lines": [
       "JR常磐線"
@@ -2696,6 +2845,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "三河島駅",
+    "reading": "みかわしま",
     "code": "ST150",
     "lines": [
       "JR常磐線"
@@ -2714,6 +2864,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "南千住駅",
+    "reading": "みなみせんじゅ",
     "code": "ST151",
     "lines": [
       "JR常磐線"
@@ -2732,6 +2883,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "北千住駅",
+    "reading": "きたせんじゅ",
     "code": "ST152",
     "lines": [
       "JR常磐線"
@@ -2750,6 +2902,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "綾瀬駅",
+    "reading": "あやせ",
     "code": "AYASE",
     "lines": [
       "JR常磐線"
@@ -2768,6 +2921,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "亀有駅",
+    "reading": "かめあり",
     "code": "ST154",
     "lines": [
       "JR常磐線"
@@ -2786,6 +2940,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "金町駅",
+    "reading": "かなまち",
     "code": "ST155",
     "lines": [
       "JR常磐線"
@@ -2804,6 +2959,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "松戸駅",
+    "reading": "まつど",
     "code": "ST156",
     "lines": [
       "JR常磐線"
@@ -2822,6 +2978,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "柏駅",
+    "reading": "かしわ",
     "code": "KSW",
     "lines": [
       "JR常磐線"
@@ -2840,6 +2997,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "我孫子駅",
+    "reading": "あびこ",
     "code": "ST158",
     "lines": [
       "JR常磐線"
@@ -2858,6 +3016,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "天王台駅",
+    "reading": "てんのうだい",
     "code": "ST159",
     "lines": [
       "JR常磐線"
@@ -2876,6 +3035,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "取手駅",
+    "reading": "とりで",
     "code": "ST160",
     "lines": [
       "JR常磐線"
@@ -2894,6 +3054,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "藤代駅",
+    "reading": "ふじしろ",
     "code": "ST161",
     "lines": [
       "JR常磐線"
@@ -2912,6 +3073,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "龍ケ崎市駅",
+    "reading": "りゅうがさきし",
     "code": "ST162",
     "lines": [
       "JR常磐線"
@@ -2930,6 +3092,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "牛久駅",
+    "reading": "うしく",
     "code": "ST163",
     "lines": [
       "JR常磐線"
@@ -2948,6 +3111,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "ひたち野うしく駅",
+    "reading": "ひたちのうしく",
     "code": "ST164",
     "lines": [
       "JR常磐線"
@@ -2966,6 +3130,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "荒川沖駅",
+    "reading": "あらかわおき",
     "code": "ST165",
     "lines": [
       "JR常磐線"
@@ -2984,6 +3149,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "土浦駅",
+    "reading": "つちうら",
     "code": "ST166",
     "lines": [
       "JR常磐線"
@@ -3002,6 +3168,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "神立駅",
+    "reading": "かんだつ",
     "code": "ST167",
     "lines": [
       "JR常磐線"
@@ -3020,6 +3187,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "高浜駅",
+    "reading": "たかはま",
     "code": "ST168",
     "lines": [
       "JR常磐線"
@@ -3038,6 +3206,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "石岡駅",
+    "reading": "いしおか",
     "code": "ST169",
     "lines": [
       "JR常磐線"
@@ -3056,6 +3225,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "羽鳥駅",
+    "reading": "はとり",
     "code": "ST170",
     "lines": [
       "JR常磐線"
@@ -3074,6 +3244,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "岩間駅",
+    "reading": "いわま",
     "code": "ST171",
     "lines": [
       "JR常磐線"
@@ -3092,6 +3263,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "友部駅",
+    "reading": "ともべ",
     "code": "ST172",
     "lines": [
       "JR常磐線"
@@ -3110,6 +3282,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "内原駅",
+    "reading": "うちはら",
     "code": "ST173",
     "lines": [
       "JR常磐線"
@@ -3128,6 +3301,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "赤塚駅",
+    "reading": "あかつか",
     "code": "ST174",
     "lines": [
       "JR常磐線"
@@ -3146,6 +3320,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "偕楽園駅",
+    "reading": "かいらくえん",
     "code": "ST175",
     "lines": [
       "JR常磐線"
@@ -3164,6 +3339,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "水戸駅",
+    "reading": "みと",
     "code": "ST176",
     "lines": [
       "JR常磐線"
@@ -3182,6 +3358,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "勝田駅",
+    "reading": "かつた",
     "code": "ST177",
     "lines": [
       "JR常磐線"
@@ -3200,6 +3377,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "佐和駅",
+    "reading": "さわ",
     "code": "ST178",
     "lines": [
       "JR常磐線"
@@ -3218,6 +3396,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "東海駅",
+    "reading": "とうかい",
     "code": "ST179",
     "lines": [
       "JR常磐線"
@@ -3236,6 +3415,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大甕駅",
+    "reading": "おおみか",
     "code": "ST180",
     "lines": [
       "JR常磐線"
@@ -3254,6 +3434,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "常陸多賀駅",
+    "reading": "ひたちたが",
     "code": "ST181",
     "lines": [
       "JR常磐線"
@@ -3272,6 +3453,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "日立駅",
+    "reading": "ひたち",
     "code": "ST182",
     "lines": [
       "JR常磐線"
@@ -3290,6 +3472,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "小木津駅",
+    "reading": "おぎつ",
     "code": "ST183",
     "lines": [
       "JR常磐線"
@@ -3308,6 +3491,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "十王駅",
+    "reading": "じゅうおう",
     "code": "ST184",
     "lines": [
       "JR常磐線"
@@ -3326,6 +3510,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "高萩駅",
+    "reading": "たかはぎ",
     "code": "ST185",
     "lines": [
       "JR常磐線"
@@ -3344,6 +3529,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "南中郷駅",
+    "reading": "みなみなかごう",
     "code": "ST186",
     "lines": [
       "JR常磐線"
@@ -3362,6 +3548,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "磯原駅",
+    "reading": "いそはら",
     "code": "ST187",
     "lines": [
       "JR常磐線"
@@ -3380,6 +3567,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大津港駅",
+    "reading": "おおつこう",
     "code": "ST188",
     "lines": [
       "JR常磐線"
@@ -3398,6 +3586,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "勿来駅",
+    "reading": "なこそ",
     "code": "ST189",
     "lines": [
       "JR常磐線"
@@ -3416,6 +3605,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "植田駅",
+    "reading": "うえだ",
     "code": "ST190",
     "lines": [
       "JR常磐線"
@@ -3434,6 +3624,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "泉駅",
+    "reading": "いずみ",
     "code": "ST191",
     "lines": [
       "JR常磐線"
@@ -3452,6 +3643,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "湯本駅",
+    "reading": "ゆもと",
     "code": "ST192",
     "lines": [
       "JR常磐線"
@@ -3470,6 +3662,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "内郷駅",
+    "reading": "うちごう",
     "code": "ST193",
     "lines": [
       "JR常磐線"
@@ -3488,6 +3681,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "いわき駅",
+    "reading": "いわき",
     "code": "ST194",
     "lines": [
       "JR常磐線"
@@ -3506,6 +3700,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "草野駅",
+    "reading": "くさの",
     "code": "ST195",
     "lines": [
       "JR常磐線"
@@ -3524,6 +3719,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "四ツ倉駅",
+    "reading": "よつくら",
     "code": "ST196",
     "lines": [
       "JR常磐線"
@@ -3542,6 +3738,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "久ノ浜駅",
+    "reading": "ひさのはま",
     "code": "ST197",
     "lines": [
       "JR常磐線"
@@ -3560,6 +3757,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "末続駅",
+    "reading": "すえつぎ",
     "code": "ST198",
     "lines": [
       "JR常磐線"
@@ -3578,6 +3776,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "広野駅",
+    "reading": "ひろの",
     "code": "ST199",
     "lines": [
       "JR常磐線"
@@ -3596,6 +3795,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "Jヴィレッジ駅",
+    "reading": "じぇいびれっじ",
     "code": "ST200",
     "lines": [
       "JR常磐線"
@@ -3614,6 +3814,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "木戸駅",
+    "reading": "きど",
     "code": "ST201",
     "lines": [
       "JR常磐線"
@@ -3632,6 +3833,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "竜田駅",
+    "reading": "たつた",
     "code": "ST202",
     "lines": [
       "JR常磐線"
@@ -3650,6 +3852,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "富岡駅",
+    "reading": "とみおか",
     "code": "ST203",
     "lines": [
       "JR常磐線"
@@ -3668,6 +3871,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "夜ノ森駅",
+    "reading": "よのもり",
     "code": "ST204",
     "lines": [
       "JR常磐線"
@@ -3686,6 +3890,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "大野駅",
+    "reading": "おおの",
     "code": "ST205",
     "lines": [
       "JR常磐線"
@@ -3704,6 +3909,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "双葉駅",
+    "reading": "ふたば",
     "code": "ST206",
     "lines": [
       "JR常磐線"
@@ -3722,6 +3928,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "浪江駅",
+    "reading": "なみえ",
     "code": "ST207",
     "lines": [
       "JR常磐線"
@@ -3740,6 +3947,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "桃内駅",
+    "reading": "ももうち",
     "code": "ST208",
     "lines": [
       "JR常磐線"
@@ -3758,6 +3966,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "小高駅",
+    "reading": "おだか",
     "code": "ST209",
     "lines": [
       "JR常磐線"
@@ -3776,6 +3985,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "磐城太田駅",
+    "reading": "いわきおおた",
     "code": "ST210",
     "lines": [
       "JR常磐線"
@@ -3794,6 +4004,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "原ノ町駅",
+    "reading": "はらのまち",
     "code": "ST211",
     "lines": [
       "JR常磐線"
@@ -3812,6 +4023,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "鹿島駅",
+    "reading": "かしま",
     "code": "ST212",
     "lines": [
       "JR常磐線"
@@ -3830,6 +4042,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "日立木駅",
+    "reading": "にったき",
     "code": "ST213",
     "lines": [
       "JR常磐線"
@@ -3848,6 +4061,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "相馬駅",
+    "reading": "そうま",
     "code": "ST214",
     "lines": [
       "JR常磐線"
@@ -3866,6 +4080,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "駒ケ嶺駅",
+    "reading": "こまがみね",
     "code": "ST215",
     "lines": [
       "JR常磐線"
@@ -3884,6 +4099,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "新地駅",
+    "reading": "しんち",
     "code": "ST216",
     "lines": [
       "JR常磐線"
@@ -3902,6 +4118,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "坂元駅",
+    "reading": "さかもと",
     "code": "ST217",
     "lines": [
       "JR常磐線"
@@ -3920,6 +4137,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "山下駅",
+    "reading": "やました",
     "code": "ST218",
     "lines": [
       "JR常磐線"
@@ -3938,6 +4156,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "浜吉田駅",
+    "reading": "はまよしだ",
     "code": "ST219",
     "lines": [
       "JR常磐線"
@@ -3956,6 +4175,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "亘理駅",
+    "reading": "わたり",
     "code": "ST220",
     "lines": [
       "JR常磐線"
@@ -3974,6 +4194,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "逢隈駅",
+    "reading": "おおくま",
     "code": "ST221",
     "lines": [
       "JR常磐線"
@@ -3992,6 +4213,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "岩沼駅",
+    "reading": "いわぬま",
     "code": "ST222",
     "lines": [
       "JR常磐線"
@@ -4010,6 +4232,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "館腰駅",
+    "reading": "たてこし",
     "code": "ST223",
     "lines": [
       "JR常磐線"
@@ -4028,6 +4251,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "名取駅",
+    "reading": "なとり",
     "code": "ST224",
     "lines": [
       "JR常磐線"
@@ -4046,6 +4270,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "南仙台駅",
+    "reading": "みなみせんだい",
     "code": "ST225",
     "lines": [
       "JR常磐線"
@@ -4064,6 +4289,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "太子堂駅",
+    "reading": "たいしどう",
     "code": "ST226",
     "lines": [
       "JR常磐線"
@@ -4082,6 +4308,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "長町駅",
+    "reading": "ながまち",
     "code": "ST227",
     "lines": [
       "JR常磐線"
@@ -4100,6 +4327,7 @@ window.HARAITA_STATIONS = [
   },
   {
     "name": "仙台駅",
+    "reading": "せんだい",
     "code": "ST228",
     "lines": [
       "JR常磐線"

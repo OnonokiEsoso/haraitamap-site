@@ -230,7 +230,7 @@
       <footer>
         <div>
           <strong>腹痛持ちのための駅トイレマップ</strong>
-          <span>Ver.1.2.19.2</span>
+          <span>Ver.1.2.19.3</span>
         </div>
         <nav aria-label="補助メニュー">
           <a href="coping.html">腹痛時のみんなの工夫</a>
@@ -268,7 +268,76 @@
       let appliedLine = "";
 
       function normalize(value) {
-        return value.replace(/\s+/g, "").replace(/駅$/, "").toLowerCase();
+        return String(value || "")
+          .normalize("NFKC")
+          .replace(/\s+/g, "")
+          .replace(/駅$/, "")
+          .toLowerCase()
+          .replace(/[ァ-ヶ]/g, (char) =>
+            String.fromCharCode(char.charCodeAt(0) - 0x60)
+          );
+      }
+
+      // 「とおきょお」→「とうきょう」など、限定的な長母音の表記ゆれを吸収する。
+      function normalizePronunciation(value) {
+        return normalize(value)
+          .replace(/([こそとのほもよろごぞどぼぽ])お/g, "$1う")
+          .replace(/([きしちにひみりぎじぢびぴ]ょ)お/g, "$1う");
+      }
+
+      // 混在表記は明示的な別名だけを許可し、無関係な漢字を誤変換しない。
+      const stationAliases = {
+        "東京駅": ["東きょう"],
+      };
+
+      function searchKeys(station) {
+        return [station.name, station.reading || "", ...(stationAliases[station.name] || [])]
+          .filter(Boolean);
+      }
+
+      function directMatch(station, query) {
+        const needle = normalize(query);
+        const spoken = normalizePronunciation(query);
+        return searchKeys(station).some((key) =>
+          normalize(key).includes(needle) ||
+          normalizePronunciation(key).includes(spoken)
+        );
+      }
+
+      // 編集距離が1以下かだけ判定。長い文字列の全探索は不要。
+      function withinOneEdit(a, b) {
+        if (Math.abs(a.length - b.length) > 1) return false;
+        let i = 0;
+        let j = 0;
+        let errors = 0;
+        while (i < a.length && j < b.length) {
+          if (a[i] === b[j]) {
+            i++;
+            j++;
+            continue;
+          }
+          if (++errors > 1) return false;
+          if (a.length >= b.length) i++;
+          if (b.length >= a.length) j++;
+        }
+        return errors + (a.length - i) + (b.length - j) <= 1;
+      }
+
+      function fuzzyMatch(station, query) {
+        const needle = normalizePronunciation(query);
+        // 4文字以上に限定し、駅名全体の読みとの距離だけを比較する。
+        if (Array.from(needle).length < 4) return false;
+        const variants = [needle];
+        // 「きよ」→「きょ」のような小書き仮名の入力ミスも1か所だけ補正。
+        for (let i = 0; i < needle.length; i++) {
+          const small = { や: "ゃ", ゆ: "ゅ", よ: "ょ" }[needle[i]];
+          if (small) variants.push(needle.slice(0, i) + small + needle.slice(i + 1));
+        }
+        return [station.reading || "", ...(stationAliases[station.name] || [])]
+          .filter(Boolean)
+          .some((key) => variants.some((variant) =>
+            withinOneEdit(variant, normalizePronunciation(key))
+          ));
       }
 
       function stars(score) {
@@ -404,12 +473,15 @@
           return stations.slice(0, 6);
         }
 
-        const needle = normalize(appliedQuery);
-        return stations.filter((station) => {
-          const matchesName = !needle || normalize(station.name).includes(needle);
-          const matchesLine = !appliedLine || station.lineIds.includes(appliedLine);
-          return matchesName && matchesLine;
-        });
+        const candidates = stations.filter(
+          (station) => !appliedLine || station.lineIds.includes(appliedLine)
+        );
+        if (!appliedQuery) return candidates;
+
+        // 部分一致が1件でもあれば、誤字補正の候補を混ぜない。
+        const direct = candidates.filter((station) => directMatch(station, appliedQuery));
+        if (direct.length) return direct;
+        return candidates.filter((station) => fuzzyMatch(station, appliedQuery));
       }
 
       function renderResults() {
@@ -545,8 +617,12 @@
           recordMissingStationSearch(stationName);
         } else {
           const resolvedStationName = exactStationName(stationName);
+          const matchedStations = filteredStations();
           if (resolvedStationName) {
             recordStationSearch(resolvedStationName);
+          } else if (matchedStations.length === 1) {
+            // ひらがな・誤入力で1駅に絞れた場合も検索回数に反映する。
+            recordStationSearch(matchedStations[0].name);
           }
         }
       });
