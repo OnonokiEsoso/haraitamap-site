@@ -1,0 +1,65 @@
+/* 個別攻略記事専用CSS：guide.css より後に読み込む */
+.guide-page .reading-main{width:min(1040px,calc(100% - 40px));max-width:1040px!important;padding:19px 0 60px}
+.guide-page .reading-header,.guide-page .reading-highlight,.guide-page .reading-body{border-radius:2px;box-shadow:none}
+.article-home-link{display:inline-flex;align-items:center;gap:12px;background:#173c31;color:#fff!important;padding:10px 17px;margin:0 0 15px;font-weight:800;text-decoration:none;font-size:.86rem;border:1px solid #173c31;transition:background .15s}
+.article-home-link:hover,.article-home-link:focus-visible{background:#24594d;color:#fff!important}
+.guide-page .reading-breadcrumb{margin:1px 0 15px;font-size:.75rem;line-height:1.7}
+.guide-page .reading-breadcrumb a{color:#087b87;font-weight:700}
+.guide-page .reading-header{background:#fffdf7;border:1px solid #bac7bc;border-top:5px solid #173c31;padding:24px 30px;margin:0 0 15px}
+.guide-page .reading-header h1{font:700 clamp(1.7rem,3.4vw,2.45rem)/1.42 'Yu Mincho',serif;margin:9px 0 5px;letter-spacing:-.025em;color:#173c31}
+.guide-page .reading-header .eyebrow{font-size:.65rem;letter-spacing:.11em}
+.guide-page .reading-lead{font-size:1rem;margin:6px 0 13px!important}
+.guide-page .article-intro{font-size:.89rem;line-height:1.9;margin:0!important;color:#495950}
+.guide-page .reading-date{margin-top:14px;padding-top:9px}
+.guide-page .reading-highlight{margin:0 0 14px;padding:21px 25px;background:#eff8f6;border:1px solid #b8d7d5;border-left:4px solid #0bb5c7}
+.guide-page .reading-highlight h2{font:700 1.25rem/1.55 'Yu Mincho',serif;margin:0 0 10px;color:#173c31}
+.article-quick-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:7px 15px;padding:0;margin:0!important}
+.guide-page .article-quick-list li{position:relative;background:white;border:1px solid #d3e4e0;margin:0;padding:9px 11px 9px 31px;font-size:.78rem;line-height:1.75}
+.article-quick-list li:before{content:'✓';position:absolute;left:11px;color:#087b87;font-weight:900}
+.guide-page .reading-body{padding:28px 32px 34px;background:#fffdf7;border:1px solid #bac7bc}
+.guide-page .reading-toc{padding:17px 22px;border-left:4px solid #173c31;background:#f4f6f1}
+.guide-page .reading-toc strong{color:#173c31;font-size:.89rem}
+.guide-page .reading-toc ol{margin:7px 0 0;padding-left:21px}
+.guide-page .reading-toc li{padding:3px 0;font-size:.78rem;line-height:1.7}
+.guide-page .reading-toc a{color:#087b87;font-weight:700;text-decoration:underline;text-decoration-color:#a4c5bf;text-underline-offset:3px}
+.guide-page .reading-section{margin-top:31px;scroll-margin-top:125px}
+.guide-page .reading-section h2{position:relative;border:0;border-left:5px solid #173c31;border-bottom:1px solid #b7c6bb;background:#eaf1eb;margin:0 0 15px;padding:11px 15px;font:700 clamp(1.1rem,2.7vw,1.35rem)/1.55 'Yu Mincho',serif;color:#173c31}
+.advice-list{list-style:none;margin:0;padding:0!important;display:grid;gap:12px}
+.guide-page .advice-list li{list-style:none;padding:0;border:1px solid #d6dfd7;background:#fff;}
+.guide-page .advice-list p{font-size:.87rem;line-height:1.95;margin:0;padding:13px 16px;border-left:3px solid #0bb5c7;color:#2f413a}
+.guide-page .article-steps{list-style:none;counter-reset:step;display:grid;gap:8px;margin:0;padding:0}
+.guide-page .article-steps li{counter-increment:step;display:flex;align-items:center;gap:13px;border:1px solid #d6dfd7;background:#fff;padding:10px 14px;font-size:.86rem;line-height:1.8}
+.article-steps li:before{content:counter(step,decimal-leading-zero);color:#087b87;font:bold 1rem Georgia,serif;flex:none}
+.article-station-link{background:#173c31;color:#fff;margin:25px 0;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.article-station-link h2{font:700 1.15rem 'Yu Mincho',serif;color:#fff;margin:2px 0 6px}
+.article-station-link small{font:700 .62rem Georgia,serif;color:#a6dcd4;letter-spacing:.13em}
+.article-station-link p{font-size:.78rem;color:#d9e7df;margin:0}
+.article-station-link>a{flex:none;background:#fff;color:#173c31;font-weight:800;padding:9px 13px;font-size:.77rem;text-decoration:none}
+.guide-page .reading-summary{margin:25px 0 0;padding:17px 21px;border-left:4px solid #173c31}
+.guide-page .reading-summary p{font-size:.85rem}
+.guide-page .references ul{padding-left:18px}
+.guide-page .references li{font-size:.77rem;line-height:1.7;margin:8px 0;overflow-wrap:anywhere}
+.guide-page .references a{color:#087b87;text-underline-offset:3px}
+.guide-page .reading-back{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 0;padding:0}
+.article-return-button,.article-other-button{display:inline-flex;align-items:center;justify-content:center;padding:13px 17px;font-size:.83rem;font-weight:800;text-decoration:none!important;border:1px solid #173c31}
+.article-return-button{background:#173c31;color:#fff!important}
+.article-return-button:hover{background:#24594d}
+.article-other-button{background:#fffdf7;color:#173c31!important}
+.article-other-button:hover{background:#eaf2eb}
+@media(max-width:700px){.guide-page .reading-main{width:calc(100% - 24px);padding-top:12px}.guide-page .reading-header{padding:17px}.guide-page .reading-highlight{padding:16px}.article-quick-list{grid-template-columns:1fr}.guide-page .reading-body{padding:17px 15px}.guide-page .reading-header h1{font-size:1.8rem}.guide-page .reading-section{scroll-margin-top:96px}.article-station-link{display:block;padding:18px}.article-station-link>a{margin-top:13px;display:inline-flex}.guide-page .reading-back a{width:100%}}
+
+/* 出典番号を本文から参照できるようにする */
+.guide-page .inline-reference{color:#087b87;font-weight:700;text-decoration:none;white-space:nowrap}
+.guide-page .inline-reference:hover{text-decoration:underline}
+.guide-page .references li[id]{scroll-margin-top:130px}
+
+/* うわさ個別ページ */
+.rumor-article .reading-header{border-top-color:#9a713b}
+.rumor-article .reading-header .eyebrow{color:#846435}
+.rumor-article .rumor-credibility{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:13px 0;font-size:.85rem;font-weight:800}
+.rumor-article .rumor-credibility span{border-radius:3px;padding:5px 10px;font-size:.74rem}
+.rumor-article .reading-toc{margin:15px 0}
+.rumor-article .rumor-note{background:#f5f1e9;border-left:3px solid #9a713b;padding:10px 12px;font-size:.82rem}
+.rumor-related{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}
+.rumor-related a{color:#173c31;background:#f3f6f1;border:1px solid #b5c4b7;padding:10px 13px;text-decoration:none;font-weight:700;font-size:.82rem}
+.rumor-related a:hover,.rumor-related a:focus-visible{background:#dbf1ec;border-color:#0bb5c7}

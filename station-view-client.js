@@ -1,5 +1,13 @@
 (() => {
   const stationPath = window.location.pathname.replace(/\.html$/i, "").replace(/\/$/, "");
+
+  // 駅ページ専用アクセス解析スクリプトを読み込む
+  if (/^\/stations\/[a-z0-9-]+$/i.test(stationPath)) {
+    const analyticsScript = document.createElement("script");
+    analyticsScript.src = "../station-analytics-client.js";
+    analyticsScript.defer = true;
+    document.head.appendChild(analyticsScript);
+  }
   const majorStationSlugs = new Set([
     "tokyo",
     "shinjuku",
