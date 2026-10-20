@@ -25,11 +25,25 @@
   let maxScroll=0, activeMs=0, lastTick=performance.now(), ended=false, next='unknown';
   // 表示中のタブの時間を計測。フォーカス判定による0秒の取りこぼしを避ける。
   let wasActive=!document.hidden;
+  // 25/50/75/100%に初めて到達したタイミングで保存する。
+  const milestones=[25,50,75,100];
+  let lastMilestone=0;
+  let started=false;
   const scroll=()=>{
-    const doc=document.documentElement;
-    const extent=Math.max(0,doc.scrollHeight-innerHeight);
-    const fraction=extent<=0?100:Math.min(100,Math.max(0,Math.round(scrollY/extent*100)));
+    const doc=document.scrollingElement || document.documentElement;
+    const viewport=window.innerHeight || document.documentElement.clientHeight;
+    const extent=Math.max(0,doc.scrollHeight-viewport);
+    const position=Math.max(0,window.scrollY ?? doc.scrollTop ?? 0);
+    const fraction=extent<=0?100:Math.min(100,Math.floor(position/extent*100));
     maxScroll=Math.max(maxScroll,fraction);
+
+    // スクロールイベントでは毎回通信しない。新しい到達段階だけ1回送る。
+    const reached=milestones.filter((n)=>maxScroll>=n).pop() || 0;
+    if(started && !ended && reached>lastMilestone){
+      lastMilestone=reached;
+      tick();
+      send(payload('update'));
+    }
   };
   const tick=()=>{
     const now=performance.now();
@@ -74,5 +88,8 @@
   addEventListener('blur',tick);
   addEventListener('pagehide',finish);
   scroll();send(payload('start'));
+  started=true;
+  // 開始直後の位置復元にも対応する。
+  scroll();
   const interval=setInterval(()=>{if(ended){clearInterval(interval);return}tick();scroll();if(!document.hidden)send(payload('update'))},15000);
 })();
