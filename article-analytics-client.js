@@ -23,7 +23,8 @@
     return 'direct_or_unknown';
   })();
   let maxScroll=0, activeMs=0, lastTick=performance.now(), ended=false, next='unknown';
-  let wasActive=!document.hidden && document.hasFocus();
+  // 表示中のタブの時間を計測。フォーカス判定による0秒の取りこぼしを避ける。
+  let wasActive=!document.hidden;
   const scroll=()=>{
     const doc=document.documentElement;
     const extent=Math.max(0,doc.scrollHeight-innerHeight);
@@ -34,7 +35,7 @@
     const now=performance.now();
     if(wasActive) activeMs+=Math.min(16000,Math.max(0,now-lastTick));
     lastTick=now;
-    wasActive=!document.hidden && document.hasFocus();
+    wasActive=!document.hidden;
   };
   const payload=(eventType)=>({eventType,visitId,sessionId,articlePath:path,articleTitle:title.slice(0,100),maxScrollPercent:maxScroll,activeSeconds:Math.min(1800,Math.floor(activeMs/1000)),entrySource:entry,nextPageType:next});
   const send=(obj,beacon=false)=>{
