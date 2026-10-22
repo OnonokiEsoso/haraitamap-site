@@ -37,7 +37,10 @@
   ]);
 
   const stationSlug = stationPath.split("/").pop()?.replace(/\.html$/i, "") || "";
-  const isMajorStationPage = () => majorStationSlugs.has(stationSlug);
+  // New stations can opt into the shared layout without changing this list.
+  const isMajorStationPage = () =>
+    majorStationSlugs.has(stationSlug) ||
+    document.body?.dataset.stationLayout === "modern";
 
   const simplifyMajorCandidateCount = () => {
     if (!isMajorStationPage()) return;

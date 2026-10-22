@@ -10,12 +10,34 @@
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
 <meta name="description" content="北大宮駅のトイレ情報ページ。場所・きれい度・大の空きの可能性/小の空きの可能性・新しさを掲載。腹痛持ちのための駅トイレマップ。" />
 <link rel="stylesheet" href="../station-page-garden-v3.css" />
+<link rel="stylesheet" href="../station-modern-layout.css" />
+<link rel="stylesheet" href="../station-route-nav.css" />
 </head>
-<body class="station-page-tokyo station-page-kitamiya">
+<body class="station-page-tokyo station-page-kitamiya" data-station-layout="modern">
   <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html" aria-label="駅検索へ戻る"><img class="brand-icon" src="../favicon-512x512.png" alt="" width="52" height="52" /><span class="brand-copy"><small>HARAITA MAP / STATION GUIDE</small><strong>腹痛持ちのための駅トイレマップ</strong></span></a><nav class="nav" aria-label="主要メニュー"><a href="../index.html"><span>01</span>駅を探す</a><a href="#toilet-list"><span>02</span>候補一覧</a><a class="nav-accent" href="#station-report"><span>03</span>情報提供</a></nav></div></header>
   <main class="section" id="top"><div class="container">
       <nav class="breadcrumb" aria-label="パンくずリスト"><a href="../index.html">駅を探す</a><span aria-hidden="true"></span><span aria-current="page">北大宮駅</span></nav>
       <div class="section-head station-title"><div class="station-plaque"><span>STATION</span><h2>北大宮駅</h2><b>KOM</b></div><div class="station-title-copy"><p>STATION TOILET GUIDE</p><h1>北大宮駅のトイレ案内</h1><div class="station-lines" aria-label="主な路線"><span>東武アーバンパークライン</span></div></div><a class="back-to-search" href="../index.html">駅を検索し直す<span aria-hidden="true">→</span></a></div>
+      <!-- 駅を検索し直すのすぐ下：路線図ナビ -->
+      <section class="station-route-nav" id="station-route-nav" aria-label="沿線の駅のおすすめ度">
+        <header class="srn-header">
+          <h2 class="srn-heading"><span>駅トイレ</span><span>おすすめ度</span></h2>
+          <div class="srn-line-select-wrap">
+            <span>路線</span>
+            <div class="srn-dropdown">
+              <button type="button" class="srn-line-button" id="srn-line-button"
+                aria-label="表示する路線" aria-haspopup="menu" aria-expanded="false" aria-controls="srn-line-menu">
+                <span class="srn-line-current">路線を選択</span>
+                <span class="srn-line-arrow" aria-hidden="true"></span>
+              </button>
+              <div class="srn-line-menu" id="srn-line-menu" role="menu" aria-label="路線を選択" hidden></div>
+            </div>
+          </div>
+        </header>
+        <div class="srn-scroll" tabindex="0" role="region" aria-label="駅ごとのおすすめ度を横にスクロールして確認">
+          <div class="srn-track" id="srn-track"></div>
+        </div>
+      </section>
       <section class="station-overview" aria-label="北大宮駅の掲載候補概要"><div class="overview-grid"><div class="overview-count"><span>掲載候補</span><strong>2<small>か所</small></strong><p>構外 1か所 / 駅外の代案 1か所</p></div><a class="best-pick" href="#kitamiya-toilet-2"><div class="best-pick-inner"><div class="best-pick-label"><span>まず確認したい候補</span><em>推奨</em></div><div class="best-pick-main"><strong>駅外・仲仙道公園トイレ</strong><p>駅外にある代案です。掲載候補の評価バランスから選んでいます。</p></div><div class="best-pick-action"><span>候補一覧の該当欄へ</span><b>移動 →</b></div></div></a></div></section>
       <div class="list-toolbar" id="toilet-list"><div class="list-heading"><span class="list-number">01</span><div><p>TOILET LOCATIONS</p><h2>トイレ候補一覧</h2></div></div><div class="sort-controls"><label for="kitamiya-sort" class="muted">並び替え</label><select id="kitamiya-sort" aria-label="並び替え"><option value="recommend">おすすめ度順</option><option value="clean">きれい度順</option><option value="big">大期待値順</option><option value="small">小期待度順</option><option value="newness">新しさ順</option></select></div></div>
       <div class="card" id="kitamiya-toilet-1" data-ticket-gate="outside"><div class="card-body"><h3>構外（東武ストア裏手・店舗兼用トイレ）</h3><dl class="kv">
@@ -358,6 +380,9 @@
   });
 })();
 </script>
+<script src="../stations-data.js"></script>
+<script src="../station-route-data.js"></script>
+<script src="../station-route-nav.js"></script>
 <script src="../action-usage-client.js"></script>
 <script src="../station-view-client.js"></script>
 </body>

@@ -107,7 +107,7 @@
       return difference || originalOrder.get(a) - originalOrder.get(b);
     });
     const listEndAnchor = container.querySelector(
-      ":scope > .station-report, :scope > .photo-credit"
+      ":scope > .station-research-details, :scope > .station-report, :scope > .photo-credit"
     );
     sorted.forEach((card) => container.insertBefore(card, listEndAnchor));
   };

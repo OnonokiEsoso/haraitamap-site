@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="../favicon-512x512.png" />
 <meta name="description" content="東京駅のトイレ情報ページ。JR東日本・JR東海・東京メトロのトイレについて、場所・行き方・設備・おすすめ度などを掲載しています。" />
 <link rel="stylesheet" href="../station-page-garden-v3.css" />
+<link rel="stylesheet" href="../station-route-nav.css" />
 <style>
   .station-page-tokyo .best-pick {
     padding: 0;
@@ -367,6 +368,26 @@
         </a>
       </div>
 
+      <!-- 駅を検索し直すのすぐ下：路線図ナビ -->
+      <section class="station-route-nav" id="station-route-nav" aria-label="沿線の駅のおすすめ度">
+        <header class="srn-header">
+          <h2 class="srn-heading"><span>駅トイレ</span><span>おすすめ度</span></h2>
+          <div class="srn-line-select-wrap">
+            <span>路線</span>
+            <div class="srn-dropdown">
+              <button type="button" class="srn-line-button" id="srn-line-button"
+                aria-label="表示する路線" aria-haspopup="menu" aria-expanded="false" aria-controls="srn-line-menu">
+                <span class="srn-line-current">路線を選択</span>
+                <span class="srn-line-arrow" aria-hidden="true"></span>
+              </button>
+              <div class="srn-line-menu" id="srn-line-menu" role="menu" aria-label="路線を選択" hidden></div>
+            </div>
+          </div>
+        </header>
+        <div class="srn-scroll" tabindex="0" role="region" aria-label="駅ごとのおすすめ度を横にスクロールして確認">
+          <div class="srn-track" id="srn-track"></div>
+        </div>
+      </section>
       <section class="station-overview" aria-label="東京駅の掲載候補概要">
         <div class="overview-grid">
           <div class="overview-count"><span>掲載候補</span><strong>25<small>か所</small></strong><p>JR東日本19 / JR東海5 / 東京メトロ1（別に丸の内南口・改札内1か所は閉鎖中）</p></div>
@@ -1374,6 +1395,9 @@
     updateHeader();
   })();
 </script>
+<script src="../stations-data.js"></script>
+<script src="../station-route-data.js"></script>
+<script src="../station-route-nav.js"></script>
 <script src="../action-usage-client.js"></script>
 <script src="../station-view-client.js"></script>
 </body>

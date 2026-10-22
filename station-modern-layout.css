@@ -1,0 +1,14 @@
+/* station-view-client.js が作る新レイアウトの概要欄。 */
+body[data-station-layout="modern"] .overview-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body[data-station-layout="modern"] .overview-grid > .overview-count {
+  grid-column: 1 / -1;
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+body[data-station-layout="modern"] .overview-grid > .best-pick {
+  grid-column: 1 / -1;
+}

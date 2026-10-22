@@ -1,0 +1,309 @@
+/* 駅路線ナビ専用。縦方向の余白を縮小したコンパクト版。 */
+.station-page-tokyo .station-route-nav {
+  margin: -7px 0 14px;
+  border: 1px solid #858b81;
+  border-left: 5px solid var(--moss, #617b5e);
+  background: var(--white, #fffdf7);
+  box-shadow: 0 8px 18px rgba(28, 47, 39, 0.07);
+}
+.station-page-tokyo .srn-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--line, #b7b8aa);
+}
+/* 左側の見出し。複数路線でも高さを増やしすぎない。 */
+.station-page-tokyo .srn-heading {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+  color: var(--forest, #173c31);
+  font-size: .75rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+.station-page-tokyo .srn-heading span {
+  display: inline-block;
+  white-space: nowrap;
+}
+/* 単一路線でも「駅トイレおすすめ度」は表示する。 */
+.station-page-tokyo .srn-line-select-wrap {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--forest, #173c31);
+  font-size: .68rem;
+  font-weight: 800;
+}
+/* ブラウザ標準のselectを使わない路線切り替えメニュー。 */
+.station-page-tokyo .srn-dropdown {
+  position: relative;
+  min-width: 0;
+}
+.station-page-tokyo .srn-line-button {
+  display: flex;
+  width: 100%;
+  min-height: 30px;
+  max-width: min(66vw, 238px);
+  min-width: 118px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--forest, #173c31);
+  border-radius: 0;
+  background: var(--white, #fffdf7);
+  padding: 4px 9px;
+  color: var(--forest, #173c31);
+  font-size: .73rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.station-page-tokyo .srn-line-current {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.station-page-tokyo .srn-line-arrow {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.station-page-tokyo .srn-line-button[aria-expanded="true"] .srn-line-arrow {
+  transform: translateY(2px) rotate(225deg);
+}
+/* マウス・タッチ操作で金色の枠や下線が付かないようにする。 */
+.station-page-tokyo .srn-line-button:focus,
+.station-page-tokyo .srn-line-button:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+/* キーボードの操作位置は枠や下線ではなく、背景色で示す。 */
+.station-page-tokyo .srn-line-button:focus-visible {
+  background: #e9f0e9;
+}
+.station-page-tokyo .srn-line-menu {
+  position: absolute;
+  top: calc(100% + 3px);
+  right: 0;
+  z-index: 60;
+  width: max-content;
+  min-width: 100%;
+  max-width: min(76vw, 275px);
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #858b81;
+  background: var(--white, #fffdf7);
+  padding: 4px;
+  box-shadow: 0 8px 18px rgba(28, 47, 39, 0.14);
+}
+.station-page-tokyo .srn-line-option {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 9px 11px;
+  color: var(--forest, #173c31);
+  font-size: .73rem;
+  font-weight: 750;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.station-page-tokyo .srn-line-option:hover,
+.station-page-tokyo .srn-line-option:focus-visible {
+  background: #e7eee8;
+}
+.station-page-tokyo .srn-line-option[aria-checked="true"] {
+  background: #173c31;
+  color: #fffdf7;
+}
+.station-page-tokyo .srn-line-option[aria-checked="true"]:focus-visible {
+  background: #285d49;
+}
+.station-page-tokyo .srn-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #9ead99 transparent;
+}
+.station-page-tokyo .srn-track {
+  --srn-line-left: 69px;
+  --srn-line-right: 69px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: max-content;
+  margin-inline: auto;
+  padding: 6px 14px 6px;
+}
+.station-page-tokyo .srn-track::before {
+  position: absolute;
+  right: var(--srn-line-right);
+  bottom: 25px;
+  left: var(--srn-line-left);
+  height: 5px;
+  border-radius: 999px;
+  background: #a8b0a5;
+  content: "";
+}
+/* 表示範囲より前に駅がある場合は左側へ線路を延長。 */
+.station-page-tokyo .srn-track.has-prev {
+  --srn-line-left: -22px;
+}
+/* 表示範囲より先に駅がある場合は右側へ線路を延長。 */
+.station-page-tokyo .srn-track.has-next {
+  --srn-line-right: -22px;
+}
+.station-page-tokyo .srn-station {
+  position: relative;
+  display: flex;
+  flex: 0 0 110px;
+  width: 110px;
+  flex-direction: column;
+  align-items: center;
+}
+.station-page-tokyo .srn-bubble {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid #86a795;
+  border-radius: 6px;
+  background: #e5f0e6;
+  color: #173c31;
+  padding: 5px 5px;
+  line-height: 1.22;
+  text-align: center;
+  text-decoration: none;
+}
+.station-page-tokyo .srn-bubble::after {
+  position: absolute;
+  bottom: -6px;
+  left: calc(50% - 6px);
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  border-right: 1px solid #86a795;
+  border-bottom: 1px solid #86a795;
+  background: inherit;
+  content: "";
+}
+.station-page-tokyo a.srn-bubble:hover {
+  border-color: #173c31;
+  background: #d4e8d7;
+}
+.station-page-tokyo a.srn-bubble:focus-visible {
+  outline: 3px solid #d5a554;
+  outline-offset: 4px;
+}
+.station-page-tokyo .srn-station.is-current .srn-bubble {
+  border-color: #173c31;
+  border-width: 2px;
+  background: #173c31;
+  color: #fffdf7;
+}
+.station-page-tokyo .srn-station.is-current .srn-bubble::after {
+  border-color: #173c31;
+}
+.station-page-tokyo .srn-station.is-current a.srn-bubble:hover {
+  background: #215e49;
+}
+.station-page-tokyo .srn-station.is-unlinked .srn-bubble {
+  border-color: #c1c8bd;
+  background: #eef0e9;
+  color: #39473e;
+}
+.station-page-tokyo .srn-stars {
+  font-family: Georgia, "Yu Gothic", sans-serif;
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+.station-page-tokyo .srn-name {
+  font-size: .74rem;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+.station-page-tokyo .srn-unrated {
+  font-size: .67rem;
+  font-weight: 850;
+}
+.station-page-tokyo .srn-dot {
+  position: relative;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  margin-top: 7px;
+  border: 3px solid #173c31;
+  border-radius: 50%;
+  background: #fffdf7;
+}
+.station-page-tokyo .srn-station.is-current .srn-dot {
+  background: #173c31;
+  outline: 2px solid #fffdf7;
+}
+.station-page-tokyo .srn-tag {
+  min-height: 12px;
+  margin-top: 2px;
+  color: var(--moss, #617b5e);
+  font-size: .57rem;
+  font-weight: 800;
+}
+.station-page-tokyo .srn-station.is-current .srn-tag {
+  color: #173c31;
+}
+@media (max-width: 720px) {
+  .station-page-tokyo .station-route-nav { margin: -2px 0 12px; }
+  .station-page-tokyo .srn-header { padding: 3px 8px; }
+  .station-page-tokyo .srn-heading { font-size: .68rem; line-height: 1.15; }
+  .station-page-tokyo .srn-line-select-wrap { gap: 4px; }
+  .station-page-tokyo .srn-line-button { max-width: min(58vw, 235px); }
+  .station-page-tokyo .srn-track {
+    --srn-line-left: 67px;
+    --srn-line-right: 67px;
+    justify-content: flex-start;
+    gap: 9px;
+    padding-inline: 12px;
+  }
+  .station-page-tokyo .srn-track.has-prev {
+    --srn-line-left: -16px;
+  }
+  .station-page-tokyo .srn-track.has-next {
+    --srn-line-right: -16px;
+  }
+}
+/* 画面が特に狭い場合、選択欄の「路線」は省略（ボタンのaria-labelは維持）。 */
+@media (max-width: 350px) {
+  .station-page-tokyo .srn-heading { font-size: .68rem; letter-spacing: 0; }
+  .station-page-tokyo .srn-line-select-wrap > span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .station-page-tokyo .srn-scroll { scroll-behavior: auto; }
+}
